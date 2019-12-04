@@ -75,6 +75,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="frmentidade.aspx" />
+    <Content Include="frmusuario.aspx" />
+    <Content Include="frmvoluntario.aspx" />
+    <Content Include="JSPaginaMestre.js" />
     <Content Include="ModelArcos.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ModelArcos.Context.cs</LastGenOutput>
@@ -85,6 +90,7 @@
       <DependentUpon>ModelArcos.edmx</DependentUpon>
       <LastGenOutput>ModelArcos.cs</LastGenOutput>
     </Content>
+    <Content Include="PaginaInicial.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +105,13 @@
     </Compile>
     <Compile Include="CONFIG_SERVIDOR.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="DOACAO.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
@@ -124,6 +137,34 @@
     <Compile Include="FORNECIMENTO_ITENS.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
     </Compile>
+    <Compile Include="frmentidade.aspx.cs">
+      <DependentUpon>frmentidade.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmentidade.aspx.designer.cs">
+      <DependentUpon>frmentidade.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmusuario.aspx.cs">
+      <DependentUpon>frmusuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmusuario.aspx.designer.cs">
+      <DependentUpon>frmusuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmvoluntario.aspx.cs">
+      <DependentUpon>frmvoluntario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmvoluntario.aspx.designer.cs">
+      <DependentUpon>frmvoluntario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
     <Compile Include="ModelArcos.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -138,6 +179,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelArcos.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="PaginaInicial.aspx.cs">
+      <DependentUpon>PaginaInicial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaginaInicial.aspx.designer.cs">
+      <DependentUpon>PaginaInicial.aspx</DependentUpon>
     </Compile>
     <Compile Include="PRODUTO.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
@@ -176,6 +224,7 @@
     <Content Include="ModelArcos.edmx.diagram">
       <DependentUpon>ModelArcos.edmx</DependentUpon>
     </Content>
+    <Content Include="MasterPage.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SysArcos
+namespace ProjetoArcos
 {
     using System;
     using System.Collections.Generic;

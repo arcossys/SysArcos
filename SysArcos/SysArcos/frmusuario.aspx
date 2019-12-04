@@ -1,0 +1,41 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="frmusuario.aspx.cs" Inherits="ProjetoArcos.formusuario" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+            <div class="form-group" >               
+                 <asp:Label ID="lbl_dadosacesso" runat="server" ><h5>Dados de acesso</h5> </asp:Label>        
+            </div>               
+              <div class="form-group" >
+                 <asp:Label ID="lbl_user" runat="server" Text="Usuário:"></asp:Label>
+                 <asp:TextBox ID="txt_user" class="form-control" runat="server" MaxLength="30" Width="300px"></asp:TextBox>       
+              </div>
+            <div class="form-group" >
+              <asp:Label ID="lbl_senha" runat="server" Text="Senha:"></asp:Label>
+              <asp:TextBox ID="txt_senhaUsuario"  type="password" class="form-control" runat="server" MaxLength="8" Placeholder="max: 8 dig" Width="300px"></asp:TextBox>     
+            </div>
+             <div>
+                <div class="tbody" >               
+                <asp:Label ID="lbl_dadospessoais" runat="server"><h5>Dados pessoais:</h5></asp:Label>             
+             </div>
+             <div  
+                 <asp:Label ID="lbl_nomeUsuario" runat="server" Text="Nome:"></asp:Label>
+                 <asp:TextBox ID="txt_nomeUsuario" class="form-control" runat="server" MaxLength="50" Width="300px"></asp:TextBox>                
+             </div>
+               <div  >                   
+                   <asp:Label ID="lbl_cpf" runat="server" Text="CPF:"></asp:Label>
+                   <asp:TextBox ID="txt_cpf" class="form-control" runat="server" MaxLength="14" Placeholder="XXX.XXX.XXX-XX" Width="300px"></asp:TextBox>               </div>
+                 <div >                   
+                   <asp:Label ID="lbl_email" runat="server" Text="E-mail"></asp:Label>
+                   <asp:TextBox ID="txt_email" class="form-control" runat="server" MaxLength="50" Width="300px"></asp:TextBox>
+                 </div>
+                  <div class="form-group form-check"  >            
+                    <asp:CheckBox ID="CB_ativo" type="checkbox" runat="server" Text="Ativo" BorderColor="Black" />                
+                 </div>             
+                   
+                 <div>
+                     <asp:Button ID="btn_cadastrar"  class="btn btn-primary" runat="server" Text="Cadastrar" OnClick="btn_cadastrar_Click" />
+                 </div>                 
+                   
+                 </div> 
+
+</asp:Content>
