@@ -16,7 +16,6 @@ div.main {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0264d6', endColorstr='#1c2b5a',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
     height: calc(100vh);
     width: 100%;
-    
 }
 
 [class*="fontawesome-"]:before {
@@ -41,7 +40,6 @@ body {
     font: 87.5%/1.5em 'Open Sans', sans-serif;
     margin: 0;
     align-content: center;
-   
 }
 
 a {
@@ -86,7 +84,6 @@ p {
     position: fixed;
     top: 50%;
     transform: translate(-50%, -50%);
-    
 }
 
 /* ---------- LOGIN ---------- */
@@ -141,7 +138,7 @@ fieldset {
     color: #000;
     margin-bottom: 1em;
     padding: 0 16px;
-    }
+}
 
 #login form input[type="submit"] {
     border-radius: 3px;
@@ -156,9 +153,9 @@ fieldset {
     height: 30px;
 }
 
-    #login form input[type="submit"]:hover {
-        background-color: #d44179;
-    }
+#login form input[type="submit"]:hover { 
+    background-color: #d44179;
+}
 
 #login > p {
     text-align: center;
@@ -177,4 +174,3 @@ fieldset {
 form-control {
     min-width: 30px;
 }
-

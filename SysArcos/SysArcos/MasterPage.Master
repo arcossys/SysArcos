@@ -21,51 +21,100 @@
             <asp:Label ID="lbl_welcomeUser" runat="server" Text="Label" class="logout"></asp:Label>
             <asp:LinkButton ID="lnk_logout" runat="server" OnClick="lnk_logout_Click" class="logout">( SAIR )</asp:LinkButton>
         </div>
-        <div>
+        
 
+        <div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light" >
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Alterna navegação">
                    <span class="navbar-toggler-icon"></span>
                 </button>
-                <img  src="\imagens\ArcosSys.png" class="img-responsive">  
-                
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo03" ">
-                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0" >
-                      <li class="nav-item active">
-                        <a class="nav-link" href="frmentidade.aspx">Cadastro de Entidades <span class="sr-only">(Página atual)</span></a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Entidades</a>
-                      </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="frmvoluntario.aspx">Voluntários</a>
-                      </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">Voluntariar</a>
-                      </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">Voluntariado</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Colaboradores</a>
-                      </li>
+                <div>
+                    <img  src="\imagens\ArcosSys.png" class="img-responsive">
+                </div>
 
-                      <li class="nav-item">
-                        <a class="nav-link" href="frmusuario.aspx">Usuários</a>
-                      </li>
-                    </ul>
-       
-                  </div>
-    
-                </nav>
+                <div class="menu-drop">
+                    <button type="button"name="drop">ENTIDADES</button>
+                        <div class="drop-content">
+                            <a href="frmentidade.aspx">Entidade</a>
+                        </div>
+                </div>
+
+                <div class="menu-drop">
+                    <button type="button" name="drop">VOLUNTARIOS</button>
+                        <div class="drop-content">
+                            <a href="frmvoluntario.aspx">Voluntários</a>
+                            <a href="#">Voluntariar</a>
+                            <a href="#">Voluntariado</a>
+                        </div>
+                </div>
+
+                <div class="menu-drop">
+                    <button type="button" name="drop">USUÁRIOS</button>
+                    <div class="drop-content">
+                        <a href="frmusuario.aspx">Usuários</a>
+                    </div>
+                </div>
+
+                <div class="menu-drop">
+                    <button type="button" name="drop">EVENTO</button>
+                    <div class="drop-content">
+                        <a href="#">Evento</a>
+                        <a href="frmTipoEvento.aspx">Tipo de Evento</a>
+                    </div>
+                </div>
+
+                <div class="menu-drop">
+                    <button type="button" name="drop">RECURSO</button>
+                    <div class="drop-content">
+                        <a href="#">Recurso</a>
+                        <a href="#">Tipo de Recurso</a>
+                    </div>
+                </div>
+
+                <div class="menu-drop">
+                    <button type="button" name="drop">FORNECEDORES</button>
+                    <div class="drop-content">
+                        <a href="#">Fornecedor</a>
+                        <a href="#">Fornecimento</a>
+                    </div>
+                </div>
+
+                <div class="menu-drop">
+                    <button type="button" name="drop">ESTOQUE</button>
+                    <div class="drop-content">
+                        <a href="#">Produto</a>
+                        <a href="#">Tipo de Produto</a>
+                    </div>
+                </div>
+
+                <div class="menu-drop">
+                    <button type="button" name="drop">DOAÇÕES</button>
+                    <div class="drop-content">
+                        <a href="#">Doação</a>
+                        <a href="#">Doador</a>
+                    </div>
+                </div>
+
+                <div class="menu-drop">
+                    <button type="button" name="drop">ASSISTENCIA</button>
+                    <div class="drop-content">
+                        <a href="#">Assistencia</a>
+                        <a href="#">Assistido</a>
+                    </div>
+                </div>
+
+
+            </nav>
+            
+
+        </div>
+
             <!--Menu-->
         
             <div class="geralFrms">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
-        
-        </div>
                 
     </form>
     </body>

@@ -16,21 +16,19 @@ namespace ProjetoArcos
 
         protected void btnEntrar_Click(object sender, EventArgs e)
         {
-            ARCOS_Entities entities = new ARCOS_Entities();
-            USUARIO u =  entities.USUARIO.FirstOrDefault(x => x.LOGIN.Equals(txtUsuario.Text) &&    x.SENHA.Equals(txtSenha.Text));
+            GerConnetion.create(HttpContext.Current);
+            ARCOS_Entities entities = GerConnetion.get(HttpContext.Current);
+            USUARIO u = entities.USUARIO.FirstOrDefault(x => x.LOGIN.Equals(txtUsuario.Text) && x.SENHA.Equals(txtSenha.Text));
             if (u == null)
             {
+                GerConnetion.kill(HttpContext.Current);
                 //conexão falhada
                 Response.Write("<script>alert('Login ou senha incorretos');</script>");
             }
             else
             {
                 // conexão bem sucedida
-                
-
-                //Armazena instância de usuário na sessão.
                 Session["usuariologado"] = u;
-
                 //Redireciona para outra página
                 Response.Redirect("PaginaInicial.aspx");
             }

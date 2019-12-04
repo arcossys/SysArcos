@@ -260,6 +260,7 @@
     <Compile Include="frmvoluntario.aspx.designer.cs">
       <DependentUpon>frmvoluntario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GerConnetion.cs" />
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

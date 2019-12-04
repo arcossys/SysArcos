@@ -5,3 +5,49 @@
 .geralFrms {
     margin: 15px;
 }
+
+button[name="drop"] {
+    border: none;
+    cursor: pointer;
+    background-color: #F8F9FA;
+    padding: 10px;
+    height: auto;
+    width: auto;
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+}
+
+.drop-content {
+    border-top: solid gray 1px;
+    border-left: solid gray 1px;
+    border-right: solid gray 1px;
+    display: none;
+    background-color: #C5CAE9;
+    position: absolute;
+    width: 200px;
+}
+
+.drop-content a {
+   color: black;
+   text-decoration: none;
+   display: block;
+   padding: 5px;
+   border-bottom: solid gray 1px;
+}
+
+.menu-drop {
+    position: relative;
+}
+
+.menu-drop:hover .drop-content {
+   display: block;
+ }
+
+.menu-drop:hover button[name="drop"] {
+    background-color: #F8F9FA;
+ }
+
+.drop-content a:hover {
+    background-color: #E8EAF6;
+}

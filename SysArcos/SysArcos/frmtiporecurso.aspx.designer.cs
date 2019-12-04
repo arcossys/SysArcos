@@ -10,7 +10,7 @@
 namespace ProjetoArcos {
     
     
-    public partial class WebForm1 {
+    public partial class frmtiporecurso {
         
         /// <summary>
         /// Controle lblAcao.

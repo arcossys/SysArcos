@@ -35,5 +35,10 @@ namespace ProjetoArcos
             //Redireciona para a página principal
             Response.Redirect("Default.aspx");
         }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
