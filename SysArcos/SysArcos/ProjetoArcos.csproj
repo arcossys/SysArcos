@@ -79,8 +79,20 @@
     <Content Include="css\master.css" />
     <Content Include="css\PaginaLogin.css" />
     <Content Include="Default.aspx" />
+    <Content Include="frmbuscadoador.aspx" />
+    <Content Include="frmbuscaproduto.aspx" />
+    <Content Include="frmbuscatipoevento.aspx" />
+    <Content Include="frmbuscatiporecurso.aspx" />
+    <Content Include="frmbuscausuario.aspx" />
+    <Content Include="frmbuscavoluntario.aspx" />
+    <Content Include="frmcategoria_produto.aspx" />
+    <Content Include="frmdoador.aspx" />
     <Content Include="frmentidade.aspx" />
+    <Content Include="frmproduto.aspx" />
+    <Content Include="frmTipoEvento.aspx" />
+    <Content Include="frmtiporecurso.aspx" />
     <Content Include="frmusuario.aspx" />
+    <Content Include="frmvoluntariado.aspx" />
     <Content Include="frmvoluntario.aspx" />
     <Content Include="imagens\ArcosIco.png" />
     <Content Include="imagens\ArcosLogo.png" />
@@ -143,6 +155,62 @@
     <Compile Include="FORNECIMENTO_ITENS.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
     </Compile>
+    <Compile Include="frmbuscadoador.aspx.cs">
+      <DependentUpon>frmbuscadoador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmbuscadoador.aspx.designer.cs">
+      <DependentUpon>frmbuscadoador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmbuscaproduto.aspx.cs">
+      <DependentUpon>frmbuscaproduto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmbuscaproduto.aspx.designer.cs">
+      <DependentUpon>frmbuscaproduto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmbuscatipoevento.aspx.cs">
+      <DependentUpon>frmbuscatipoevento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmbuscatipoevento.aspx.designer.cs">
+      <DependentUpon>frmbuscatipoevento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmbuscatiporecurso.aspx.cs">
+      <DependentUpon>frmbuscatiporecurso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmbuscatiporecurso.aspx.designer.cs">
+      <DependentUpon>frmbuscatiporecurso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmbuscausuario.aspx.cs">
+      <DependentUpon>frmbuscausuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmbuscausuario.aspx.designer.cs">
+      <DependentUpon>frmbuscausuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmbuscavoluntario.aspx.cs">
+      <DependentUpon>frmbuscavoluntario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmbuscavoluntario.aspx.designer.cs">
+      <DependentUpon>frmbuscavoluntario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmcategoria_produto.aspx.cs">
+      <DependentUpon>frmcategoria_produto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmcategoria_produto.aspx.designer.cs">
+      <DependentUpon>frmcategoria_produto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmdoador.aspx.cs">
+      <DependentUpon>frmdoador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmdoador.aspx.designer.cs">
+      <DependentUpon>frmdoador.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmentidade.aspx.cs">
       <DependentUpon>frmentidade.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -150,12 +218,40 @@
     <Compile Include="frmentidade.aspx.designer.cs">
       <DependentUpon>frmentidade.aspx</DependentUpon>
     </Compile>
+    <Compile Include="frmproduto.aspx.cs">
+      <DependentUpon>frmproduto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmproduto.aspx.designer.cs">
+      <DependentUpon>frmproduto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmTipoEvento.aspx.cs">
+      <DependentUpon>frmTipoEvento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmTipoEvento.aspx.designer.cs">
+      <DependentUpon>frmTipoEvento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmtiporecurso.aspx.cs">
+      <DependentUpon>frmtiporecurso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmtiporecurso.aspx.designer.cs">
+      <DependentUpon>frmtiporecurso.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmusuario.aspx.cs">
       <DependentUpon>frmusuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="frmusuario.aspx.designer.cs">
       <DependentUpon>frmusuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmvoluntariado.aspx.cs">
+      <DependentUpon>frmvoluntariado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmvoluntariado.aspx.designer.cs">
+      <DependentUpon>frmvoluntariado.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmvoluntario.aspx.cs">
       <DependentUpon>frmvoluntario.aspx</DependentUpon>
@@ -242,9 +338,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="teste\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

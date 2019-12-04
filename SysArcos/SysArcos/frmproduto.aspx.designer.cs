@@ -10,7 +10,7 @@
 namespace ProjetoArcos {
     
     
-    public partial class formusuario {
+    public partial class frmproduto {
         
         /// <summary>
         /// Controle lblAcao.
@@ -22,13 +22,13 @@ namespace ProjetoArcos {
         protected global::System.Web.UI.WebControls.Label lblAcao;
         
         /// <summary>
-        /// Controle lbl_dadosacesso.
+        /// Controle lbl_cadastroproduto.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_dadosacesso;
+        protected global::System.Web.UI.WebControls.Label lbl_cadastroproduto;
         
         /// <summary>
         /// Controle lbl_user.
@@ -40,112 +40,67 @@ namespace ProjetoArcos {
         protected global::System.Web.UI.WebControls.Label lbl_user;
         
         /// <summary>
-        /// Controle txt_user.
+        /// Controle txt_descricao.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_user;
+        protected global::System.Web.UI.WebControls.TextBox txt_descricao;
         
         /// <summary>
-        /// Controle lbl_senha.
+        /// Controle Label1.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_senha;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Controle txt_senhaUsuario.
+        /// Controle txt_especificacao.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_senhaUsuario;
+        protected global::System.Web.UI.WebControls.TextBox txt_especificacao;
         
         /// <summary>
-        /// Controle lbl_dadospessoais.
+        /// Controle lbl_unidade.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_dadospessoais;
+        protected global::System.Web.UI.WebControls.Label lbl_unidade;
         
         /// <summary>
-        /// Controle lbl_nomeUsuario.
+        /// Controle txt_unidade.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_nomeUsuario;
+        protected global::System.Web.UI.WebControls.TextBox txt_unidade;
         
         /// <summary>
-        /// Controle txt_nomeUsuario.
+        /// Controle Label2.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_nomeUsuario;
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// Controle lbl_cpf.
+        /// Controle dlCategoria.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_cpf;
-        
-        /// <summary>
-        /// Controle txt_cpf.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_cpf;
-        
-        /// <summary>
-        /// Controle lbl_email.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_email;
-        
-        /// <summary>
-        /// Controle txt_email.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_email;
-        
-        /// <summary>
-        /// Controle CB_ativo.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CB_ativo;
-        
-        /// <summary>
-        /// Controle LBCBAtivo.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LBCBAtivo;
+        protected global::System.Web.UI.WebControls.DropDownList dlCategoria;
         
         /// <summary>
         /// Controle btnNovo.
