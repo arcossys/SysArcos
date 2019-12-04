@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="260bc477525b46d2b91920acbd462d86" Name="Diagram1" ZoomLevel="29">
+        <EntityTypeShape EntityType="ARCOS_V2Model.ASSISTENCIA" Width="1.5" PointX="5.25" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.ASSISTIDO" Width="1.5" PointX="3" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.CATEGORIA_PRODUTO" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.DOACAO" Width="1.5" PointX="8.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.DOADOR" Width="1.5" PointX="6" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.ENTIDADE" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.ESTOQUE" Width="1.5" PointX="5.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.EVENTO" Width="1.5" PointX="5.25" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.FORNECEDOR" Width="1.5" PointX="6" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.FORNECIMENTO" Width="1.5" PointX="8.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.FORNECIMENTO_ITENS" Width="1.5" PointX="10.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.PRODUTO" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.RECURSO" Width="1.5" PointX="8.25" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.TIPO_EVENTO" Width="1.5" PointX="3" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.TIPO_RECURSO" Width="1.5" PointX="6" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.USUARIO" Width="1.5" PointX="0.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.VOLUNTARIADO" Width="1.5" PointX="5.25" PointY="33.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.VOLUNTARIAR" Width="1.5" PointX="7.5" PointY="36.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.VOLUNTARIO" Width="1.5" PointX="5.25" PointY="37.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.CONFIG_SERVIDOR" Width="1.5" PointX="11" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.RECUPERACAO_SENHA" Width="1.5" PointX="3" PointY="21.25" IsExpanded="true" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_ASSISTENCIA_ASSISTIDO" ManuallyRouted="false" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_ASSISTENCIA_ENTIDADE" ManuallyRouted="false" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_ASSISTIDO_RESPONSAVEL" ManuallyRouted="false" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_PRODUTO_CATEGORIA" ManuallyRouted="false" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_DOACAO_DOADOR" ManuallyRouted="false" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_DOACAO_ENTIDADE" ManuallyRouted="false" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_ENTIDADE_ENTIDADE_CONTROLADORA" ManuallyRouted="false" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_ENTIDADE_USUARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_ESTOQUE_ENTIDADE" ManuallyRouted="false" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_EVENTO_ENTIDADE" ManuallyRouted="false" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_FORNECIMENTO_ENTIDADE" ManuallyRouted="false" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_RECURSO_ENTIDADE" ManuallyRouted="false" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_VOLUNTARIADO_ENTIDADE" ManuallyRouted="false" />
+        <AssociationConnector Association="ARCOS_V2Model.VOLUNTARIO_ENTIDADE" ManuallyRouted="false" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_ESTOQUE_PRODUTO" ManuallyRouted="false" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_EVENTO_TIPO_EVENTO" ManuallyRouted="false" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_FORNECIMENTO_FORNECEDOR" ManuallyRouted="false" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_FORNECIMENTO_ITENS_FORNECIMENTO" ManuallyRouted="false" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_FORNECIMENTO_ITENS_PRODUTO" ManuallyRouted="false" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_RECURSO_TIPO" ManuallyRouted="false" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_RECUPERACAO_SENHA_USUARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_VOLUNTARIAR_VOLUNTARIADO" ManuallyRouted="false" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_VOLUNTARIAR_VOLUNTARIO" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

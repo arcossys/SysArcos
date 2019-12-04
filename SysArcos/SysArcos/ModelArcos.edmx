@@ -1,0 +1,1724 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ARCOS_V2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ASSISTENCIA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DATA_INICIAL" Type="date" Nullable="false" />
+          <Property Name="DATA_FINAL" Type="date" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="255" />
+          <Property Name="OBSERVACOES" Type="text" />
+          <Property Name="ID_ASSISTIDO" Type="int" Nullable="false" />
+          <Property Name="ID_ENTIDADE" Type="int" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ASSISTIDO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="APELIDO" Type="varchar" MaxLength="50" />
+          <Property Name="CPF" Type="varchar" MaxLength="14" />
+          <Property Name="DATA_NASCIMENTO" Type="date" />
+          <Property Name="LOGRADOURO" Type="varchar" MaxLength="50" />
+          <Property Name="NUMERO" Type="varchar" MaxLength="10" />
+          <Property Name="BAIRRO" Type="varchar" MaxLength="30" />
+          <Property Name="CEP" Type="varchar" MaxLength="9" />
+          <Property Name="CIDADE" Type="varchar" MaxLength="40" />
+          <Property Name="ESTADO" Type="char" MaxLength="2" />
+          <Property Name="PARENTESCO_ASSISTIDO_RESPONSAVEL" Type="varchar" MaxLength="30" />
+          <Property Name="ID_ASSISTIDO_RESPONSAVEL" Type="int" />
+          <Property Name="ATIVO" Type="bit" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CATEGORIA_PRODUTO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ARCOS_V2.dbo.CONFIG_SERVIDOR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CONFIG_SERVIDOR">
+          <Key>
+            <PropertyRef Name="USUARIO_AUTH" />
+            <PropertyRef Name="SENHA_AUTH" />
+            <PropertyRef Name="ENDERECO_SERV_EMAIL" />
+            <PropertyRef Name="PORTA_SERV_EMAIL" />
+            <PropertyRef Name="SSL_SERV_EMAIL" />
+            <PropertyRef Name="ENDERECO_APPLICACAO_REDIRECT" />
+          </Key>
+          <Property Name="USUARIO_AUTH" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SENHA_AUTH" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ENDERECO_SERV_EMAIL" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="PORTA_SERV_EMAIL" Type="int" Nullable="false" />
+          <Property Name="SSL_SERV_EMAIL" Type="int" Nullable="false" />
+          <Property Name="ENDERECO_APPLICACAO_REDIRECT" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DOACAO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DATA" Type="date" Nullable="false" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="OBSERVACOES" Type="text" />
+          <Property Name="ID_ENTIDADE" Type="int" Nullable="false" />
+          <Property Name="ID_DOADOR" Type="int" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DOADOR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LOGRADOURO" Type="varchar" MaxLength="50" />
+          <Property Name="NUMERO" Type="varchar" MaxLength="10" />
+          <Property Name="BAIRRO" Type="varchar" MaxLength="30" />
+          <Property Name="CEP" Type="varchar" MaxLength="9" />
+          <Property Name="CIDADE" Type="varchar" MaxLength="40" />
+          <Property Name="ESTADO" Type="char" MaxLength="2" />
+          <Property Name="DISPONIBILIDADE" Type="varchar" MaxLength="255" />
+          <Property Name="TIPO_DOACAO" Type="varchar" MaxLength="255" />
+          <Property Name="ATIVO" Type="bit" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ENTIDADE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LOGRADOURO" Type="varchar" MaxLength="50" />
+          <Property Name="NUMERO" Type="varchar" MaxLength="10" />
+          <Property Name="BAIRRO" Type="varchar" MaxLength="30" />
+          <Property Name="CEP" Type="varchar" MaxLength="9" />
+          <Property Name="CIDADE" Type="varchar" MaxLength="40" />
+          <Property Name="ESTADO" Type="char" MaxLength="2" />
+          <Property Name="PRESIDENTE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ATIVA" Type="bit" Nullable="false" />
+          <Property Name="LOGIN_USUARIO_ADMINISTRADOR" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ID_ENTIDADE_CONTROLADORA" Type="int" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
+          <Property Name="CNPJ" Type="varchar" MaxLength="14" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ESTOQUE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QUANTIDADE" Type="real" Nullable="false" />
+          <Property Name="ID_ENTIDADE" Type="int" Nullable="false" />
+          <Property Name="ID_PRODUTO" Type="int" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EVENTO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DATA_HORA_INICIO" Type="datetime" Nullable="false" />
+          <Property Name="DATA_HORA_TERMINO" Type="datetime" Nullable="false" />
+          <Property Name="NOME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRICAO" Type="text" />
+          <Property Name="ID_TIPO_EVENTO" Type="int" Nullable="false" />
+          <Property Name="ID_ENTIDADE" Type="int" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FORNECEDOR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CNPJ" Type="char" MaxLength="18" />
+          <Property Name="NOME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LOGRADOURO" Type="varchar" MaxLength="50" />
+          <Property Name="NUMERO" Type="varchar" MaxLength="10" />
+          <Property Name="BAIRRO" Type="varchar" MaxLength="30" />
+          <Property Name="CEP" Type="varchar" MaxLength="9" />
+          <Property Name="CIDADE" Type="varchar" MaxLength="40" />
+          <Property Name="ESTADO" Type="char" MaxLength="2" />
+          <Property Name="OBSERVACOES" Type="text" />
+          <Property Name="ATIVO" Type="bit" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FORNECIMENTO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DATA" Type="date" Nullable="false" />
+          <Property Name="OBSERVACOES" Type="text" />
+          <Property Name="ID_FORNECEDOR" Type="int" Nullable="false" />
+          <Property Name="ID_ENTIDADE" Type="int" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FORNECIMENTO_ITENS">
+          <Key>
+            <PropertyRef Name="ID_FORNECIMENTO" />
+            <PropertyRef Name="ID_PRODUTO" />
+          </Key>
+          <Property Name="ID_FORNECIMENTO" Type="int" Nullable="false" />
+          <Property Name="ID_PRODUTO" Type="int" Nullable="false" />
+          <Property Name="QUANTIDADE" Type="real" Nullable="false" />
+          <Property Name="VALOR_UNITARIO" Type="money" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRODUTO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ESPECIFICACOES" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="UNIDADE" Type="varchar" MaxLength="30" />
+          <Property Name="ID_CATEGORIA" Type="int" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RECUPERACAO_SENHA">
+          <Key>
+            <PropertyRef Name="LOGIN_USUARIO" />
+            <PropertyRef Name="CHAVE" />
+            <PropertyRef Name="DATA_CRIACAO" />
+            <PropertyRef Name="DATA_EXPIRACAO" />
+            <PropertyRef Name="VALIDADO" />
+          </Key>
+          <Property Name="LOGIN_USUARIO" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="CHAVE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DATA_CRIACAO" Type="date" Nullable="false" />
+          <Property Name="DATA_EXPIRACAO" Type="date" Nullable="false" />
+          <Property Name="VALIDADO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RECURSO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="255" />
+          <Property Name="ID_TIPO" Type="int" Nullable="false" />
+          <Property Name="ID_ENTIDADE" Type="int" Nullable="false" />
+          <Property Name="ATIVO" Type="bit" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIPO_EVENTO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRICAO" Type="text" />
+        </EntityType>
+        <EntityType Name="TIPO_RECURSO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="LOGIN" />
+          </Key>
+          <Property Name="LOGIN" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="SENHA" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="NOME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CPF" Type="varchar" MaxLength="14" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ATIVO" Type="bit" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VOLUNTARIADO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DATA_INICIAL" Type="date" Nullable="false" />
+          <Property Name="DATA_FINAL" Type="date" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="255" />
+          <Property Name="OBSERVACAO" Type="text" />
+          <Property Name="ID_ENTIDADE" Type="int" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VOLUNTARIAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DATA_INICIAL" Type="date" Nullable="false" />
+          <Property Name="DATA_FINAL" Type="date" />
+          <Property Name="ID_VOLUNTARIO" Type="int" Nullable="false" />
+          <Property Name="ID_VOLUNTARIADO" Type="int" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VOLUNTARIO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CPF" Type="varchar" MaxLength="14" />
+          <Property Name="LOGRADOURO" Type="varchar" MaxLength="50" />
+          <Property Name="NUMERO" Type="varchar" MaxLength="10" />
+          <Property Name="BAIRRO" Type="varchar" MaxLength="30" />
+          <Property Name="CEP" Type="varchar" MaxLength="9" />
+          <Property Name="CIDADE" Type="varchar" MaxLength="40" />
+          <Property Name="ESTADO" Type="char" MaxLength="2" />
+          <Property Name="DISPONIBILIDADE" Type="varchar" MaxLength="100" />
+          <Property Name="SERVICOS_DISPONIVEIS" Type="varchar" MaxLength="255" />
+          <Property Name="ID_ENTIDADE" Type="int" />
+          <Property Name="ATIVO" Type="bit" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ASSISTENCIA_ASSISTIDO">
+          <End Role="ASSISTIDO" Type="Self.ASSISTIDO" Multiplicity="1" />
+          <End Role="ASSISTENCIA" Type="Self.ASSISTENCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ASSISTIDO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASSISTENCIA">
+              <PropertyRef Name="ID_ASSISTIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASSISTENCIA_ENTIDADE">
+          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="1" />
+          <End Role="ASSISTENCIA" Type="Self.ASSISTENCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASSISTENCIA">
+              <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASSISTIDO_RESPONSAVEL">
+          <End Role="ASSISTIDO" Type="Self.ASSISTIDO" Multiplicity="0..1" />
+          <End Role="ASSISTIDO1" Type="Self.ASSISTIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ASSISTIDO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASSISTIDO1">
+              <PropertyRef Name="ID_ASSISTIDO_RESPONSAVEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOACAO_DOADOR">
+          <End Role="DOADOR" Type="Self.DOADOR" Multiplicity="1" />
+          <End Role="DOACAO" Type="Self.DOACAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOADOR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DOACAO">
+              <PropertyRef Name="ID_DOADOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOACAO_ENTIDADE">
+          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="1" />
+          <End Role="DOACAO" Type="Self.DOACAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DOACAO">
+              <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ENTIDADE_ENTIDADE_CONTROLADORA">
+          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="0..1" />
+          <End Role="ENTIDADE1" Type="Self.ENTIDADE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ENTIDADE1">
+              <PropertyRef Name="ID_ENTIDADE_CONTROLADORA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ENTIDADE_USUARIO">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="LOGIN" />
+            </Principal>
+            <Dependent Role="ENTIDADE">
+              <PropertyRef Name="LOGIN_USUARIO_ADMINISTRADOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESTOQUE_ENTIDADE">
+          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="1" />
+          <End Role="ESTOQUE" Type="Self.ESTOQUE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ESTOQUE">
+              <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESTOQUE_PRODUTO">
+          <End Role="PRODUTO" Type="Self.PRODUTO" Multiplicity="1" />
+          <End Role="ESTOQUE" Type="Self.ESTOQUE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUTO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ESTOQUE">
+              <PropertyRef Name="ID_PRODUTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EVENTO_ENTIDADE">
+          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="1" />
+          <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EVENTO">
+              <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EVENTO_TIPO_EVENTO">
+          <End Role="TIPO_EVENTO" Type="Self.TIPO_EVENTO" Multiplicity="1" />
+          <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_EVENTO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EVENTO">
+              <PropertyRef Name="ID_TIPO_EVENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FORNECIMENTO_ENTIDADE">
+          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="1" />
+          <End Role="FORNECIMENTO" Type="Self.FORNECIMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FORNECIMENTO">
+              <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FORNECIMENTO_FORNECEDOR">
+          <End Role="FORNECEDOR" Type="Self.FORNECEDOR" Multiplicity="1" />
+          <End Role="FORNECIMENTO" Type="Self.FORNECIMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FORNECEDOR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FORNECIMENTO">
+              <PropertyRef Name="ID_FORNECEDOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FORNECIMENTO_ITENS_FORNECIMENTO">
+          <End Role="FORNECIMENTO" Type="Self.FORNECIMENTO" Multiplicity="1" />
+          <End Role="FORNECIMENTO_ITENS" Type="Self.FORNECIMENTO_ITENS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FORNECIMENTO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FORNECIMENTO_ITENS">
+              <PropertyRef Name="ID_FORNECIMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FORNECIMENTO_ITENS_PRODUTO">
+          <End Role="PRODUTO" Type="Self.PRODUTO" Multiplicity="1" />
+          <End Role="FORNECIMENTO_ITENS" Type="Self.FORNECIMENTO_ITENS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUTO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FORNECIMENTO_ITENS">
+              <PropertyRef Name="ID_PRODUTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUTO_CATEGORIA">
+          <End Role="CATEGORIA_PRODUTO" Type="Self.CATEGORIA_PRODUTO" Multiplicity="1" />
+          <End Role="PRODUTO" Type="Self.PRODUTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIA_PRODUTO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODUTO">
+              <PropertyRef Name="ID_CATEGORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RECUPERACAO_SENHA_USUARIO">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="RECUPERACAO_SENHA" Type="Self.RECUPERACAO_SENHA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="LOGIN" />
+            </Principal>
+            <Dependent Role="RECUPERACAO_SENHA">
+              <PropertyRef Name="LOGIN_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RECURSO_ENTIDADE">
+          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="1" />
+          <End Role="RECURSO" Type="Self.RECURSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RECURSO">
+              <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RECURSO_TIPO">
+          <End Role="TIPO_RECURSO" Type="Self.TIPO_RECURSO" Multiplicity="1" />
+          <End Role="RECURSO" Type="Self.RECURSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_RECURSO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RECURSO">
+              <PropertyRef Name="ID_TIPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VOLUNTARIADO_ENTIDADE">
+          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="1" />
+          <End Role="VOLUNTARIADO" Type="Self.VOLUNTARIADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VOLUNTARIADO">
+              <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VOLUNTARIAR_VOLUNTARIADO">
+          <End Role="VOLUNTARIADO" Type="Self.VOLUNTARIADO" Multiplicity="1" />
+          <End Role="VOLUNTARIAR" Type="Self.VOLUNTARIAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VOLUNTARIADO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VOLUNTARIAR">
+              <PropertyRef Name="ID_VOLUNTARIADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VOLUNTARIAR_VOLUNTARIO">
+          <End Role="VOLUNTARIO" Type="Self.VOLUNTARIO" Multiplicity="1" />
+          <End Role="VOLUNTARIAR" Type="Self.VOLUNTARIAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VOLUNTARIO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VOLUNTARIAR">
+              <PropertyRef Name="ID_VOLUNTARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VOLUNTARIO_ENTIDADE">
+          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="0..1" />
+          <End Role="VOLUNTARIO" Type="Self.VOLUNTARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VOLUNTARIO">
+              <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ARCOS_V2ModelStoreContainer">
+          <EntitySet Name="ASSISTENCIA" EntityType="Self.ASSISTENCIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ASSISTIDO" EntityType="Self.ASSISTIDO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CATEGORIA_PRODUTO" EntityType="Self.CATEGORIA_PRODUTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DOACAO" EntityType="Self.DOACAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DOADOR" EntityType="Self.DOADOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ENTIDADE" EntityType="Self.ENTIDADE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ESTOQUE" EntityType="Self.ESTOQUE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EVENTO" EntityType="Self.EVENTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FORNECEDOR" EntityType="Self.FORNECEDOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FORNECIMENTO" EntityType="Self.FORNECIMENTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FORNECIMENTO_ITENS" EntityType="Self.FORNECIMENTO_ITENS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUTO" EntityType="Self.PRODUTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RECURSO" EntityType="Self.RECURSO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_EVENTO" EntityType="Self.TIPO_EVENTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_RECURSO" EntityType="Self.TIPO_RECURSO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VOLUNTARIADO" EntityType="Self.VOLUNTARIADO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VOLUNTARIAR" EntityType="Self.VOLUNTARIAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VOLUNTARIO" EntityType="Self.VOLUNTARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CONFIG_SERVIDOR" EntityType="Self.CONFIG_SERVIDOR" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CONFIG_SERVIDOR].[USUARIO_AUTH] AS [USUARIO_AUTH], 
+    [CONFIG_SERVIDOR].[SENHA_AUTH] AS [SENHA_AUTH], 
+    [CONFIG_SERVIDOR].[ENDERECO_SERV_EMAIL] AS [ENDERECO_SERV_EMAIL], 
+    [CONFIG_SERVIDOR].[PORTA_SERV_EMAIL] AS [PORTA_SERV_EMAIL], 
+    [CONFIG_SERVIDOR].[SSL_SERV_EMAIL] AS [SSL_SERV_EMAIL], 
+    [CONFIG_SERVIDOR].[ENDERECO_APPLICACAO_REDIRECT] AS [ENDERECO_APPLICACAO_REDIRECT]
+    FROM [dbo].[CONFIG_SERVIDOR] AS [CONFIG_SERVIDOR]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RECUPERACAO_SENHA" EntityType="Self.RECUPERACAO_SENHA" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RECUPERACAO_SENHA].[LOGIN_USUARIO] AS [LOGIN_USUARIO], 
+    [RECUPERACAO_SENHA].[CHAVE] AS [CHAVE], 
+    [RECUPERACAO_SENHA].[DATA_CRIACAO] AS [DATA_CRIACAO], 
+    [RECUPERACAO_SENHA].[DATA_EXPIRACAO] AS [DATA_EXPIRACAO], 
+    [RECUPERACAO_SENHA].[VALIDADO] AS [VALIDADO]
+    FROM [dbo].[RECUPERACAO_SENHA] AS [RECUPERACAO_SENHA]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_ASSISTENCIA_ASSISTIDO" Association="Self.FK_ASSISTENCIA_ASSISTIDO">
+            <End Role="ASSISTIDO" EntitySet="ASSISTIDO" />
+            <End Role="ASSISTENCIA" EntitySet="ASSISTENCIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASSISTENCIA_ENTIDADE" Association="Self.FK_ASSISTENCIA_ENTIDADE">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="ASSISTENCIA" EntitySet="ASSISTENCIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASSISTIDO_RESPONSAVEL" Association="Self.FK_ASSISTIDO_RESPONSAVEL">
+            <End Role="ASSISTIDO" EntitySet="ASSISTIDO" />
+            <End Role="ASSISTIDO1" EntitySet="ASSISTIDO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOACAO_DOADOR" Association="Self.FK_DOACAO_DOADOR">
+            <End Role="DOADOR" EntitySet="DOADOR" />
+            <End Role="DOACAO" EntitySet="DOACAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOACAO_ENTIDADE" Association="Self.FK_DOACAO_ENTIDADE">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="DOACAO" EntitySet="DOACAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ENTIDADE_ENTIDADE_CONTROLADORA" Association="Self.FK_ENTIDADE_ENTIDADE_CONTROLADORA">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="ENTIDADE1" EntitySet="ENTIDADE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ENTIDADE_USUARIO" Association="Self.FK_ENTIDADE_USUARIO">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESTOQUE_ENTIDADE" Association="Self.FK_ESTOQUE_ENTIDADE">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="ESTOQUE" EntitySet="ESTOQUE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESTOQUE_PRODUTO" Association="Self.FK_ESTOQUE_PRODUTO">
+            <End Role="PRODUTO" EntitySet="PRODUTO" />
+            <End Role="ESTOQUE" EntitySet="ESTOQUE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EVENTO_ENTIDADE" Association="Self.FK_EVENTO_ENTIDADE">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="EVENTO" EntitySet="EVENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EVENTO_TIPO_EVENTO" Association="Self.FK_EVENTO_TIPO_EVENTO">
+            <End Role="TIPO_EVENTO" EntitySet="TIPO_EVENTO" />
+            <End Role="EVENTO" EntitySet="EVENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FORNECIMENTO_ENTIDADE" Association="Self.FK_FORNECIMENTO_ENTIDADE">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="FORNECIMENTO" EntitySet="FORNECIMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FORNECIMENTO_FORNECEDOR" Association="Self.FK_FORNECIMENTO_FORNECEDOR">
+            <End Role="FORNECEDOR" EntitySet="FORNECEDOR" />
+            <End Role="FORNECIMENTO" EntitySet="FORNECIMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FORNECIMENTO_ITENS_FORNECIMENTO" Association="Self.FK_FORNECIMENTO_ITENS_FORNECIMENTO">
+            <End Role="FORNECIMENTO" EntitySet="FORNECIMENTO" />
+            <End Role="FORNECIMENTO_ITENS" EntitySet="FORNECIMENTO_ITENS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FORNECIMENTO_ITENS_PRODUTO" Association="Self.FK_FORNECIMENTO_ITENS_PRODUTO">
+            <End Role="PRODUTO" EntitySet="PRODUTO" />
+            <End Role="FORNECIMENTO_ITENS" EntitySet="FORNECIMENTO_ITENS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUTO_CATEGORIA" Association="Self.FK_PRODUTO_CATEGORIA">
+            <End Role="CATEGORIA_PRODUTO" EntitySet="CATEGORIA_PRODUTO" />
+            <End Role="PRODUTO" EntitySet="PRODUTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RECUPERACAO_SENHA_USUARIO" Association="Self.FK_RECUPERACAO_SENHA_USUARIO">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="RECUPERACAO_SENHA" EntitySet="RECUPERACAO_SENHA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RECURSO_ENTIDADE" Association="Self.FK_RECURSO_ENTIDADE">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="RECURSO" EntitySet="RECURSO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RECURSO_TIPO" Association="Self.FK_RECURSO_TIPO">
+            <End Role="TIPO_RECURSO" EntitySet="TIPO_RECURSO" />
+            <End Role="RECURSO" EntitySet="RECURSO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VOLUNTARIADO_ENTIDADE" Association="Self.FK_VOLUNTARIADO_ENTIDADE">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="VOLUNTARIADO" EntitySet="VOLUNTARIADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VOLUNTARIAR_VOLUNTARIADO" Association="Self.FK_VOLUNTARIAR_VOLUNTARIADO">
+            <End Role="VOLUNTARIADO" EntitySet="VOLUNTARIADO" />
+            <End Role="VOLUNTARIAR" EntitySet="VOLUNTARIAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VOLUNTARIAR_VOLUNTARIO" Association="Self.FK_VOLUNTARIAR_VOLUNTARIO">
+            <End Role="VOLUNTARIO" EntitySet="VOLUNTARIO" />
+            <End Role="VOLUNTARIAR" EntitySet="VOLUNTARIAR" />
+          </AssociationSet>
+          <AssociationSet Name="VOLUNTARIO_ENTIDADE" Association="Self.VOLUNTARIO_ENTIDADE">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="VOLUNTARIO" EntitySet="VOLUNTARIO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ARCOS_V2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ASSISTENCIA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DATA_INICIAL" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DATA_FINAL" Type="DateTime" Precision="0" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="OBSERVACOES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ID_ASSISTIDO" Type="Int32" Nullable="false" />
+          <Property Name="ID_ENTIDADE" Type="Int32" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ASSISTIDO" Relationship="Self.FK_ASSISTENCIA_ASSISTIDO" FromRole="ASSISTENCIA" ToRole="ASSISTIDO" />
+          <NavigationProperty Name="ENTIDADE" Relationship="Self.FK_ASSISTENCIA_ENTIDADE" FromRole="ASSISTENCIA" ToRole="ENTIDADE" />
+        </EntityType>
+        <EntityType Name="ASSISTIDO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="APELIDO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CPF" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="DATA_NASCIMENTO" Type="DateTime" Precision="0" />
+          <Property Name="LOGRADOURO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NUMERO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BAIRRO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CEP" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="CIDADE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="PARENTESCO_ASSISTIDO_RESPONSAVEL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ID_ASSISTIDO_RESPONSAVEL" Type="Int32" />
+          <Property Name="ATIVO" Type="Boolean" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ASSISTENCIA" Relationship="Self.FK_ASSISTENCIA_ASSISTIDO" FromRole="ASSISTIDO" ToRole="ASSISTENCIA" />
+          <NavigationProperty Name="ASSISTIDO1" Relationship="Self.FK_ASSISTIDO_RESPONSAVEL" FromRole="ASSISTIDO" ToRole="ASSISTIDO1" />
+          <NavigationProperty Name="ASSISTIDO2" Relationship="Self.FK_ASSISTIDO_RESPONSAVEL" FromRole="ASSISTIDO1" ToRole="ASSISTIDO" />
+        </EntityType>
+        <EntityType Name="CATEGORIA_PRODUTO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="PRODUTO" Relationship="Self.FK_PRODUTO_CATEGORIA" FromRole="CATEGORIA_PRODUTO" ToRole="PRODUTO" />
+        </EntityType>
+        <EntityType Name="DOACAO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DATA" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OBSERVACOES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ID_ENTIDADE" Type="Int32" Nullable="false" />
+          <Property Name="ID_DOADOR" Type="Int32" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="DOADOR" Relationship="Self.FK_DOACAO_DOADOR" FromRole="DOACAO" ToRole="DOADOR" />
+          <NavigationProperty Name="ENTIDADE" Relationship="Self.FK_DOACAO_ENTIDADE" FromRole="DOACAO" ToRole="ENTIDADE" />
+        </EntityType>
+        <EntityType Name="DOADOR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LOGRADOURO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NUMERO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BAIRRO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CEP" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="CIDADE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="DISPONIBILIDADE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TIPO_DOACAO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ATIVO" Type="Boolean" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="DOACAO" Relationship="Self.FK_DOACAO_DOADOR" FromRole="DOADOR" ToRole="DOACAO" />
+        </EntityType>
+        <EntityType Name="ENTIDADE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LOGRADOURO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NUMERO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BAIRRO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CEP" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="CIDADE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="PRESIDENTE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ATIVA" Type="Boolean" Nullable="false" />
+          <Property Name="LOGIN_USUARIO_ADMINISTRADOR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_ENTIDADE_CONTROLADORA" Type="Int32" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CNPJ" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ASSISTENCIA" Relationship="Self.FK_ASSISTENCIA_ENTIDADE" FromRole="ENTIDADE" ToRole="ASSISTENCIA" />
+          <NavigationProperty Name="DOACAO" Relationship="Self.FK_DOACAO_ENTIDADE" FromRole="ENTIDADE" ToRole="DOACAO" />
+          <NavigationProperty Name="ENTIDADE1" Relationship="Self.FK_ENTIDADE_ENTIDADE_CONTROLADORA" FromRole="ENTIDADE" ToRole="ENTIDADE1" />
+          <NavigationProperty Name="ENTIDADE2" Relationship="Self.FK_ENTIDADE_ENTIDADE_CONTROLADORA" FromRole="ENTIDADE1" ToRole="ENTIDADE" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK_ENTIDADE_USUARIO" FromRole="ENTIDADE" ToRole="USUARIO" />
+          <NavigationProperty Name="ESTOQUE" Relationship="Self.FK_ESTOQUE_ENTIDADE" FromRole="ENTIDADE" ToRole="ESTOQUE" />
+          <NavigationProperty Name="EVENTO" Relationship="Self.FK_EVENTO_ENTIDADE" FromRole="ENTIDADE" ToRole="EVENTO" />
+          <NavigationProperty Name="FORNECIMENTO" Relationship="Self.FK_FORNECIMENTO_ENTIDADE" FromRole="ENTIDADE" ToRole="FORNECIMENTO" />
+          <NavigationProperty Name="RECURSO" Relationship="Self.FK_RECURSO_ENTIDADE" FromRole="ENTIDADE" ToRole="RECURSO" />
+          <NavigationProperty Name="VOLUNTARIADO" Relationship="Self.FK_VOLUNTARIADO_ENTIDADE" FromRole="ENTIDADE" ToRole="VOLUNTARIADO" />
+          <NavigationProperty Name="VOLUNTARIO" Relationship="Self.VOLUNTARIO_ENTIDADE" FromRole="ENTIDADE" ToRole="VOLUNTARIO" />
+        </EntityType>
+        <EntityType Name="ESTOQUE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QUANTIDADE" Type="Single" Nullable="false" />
+          <Property Name="ID_ENTIDADE" Type="Int32" Nullable="false" />
+          <Property Name="ID_PRODUTO" Type="Int32" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ENTIDADE" Relationship="Self.FK_ESTOQUE_ENTIDADE" FromRole="ESTOQUE" ToRole="ENTIDADE" />
+          <NavigationProperty Name="PRODUTO" Relationship="Self.FK_ESTOQUE_PRODUTO" FromRole="ESTOQUE" ToRole="PRODUTO" />
+        </EntityType>
+        <EntityType Name="EVENTO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DATA_HORA_INICIO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DATA_HORA_TERMINO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ID_TIPO_EVENTO" Type="Int32" Nullable="false" />
+          <Property Name="ID_ENTIDADE" Type="Int32" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ENTIDADE" Relationship="Self.FK_EVENTO_ENTIDADE" FromRole="EVENTO" ToRole="ENTIDADE" />
+          <NavigationProperty Name="TIPO_EVENTO" Relationship="Self.FK_EVENTO_TIPO_EVENTO" FromRole="EVENTO" ToRole="TIPO_EVENTO" />
+        </EntityType>
+        <EntityType Name="FORNECEDOR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CNPJ" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+          <Property Name="NOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LOGRADOURO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NUMERO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BAIRRO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CEP" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="CIDADE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="OBSERVACOES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ATIVO" Type="Boolean" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="FORNECIMENTO" Relationship="Self.FK_FORNECIMENTO_FORNECEDOR" FromRole="FORNECEDOR" ToRole="FORNECIMENTO" />
+        </EntityType>
+        <EntityType Name="FORNECIMENTO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DATA" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="OBSERVACOES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ID_FORNECEDOR" Type="Int32" Nullable="false" />
+          <Property Name="ID_ENTIDADE" Type="Int32" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ENTIDADE" Relationship="Self.FK_FORNECIMENTO_ENTIDADE" FromRole="FORNECIMENTO" ToRole="ENTIDADE" />
+          <NavigationProperty Name="FORNECEDOR" Relationship="Self.FK_FORNECIMENTO_FORNECEDOR" FromRole="FORNECIMENTO" ToRole="FORNECEDOR" />
+          <NavigationProperty Name="FORNECIMENTO_ITENS" Relationship="Self.FK_FORNECIMENTO_ITENS_FORNECIMENTO" FromRole="FORNECIMENTO" ToRole="FORNECIMENTO_ITENS" />
+        </EntityType>
+        <EntityType Name="FORNECIMENTO_ITENS">
+          <Key>
+            <PropertyRef Name="ID_FORNECIMENTO" />
+            <PropertyRef Name="ID_PRODUTO" />
+          </Key>
+          <Property Name="ID_FORNECIMENTO" Type="Int32" Nullable="false" />
+          <Property Name="ID_PRODUTO" Type="Int32" Nullable="false" />
+          <Property Name="QUANTIDADE" Type="Single" Nullable="false" />
+          <Property Name="VALOR_UNITARIO" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="FORNECIMENTO" Relationship="Self.FK_FORNECIMENTO_ITENS_FORNECIMENTO" FromRole="FORNECIMENTO_ITENS" ToRole="FORNECIMENTO" />
+          <NavigationProperty Name="PRODUTO" Relationship="Self.FK_FORNECIMENTO_ITENS_PRODUTO" FromRole="FORNECIMENTO_ITENS" ToRole="PRODUTO" />
+        </EntityType>
+        <EntityType Name="PRODUTO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ESPECIFICACOES" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UNIDADE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ID_CATEGORIA" Type="Int32" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CATEGORIA_PRODUTO" Relationship="Self.FK_PRODUTO_CATEGORIA" FromRole="PRODUTO" ToRole="CATEGORIA_PRODUTO" />
+          <NavigationProperty Name="ESTOQUE" Relationship="Self.FK_ESTOQUE_PRODUTO" FromRole="PRODUTO" ToRole="ESTOQUE" />
+          <NavigationProperty Name="FORNECIMENTO_ITENS" Relationship="Self.FK_FORNECIMENTO_ITENS_PRODUTO" FromRole="PRODUTO" ToRole="FORNECIMENTO_ITENS" />
+        </EntityType>
+        <EntityType Name="RECURSO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ID_TIPO" Type="Int32" Nullable="false" />
+          <Property Name="ID_ENTIDADE" Type="Int32" Nullable="false" />
+          <Property Name="ATIVO" Type="Boolean" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ENTIDADE" Relationship="Self.FK_RECURSO_ENTIDADE" FromRole="RECURSO" ToRole="ENTIDADE" />
+          <NavigationProperty Name="TIPO_RECURSO" Relationship="Self.FK_RECURSO_TIPO" FromRole="RECURSO" ToRole="TIPO_RECURSO" />
+        </EntityType>
+        <EntityType Name="TIPO_EVENTO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EVENTO" Relationship="Self.FK_EVENTO_TIPO_EVENTO" FromRole="TIPO_EVENTO" ToRole="EVENTO" />
+        </EntityType>
+        <EntityType Name="TIPO_RECURSO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="RECURSO" Relationship="Self.FK_RECURSO_TIPO" FromRole="TIPO_RECURSO" ToRole="RECURSO" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="LOGIN" />
+          </Key>
+          <Property Name="LOGIN" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SENHA" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CPF" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ATIVO" Type="Boolean" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ENTIDADE" Relationship="Self.FK_ENTIDADE_USUARIO" FromRole="USUARIO" ToRole="ENTIDADE" />
+          <NavigationProperty Name="RECUPERACAO_SENHA" Relationship="Self.FK_RECUPERACAO_SENHA_USUARIO" FromRole="USUARIO" ToRole="RECUPERACAO_SENHA" />
+        </EntityType>
+        <EntityType Name="VOLUNTARIADO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DATA_INICIAL" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DATA_FINAL" Type="DateTime" Precision="0" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="OBSERVACAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ID_ENTIDADE" Type="Int32" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ENTIDADE" Relationship="Self.FK_VOLUNTARIADO_ENTIDADE" FromRole="VOLUNTARIADO" ToRole="ENTIDADE" />
+          <NavigationProperty Name="VOLUNTARIAR" Relationship="Self.FK_VOLUNTARIAR_VOLUNTARIADO" FromRole="VOLUNTARIADO" ToRole="VOLUNTARIAR" />
+        </EntityType>
+        <EntityType Name="VOLUNTARIAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DATA_INICIAL" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DATA_FINAL" Type="DateTime" Precision="0" />
+          <Property Name="ID_VOLUNTARIO" Type="Int32" Nullable="false" />
+          <Property Name="ID_VOLUNTARIADO" Type="Int32" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="VOLUNTARIADO" Relationship="Self.FK_VOLUNTARIAR_VOLUNTARIADO" FromRole="VOLUNTARIAR" ToRole="VOLUNTARIADO" />
+          <NavigationProperty Name="VOLUNTARIO" Relationship="Self.FK_VOLUNTARIAR_VOLUNTARIO" FromRole="VOLUNTARIAR" ToRole="VOLUNTARIO" />
+        </EntityType>
+        <EntityType Name="VOLUNTARIO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CPF" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="LOGRADOURO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NUMERO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BAIRRO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CEP" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="CIDADE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="DISPONIBILIDADE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SERVICOS_DISPONIVEIS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ID_ENTIDADE" Type="Int32" />
+          <Property Name="ATIVO" Type="Boolean" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ENTIDADE" Relationship="Self.VOLUNTARIO_ENTIDADE" FromRole="VOLUNTARIO" ToRole="ENTIDADE" />
+          <NavigationProperty Name="VOLUNTARIAR" Relationship="Self.FK_VOLUNTARIAR_VOLUNTARIO" FromRole="VOLUNTARIO" ToRole="VOLUNTARIAR" />
+        </EntityType>
+        <EntityType Name="CONFIG_SERVIDOR">
+          <Key>
+            <PropertyRef Name="USUARIO_AUTH" />
+            <PropertyRef Name="SENHA_AUTH" />
+            <PropertyRef Name="ENDERECO_SERV_EMAIL" />
+            <PropertyRef Name="PORTA_SERV_EMAIL" />
+            <PropertyRef Name="SSL_SERV_EMAIL" />
+            <PropertyRef Name="ENDERECO_APPLICACAO_REDIRECT" />
+          </Key>
+          <Property Name="USUARIO_AUTH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SENHA_AUTH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ENDERECO_SERV_EMAIL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PORTA_SERV_EMAIL" Type="Int32" Nullable="false" />
+          <Property Name="SSL_SERV_EMAIL" Type="Int32" Nullable="false" />
+          <Property Name="ENDERECO_APPLICACAO_REDIRECT" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RECUPERACAO_SENHA">
+          <Key>
+            <PropertyRef Name="LOGIN_USUARIO" />
+            <PropertyRef Name="CHAVE" />
+            <PropertyRef Name="DATA_CRIACAO" />
+            <PropertyRef Name="DATA_EXPIRACAO" />
+            <PropertyRef Name="VALIDADO" />
+          </Key>
+          <Property Name="LOGIN_USUARIO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CHAVE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DATA_CRIACAO" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DATA_EXPIRACAO" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="VALIDADO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK_RECUPERACAO_SENHA_USUARIO" FromRole="RECUPERACAO_SENHA" ToRole="USUARIO" />
+        </EntityType>
+        <Association Name="FK_ASSISTENCIA_ASSISTIDO">
+          <End Role="ASSISTIDO" Type="Self.ASSISTIDO" Multiplicity="1" />
+          <End Role="ASSISTENCIA" Type="Self.ASSISTENCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ASSISTIDO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASSISTENCIA">
+              <PropertyRef Name="ID_ASSISTIDO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASSISTENCIA_ENTIDADE">
+          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="1" />
+          <End Role="ASSISTENCIA" Type="Self.ASSISTENCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASSISTENCIA">
+              <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASSISTIDO_RESPONSAVEL">
+          <End Role="ASSISTIDO" Type="Self.ASSISTIDO" Multiplicity="0..1" />
+          <End Role="ASSISTIDO1" Type="Self.ASSISTIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ASSISTIDO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASSISTIDO1">
+              <PropertyRef Name="ID_ASSISTIDO_RESPONSAVEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUTO_CATEGORIA">
+          <End Role="CATEGORIA_PRODUTO" Type="Self.CATEGORIA_PRODUTO" Multiplicity="1" />
+          <End Role="PRODUTO" Type="Self.PRODUTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIA_PRODUTO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODUTO">
+              <PropertyRef Name="ID_CATEGORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOACAO_DOADOR">
+          <End Role="DOADOR" Type="Self.DOADOR" Multiplicity="1" />
+          <End Role="DOACAO" Type="Self.DOACAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOADOR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DOACAO">
+              <PropertyRef Name="ID_DOADOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOACAO_ENTIDADE">
+          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="1" />
+          <End Role="DOACAO" Type="Self.DOACAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DOACAO">
+              <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ENTIDADE_ENTIDADE_CONTROLADORA">
+          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="0..1" />
+          <End Role="ENTIDADE1" Type="Self.ENTIDADE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ENTIDADE1">
+              <PropertyRef Name="ID_ENTIDADE_CONTROLADORA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ENTIDADE_USUARIO">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="LOGIN" />
+            </Principal>
+            <Dependent Role="ENTIDADE">
+              <PropertyRef Name="LOGIN_USUARIO_ADMINISTRADOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESTOQUE_ENTIDADE">
+          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="1" />
+          <End Role="ESTOQUE" Type="Self.ESTOQUE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ESTOQUE">
+              <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EVENTO_ENTIDADE">
+          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="1" />
+          <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EVENTO">
+              <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FORNECIMENTO_ENTIDADE">
+          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="1" />
+          <End Role="FORNECIMENTO" Type="Self.FORNECIMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FORNECIMENTO">
+              <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RECURSO_ENTIDADE">
+          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="1" />
+          <End Role="RECURSO" Type="Self.RECURSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RECURSO">
+              <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VOLUNTARIADO_ENTIDADE">
+          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="1" />
+          <End Role="VOLUNTARIADO" Type="Self.VOLUNTARIADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VOLUNTARIADO">
+              <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VOLUNTARIO_ENTIDADE">
+          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="0..1" />
+          <End Role="VOLUNTARIO" Type="Self.VOLUNTARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VOLUNTARIO">
+              <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESTOQUE_PRODUTO">
+          <End Role="PRODUTO" Type="Self.PRODUTO" Multiplicity="1" />
+          <End Role="ESTOQUE" Type="Self.ESTOQUE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUTO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ESTOQUE">
+              <PropertyRef Name="ID_PRODUTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EVENTO_TIPO_EVENTO">
+          <End Role="TIPO_EVENTO" Type="Self.TIPO_EVENTO" Multiplicity="1" />
+          <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_EVENTO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EVENTO">
+              <PropertyRef Name="ID_TIPO_EVENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FORNECIMENTO_FORNECEDOR">
+          <End Role="FORNECEDOR" Type="Self.FORNECEDOR" Multiplicity="1" />
+          <End Role="FORNECIMENTO" Type="Self.FORNECIMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FORNECEDOR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FORNECIMENTO">
+              <PropertyRef Name="ID_FORNECEDOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FORNECIMENTO_ITENS_FORNECIMENTO">
+          <End Role="FORNECIMENTO" Type="Self.FORNECIMENTO" Multiplicity="1" />
+          <End Role="FORNECIMENTO_ITENS" Type="Self.FORNECIMENTO_ITENS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FORNECIMENTO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FORNECIMENTO_ITENS">
+              <PropertyRef Name="ID_FORNECIMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FORNECIMENTO_ITENS_PRODUTO">
+          <End Role="PRODUTO" Type="Self.PRODUTO" Multiplicity="1" />
+          <End Role="FORNECIMENTO_ITENS" Type="Self.FORNECIMENTO_ITENS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUTO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FORNECIMENTO_ITENS">
+              <PropertyRef Name="ID_PRODUTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RECURSO_TIPO">
+          <End Role="TIPO_RECURSO" Type="Self.TIPO_RECURSO" Multiplicity="1" />
+          <End Role="RECURSO" Type="Self.RECURSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_RECURSO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RECURSO">
+              <PropertyRef Name="ID_TIPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RECUPERACAO_SENHA_USUARIO">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="RECUPERACAO_SENHA" Type="Self.RECUPERACAO_SENHA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="LOGIN" />
+            </Principal>
+            <Dependent Role="RECUPERACAO_SENHA">
+              <PropertyRef Name="LOGIN_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VOLUNTARIAR_VOLUNTARIADO">
+          <End Role="VOLUNTARIADO" Type="Self.VOLUNTARIADO" Multiplicity="1" />
+          <End Role="VOLUNTARIAR" Type="Self.VOLUNTARIAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VOLUNTARIADO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VOLUNTARIAR">
+              <PropertyRef Name="ID_VOLUNTARIADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VOLUNTARIAR_VOLUNTARIO">
+          <End Role="VOLUNTARIO" Type="Self.VOLUNTARIO" Multiplicity="1" />
+          <End Role="VOLUNTARIAR" Type="Self.VOLUNTARIAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VOLUNTARIO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VOLUNTARIAR">
+              <PropertyRef Name="ID_VOLUNTARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ARCOS_Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ASSISTENCIA" EntityType="Self.ASSISTENCIA" />
+          <EntitySet Name="ASSISTIDO" EntityType="Self.ASSISTIDO" />
+          <EntitySet Name="CATEGORIA_PRODUTO" EntityType="Self.CATEGORIA_PRODUTO" />
+          <EntitySet Name="DOACAO" EntityType="Self.DOACAO" />
+          <EntitySet Name="DOADOR" EntityType="Self.DOADOR" />
+          <EntitySet Name="ENTIDADE" EntityType="Self.ENTIDADE" />
+          <EntitySet Name="ESTOQUE" EntityType="Self.ESTOQUE" />
+          <EntitySet Name="EVENTO" EntityType="Self.EVENTO" />
+          <EntitySet Name="FORNECEDOR" EntityType="Self.FORNECEDOR" />
+          <EntitySet Name="FORNECIMENTO" EntityType="Self.FORNECIMENTO" />
+          <EntitySet Name="FORNECIMENTO_ITENS" EntityType="Self.FORNECIMENTO_ITENS" />
+          <EntitySet Name="PRODUTO" EntityType="Self.PRODUTO" />
+          <EntitySet Name="RECURSO" EntityType="Self.RECURSO" />
+          <EntitySet Name="TIPO_EVENTO" EntityType="Self.TIPO_EVENTO" />
+          <EntitySet Name="TIPO_RECURSO" EntityType="Self.TIPO_RECURSO" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+          <EntitySet Name="VOLUNTARIADO" EntityType="Self.VOLUNTARIADO" />
+          <EntitySet Name="VOLUNTARIAR" EntityType="Self.VOLUNTARIAR" />
+          <EntitySet Name="VOLUNTARIO" EntityType="Self.VOLUNTARIO" />
+          <EntitySet Name="CONFIG_SERVIDOR" EntityType="Self.CONFIG_SERVIDOR" />
+          <EntitySet Name="RECUPERACAO_SENHA" EntityType="Self.RECUPERACAO_SENHA" />
+          <AssociationSet Name="FK_ASSISTENCIA_ASSISTIDO" Association="Self.FK_ASSISTENCIA_ASSISTIDO">
+            <End Role="ASSISTIDO" EntitySet="ASSISTIDO" />
+            <End Role="ASSISTENCIA" EntitySet="ASSISTENCIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASSISTENCIA_ENTIDADE" Association="Self.FK_ASSISTENCIA_ENTIDADE">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="ASSISTENCIA" EntitySet="ASSISTENCIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASSISTIDO_RESPONSAVEL" Association="Self.FK_ASSISTIDO_RESPONSAVEL">
+            <End Role="ASSISTIDO" EntitySet="ASSISTIDO" />
+            <End Role="ASSISTIDO1" EntitySet="ASSISTIDO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUTO_CATEGORIA" Association="Self.FK_PRODUTO_CATEGORIA">
+            <End Role="CATEGORIA_PRODUTO" EntitySet="CATEGORIA_PRODUTO" />
+            <End Role="PRODUTO" EntitySet="PRODUTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOACAO_DOADOR" Association="Self.FK_DOACAO_DOADOR">
+            <End Role="DOADOR" EntitySet="DOADOR" />
+            <End Role="DOACAO" EntitySet="DOACAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOACAO_ENTIDADE" Association="Self.FK_DOACAO_ENTIDADE">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="DOACAO" EntitySet="DOACAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ENTIDADE_ENTIDADE_CONTROLADORA" Association="Self.FK_ENTIDADE_ENTIDADE_CONTROLADORA">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="ENTIDADE1" EntitySet="ENTIDADE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ENTIDADE_USUARIO" Association="Self.FK_ENTIDADE_USUARIO">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESTOQUE_ENTIDADE" Association="Self.FK_ESTOQUE_ENTIDADE">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="ESTOQUE" EntitySet="ESTOQUE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EVENTO_ENTIDADE" Association="Self.FK_EVENTO_ENTIDADE">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="EVENTO" EntitySet="EVENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FORNECIMENTO_ENTIDADE" Association="Self.FK_FORNECIMENTO_ENTIDADE">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="FORNECIMENTO" EntitySet="FORNECIMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RECURSO_ENTIDADE" Association="Self.FK_RECURSO_ENTIDADE">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="RECURSO" EntitySet="RECURSO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VOLUNTARIADO_ENTIDADE" Association="Self.FK_VOLUNTARIADO_ENTIDADE">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="VOLUNTARIADO" EntitySet="VOLUNTARIADO" />
+          </AssociationSet>
+          <AssociationSet Name="VOLUNTARIO_ENTIDADE" Association="Self.VOLUNTARIO_ENTIDADE">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="VOLUNTARIO" EntitySet="VOLUNTARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESTOQUE_PRODUTO" Association="Self.FK_ESTOQUE_PRODUTO">
+            <End Role="PRODUTO" EntitySet="PRODUTO" />
+            <End Role="ESTOQUE" EntitySet="ESTOQUE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EVENTO_TIPO_EVENTO" Association="Self.FK_EVENTO_TIPO_EVENTO">
+            <End Role="TIPO_EVENTO" EntitySet="TIPO_EVENTO" />
+            <End Role="EVENTO" EntitySet="EVENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FORNECIMENTO_FORNECEDOR" Association="Self.FK_FORNECIMENTO_FORNECEDOR">
+            <End Role="FORNECEDOR" EntitySet="FORNECEDOR" />
+            <End Role="FORNECIMENTO" EntitySet="FORNECIMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FORNECIMENTO_ITENS_FORNECIMENTO" Association="Self.FK_FORNECIMENTO_ITENS_FORNECIMENTO">
+            <End Role="FORNECIMENTO" EntitySet="FORNECIMENTO" />
+            <End Role="FORNECIMENTO_ITENS" EntitySet="FORNECIMENTO_ITENS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FORNECIMENTO_ITENS_PRODUTO" Association="Self.FK_FORNECIMENTO_ITENS_PRODUTO">
+            <End Role="PRODUTO" EntitySet="PRODUTO" />
+            <End Role="FORNECIMENTO_ITENS" EntitySet="FORNECIMENTO_ITENS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RECURSO_TIPO" Association="Self.FK_RECURSO_TIPO">
+            <End Role="TIPO_RECURSO" EntitySet="TIPO_RECURSO" />
+            <End Role="RECURSO" EntitySet="RECURSO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RECUPERACAO_SENHA_USUARIO" Association="Self.FK_RECUPERACAO_SENHA_USUARIO">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="RECUPERACAO_SENHA" EntitySet="RECUPERACAO_SENHA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VOLUNTARIAR_VOLUNTARIADO" Association="Self.FK_VOLUNTARIAR_VOLUNTARIADO">
+            <End Role="VOLUNTARIADO" EntitySet="VOLUNTARIADO" />
+            <End Role="VOLUNTARIAR" EntitySet="VOLUNTARIAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VOLUNTARIAR_VOLUNTARIO" Association="Self.FK_VOLUNTARIAR_VOLUNTARIO">
+            <End Role="VOLUNTARIO" EntitySet="VOLUNTARIO" />
+            <End Role="VOLUNTARIAR" EntitySet="VOLUNTARIAR" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ARCOS_V2ModelStoreContainer" CdmEntityContainer="ARCOS_Entities">
+          <EntitySetMapping Name="ASSISTENCIA">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.ASSISTENCIA">
+              <MappingFragment StoreEntitySet="ASSISTENCIA">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DATA_INICIAL" ColumnName="DATA_INICIAL" />
+                <ScalarProperty Name="DATA_FINAL" ColumnName="DATA_FINAL" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+                <ScalarProperty Name="OBSERVACOES" ColumnName="OBSERVACOES" />
+                <ScalarProperty Name="ID_ASSISTIDO" ColumnName="ID_ASSISTIDO" />
+                <ScalarProperty Name="ID_ENTIDADE" ColumnName="ID_ENTIDADE" />
+                <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ASSISTIDO">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.ASSISTIDO">
+              <MappingFragment StoreEntitySet="ASSISTIDO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOME" ColumnName="NOME" />
+                <ScalarProperty Name="APELIDO" ColumnName="APELIDO" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="DATA_NASCIMENTO" ColumnName="DATA_NASCIMENTO" />
+                <ScalarProperty Name="LOGRADOURO" ColumnName="LOGRADOURO" />
+                <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
+                <ScalarProperty Name="BAIRRO" ColumnName="BAIRRO" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+                <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="PARENTESCO_ASSISTIDO_RESPONSAVEL" ColumnName="PARENTESCO_ASSISTIDO_RESPONSAVEL" />
+                <ScalarProperty Name="ID_ASSISTIDO_RESPONSAVEL" ColumnName="ID_ASSISTIDO_RESPONSAVEL" />
+                <ScalarProperty Name="ATIVO" ColumnName="ATIVO" />
+                <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CATEGORIA_PRODUTO">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.CATEGORIA_PRODUTO">
+              <MappingFragment StoreEntitySet="CATEGORIA_PRODUTO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+                <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DOACAO">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.DOACAO">
+              <MappingFragment StoreEntitySet="DOACAO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DATA" ColumnName="DATA" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+                <ScalarProperty Name="OBSERVACOES" ColumnName="OBSERVACOES" />
+                <ScalarProperty Name="ID_ENTIDADE" ColumnName="ID_ENTIDADE" />
+                <ScalarProperty Name="ID_DOADOR" ColumnName="ID_DOADOR" />
+                <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DOADOR">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.DOADOR">
+              <MappingFragment StoreEntitySet="DOADOR">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOME" ColumnName="NOME" />
+                <ScalarProperty Name="LOGRADOURO" ColumnName="LOGRADOURO" />
+                <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
+                <ScalarProperty Name="BAIRRO" ColumnName="BAIRRO" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+                <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="DISPONIBILIDADE" ColumnName="DISPONIBILIDADE" />
+                <ScalarProperty Name="TIPO_DOACAO" ColumnName="TIPO_DOACAO" />
+                <ScalarProperty Name="ATIVO" ColumnName="ATIVO" />
+                <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ENTIDADE">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.ENTIDADE">
+              <MappingFragment StoreEntitySet="ENTIDADE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOME" ColumnName="NOME" />
+                <ScalarProperty Name="LOGRADOURO" ColumnName="LOGRADOURO" />
+                <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
+                <ScalarProperty Name="BAIRRO" ColumnName="BAIRRO" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+                <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="PRESIDENTE" ColumnName="PRESIDENTE" />
+                <ScalarProperty Name="ATIVA" ColumnName="ATIVA" />
+                <ScalarProperty Name="LOGIN_USUARIO_ADMINISTRADOR" ColumnName="LOGIN_USUARIO_ADMINISTRADOR" />
+                <ScalarProperty Name="ID_ENTIDADE_CONTROLADORA" ColumnName="ID_ENTIDADE_CONTROLADORA" />
+                <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
+                <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ESTOQUE">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.ESTOQUE">
+              <MappingFragment StoreEntitySet="ESTOQUE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="QUANTIDADE" ColumnName="QUANTIDADE" />
+                <ScalarProperty Name="ID_ENTIDADE" ColumnName="ID_ENTIDADE" />
+                <ScalarProperty Name="ID_PRODUTO" ColumnName="ID_PRODUTO" />
+                <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EVENTO">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.EVENTO">
+              <MappingFragment StoreEntitySet="EVENTO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DATA_HORA_INICIO" ColumnName="DATA_HORA_INICIO" />
+                <ScalarProperty Name="DATA_HORA_TERMINO" ColumnName="DATA_HORA_TERMINO" />
+                <ScalarProperty Name="NOME" ColumnName="NOME" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+                <ScalarProperty Name="ID_TIPO_EVENTO" ColumnName="ID_TIPO_EVENTO" />
+                <ScalarProperty Name="ID_ENTIDADE" ColumnName="ID_ENTIDADE" />
+                <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FORNECEDOR">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.FORNECEDOR">
+              <MappingFragment StoreEntitySet="FORNECEDOR">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+                <ScalarProperty Name="NOME" ColumnName="NOME" />
+                <ScalarProperty Name="LOGRADOURO" ColumnName="LOGRADOURO" />
+                <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
+                <ScalarProperty Name="BAIRRO" ColumnName="BAIRRO" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+                <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="OBSERVACOES" ColumnName="OBSERVACOES" />
+                <ScalarProperty Name="ATIVO" ColumnName="ATIVO" />
+                <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FORNECIMENTO">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.FORNECIMENTO">
+              <MappingFragment StoreEntitySet="FORNECIMENTO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DATA" ColumnName="DATA" />
+                <ScalarProperty Name="OBSERVACOES" ColumnName="OBSERVACOES" />
+                <ScalarProperty Name="ID_FORNECEDOR" ColumnName="ID_FORNECEDOR" />
+                <ScalarProperty Name="ID_ENTIDADE" ColumnName="ID_ENTIDADE" />
+                <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FORNECIMENTO_ITENS">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.FORNECIMENTO_ITENS">
+              <MappingFragment StoreEntitySet="FORNECIMENTO_ITENS">
+                <ScalarProperty Name="ID_FORNECIMENTO" ColumnName="ID_FORNECIMENTO" />
+                <ScalarProperty Name="ID_PRODUTO" ColumnName="ID_PRODUTO" />
+                <ScalarProperty Name="QUANTIDADE" ColumnName="QUANTIDADE" />
+                <ScalarProperty Name="VALOR_UNITARIO" ColumnName="VALOR_UNITARIO" />
+                <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUTO">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.PRODUTO">
+              <MappingFragment StoreEntitySet="PRODUTO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+                <ScalarProperty Name="ESPECIFICACOES" ColumnName="ESPECIFICACOES" />
+                <ScalarProperty Name="UNIDADE" ColumnName="UNIDADE" />
+                <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
+                <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RECURSO">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.RECURSO">
+              <MappingFragment StoreEntitySet="RECURSO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOME" ColumnName="NOME" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+                <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
+                <ScalarProperty Name="ID_ENTIDADE" ColumnName="ID_ENTIDADE" />
+                <ScalarProperty Name="ATIVO" ColumnName="ATIVO" />
+                <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_EVENTO">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.TIPO_EVENTO">
+              <MappingFragment StoreEntitySet="TIPO_EVENTO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOME" ColumnName="NOME" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_RECURSO">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.TIPO_RECURSO">
+              <MappingFragment StoreEntitySet="TIPO_RECURSO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+                <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="LOGIN" ColumnName="LOGIN" />
+                <ScalarProperty Name="SENHA" ColumnName="SENHA" />
+                <ScalarProperty Name="NOME" ColumnName="NOME" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="ATIVO" ColumnName="ATIVO" />
+                <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VOLUNTARIADO">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.VOLUNTARIADO">
+              <MappingFragment StoreEntitySet="VOLUNTARIADO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DATA_INICIAL" ColumnName="DATA_INICIAL" />
+                <ScalarProperty Name="DATA_FINAL" ColumnName="DATA_FINAL" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+                <ScalarProperty Name="OBSERVACAO" ColumnName="OBSERVACAO" />
+                <ScalarProperty Name="ID_ENTIDADE" ColumnName="ID_ENTIDADE" />
+                <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VOLUNTARIAR">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.VOLUNTARIAR">
+              <MappingFragment StoreEntitySet="VOLUNTARIAR">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DATA_INICIAL" ColumnName="DATA_INICIAL" />
+                <ScalarProperty Name="DATA_FINAL" ColumnName="DATA_FINAL" />
+                <ScalarProperty Name="ID_VOLUNTARIO" ColumnName="ID_VOLUNTARIO" />
+                <ScalarProperty Name="ID_VOLUNTARIADO" ColumnName="ID_VOLUNTARIADO" />
+                <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VOLUNTARIO">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.VOLUNTARIO">
+              <MappingFragment StoreEntitySet="VOLUNTARIO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOME" ColumnName="NOME" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="LOGRADOURO" ColumnName="LOGRADOURO" />
+                <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
+                <ScalarProperty Name="BAIRRO" ColumnName="BAIRRO" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+                <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="DISPONIBILIDADE" ColumnName="DISPONIBILIDADE" />
+                <ScalarProperty Name="SERVICOS_DISPONIVEIS" ColumnName="SERVICOS_DISPONIVEIS" />
+                <ScalarProperty Name="ID_ENTIDADE" ColumnName="ID_ENTIDADE" />
+                <ScalarProperty Name="ATIVO" ColumnName="ATIVO" />
+                <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONFIG_SERVIDOR">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.CONFIG_SERVIDOR">
+              <MappingFragment StoreEntitySet="CONFIG_SERVIDOR">
+                <ScalarProperty Name="USUARIO_AUTH" ColumnName="USUARIO_AUTH" />
+                <ScalarProperty Name="SENHA_AUTH" ColumnName="SENHA_AUTH" />
+                <ScalarProperty Name="ENDERECO_SERV_EMAIL" ColumnName="ENDERECO_SERV_EMAIL" />
+                <ScalarProperty Name="PORTA_SERV_EMAIL" ColumnName="PORTA_SERV_EMAIL" />
+                <ScalarProperty Name="SSL_SERV_EMAIL" ColumnName="SSL_SERV_EMAIL" />
+                <ScalarProperty Name="ENDERECO_APPLICACAO_REDIRECT" ColumnName="ENDERECO_APPLICACAO_REDIRECT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RECUPERACAO_SENHA">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.RECUPERACAO_SENHA">
+              <MappingFragment StoreEntitySet="RECUPERACAO_SENHA">
+                <ScalarProperty Name="LOGIN_USUARIO" ColumnName="LOGIN_USUARIO" />
+                <ScalarProperty Name="CHAVE" ColumnName="CHAVE" />
+                <ScalarProperty Name="DATA_CRIACAO" ColumnName="DATA_CRIACAO" />
+                <ScalarProperty Name="DATA_EXPIRACAO" ColumnName="DATA_EXPIRACAO" />
+                <ScalarProperty Name="VALIDADO" ColumnName="VALIDADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
