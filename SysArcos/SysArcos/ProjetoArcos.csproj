@@ -75,10 +75,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\formularios.css" />
+    <Content Include="css\master.css" />
+    <Content Include="css\PaginaLogin.css" />
     <Content Include="Default.aspx" />
     <Content Include="frmentidade.aspx" />
     <Content Include="frmusuario.aspx" />
     <Content Include="frmvoluntario.aspx" />
+    <Content Include="imagens\ArcosIco.png" />
+    <Content Include="imagens\ArcosLogo.png" />
+    <Content Include="imagens\ArcosSys.png" />
     <Content Include="JSPaginaMestre.js" />
     <Content Include="ModelArcos.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
