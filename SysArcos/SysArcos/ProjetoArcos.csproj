@@ -79,6 +79,8 @@
     <Content Include="css\master.css" />
     <Content Include="css\PaginaLogin.css" />
     <Content Include="Default.aspx" />
+    <Content Include="frmassistido.aspx" />
+    <Content Include="frmbuscaassistido.aspx" />
     <Content Include="frmbuscadoador.aspx" />
     <Content Include="frmbuscaproduto.aspx" />
     <Content Include="frmbuscatipoevento.aspx" />
@@ -154,6 +156,20 @@
     </Compile>
     <Compile Include="FORNECIMENTO_ITENS.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="frmassistido.aspx.cs">
+      <DependentUpon>frmassistido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmassistido.aspx.designer.cs">
+      <DependentUpon>frmassistido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmbuscaassistido.aspx.cs">
+      <DependentUpon>frmbuscaassistido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmbuscaassistido.aspx.designer.cs">
+      <DependentUpon>frmbuscaassistido.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmbuscadoador.aspx.cs">
       <DependentUpon>frmbuscadoador.aspx</DependentUpon>
