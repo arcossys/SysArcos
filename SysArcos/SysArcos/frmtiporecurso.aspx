@@ -7,8 +7,9 @@
     <br />
     <asp:Label ID="Label1" runat="server" Text="DESCRIÇÃO"></asp:Label>
     <br />
-    <asp:TextBox ID="txtDescricao" runat="server"></asp:TextBox>
+    <asp:TextBox ID="txtDescricao" runat="server" Width="300px" CssClass="form-control"></asp:TextBox>
     <br />
-    <br />
-    <asp:Button ID="btn_cadastrarrecurso" runat="server" OnClick="btn_cadastrarrecurso_Click" Text="Cadastrar" />
+    <asp:Button ID="btnNovo" runat="server" CssClass="btn btn-primary" Text="Novo" OnClick="btnNovo_Click" />
+&nbsp;<asp:Button ID="btn_cadastrarrecurso" runat="server" OnClick="btn_cadastrarrecurso_Click" Text="Salvar" CssClass="btn btn-primary" />
+&nbsp;<asp:Button ID="btnBuscar" runat="server" CssClass="btn btn-primary" OnClick="btnBuscar_Click" Text="Buscar" />
 </asp:Content>

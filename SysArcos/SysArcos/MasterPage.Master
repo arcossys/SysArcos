@@ -44,7 +44,7 @@
                         <div class="drop-content">
                             <a href="frmvoluntario.aspx">Voluntários</a>
                             <a href="#">Voluntariar</a>
-                            <a href="#">Voluntariado</a>
+                            <a href="frmvoluntariado.aspx">Voluntariado</a>
                         </div>
                 </div>
 
@@ -59,7 +59,7 @@
                     <button type="button" name="drop">EVENTO</button>
                     <div class="drop-content">
                         <a href="#">Evento</a>
-                        <a href="frmTipoEvento.aspx">Tipo de Evento</a>
+                        <a href="frmtipoevento.aspx">Tipo de Evento</a>
                     </div>
                 </div>
 
@@ -67,7 +67,7 @@
                     <button type="button" name="drop">RECURSO</button>
                     <div class="drop-content">
                         <a href="#">Recurso</a>
-                        <a href="#">Tipo de Recurso</a>
+                        <a href="frmtiporecurso.aspx">Tipo de Recurso</a>
                     </div>
                 </div>
 
@@ -82,8 +82,8 @@
                 <div class="menu-drop">
                     <button type="button" name="drop">ESTOQUE</button>
                     <div class="drop-content">
-                        <a href="#">Produto</a>
-                        <a href="#">Tipo de Produto</a>
+                        <a href="frmproduto.aspx">Produto</a>
+                        <a href="frmcategoria_produto.aspx">Tipo de Produto</a>
                     </div>
                 </div>
 
@@ -91,15 +91,15 @@
                     <button type="button" name="drop">DOAÇÕES</button>
                     <div class="drop-content">
                         <a href="#">Doação</a>
-                        <a href="#">Doador</a>
+                        <a href="frmdoador.aspx">Doador</a>
                     </div>
                 </div>
 
                 <div class="menu-drop">
                     <button type="button" name="drop">ASSISTENCIA</button>
                     <div class="drop-content">
-                        <a href="#">Assistencia</a>
-                        <a href="#">Assistido</a>
+                        <a href="frmassistencia.aspx">Assistencia</a>
+                        <a href="frmassistido.aspx">Assistido</a>
                     </div>
                 </div>
 

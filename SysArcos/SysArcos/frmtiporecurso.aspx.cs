@@ -76,6 +76,21 @@ namespace ProjetoArcos
 
             }
         }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmbuscatiporecurso.aspx");
+        }
+
+        private void limpar()
+        {
+            txtDescricao.Text = string.Empty;
+        }
+
+        protected void btnNovo_Click(object sender, EventArgs e)
+        {
+            txtDescricao.Text = string.Empty;
+        }
     }
 }
 

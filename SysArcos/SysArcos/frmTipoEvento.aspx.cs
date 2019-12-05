@@ -20,6 +20,7 @@ namespace ProjetoArcos
                     TIPO_EVENTO u = entities.TIPO_EVENTO.FirstOrDefault(x => x.ID.ToString().Equals(evento));
                     if (u != null)
                     {
+                        lblID.Text = u.ID.ToString();
                         txtDescricaoEvento.Text = u.DESCRICAO;
                         txtTipoEvento.Text = u.NOME;
                         lblAcao.Text = "ALTERANDO";
@@ -49,7 +50,7 @@ namespace ProjetoArcos
 
                 if (lblAcao.Text.Equals("NOVO"))
                 {
-
+                    tipo_evento = new TIPO_EVENTO();
                     //entidade.ID = Convert.ToInt32(txtID.Text);
                     tipo_evento.NOME = txtTipoEvento.Text;
                     tipo_evento.DESCRICAO = txtDescricaoEvento.Text;
@@ -60,7 +61,7 @@ namespace ProjetoArcos
                 }
                 else
                 {
-                    tipo_evento = entity.TIPO_EVENTO.FirstOrDefault(x => x.NOME.Equals(txtTipoEvento.Text));
+                    tipo_evento = entity.TIPO_EVENTO.FirstOrDefault(x => x.ID.ToString().Equals(lblID.Text));
 
                     tipo_evento.NOME = txtTipoEvento.Text;
                     tipo_evento.DESCRICAO = txtDescricaoEvento.Text;
@@ -81,6 +82,16 @@ namespace ProjetoArcos
                 txtDescricaoEvento.Text = string.Empty;
                 lblAcao.Text = "NOVO";
             }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmbuscatipoevento.aspx");
         }
     }
 }

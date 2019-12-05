@@ -7,6 +7,9 @@
         <div>
             <asp:Label ID="lblAcao" runat="server" Text="NOVO"></asp:Label>
 
+            <br />
+            <asp:Label ID="lblID" runat="server"></asp:Label>
+
         </div>
         <asp:Label ID="Label2" runat="server" Text="Nome do doador"></asp:Label>
         <asp:TextBox ID="txt_nomedoador" class="form-control"  runat="server" Width="300px" MaxLength="50" Height="30px"></asp:TextBox>
@@ -34,6 +37,7 @@
     <div   >
         <asp:Label ID="Label8" runat="server" Text="Estado:"></asp:Label>
         <asp:DropDownList ID="drp_estado" class="form-control" runat="server" Height="30px" Width="300px">
+            <asp:ListItem></asp:ListItem>
             <asp:ListItem>AC</asp:ListItem>
             <asp:ListItem>AL</asp:ListItem>
             <asp:ListItem>AP</asp:ListItem>

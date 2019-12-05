@@ -27,7 +27,7 @@ namespace ProjetoArcos
                 string ID = grid.SelectedValue.ToString();
                 ARCOS_Entities entities = GerConnetion.get(HttpContext.Current);
                 // USUARIO usuario = entities.USUARIO.FirstOrDefault(x => x.LOGIN.Equals(login)); // Linha que deu origem ao comando abaixo.
-                VOLUNTARIO voluntario = entities.VOLUNTARIO.FirstOrDefault(x => x.ID.Equals(ID));
+                VOLUNTARIO voluntario = entities.VOLUNTARIO.FirstOrDefault(x => x.ID.ToString().Equals(ID));
                 entities.VOLUNTARIO.Remove(voluntario);
                 entities.SaveChanges();
 

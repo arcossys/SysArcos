@@ -6,7 +6,7 @@
         <asp:Label ID="lblbuscar" runat="server" Text="Buscar"></asp:Label>
 &nbsp;<asp:TextBox ID="txtbusca" runat="server"></asp:TextBox>
 &nbsp;
-        <asp:Button ID="btnbuscar" runat="server" Text="Buscar" OnClick="btnbuscar_Click" />
+        <asp:Button ID="btnbuscar" runat="server" Text="Buscar" OnClick="btnbuscar_Click" CssClass="btn btn-success" />
     </p>
     <p>
         <asp:RadioButton ID="rddescricao" runat="server" Text="Descrição" />
@@ -31,10 +31,10 @@
         </asp:GridView>
     </p>
     <p>
-        <asp:Button ID="btnvoltar" runat="server" Text="Voltar" />
+        <asp:Button ID="btnvoltar" runat="server" Text="Voltar" CssClass="btn btn-primary" />
 &nbsp;
-        <asp:Button ID="btnselecionar" runat="server" Text="Selecionar" OnClick="btnselecionar_Click" />
+        <asp:Button ID="btnselecionar" runat="server" Text="Selecionar" OnClick="btnselecionar_Click" CssClass="btn btn-primary" />
 &nbsp;
-        <asp:Button ID="btnremover" runat="server" Text="Remover" OnClick="btnremover_Click" />
+        <asp:Button ID="btnremover" runat="server" Text="Remover" OnClick="btnremover_Click" CssClass="btn btn-primary" />
     </p>
 </asp:Content>

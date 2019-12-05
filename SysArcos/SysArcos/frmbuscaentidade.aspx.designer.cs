@@ -10,52 +10,7 @@
 namespace ProjetoArcos {
     
     
-    public partial class frmproduto {
-        
-        /// <summary>
-        /// Controle lblAcao.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAcao;
-        
-        /// <summary>
-        /// Controle lbl_cadastroproduto.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_cadastroproduto;
-        
-        /// <summary>
-        /// Controle lblID.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblID;
-        
-        /// <summary>
-        /// Controle lbl_user.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_user;
-        
-        /// <summary>
-        /// Controle txt_descricao.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_descricao;
+    public partial class frmbuscaentidade {
         
         /// <summary>
         /// Controle Label1.
@@ -67,75 +22,129 @@ namespace ProjetoArcos {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Controle txt_especificacao.
+        /// Controle txtbusca.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_especificacao;
+        protected global::System.Web.UI.WebControls.TextBox txtbusca;
         
         /// <summary>
-        /// Controle lbl_unidade.
+        /// Controle btnbuscar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_unidade;
+        protected global::System.Web.UI.WebControls.Button btnbuscar;
         
         /// <summary>
-        /// Controle txt_unidade.
+        /// Controle rdativo.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_unidade;
+        protected global::System.Web.UI.WebControls.RadioButton rdativo;
         
         /// <summary>
-        /// Controle Label2.
+        /// Controle rddesativado.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.RadioButton rddesativado;
         
         /// <summary>
-        /// Controle dlCategoria.
+        /// Controle ddlAtivo.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dlCategoria;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAtivo;
         
         /// <summary>
-        /// Controle btnNovo.
+        /// Controle rdnome.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNovo;
+        protected global::System.Web.UI.WebControls.RadioButton rdnome;
         
         /// <summary>
-        /// Controle btn_cadastrar.
+        /// Controle rdcidade.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_cadastrar;
+        protected global::System.Web.UI.WebControls.RadioButton rdcidade;
         
         /// <summary>
-        /// Controle btn_buscar.
+        /// Controle rdpresidente.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_buscar;
+        protected global::System.Web.UI.WebControls.RadioButton rdpresidente;
+        
+        /// <summary>
+        /// Controle rdCNPJ.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdCNPJ;
+        
+        /// <summary>
+        /// Controle ddlCampos.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCampos;
+        
+        /// <summary>
+        /// Controle grid.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grid;
+        
+        /// <summary>
+        /// Controle btncancelar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btncancelar;
+        
+        /// <summary>
+        /// Controle btnselecionar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnselecionar;
+        
+        /// <summary>
+        /// Controle btnremover.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnremover;
     }
 }

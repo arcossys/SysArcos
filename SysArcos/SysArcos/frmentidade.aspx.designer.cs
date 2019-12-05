@@ -13,6 +13,15 @@ namespace ProjetoArcos {
     public partial class cadentidade1 {
         
         /// <summary>
+        /// Controle lblAcao.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAcao;
+        
+        /// <summary>
         /// Controle Label2.
         /// </summary>
         /// <remarks>
@@ -58,13 +67,13 @@ namespace ProjetoArcos {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// Controle txtEndereco.
+        /// Controle txtLogradouro.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEndereco;
+        protected global::System.Web.UI.WebControls.TextBox txtLogradouro;
         
         /// <summary>
         /// Controle Label4.

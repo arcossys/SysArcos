@@ -13,13 +13,14 @@ namespace ProjetoArcos
         {
             if (!IsPostBack)
             {
-                String nome = Request.QueryString["nome"];
-                if ((nome != null) && (!nome.Equals("")))
+                String ID = Request.QueryString["ID"];
+                if ((ID != null) && (!ID.Equals("")))
                 {
                     ARCOS_Entities entities = GerConnetion.get(HttpContext.Current);
-                    DOADOR u = entities.DOADOR.FirstOrDefault(x => x.NOME.Equals(nome));
+                    DOADOR u = entities.DOADOR.FirstOrDefault(x => x.ID.ToString().Equals(ID));
                     if (u != null)
                     {
+                        lblID.Text = u.ID.ToString();
                         txt_nomedoador.Text = u.NOME;
                         txt_logradouro.Text = u.LOGRADOURO;
                         txt_numero.Text = u.NUMERO;
@@ -68,7 +69,7 @@ namespace ProjetoArcos
                 }
                 else
                 {
-                    doador = entity.DOADOR.FirstOrDefault(x => x.NOME.Equals(txt_nomedoador.Text));
+                    doador = entity.DOADOR.FirstOrDefault(x => x.ID.ToString().Equals(lblID.Text));
 
                     doador.NOME = txt_nomedoador.Text;
                     doador.LOGRADOURO = txt_logradouro.Text;
@@ -81,7 +82,7 @@ namespace ProjetoArcos
                     doador.TIPO_DOACAO = txt_tipodoacao.Text;
                     doador.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
                     doador.ATIVO = cb_ativo.Checked;
-                    entity.DOADOR.Add(doador);
+                    entity.Entry(doador);
                 }
                 entity.SaveChanges();
                 limpar();

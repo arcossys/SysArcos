@@ -10,87 +10,87 @@
 namespace ProjetoArcos {
     
     
-    public partial class frmTipoEvento {
+    public partial class frmbuscaassistencia {
         
         /// <summary>
-        /// Controle lblAcao.
+        /// Controle Label1.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAcao;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Controle lblID.
+        /// Controle txtBusca.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblID;
+        protected global::System.Web.UI.WebControls.TextBox txtBusca;
         
         /// <summary>
-        /// Controle lblTipoEvento.
+        /// Controle btnBuscar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTipoEvento;
+        protected global::System.Web.UI.WebControls.Button btnBuscar;
         
         /// <summary>
-        /// Controle txtTipoEvento.
+        /// Controle rdNome.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTipoEvento;
+        protected global::System.Web.UI.WebControls.RadioButton rdNome;
         
         /// <summary>
-        /// Controle lblDescricao.
+        /// Controle rdLogin.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescricao;
+        protected global::System.Web.UI.WebControls.RadioButton rdLogin;
         
         /// <summary>
-        /// Controle txtDescricaoEvento.
+        /// Controle grid.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescricaoEvento;
+        protected global::System.Web.UI.WebControls.GridView grid;
         
         /// <summary>
-        /// Controle Button1.
+        /// Controle btnCancelar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnCancelar;
         
         /// <summary>
-        /// Controle btnCadastrarTipoEvento.
+        /// Controle btnSelecionar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCadastrarTipoEvento;
+        protected global::System.Web.UI.WebControls.Button btnSelecionar;
         
         /// <summary>
-        /// Controle Button2.
+        /// Controle btnRemover.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button btnRemover;
     }
 }

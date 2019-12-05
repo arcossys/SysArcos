@@ -40,6 +40,15 @@ namespace ProjetoArcos {
         protected global::System.Web.UI.WebControls.TextBox txtDescricao;
         
         /// <summary>
+        /// Controle btnNovo.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnNovo;
+        
+        /// <summary>
         /// Controle btn_cadastrarrecurso.
         /// </summary>
         /// <remarks>
@@ -47,5 +56,14 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_cadastrarrecurso;
+        
+        /// <summary>
+        /// Controle btnBuscar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBuscar;
     }
 }

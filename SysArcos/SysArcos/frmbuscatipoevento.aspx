@@ -2,9 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-	<asp:Label ID="lblBuscar" runat="server" Text="Buscar"></asp:Label>
-&nbsp;<asp:TextBox ID="txtBusca" runat="server" Height="30px" MaxLength="50" Width="300px"></asp:TextBox>
-&nbsp;<asp:Button ID="btnBuscar" class="btn btn-success" runat="server" Text="Buscar" OnClick="btnBuscar_Click" Height="40px" Width="100px" />
+    <asp:Label ID="lblBuscar" runat="server" Text="Buscar"></asp:Label>
+&nbsp;<asp:TextBox ID="txtBusca" runat="server" MaxLength="50" Width="300px"></asp:TextBox>
+&nbsp;<asp:Button ID="btnBuscar" class="btn btn-success" runat="server" Text="Buscar" OnClick="btnBuscar_Click" Width="100px" />
 	<br />
 	<asp:Panel ID="Panel1" runat="server">
         &nbsp;</asp:Panel>
@@ -32,9 +32,9 @@
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
 	</asp:GridView>
 	<br />
-	<asp:Button ID="btnCancelar" class="btn btn-primary" runat="server" Text="Cancelar" Height="40px" Width="100px" />
-	<asp:Button ID="btnAlterar" class="btn btn-primary" runat="server" Text="Aterar" Height="40px" Width="100px" OnClick="btnAlterar_Click" />
-	<asp:Button ID="btnRemover" class="btn btn-primary" runat="server" Text="Remover" Height="40px" Width="100px" OnClick="btnRemover_Click" />
+	<asp:Button ID="btnCancelar" class="btn btn-primary" runat="server" Text="Cancelar" Width="100px" OnClick="btnCancelar_Click" />
+	&nbsp;<asp:Button ID="btnAlterar" class="btn btn-primary" runat="server" Text="Aterar" Width="100px" OnClick="btnAlterar_Click" />
+	&nbsp;<asp:Button ID="btnRemover" class="btn btn-primary" runat="server" Text="Remover" Width="100px" OnClick="btnRemover_Click" />
 	<br />
 	<br />
 &nbsp;

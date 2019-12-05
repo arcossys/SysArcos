@@ -45,7 +45,7 @@ namespace ProjetoArcos
         protected void btnselecionar_Click(object sender, EventArgs e)
         {
             if (grid.SelectedValue != null)
-                Response.Redirect("frmdoador.aspx?NOME=" + grid.SelectedValue.ToString());
+                Response.Redirect("frmdoador.aspx?ID=" + grid.SelectedValue.ToString());
         }
 
         protected void btnremover_Click(object sender, EventArgs e)

@@ -10,6 +10,7 @@
                  <asp:Label ID="lbl_cadastroproduto" runat="server" >Cadastro Produto</asp:Label>        
             </div>    
     <div>
+        <asp:Label ID="lblID" runat="server"></asp:Label>
         </div>
               <div class="form-group" >
                  <asp:Label ID="lbl_user" runat="server" Text="Descrição:"></asp:Label>
@@ -26,14 +27,14 @@
                  <asp:TextBox ID="txt_unidade" class="form-control" runat="server" MaxLength="30" Width="300px"></asp:TextBox>       
               </div>
 
-      <br />
       <asp:Label ID="Label2" runat="server" Text="Categoria"></asp:Label>
 
     <br />
 
              <div>
 
-                 <asp:DropDownList ID="dlCategoria" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                 <asp:DropDownList ID="dlCategoria" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" CssClass="form-control" Width="300px">
+                     <asp:ListItem></asp:ListItem>
                  </asp:DropDownList>
 
              </div>

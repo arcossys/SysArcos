@@ -28,7 +28,7 @@ namespace ProjetoArcos
                         if (u != null)
                         {
 
-
+                            lblID.Text = u.ID.ToString();
                             txt_descricao.Text = u.DESCRICAO;
                             txt_especificacao.Text = u.ESPECIFICACOES;
                             txt_unidade.Text = u.UNIDADE;
@@ -75,7 +75,7 @@ namespace ProjetoArcos
                 }
                 else
                 {
-                    produto = entity.PRODUTO.FirstOrDefault(x => x.DESCRICAO.Equals(txt_descricao.Text));
+                    produto = entity.PRODUTO.FirstOrDefault(x => x.ID.ToString().Equals(lblID.Text));
 
 
                     produto.DESCRICAO = txt_descricao.Text;
