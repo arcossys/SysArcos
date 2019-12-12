@@ -73,7 +73,7 @@ namespace ProjetoArcos
                 //Salva no disco rígido
                 entity.SaveChanges();
 
-                
+                limpar();
                
                 // Commit
                 Response.Write("<script>alert('Tipo de evento cadastrado com sucesso!');</script>");
@@ -86,12 +86,19 @@ namespace ProjetoArcos
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-
+            limpar();
         }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
             Response.Redirect("frmbuscatipoevento.aspx");
+        }
+
+        private void limpar()
+        {
+            txtTipoEvento.Text = string.Empty;
+            txtDescricaoEvento.Text = string.Empty;
+            lblAcao.Text = "NOVO";
         }
     }
 }

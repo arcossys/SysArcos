@@ -34,10 +34,6 @@ namespace ProjetoArcos
                             txt_unidade.Text = u.UNIDADE;
                             dlCategoria.SelectedValue = u.CATEGORIA_PRODUTO.ID.ToString();
 
-
-
-
-
                             lblAcao.Text = "ALTERANDO";
                         }
 
@@ -124,8 +120,12 @@ namespace ProjetoArcos
 
         private void carregarCategoria()
         {
+            CATEGORIA_PRODUTO produto_blank = new CATEGORIA_PRODUTO();
+            produto_blank.DESCRICAO = "";
+
             ARCOS_Entities entity = GerConnetion.get(HttpContext.Current);
             List<CATEGORIA_PRODUTO> lista = entity.CATEGORIA_PRODUTO.ToList();
+            lista.Insert(0, produto_blank);
             dlCategoria.DataSource = lista;
             dlCategoria.DataTextField = "DESCRICAO";
             dlCategoria.DataValueField = "ID";

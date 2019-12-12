@@ -2,8 +2,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Label ID="lblAcao" runat="server" Text="NOVO"></asp:Label>
-    <br />
+    <div class="entidade">
+        Tipo de Recurso
+    </div>
+    <div class="acao">
+        <asp:Label ID="lblAcao" runat="server" Text="NOVO"></asp:Label>
+    </div>
+    <div>
+
+        <asp:Label ID="lblID" runat="server" Visible="False"></asp:Label>
+
+    </div>
     <br />
     <asp:Label ID="Label1" runat="server" Text="DESCRIÇÃO"></asp:Label>
     <br />

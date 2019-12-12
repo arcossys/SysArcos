@@ -113,22 +113,28 @@ namespace ProjetoArcos
 
         protected void btn_Limpar_Click(object sender, EventArgs e)
         {
-           txt_vnome.Text = string.Empty;
-           txt_vcpf.Text = string.Empty;
-           txt_vendereco.Text = string.Empty;
-           txt_vnumero.Text = string.Empty;
-           txt_vBairro.Text = string.Empty;
-           txt_vcep.Text = string.Empty;
-           txt_vCidade.Text = string.Empty;
-           drp_vEstado.SelectedValue = null;
-           txt_vDispo.Text = string.Empty;
-           txt_vSerDisp.Text = string.Empty;
-           ckb_vativo.Checked = false;
+            limpar();
         }
 
         protected void btn_Consultar_Click(object sender, EventArgs e)
         {
             Response.Redirect("frmbuscavoluntario.aspx");
+        }
+
+        private void limpar()
+        {
+            lbl_Status.Text = "NOVO";
+            txt_vnome.Text = string.Empty;
+            txt_vcpf.Text = string.Empty;
+            txt_vendereco.Text = string.Empty;
+            txt_vnumero.Text = string.Empty;
+            txt_vBairro.Text = string.Empty;
+            txt_vcep.Text = string.Empty;
+            txt_vCidade.Text = string.Empty;
+            drp_vEstado.SelectedValue = null;
+            txt_vDispo.Text = string.Empty;
+            txt_vSerDisp.Text = string.Empty;
+            ckb_vativo.Checked = false;
         }
     }
 }

@@ -2,13 +2,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="entidade">
+        Produtos
+    </div>
 
-      <div class="alert alert-primary" >
+    <div class="acao" >
         <asp:Label ID="lblAcao" runat="server" Text="NOVO"></asp:Label>
     </div>        
-    <div class="form-group" >               
-                 <asp:Label ID="lbl_cadastroproduto" runat="server" >Cadastro Produto</asp:Label>        
-            </div>    
+
+    
     <div>
         <asp:Label ID="lblID" runat="server"></asp:Label>
         </div>
@@ -34,29 +36,18 @@
              <div>
 
                  <asp:DropDownList ID="dlCategoria" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" CssClass="form-control" Width="300px">
-                     <asp:ListItem></asp:ListItem>
+                     <asp:ListItem Text=""></asp:ListItem>
                  </asp:DropDownList>
 
              </div>
-     
-           
-
-
-
+    
     <br />
-
-            
-            
                
-           
-                   
                  <div>
                      &nbsp;<asp:Button ID="btnNovo" runat="server" class="btn btn-primary" Text="Novo" OnClick="btnNovo_Click" />
 &nbsp;<asp:Button ID="btn_cadastrar"  class="btn btn-primary" runat="server" Text="Salvar" OnClick="btn_cadastrar_Click" />
                      &nbsp;<asp:Button ID="btn_buscar" class="btn btn-primary" runat="server" Text="Buscar" OnClick="btn_buscar_Click" />
                      
                  </div>                
-                   
-               
 
 </asp:Content>

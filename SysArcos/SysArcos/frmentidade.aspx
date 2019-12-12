@@ -8,14 +8,18 @@
 
             <div class="container-fluid">
 
+            <div class="entidade">
+                Entidades
+            </div>
+
+            <div class="acao">
+                <asp:Label ID="lblAcao" runat="server" Text="Novo"></asp:Label>
+            </div>
             <div>
 
-                <asp:Label ID="lblAcao" runat="server" Text="Novo"></asp:Label>
+                <asp:Label ID="lblID" runat="server" Visible="False"></asp:Label>
 
             </div>
-      
-       
-
             <div  >
                <asp:Label ID="Label2" runat="server" Text="Nome da Entidade:"></asp:Label>
                <asp:TextBox ID="txtNomeEntidade" class="form-control"  runat="server" Width="300px" MaxLength="50" Height="30px"></asp:TextBox>
@@ -33,7 +37,7 @@
                <asp:TextBox ID="txtLogradouro"  class="form-control" runat="server" Width="300px" MaxLength="50" Height="30px"></asp:TextBox>
             </div>
 
-            <div   >
+            <div>
                <asp:Label ID="Label4" runat="server" Text="Número:"></asp:Label>
                <asp:TextBox ID="txtNumero" class="form-control" runat="server" Width="140px" MaxLength="10" Height="30px"></asp:TextBox>         
             </div>
@@ -56,6 +60,7 @@
               <div   >
                 <asp:Label ID="Label8" runat="server" Text="Estado:"></asp:Label>
                 <asp:DropDownList ID="drpEstado" class="form-control" runat="server" Height="30px" Width="300px">
+                   <asp:ListItem></asp:ListItem>
                    <asp:ListItem>AC</asp:ListItem>
                    <asp:ListItem>AL</asp:ListItem>
                    <asp:ListItem>AP</asp:ListItem>
@@ -87,16 +92,6 @@
               </div>
 
              <div   >
-               <asp:Label ID="Label9" runat="server" Text="Controladora:"></asp:Label>
-                 <br />
-               <asp:DropDownList ID="drpControladora" runat="server" Height="30px">
-                  <asp:ListItem Value="0"></asp:ListItem>
-                  <asp:ListItem Value="1"></asp:ListItem>
-                 <asp:ListItem Value="2"></asp:ListItem>
-               </asp:DropDownList>
-             </div>
-
-             <div   >
                 <asp:Label ID="Labe20" runat="server" Text="Presidente:"></asp:Label>
                 <asp:TextBox ID="txtPresidente"  class="form-control" runat="server" MaxLength="50" Width="300px" Height="30px"></asp:TextBox>
                  <asp:Label ID="Label11" runat="server" Text="Administrador"></asp:Label>
@@ -106,13 +101,10 @@
              </div>
 
              <div>
-                <asp:Button ID="btnCadastra" class="btn btn-primary" runat="server" OnClick="btnCadastra_Click" Text="Cadastrar" Font-Bold="True" Height="40px" Width="100px" />
+                 <asp:Button ID="btnNovo" runat="server" CssClass="btn btn-primary" OnClick="btnNovo_Click" Text="Novo" />
+&nbsp;<asp:Button ID="btnCadastra" class="btn btn-primary" runat="server" OnClick="btnCadastra_Click" Text="Salvar" Font-Bold="True" />
              
-                <asp:Button ID="btnAlterar" class="btn btn-primary" runat="server" Text="Alterar" Font-Bold="True" Height="40px" Width="100px" OnClick="btnAlterar_Click" />
-           
-                <asp:Button ID="btnDesativa" class="btn btn-primary" runat="server" Text="Desativar" Font-Bold="True" Height="40px" Width="100px" OnClick="btnDesativa_Click" />
-             
-                <asp:Button ID="btnConsulta" class="btn btn-primary" runat="server" Text="Consultar" Font-Bold="True" Height="40px" Width="100px" OnClick="btnConsulta_Click" />
+                &nbsp;<asp:Button ID="btnConsulta" class="btn btn-primary" runat="server" Text="Buscar" Font-Bold="True" OnClick="btnConsulta_Click" />
                  <br />
                  <br />
                  <br />

@@ -22,15 +22,6 @@ namespace ProjetoArcos {
         protected global::System.Web.UI.WebControls.Label lblAcao;
         
         /// <summary>
-        /// Controle lbl_dadosacesso.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_dadosacesso;
-        
-        /// <summary>
         /// Controle lbl_user.
         /// </summary>
         /// <remarks>
@@ -65,15 +56,6 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_senhaUsuario;
-        
-        /// <summary>
-        /// Controle lbl_dadospessoais.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_dadospessoais;
         
         /// <summary>
         /// Controle lbl_nomeUsuario.

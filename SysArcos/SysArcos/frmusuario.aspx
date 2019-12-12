@@ -2,11 +2,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="alert alert-primary" >
+    <div class="entidade">
+        Usuários
+    </div>
+    <div class="acao">
         <asp:Label ID="lblAcao" runat="server" Text="NOVO"></asp:Label>
     </div>        
     <div class="form-group" >               
-                 <asp:Label ID="lbl_dadosacesso" runat="server" ><h5>Dados de acesso</h5> </asp:Label>        
             </div>               
               <div class="form-group" >
                  <asp:Label ID="lbl_user" runat="server" Text="Usuário:"></asp:Label>
@@ -17,10 +19,8 @@
               <asp:TextBox ID="txt_senhaUsuario"  type="password" class="form-control" runat="server" MaxLength="8" Placeholder="max: 8 dig" Width="300px"></asp:TextBox>     
             </div>
              <div>
-                <div class="tbody" >               
-                 <asp:Label ID="lbl_dadospessoais" runat="server"><h5>Dados pessoais:</h5></asp:Label>             
-                </div>
-             <div  
+
+             <div>  
                  <asp:Label ID="lbl_nomeUsuario" runat="server" Text="Nome:"></asp:Label>
                  <asp:TextBox ID="txt_nomeUsuario" class="form-control" runat="server" MaxLength="50" Width="300px"></asp:TextBox>                
              </div>

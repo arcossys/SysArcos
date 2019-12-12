@@ -22,6 +22,15 @@ namespace ProjetoArcos {
         protected global::System.Web.UI.WebControls.Label lblAcao;
         
         /// <summary>
+        /// Controle lblID.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblID;
+        
+        /// <summary>
         /// Controle Label2.
         /// </summary>
         /// <remarks>
@@ -166,24 +175,6 @@ namespace ProjetoArcos {
         protected global::System.Web.UI.WebControls.DropDownList drpEstado;
         
         /// <summary>
-        /// Controle Label9.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label9;
-        
-        /// <summary>
-        /// Controle drpControladora.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpControladora;
-        
-        /// <summary>
         /// Controle Labe20.
         /// </summary>
         /// <remarks>
@@ -220,6 +211,15 @@ namespace ProjetoArcos {
         protected global::System.Web.UI.WebControls.TextBox txtAdmnistrador;
         
         /// <summary>
+        /// Controle btnNovo.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnNovo;
+        
+        /// <summary>
         /// Controle btnCadastra.
         /// </summary>
         /// <remarks>
@@ -227,24 +227,6 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCadastra;
-        
-        /// <summary>
-        /// Controle btnAlterar.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAlterar;
-        
-        /// <summary>
-        /// Controle btnDesativa.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDesativa;
         
         /// <summary>
         /// Controle btnConsulta.

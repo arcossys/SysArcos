@@ -112,6 +112,15 @@ namespace ProjetoArcos {
         protected global::System.Web.UI.WebControls.TextBox txtObser;
         
         /// <summary>
+        /// Controle btnNovo.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnNovo;
+        
+        /// <summary>
         /// Controle btnSalvar.
         /// </summary>
         /// <remarks>

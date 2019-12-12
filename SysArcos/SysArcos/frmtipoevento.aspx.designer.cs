@@ -10,7 +10,7 @@
 namespace ProjetoArcos {
     
     
-    public partial class frmtiporecurso {
+    public partial class frmTipoEvento {
         
         /// <summary>
         /// Controle lblAcao.
@@ -31,48 +31,66 @@ namespace ProjetoArcos {
         protected global::System.Web.UI.WebControls.Label lblID;
         
         /// <summary>
-        /// Controle Label1.
+        /// Controle lblTipoEvento.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblTipoEvento;
         
         /// <summary>
-        /// Controle txtDescricao.
+        /// Controle txtTipoEvento.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescricao;
+        protected global::System.Web.UI.WebControls.TextBox txtTipoEvento;
         
         /// <summary>
-        /// Controle btnNovo.
+        /// Controle lblDescricao.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNovo;
+        protected global::System.Web.UI.WebControls.Label lblDescricao;
         
         /// <summary>
-        /// Controle btn_cadastrarrecurso.
+        /// Controle txtDescricaoEvento.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_cadastrarrecurso;
+        protected global::System.Web.UI.WebControls.TextBox txtDescricaoEvento;
         
         /// <summary>
-        /// Controle btnBuscar.
+        /// Controle Button1.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscar;
+        protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
+        /// Controle btnCadastrarTipoEvento.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCadastrarTipoEvento;
+        
+        /// <summary>
+        /// Controle Button2.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button2;
     }
 }

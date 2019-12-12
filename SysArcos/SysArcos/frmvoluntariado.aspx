@@ -2,7 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="alert alert-primary" >
+    <div class="entidade">
+        Voluntariado
+    </div>
+    <div class="acao" >
         <asp:Label ID="lbl_acao" runat="server" Text="NOVO"></asp:Label>
     </div>
     <p>
@@ -26,11 +29,11 @@
         <asp:Label ID="lblObser" runat="server" Text="Observação"></asp:Label>
 &nbsp;<asp:TextBox ID="txtObser" class="form-control" runat="server" MaxLength="50" Width="300px"></asp:TextBox>
     </p>
+
     <p>
-        &nbsp;</p>
-    <p>
+        <asp:Button ID="btnNovo" runat="server" class="btn btn-primary" Text="Novo" />
         <asp:Button ID="btnSalvar" runat="server" class="btn btn-primary" OnClick="btnSalvar_Click" Text="Salvar" />
-&nbsp;<asp:Button ID="btnBusca" runat="server" class="btn btn-primary" OnClick="btnBusca_Click" Text="Busca" />
-&nbsp;</p>
-&nbsp;&nbsp;&nbsp; 
+        <asp:Button ID="btnBusca" runat="server" class="btn btn-primary" OnClick="btnBusca_Click" Text="Busca" />
+    </p>
+
 </asp:Content>

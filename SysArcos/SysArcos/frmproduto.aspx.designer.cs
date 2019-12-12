@@ -22,15 +22,6 @@ namespace ProjetoArcos {
         protected global::System.Web.UI.WebControls.Label lblAcao;
         
         /// <summary>
-        /// Controle lbl_cadastroproduto.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_cadastroproduto;
-        
-        /// <summary>
         /// Controle lblID.
         /// </summary>
         /// <remarks>

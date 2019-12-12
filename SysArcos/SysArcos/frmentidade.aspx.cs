@@ -21,6 +21,7 @@ namespace ProjetoArcos
                     ENTIDADE u = entities.ENTIDADE.FirstOrDefault(x => x.ID.Equals(i));
                     if (u != null)
                     {
+                        lblID.Text = i.ToString();
                         txtNomeEntidade.Text = u.NOME;
                         //txtNomeEntidade.ReadOnly = true;
                         txtCNPJ.Text = u.CNPJ;
@@ -30,7 +31,6 @@ namespace ProjetoArcos
                         txtCEP.Text = u.CEP;
                         txtCidade.Text = u.CIDADE;
                         drpEstado.Text = u.ESTADO;
-                        drpControladora.Text = u.ESTADO;
                         txtPresidente.Text = u.PRESIDENTE;
                         txtAdmnistrador.Text = u.LOGIN_USUARIO_ADMINISTRADOR;
                         lblAcao.Text = "ALTERANDO";
@@ -43,11 +43,10 @@ namespace ProjetoArcos
         protected void btnCadastra_Click(object sender, EventArgs e)
         {
             //Cria novo objeto entidade
-            ENTIDADE entidade = new ENTIDADE();
+            ENTIDADE entidade = null;
             // Criar conexão com o banco
-            ARCOS_Entities entity = new ARCOS_Entities();
-            // Insere o objeto
-            entity.ENTIDADE.Add(entidade);
+            ARCOS_Entities entity = GerConnetion.get(HttpContext.Current);
+            
 
             if (txtNomeEntidade.Text == "" || txtLogradouro.Text == "" || txtNumero.Text == "" || txtBairro.Text == "" || txtCEP.Text == ""
                 || txtCidade.Text == "" || drpEstado.Text == "" || txtPresidente.Text == "" || txtCNPJ.Text == "")
@@ -56,6 +55,11 @@ namespace ProjetoArcos
             }
             else
             {
+                if (lblAcao.Text.Equals("NOVO"))
+                    entidade = new ENTIDADE();
+                else
+                    entidade = entity.ENTIDADE.FirstOrDefault(x => x.ID.ToString().Equals(lblID.Text));
+
                 //entidade.ID = Convert.ToInt32(txtID.Text);
                 entidade.NOME = txtNomeEntidade.Text;
                 entidade.LOGRADOURO = txtLogradouro.Text;
@@ -69,22 +73,18 @@ namespace ProjetoArcos
                 entidade.CNPJ = txtCNPJ.Text;
                 entidade.LOGIN_USUARIO_ADMINISTRADOR = txtAdmnistrador.Text;
                 entidade.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
-                entity.ENTIDADE.Add(entidade);
-                entity.SaveChanges();
 
+                if (lblAcao.Text.Equals("NOVO"))
+                    entity.ENTIDADE.Add(entidade);
+                else
+                    entity.Entry(entidade);
+
+                entity.SaveChanges();
 
                 // Commit
                 Response.Write("<script>alert('Entidade cadastrada com sucesso!');</script>");
 
-                txtNomeEntidade.Text = string.Empty;
-                txtLogradouro.Text = string.Empty;
-                txtNumero.Text = string.Empty;
-                txtBairro.Text = string.Empty;
-                txtCEP.Text = string.Empty;
-                txtCidade.Text = string.Empty;
-                drpEstado.SelectedValue = null;
-                txtPresidente.Text = string.Empty;
-                txtCNPJ.Text = string.Empty;
+                limpar();
             }
 
         }
@@ -94,35 +94,25 @@ namespace ProjetoArcos
             Response.Redirect("frmbuscaentidade.aspx");
         }
 
-        protected void btnAlterar_Click(object sender, EventArgs e)
+        private void limpar()
         {
-            String ID = Request.QueryString["ID"];
-            int i = Convert.ToInt32(ID);
-            ARCOS_Entities entidade = GerConnetion.get(HttpContext.Current);
-            ENTIDADE u = entidade.ENTIDADE.FirstOrDefault(x => x.ID.Equals(i));
-
-            u.NOME = txtNomeEntidade.Text;
-            u.CNPJ = txtCNPJ.Text;
-            u.LOGRADOURO = txtLogradouro.Text;
-            u.NUMERO = txtNumero.Text;
-            u.BAIRRO = txtBairro.Text;
-            u.CEP = txtCEP.Text;
-            u.CIDADE = txtCidade.Text;
-            u.ESTADO = drpEstado.SelectedValue;
-            u.PRESIDENTE = txtPresidente.Text;
-            u.LOGIN_USUARIO_ADMINISTRADOR = txtAdmnistrador.Text;
-            entidade.Entry(u);
-            entidade.SaveChanges();
+            lblID.Text = string.Empty;
+            lblAcao.Text = "NOVO";
+            txtNomeEntidade.Text = string.Empty;
+            txtLogradouro.Text = string.Empty;
+            txtNumero.Text = string.Empty;
+            txtBairro.Text = string.Empty;
+            txtCEP.Text = string.Empty;
+            txtCidade.Text = string.Empty;
+            drpEstado.SelectedValue = null;
+            txtPresidente.Text = string.Empty;
+            txtCNPJ.Text = string.Empty;
+            txtAdmnistrador.Text = string.Empty;
         }
 
-        protected void btnDesativa_Click(object sender, EventArgs e)
+        protected void btnNovo_Click(object sender, EventArgs e)
         {
-            String ID = Request.QueryString["ID"];
-            int i = Convert.ToInt32(ID);
-            ARCOS_Entities entidade = GerConnetion.get(HttpContext.Current);
-            ENTIDADE u = entidade.ENTIDADE.FirstOrDefault(x => x.ID.Equals(i));
-
-            u.ATIVA = false;
+            limpar();
         }
     }
 }

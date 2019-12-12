@@ -51,3 +51,18 @@ button[name="drop"] {
 .drop-content a:hover {
     background-color: #E8EAF6;
 }
+
+.acao {
+    background-color: #d8f1fa;
+    padding: 7px;
+    margin-bottom: 5px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+}
+
+.entidade {
+    font-size: 22px;
+    border-bottom: 1px dashed black;
+    margin-bottom: 15px;
+}
