@@ -58,15 +58,6 @@ namespace ProjetoArcos {
         protected global::System.Web.UI.WebControls.RadioButton rddesativado;
         
         /// <summary>
-        /// Controle ddlAtivo.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAtivo;
-        
-        /// <summary>
         /// Controle rdnome.
         /// </summary>
         /// <remarks>
@@ -101,15 +92,6 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton rdCNPJ;
-        
-        /// <summary>
-        /// Controle ddlCampos.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCampos;
         
         /// <summary>
         /// Controle grid.

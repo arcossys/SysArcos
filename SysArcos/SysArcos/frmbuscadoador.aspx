@@ -2,17 +2,20 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Label ID="Label1" runat="server" Text="Buscar"></asp:Label>
+    <div class="entidade">
+        Buscar Doadores
+    </div>
+    <asp:Label ID="Label1" runat="server" Text="Filtro"></asp:Label>
     <asp:TextBox ID="txtbusca" runat="server"></asp:TextBox>
     <asp:Button ID="btnbuscar" runat="server" class="btn btn-success" Text="Buscar" OnClick="btnbuscar_Click" />
     <br />
     <div>
-        <asp:RadioButton ID="rdnome" runat="server" Text="Nome" />
-        <asp:RadioButton ID="rdcidade" runat="server" Text="Cidade" />
-        <asp:RadioButton ID="rdtipodoaçao" runat="server" Text="Tipo de doação" />
+        <asp:RadioButton ID="rdnome" runat="server" Text="Nome" GroupName="filtro" />
+        <asp:RadioButton ID="rdcidade" runat="server" Text="Cidade" GroupName="filtro" />
+        <asp:RadioButton ID="rdtipodoaçao" runat="server" Text="Tipo de doação" GroupName="filtro" />
     </div>
     <br />
-    <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="1166px" DataKeyNames="ID">
+    <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataKeyNames="ID">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="NOME" HeaderText="Nome" />
@@ -33,6 +36,6 @@
     </asp:GridView>
     <br />
     <asp:Button ID="btncancelar" class ="btn btn-primary" runat="server" Text="Cancelar" OnClick="btncancelar_Click" />
-    <asp:Button ID="btnselecionar" class ="btn btn-primary" runat="server" Text="Selecionar" OnClick="btnselecionar_Click" />
-    <asp:Button ID="btnremover" class ="btn btn-primary" runat="server" Text="Remover" OnClick="btnremover_Click" />
+    &nbsp;<asp:Button ID="btnselecionar" class ="btn btn-primary" runat="server" Text="Selecionar" OnClick="btnselecionar_Click" />
+    &nbsp;<asp:Button ID="btnremover" class ="btn btn-primary" runat="server" Text="Remover" OnClick="btnremover_Click" />
 </asp:Content>

@@ -62,5 +62,10 @@ namespace ProjetoArcos
                 //Redireciona para a página de cadastro com o login como parâmtro
                 Response.Redirect("frmtiporecurso.aspx?ID=" + Grid.SelectedValue.ToString());
         }
+
+        protected void btnvoltar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmtiporecurso.aspx");
+        }
     }
 }

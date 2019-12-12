@@ -2,6 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="entidade">
+        Buscar Voluntáriado
+    </div>
     <asp:Label ID="lbl_busca" runat="server" Text="Buscar"></asp:Label>
     <asp:TextBox ID="txt_Busca" runat="server"></asp:TextBox>
     <asp:Button ID="btn_Buscar" runat="server" class="btn btn-primary" Text="Buscar" OnClick="btn_Buscar_Click"/>

@@ -2,30 +2,20 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Label ID="Label1" runat="server" Text="Buscar"></asp:Label>
+    <div class="entidade">
+        Buscar Entidade
+    </div>
+    <asp:Label ID="Label1" runat="server" Text="Filtro"></asp:Label>
     <asp:TextBox ID="txtbusca" runat="server"></asp:TextBox>
     <asp:Button ID="btnbuscar" runat="server" class="btn btn-success" OnClick="btnbuscar_Click" Text="Buscar" />
     <div>
-        <asp:RadioButton ID="rdativo" runat="server" Text="Ativo" />
-        <asp:RadioButton ID="rddesativado" runat="server" Text="Inativo" />
-        <asp:DropDownList ID="ddlAtivo" runat="server">
-            <asp:ListItem></asp:ListItem>
-            <asp:ListItem>Ativo</asp:ListItem>
-            <asp:ListItem>Inativo</asp:ListItem>
-            <asp:ListItem>Todos</asp:ListItem>
-        </asp:DropDownList>
+        <asp:RadioButton ID="rdativo" runat="server" Text="Ativo" GroupName="ativo" />
+        <asp:RadioButton ID="rddesativado" runat="server" Text="Inativo" GroupName="ativo" />
     </div>
-    <asp:RadioButton ID="rdnome" runat="server" Text="Nome" />
-    <asp:RadioButton ID="rdcidade" runat="server" Text="Cidade" />
-    <asp:RadioButton ID="rdpresidente" runat="server" Text="Presidente" />
-    <asp:RadioButton ID="rdCNPJ" runat="server" Text="CNPJ" />
-    <asp:DropDownList ID="ddlCampos" runat="server">
-        <asp:ListItem></asp:ListItem>
-        <asp:ListItem>Nome</asp:ListItem>
-        <asp:ListItem>Cidade</asp:ListItem>
-        <asp:ListItem>Presidente</asp:ListItem>
-        <asp:ListItem>CNPJ</asp:ListItem>
-    </asp:DropDownList>
+    <asp:RadioButton ID="rdnome" runat="server" Text="Nome" GroupName="filtro" />
+    <asp:RadioButton ID="rdcidade" runat="server" Text="Cidade" GroupName="filtro" />
+    <asp:RadioButton ID="rdpresidente" runat="server" Text="Presidente" GroupName="filtro" />
+    <asp:RadioButton ID="rdCNPJ" runat="server" Text="CNPJ" GroupName="filtro" />
     <br />
     <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataKeyNames="ID" ShowHeaderWhenEmpty="True">
         <AlternatingRowStyle BackColor="White" />
@@ -48,7 +38,7 @@
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
     <br />
-    <asp:Button ID="btncancelar" runat="server" OnClick="btncancelar_Click" Text="Cancelar" />
-    <asp:Button ID="btnselecionar" runat="server" OnClick="btnselecionar_Click" Text="Selecionar" />
-    <asp:Button ID="btnremover" runat="server" OnClick="btnremover_Click" Text="Remover" />
+    <asp:Button ID="btncancelar" runat="server" OnClick="btncancelar_Click" Text="Cancelar" CssClass="btn btn-primary" />
+    &nbsp;<asp:Button ID="btnselecionar" runat="server" OnClick="btnselecionar_Click" Text="Selecionar" CssClass="btn btn-primary" />
+    &nbsp;<asp:Button ID="btnremover" runat="server" OnClick="btnremover_Click" Text="Remover" CssClass="btn btn-primary" />
 </asp:Content>

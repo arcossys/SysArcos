@@ -10,7 +10,7 @@
             <asp:Label ID="lblAcao" runat="server" Text="NOVO"></asp:Label>
         </div>
         <div>
-            <asp:Label ID="lblID" runat="server"></asp:Label>
+            <asp:Label ID="lblID" runat="server" Visible="False"></asp:Label>
         </div>
 
         <asp:Label ID="Label2" runat="server" Text="Nome do doador"></asp:Label>

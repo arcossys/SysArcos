@@ -2,6 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="entidade">
+        Buscar Tipo Recurso
+    </div>
     <p>
         <asp:Label ID="lblbuscar" runat="server" Text="Buscar"></asp:Label>
 &nbsp;<asp:TextBox ID="txtbusca" runat="server"></asp:TextBox>
@@ -12,7 +15,7 @@
         <asp:RadioButton ID="rddescricao" runat="server" Text="Descrição" />
 &nbsp;</p>
     <p>
-        <asp:GridView ID="Grid" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" ForeColor="#333333" GridLines="None" Width="299px">
+        <asp:GridView ID="Grid" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" ForeColor="#333333" GridLines="None" Width="600px">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="DESCRICAO" HeaderText="RECURSO" />
@@ -31,7 +34,7 @@
         </asp:GridView>
     </p>
     <p>
-        <asp:Button ID="btnvoltar" runat="server" Text="Voltar" CssClass="btn btn-primary" />
+        <asp:Button ID="btnvoltar" runat="server" Text="Cancelar" CssClass="btn btn-primary" OnClick="btnvoltar_Click" />
 &nbsp;
         <asp:Button ID="btnselecionar" runat="server" Text="Selecionar" OnClick="btnselecionar_Click" CssClass="btn btn-primary" />
 &nbsp;

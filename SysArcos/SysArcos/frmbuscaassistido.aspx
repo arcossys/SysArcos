@@ -2,7 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+      <div class="entidade">
+          Buscar Assistidos
+      </div>
       <div>
 
     <asp:Label ID="Label1" runat="server" Text="Buscar"></asp:Label>

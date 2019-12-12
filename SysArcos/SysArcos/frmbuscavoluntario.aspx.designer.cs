@@ -58,6 +58,15 @@ namespace ProjetoArcos {
         protected global::System.Web.UI.WebControls.GridView grid;
         
         /// <summary>
+        /// Controle btn_Voltar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Voltar;
+        
+        /// <summary>
         /// Controle btn_Alterar.
         /// </summary>
         /// <remarks>
@@ -74,14 +83,5 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_Remover;
-        
-        /// <summary>
-        /// Controle btn_Voltar.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Voltar;
     }
 }

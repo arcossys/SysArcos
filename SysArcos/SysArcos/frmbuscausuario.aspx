@@ -2,13 +2,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<div class="entidade">
+    Buscar Usuários
+</div>
 <div>
 
-    <asp:Label ID="Label1" runat="server" Text="Buscar"></asp:Label>
+    <asp:Label ID="Label1" runat="server" Text="Filtro"></asp:Label>
 &nbsp;<asp:TextBox ID="txtBusca" runat="server"></asp:TextBox>
-&nbsp;
-    <asp:Button ID="btnBuscar" runat="server" class="btn btn-success" Text="IR" OnClick="btnBuscar_Click" />
-
+&nbsp;<asp:Button ID="btnBuscar" runat="server" class="btn btn-success" Text="Buscar" OnClick="btnBuscar_Click" />
 
 
     <br />
