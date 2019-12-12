@@ -202,15 +202,6 @@ namespace ProjetoArcos {
         protected global::System.Web.UI.WebControls.CheckBox cb_ativo;
         
         /// <summary>
-        /// Controle btnCadastra.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCadastra;
-        
-        /// <summary>
         /// Controle btn_novo.
         /// </summary>
         /// <remarks>
@@ -218,6 +209,15 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_novo;
+        
+        /// <summary>
+        /// Controle btnCadastra.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCadastra;
         
         /// <summary>
         /// Controle btnConsulta.

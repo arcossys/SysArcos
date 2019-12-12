@@ -11,12 +11,35 @@ namespace ProjetoArcos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                String ID = Request.QueryString["id"];
+                if (ID != null)
+                {
+                    ARCOS_Entities entities = GerConnetion.get(HttpContext.Current);
+                    CATEGORIA_PRODUTO c = entities.CATEGORIA_PRODUTO.FirstOrDefault(x => x.ID.Equals(ID));
+                    if (c != null)
+                    {
+                        CATEGORIA_PRODUTO cat = entities.CATEGORIA_PRODUTO.FirstOrDefault(x => x.ID.ToString().Equals(ID));
+                        txtcategoria.Text = cat.DESCRICAO;
+                        lblID.Text = cat.ID.ToString();
+                        lblAcao.Text = "Alterando";
+                    }
+                    else
+                    {
+                        lblAcao.Text = "NOVO";
+                    }
+                }
+                else
+                {
+                    lblAcao.Text = "NOVO";
+                }
+            }
         }
 
         protected void btnNovo_Click(object sender, EventArgs e)
         {
-            txtcategoria.ReadOnly = false;
+            limpar();
         }
 
         protected void btncadastrar_Click(object sender, EventArgs e)
@@ -45,28 +68,10 @@ namespace ProjetoArcos
 
         }
 
-        protected void btnexcluir_Click(object sender, EventArgs e)
+        private void limpar()
         {
-            CATEGORIA_PRODUTO categoria = new CATEGORIA_PRODUTO();
-
-            if (GridView1.SelectedValue != null)
-            {
-              ARCOS_Entities entities = GerConnetion.get(HttpContext.Current);
-              GridView1.DataSource = null;
-              GridView1.DataBind();
-              GridView1.SelectedIndex = -1;
-              Response.Write("<script>alert('Removido com sucesso!');</script>");//
-            }
-        }
-
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnbuscar_Click(object sender, EventArgs e)
-        {
-            
+            txtcategoria.Text = string.Empty;
+            lblAcao.Text = "NOVO";
         }
     }
 }

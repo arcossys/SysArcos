@@ -3,14 +3,16 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <div  >
-        
-        <div>
-            <asp:Label ID="lblAcao" runat="server" Text="NOVO"></asp:Label>
-
-            <br />
-            <asp:Label ID="lblID" runat="server"></asp:Label>
-
+        <div class="entidade">
+            Doador
         </div>
+        <div class="acao">
+            <asp:Label ID="lblAcao" runat="server" Text="NOVO"></asp:Label>
+        </div>
+        <div>
+            <asp:Label ID="lblID" runat="server"></asp:Label>
+        </div>
+
         <asp:Label ID="Label2" runat="server" Text="Nome do doador"></asp:Label>
         <asp:TextBox ID="txt_nomedoador" class="form-control"  runat="server" Width="300px" MaxLength="50" Height="30px"></asp:TextBox>
     </div>
@@ -78,9 +80,10 @@
         <br />
     </div>
     <div>
-        <asp:Button ID="btnCadastra" class="btn btn-primary" runat="server" OnClick="btnCadastra_Click" Text="Cadastrar" Font-Bold="True" Height="40px" Width="100px" />
-        <asp:Button ID="btn_novo" class="btn btn-primary" runat="server" Text="Novo" Font-Bold="True" Height="40px" Width="100px" OnClick="btn_novo_Click" />
-        <asp:Button ID="btnConsulta" class="btn btn-primary" runat="server" Text="Consultar" Font-Bold="True" Height="40px" Width="100px" OnClick="btnConsulta_Click" />
+        <asp:Button ID="btn_novo" class="btn btn-primary" runat="server" Text="Novo" Font-Bold="True" Width="100px" OnClick="btn_novo_Click" />
+        <asp:Button ID="btnCadastra" class="btn btn-primary" runat="server" OnClick="btnCadastra_Click" Text="Salvar" Font-Bold="True" Width="100px" />
+        &nbsp;
+        <asp:Button ID="btnConsulta" class="btn btn-primary" runat="server" Text="Buscar" Font-Bold="True" Width="100px" OnClick="btnConsulta_Click" />
         <br />
         <br />
     </div>

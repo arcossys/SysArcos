@@ -2,13 +2,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="alert alert-primary" >
+    <div class="entidade">
+        Assistido
+    </div>
+    <div class="acao" >
         <asp:Label ID="lblAcao" runat="server" Text="NOVO"></asp:Label>
     </div> 
-    <div class="areaformulario" >
-
-            <div class="container-fluid">
-       
 
             <div  >
                <asp:Label ID="Label2" runat="server" Text="Nome:"></asp:Label>
@@ -54,6 +53,7 @@
               <div   >
                 <asp:Label ID="Label8" runat="server" Text="Estado:"></asp:Label>
                 <asp:DropDownList ID="drpEstado" class="form-control" runat="server" Height="30px" Width="300px">
+                   <asp:ListItem></asp:ListItem>
                    <asp:ListItem>AC</asp:ListItem>
                    <asp:ListItem>AL</asp:ListItem>
                    <asp:ListItem>AP</asp:ListItem>
@@ -88,35 +88,14 @@
                  Parentesco do Assistido:<asp:TextBox ID="txtParentescoAssistido"  class="form-control" runat="server" MaxLength="50" Width="300px" Height="30px"></asp:TextBox>
                  ID do Assistido Responsável<br />
                  <asp:TextBox ID="txtIDResponsavelAssistido" runat="server" Width="300px" class="form-control" Height="30px"></asp:TextBox>
-                 Ativo:<br />
-               <asp:DropDownList ID="drpAtivo" runat="server" Height="30px">
-                  <asp:ListItem Value="0"></asp:ListItem>
-                  <asp:ListItem Value="1"></asp:ListItem>
-                 <asp:ListItem Value="2"></asp:ListItem>
-               </asp:DropDownList>
-                 <br />
-                 <br />
-                 <br />
+               
              </div>
+                <br />
 
                 <div>
                      &nbsp;<asp:Button ID="btnNovo" runat="server" class="btn btn-primary" Text="Novo" OnClick="btnNovo_Click" />
 &nbsp;<asp:Button ID="btn_cadastrar"  class="btn btn-primary" runat="server" Text="Salvar" OnClick="btn_cadastrar_Click" />
                      &nbsp;<asp:Button ID="btn_buscar" class="btn btn-primary" runat="server" Text="Buscar" OnClick="btn_buscar_Click" />
                  </div>
-
-
-
-
-
-             <div>
-                 <br />
-                 <br />
-                 <br />
-             </div>
-                </div>
-
-
-         </div>
 
 </asp:Content>

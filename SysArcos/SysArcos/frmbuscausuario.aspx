@@ -6,7 +6,10 @@
 
     <asp:Label ID="Label1" runat="server" Text="Buscar"></asp:Label>
 &nbsp;<asp:TextBox ID="txtBusca" runat="server"></asp:TextBox>
-&nbsp;<asp:Button ID="btnBuscar" runat="server" class="btn btn-success" Text="Vai" OnClick="btnBuscar_Click" />
+&nbsp;
+    <asp:Button ID="btnBuscar" runat="server" class="btn btn-success" Text="IR" OnClick="btnBuscar_Click" />
+
+
 
     <br />
     <asp:RadioButton ID="rdNome" runat="server" Checked="True" GroupName="filtro" Text="Nome" />
