@@ -27,7 +27,7 @@ namespace ProjetoArcos
                 else
                 {
                     // conexão bem sucedida
-                    Session["usuariologado"] = u;
+                    Session["usuariologado"] = u.LOGIN.ToString();
                     //Redireciona para outra página
                     Response.Redirect("PaginaInicial.aspx");
                 }

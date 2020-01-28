@@ -13,15 +13,19 @@ namespace ProjetoArcos
         {
             if (!IsPostBack)
             {
-                USUARIO u = (USUARIO)Session["usuariologado"]; //Neste caso deve-se fazer a conversão
-                if (u != null)
+                String login = (string)Session["usuariologado"]; //Neste caso deve-se fazer a conversão
+                if (login != null)
                 {
-                    lbl_welcomeUser.Text = ("Usuário logado: " + u.NOME); // em 'u' vai recuperar o atributo NOME
+                    using (ARCOS_Entities entity = new ARCOS_Entities())
+                    {
+                        USUARIO u = entity.USUARIO.FirstOrDefault(x => x.LOGIN.Equals(login));
+                        lbl_welcomeUser.Text = ("Usuário logado: " + u.NOME); // em 'u' vai recuperar o atributo NOME
+                    }
                 }
 
                 else
                 {
-                    Response.Redirect("Default.aspx");
+                    Response.Redirect("/Default.aspx");
                 }
 
             }
@@ -33,7 +37,7 @@ namespace ProjetoArcos
             Session.RemoveAll();       //OU   Session["usuariologado"] = null;
 
             //Redireciona para a página principal
-            Response.Redirect("Default.aspx");
+            Response.Redirect("/Default.aspx");
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
