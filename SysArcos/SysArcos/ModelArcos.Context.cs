@@ -12,7 +12,8 @@ namespace ProjetoArcos
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+
+    [Serializable]
     public partial class ARCOS_Entities : DbContext
     {
         public ARCOS_Entities()

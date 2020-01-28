@@ -1,6 +1,5 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -72,11 +71,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -87,27 +81,30 @@
     <Content Include="css\master.css" />
     <Content Include="css\PaginaLogin.css" />
     <Content Include="Default.aspx" />
-    <Content Include="frmassistencia.aspx" />
-    <Content Include="frmassistido.aspx" />
-    <Content Include="frmbuscaassistencia.aspx" />
-    <Content Include="frmbuscaassistido.aspx" />
-    <Content Include="frmbuscadoador.aspx" />
-    <Content Include="frmbuscaentidade.aspx" />
-    <Content Include="frmbuscaproduto.aspx" />
-    <Content Include="frmbuscatipoevento.aspx" />
-    <Content Include="frmbuscatiporecurso.aspx" />
-    <Content Include="frmbuscausuario.aspx" />
-    <Content Include="frmbuscavoluntariado.aspx" />
-    <Content Include="frmbuscavoluntario.aspx" />
-    <Content Include="frmcategoria_produto.aspx" />
-    <Content Include="frmdoador.aspx" />
-    <Content Include="frmentidade.aspx" />
-    <Content Include="frmproduto.aspx" />
-    <Content Include="frmtipoevento.aspx" />
-    <Content Include="frmtiporecurso.aspx" />
-    <Content Include="frmusuario.aspx" />
-    <Content Include="frmvoluntariado.aspx" />
-    <Content Include="frmvoluntario.aspx" />
+    <Content Include="formularios\assistencia\frmassistencia.aspx" />
+    <Content Include="formularios\assistido\frmassistido.aspx" />
+    <Content Include="formularios\assistencia\frmbuscaassistencia.aspx" />
+    <Content Include="formularios\assistido\frmbuscaassistido.aspx" />
+    <Content Include="formularios\doador\frmbuscadoador.aspx" />
+    <Content Include="formularios\entidades\frmbuscaentidade.aspx" />
+    <Content Include="formularios\fornecedor\frmbuscafornecedor.aspx" />
+    <Content Include="formularios\produto\frmbuscaproduto.aspx" />
+    <Content Include="formularios\tipoevento\frmbuscatipoevento.aspx" />
+    <Content Include="formularios\tiporecurso\frmbuscatiporecurso.aspx" />
+    <Content Include="formularios\usuario\frmbuscausuario.aspx" />
+    <Content Include="formularios\voluntariado\frmbuscavoluntariado.aspx" />
+    <Content Include="formularios\voluntario\frmbuscavoluntario.aspx" />
+    <Content Include="formularios\categoria_produto\frmcategoria_produto.aspx" />
+    <Content Include="formularios\doador\frmdoador.aspx" />
+    <Content Include="formularios\entidades\frmentidade.aspx" />
+    <Content Include="formularios\evento\frmevento.aspx" />
+    <Content Include="formularios\fornecedor\frmfornecedor.aspx" />
+    <Content Include="formularios\produto\frmproduto.aspx" />
+    <Content Include="formularios\tipoevento\frmtipoevento.aspx" />
+    <Content Include="formularios\tiporecurso\frmtiporecurso.aspx" />
+    <Content Include="formularios\usuario\frmusuario.aspx" />
+    <Content Include="formularios\voluntariado\frmvoluntariado.aspx" />
+    <Content Include="formularios\voluntario\frmvoluntario.aspx" />
     <Content Include="imagens\ArcosIco.png" />
     <Content Include="imagens\ArcosLogo.png" />
     <Content Include="imagens\ArcosSys.png" />
@@ -146,6 +143,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -268,154 +266,174 @@
     <Compile Include="FORNECIMENTO_ITENS.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
     </Compile>
-    <Compile Include="frmassistencia.aspx.cs">
+    <Compile Include="formularios\assistencia\frmassistencia.aspx.cs">
       <DependentUpon>frmassistencia.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmassistencia.aspx.designer.cs">
+    <Compile Include="formularios\assistencia\frmassistencia.aspx.designer.cs">
       <DependentUpon>frmassistencia.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmassistido.aspx.cs">
+    <Compile Include="formularios\assistido\frmassistido.aspx.cs">
       <DependentUpon>frmassistido.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmassistido.aspx.designer.cs">
+    <Compile Include="formularios\assistido\frmassistido.aspx.designer.cs">
       <DependentUpon>frmassistido.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmbuscaassistencia.aspx.cs">
+    <Compile Include="formularios\assistencia\frmbuscaassistencia.aspx.cs">
       <DependentUpon>frmbuscaassistencia.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmbuscaassistencia.aspx.designer.cs">
+    <Compile Include="formularios\assistencia\frmbuscaassistencia.aspx.designer.cs">
       <DependentUpon>frmbuscaassistencia.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmbuscaassistido.aspx.cs">
+    <Compile Include="formularios\assistido\frmbuscaassistido.aspx.cs">
       <DependentUpon>frmbuscaassistido.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmbuscaassistido.aspx.designer.cs">
+    <Compile Include="formularios\assistido\frmbuscaassistido.aspx.designer.cs">
       <DependentUpon>frmbuscaassistido.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmbuscadoador.aspx.cs">
+    <Compile Include="formularios\doador\frmbuscadoador.aspx.cs">
       <DependentUpon>frmbuscadoador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmbuscadoador.aspx.designer.cs">
+    <Compile Include="formularios\doador\frmbuscadoador.aspx.designer.cs">
       <DependentUpon>frmbuscadoador.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmbuscaentidade.aspx.cs">
+    <Compile Include="formularios\entidades\frmbuscaentidade.aspx.cs">
       <DependentUpon>frmbuscaentidade.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmbuscaentidade.aspx.designer.cs">
+    <Compile Include="formularios\entidades\frmbuscaentidade.aspx.designer.cs">
       <DependentUpon>frmbuscaentidade.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmbuscaproduto.aspx.cs">
+    <Compile Include="formularios\fornecedor\frmbuscafornecedor.aspx.cs">
+      <DependentUpon>frmbuscafornecedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\fornecedor\frmbuscafornecedor.aspx.designer.cs">
+      <DependentUpon>frmbuscafornecedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\produto\frmbuscaproduto.aspx.cs">
       <DependentUpon>frmbuscaproduto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmbuscaproduto.aspx.designer.cs">
+    <Compile Include="formularios\produto\frmbuscaproduto.aspx.designer.cs">
       <DependentUpon>frmbuscaproduto.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmbuscatipoevento.aspx.cs">
+    <Compile Include="formularios\tipoevento\frmbuscatipoevento.aspx.cs">
       <DependentUpon>frmbuscatipoevento.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmbuscatipoevento.aspx.designer.cs">
+    <Compile Include="formularios\tipoevento\frmbuscatipoevento.aspx.designer.cs">
       <DependentUpon>frmbuscatipoevento.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmbuscatiporecurso.aspx.cs">
+    <Compile Include="formularios\tiporecurso\frmbuscatiporecurso.aspx.cs">
       <DependentUpon>frmbuscatiporecurso.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmbuscatiporecurso.aspx.designer.cs">
+    <Compile Include="formularios\tiporecurso\frmbuscatiporecurso.aspx.designer.cs">
       <DependentUpon>frmbuscatiporecurso.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmbuscausuario.aspx.cs">
+    <Compile Include="formularios\usuario\frmbuscausuario.aspx.cs">
       <DependentUpon>frmbuscausuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmbuscausuario.aspx.designer.cs">
+    <Compile Include="formularios\usuario\frmbuscausuario.aspx.designer.cs">
       <DependentUpon>frmbuscausuario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmbuscavoluntariado.aspx.cs">
+    <Compile Include="formularios\voluntariado\frmbuscavoluntariado.aspx.cs">
       <DependentUpon>frmbuscavoluntariado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmbuscavoluntariado.aspx.designer.cs">
+    <Compile Include="formularios\voluntariado\frmbuscavoluntariado.aspx.designer.cs">
       <DependentUpon>frmbuscavoluntariado.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmbuscavoluntario.aspx.cs">
+    <Compile Include="formularios\voluntario\frmbuscavoluntario.aspx.cs">
       <DependentUpon>frmbuscavoluntario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmbuscavoluntario.aspx.designer.cs">
+    <Compile Include="formularios\voluntario\frmbuscavoluntario.aspx.designer.cs">
       <DependentUpon>frmbuscavoluntario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmcategoria_produto.aspx.cs">
+    <Compile Include="formularios\categoria_produto\frmcategoria_produto.aspx.cs">
       <DependentUpon>frmcategoria_produto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmcategoria_produto.aspx.designer.cs">
+    <Compile Include="formularios\categoria_produto\frmcategoria_produto.aspx.designer.cs">
       <DependentUpon>frmcategoria_produto.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmdoador.aspx.cs">
+    <Compile Include="formularios\doador\frmdoador.aspx.cs">
       <DependentUpon>frmdoador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmdoador.aspx.designer.cs">
+    <Compile Include="formularios\doador\frmdoador.aspx.designer.cs">
       <DependentUpon>frmdoador.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmentidade.aspx.cs">
+    <Compile Include="formularios\entidades\frmentidade.aspx.cs">
       <DependentUpon>frmentidade.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmentidade.aspx.designer.cs">
+    <Compile Include="formularios\entidades\frmentidade.aspx.designer.cs">
       <DependentUpon>frmentidade.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmproduto.aspx.cs">
+    <Compile Include="formularios\evento\frmevento.aspx.cs">
+      <DependentUpon>frmevento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\evento\frmevento.aspx.designer.cs">
+      <DependentUpon>frmevento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\fornecedor\frmfornecedor.aspx.cs">
+      <DependentUpon>frmfornecedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\fornecedor\frmfornecedor.aspx.designer.cs">
+      <DependentUpon>frmfornecedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\produto\frmproduto.aspx.cs">
       <DependentUpon>frmproduto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmproduto.aspx.designer.cs">
+    <Compile Include="formularios\produto\frmproduto.aspx.designer.cs">
       <DependentUpon>frmproduto.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmtipoevento.aspx.cs">
+    <Compile Include="formularios\tipoevento\frmtipoevento.aspx.cs">
       <DependentUpon>frmtipoevento.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmtipoevento.aspx.designer.cs">
+    <Compile Include="formularios\tipoevento\frmtipoevento.aspx.designer.cs">
       <DependentUpon>frmtipoevento.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmtiporecurso.aspx.cs">
+    <Compile Include="formularios\tiporecurso\frmtiporecurso.aspx.cs">
       <DependentUpon>frmtiporecurso.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmtiporecurso.aspx.designer.cs">
+    <Compile Include="formularios\tiporecurso\frmtiporecurso.aspx.designer.cs">
       <DependentUpon>frmtiporecurso.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmusuario.aspx.cs">
+    <Compile Include="formularios\usuario\frmusuario.aspx.cs">
       <DependentUpon>frmusuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmusuario.aspx.designer.cs">
+    <Compile Include="formularios\usuario\frmusuario.aspx.designer.cs">
       <DependentUpon>frmusuario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmvoluntariado.aspx.cs">
+    <Compile Include="formularios\voluntariado\frmvoluntariado.aspx.cs">
       <DependentUpon>frmvoluntariado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmvoluntariado.aspx.designer.cs">
+    <Compile Include="formularios\voluntariado\frmvoluntariado.aspx.designer.cs">
       <DependentUpon>frmvoluntariado.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmvoluntario.aspx.cs">
+    <Compile Include="formularios\voluntario\frmvoluntario.aspx.cs">
       <DependentUpon>frmvoluntario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmvoluntario.aspx.designer.cs">
+    <Compile Include="formularios\voluntario\frmvoluntario.aspx.designer.cs">
       <DependentUpon>frmvoluntario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GerConnetion.cs" />
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -510,6 +528,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -536,12 +555,6 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

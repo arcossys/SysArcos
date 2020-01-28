@@ -35,31 +35,31 @@
                 <div class="menu-drop">
                     <button type="button"name="drop">ENTIDADES</button>
                         <div class="drop-content">
-                            <a href="frmentidade.aspx">Entidade</a>
+                            <a href="/formularios/entidades/frmentidade.aspx">Entidade</a>
                         </div>
                 </div>
 
                 <div class="menu-drop">
                     <button type="button" name="drop">VOLUNTARIOS</button>
                         <div class="drop-content">
-                            <a href="frmvoluntario.aspx">Voluntários</a>
+                            <a href="/formularios/voluntario/frmvoluntario.aspx">Voluntários</a>
                             <a href="#">Voluntariar</a>
-                            <a href="frmvoluntariado.aspx">Voluntariado</a>
+                            <a href="/formularios/voluntariado/frmvoluntariado.aspx">Voluntariado</a>
                         </div>
                 </div>
 
                 <div class="menu-drop">
                     <button type="button" name="drop">USUÁRIOS</button>
                     <div class="drop-content">
-                        <a href="frmusuario.aspx">Usuários</a>
+                        <a href="/formularios/usuario/frmusuario.aspx">Usuários</a>
                     </div>
                 </div>
 
                 <div class="menu-drop">
                     <button type="button" name="drop">EVENTO</button>
                     <div class="drop-content">
-                        <a href="#">Evento</a>
-                        <a href="frmtipoevento.aspx">Tipo de Evento</a>
+                        <a href="/formularios/evento/frmevento.aspx">Evento</a>
+                        <a href="/formularios/tipoevento/frmtipoevento.aspx">Tipo de Evento</a>
                     </div>
                 </div>
 
@@ -67,14 +67,14 @@
                     <button type="button" name="drop">RECURSO</button>
                     <div class="drop-content">
                         <a href="#">Recurso</a>
-                        <a href="frmtiporecurso.aspx">Tipo de Recurso</a>
+                        <a href="/formularios/tiporecurso/frmtiporecurso.aspx">Tipo de Recurso</a>
                     </div>
                 </div>
 
                 <div class="menu-drop">
                     <button type="button" name="drop">FORNECEDORES</button>
                     <div class="drop-content">
-                        <a href="#">Fornecedor</a>
+                        <a href="/formularios/fornecedor/frmfornecedor.aspx">Fornecedor</a>
                         <a href="#">Fornecimento</a>
                     </div>
                 </div>
@@ -82,8 +82,8 @@
                 <div class="menu-drop">
                     <button type="button" name="drop">ESTOQUE</button>
                     <div class="drop-content">
-                        <a href="frmproduto.aspx">Produto</a>
-                        <a href="frmcategoria_produto.aspx">Tipo de Produto</a>
+                        <a href="/formularios/produto/frmproduto.aspx">Produto</a>
+                        <a href="/formularios/categoria_produto/frmcategoria_produto.aspx">Tipo de Produto</a>
                     </div>
                 </div>
 
@@ -91,15 +91,15 @@
                     <button type="button" name="drop">DOAÇÕES</button>
                     <div class="drop-content">
                         <a href="#">Doação</a>
-                        <a href="frmdoador.aspx">Doador</a>
+                        <a href="/formularios/doador/frmdoador.aspx">Doador</a>
                     </div>
                 </div>
 
                 <div class="menu-drop">
                     <button type="button" name="drop">ASSISTENCIA</button>
                     <div class="drop-content">
-                        <a href="frmassistencia.aspx">Assistencia</a>
-                        <a href="frmassistido.aspx">Assistido</a>
+                        <a href="/formularios/assistencia/frmassistencia.aspx">Assistencia</a>
+                        <a href="/formularios/assistido/frmassistido.aspx">Assistido</a>
                     </div>
                 </div>
 
