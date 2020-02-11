@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using SysArcos;
 namespace ProjetoArcos
 {
     public partial class frmTipoEvento : System.Web.UI.Page

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProjetoArcos
+namespace SysArcos
 {
     using System;
     using System.Collections.Generic;
@@ -19,6 +19,7 @@ namespace ProjetoArcos
         {
             this.ENTIDADE = new HashSet<ENTIDADE>();
             this.RECUPERACAO_SENHA = new HashSet<RECUPERACAO_SENHA>();
+            this.TELA = new HashSet<TELA>();
         }
     
         public string LOGIN { get; set; }
@@ -33,5 +34,7 @@ namespace ProjetoArcos
         public virtual ICollection<ENTIDADE> ENTIDADE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RECUPERACAO_SENHA> RECUPERACAO_SENHA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TELA> TELA { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div class="entidade">
+    <div class="entidade">
     Buscar Usuários
 </div>
 <div>
@@ -50,6 +50,8 @@
 &nbsp;<asp:Button ID="btnSelecionar" class="btn btn-primary" runat="server" Text="Selecionar" OnClick="btnSelecionar_Click" />
 &nbsp;<asp:Button ID="btnRemover" class="btn btn-primary" runat="server" Text="Remover" OnClick="btnRemover_Click" 
     OnClientClick="return confirm('Deseja remover?');"/>
+
+&nbsp;<asp:Button ID="btnPermissoes" runat="server" Text="Permissões" CssClass="btn btn-primary" OnClick="btnPermissoes_Click"/>
 
 </div>
 </asp:Content>

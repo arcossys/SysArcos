@@ -7,13 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProjetoArcos
+namespace SysArcos
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
-    [Serializable]
+    
     public partial class ARCOS_Entities : DbContext
     {
         public ARCOS_Entities()
@@ -47,5 +46,6 @@ namespace ProjetoArcos
         public virtual DbSet<VOLUNTARIO> VOLUNTARIO { get; set; }
         public virtual DbSet<CONFIG_SERVIDOR> CONFIG_SERVIDOR { get; set; }
         public virtual DbSet<RECUPERACAO_SENHA> RECUPERACAO_SENHA { get; set; }
+        public virtual DbSet<TELA> TELA { get; set; }
     }
 }

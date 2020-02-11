@@ -18,18 +18,19 @@
               <asp:Label ID="lbl_senha" runat="server" Text="Senha:"></asp:Label>
               <asp:TextBox ID="txt_senhaUsuario"  type="password" class="form-control" runat="server" MaxLength="8" Placeholder="max: 8 dig" Width="300px"></asp:TextBox>     
             </div>
-             <div>
 
-             <div>  
+             <div class="form-group" >  
                  <asp:Label ID="lbl_nomeUsuario" runat="server" Text="Nome:"></asp:Label>
                  <asp:TextBox ID="txt_nomeUsuario" class="form-control" runat="server" MaxLength="50" Width="300px"></asp:TextBox>                
              </div>
-               <div  >                   
+               <div  class="form-group" >                   
                    <asp:Label ID="lbl_cpf" runat="server" Text="CPF:"></asp:Label>
+                   &nbsp;<asp:RegularExpressionValidator ID="revCPF" runat="server" ControlToValidate="txt_cpf" ErrorMessage="Formato de CPF inválido, informe apenas números" ForeColor="Red" ValidationExpression="[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}"></asp:RegularExpressionValidator>
                    <asp:TextBox ID="txt_cpf" class="form-control" runat="server" MaxLength="14" Placeholder="XXX.XXX.XXX-XX" Width="300px"></asp:TextBox>               </div>
-                 <div >                   
+                 <div  class="form-group" >                   
                    <asp:Label ID="lbl_email" runat="server" Text="E-mail"></asp:Label>
-                   <asp:TextBox ID="txt_email" class="form-control" runat="server" MaxLength="50" Width="300px"></asp:TextBox>
+                   &nbsp;<asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="txt_email" ErrorMessage="Formato de e-mail inválido" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+&nbsp;<asp:TextBox ID="txt_email" class="form-control" runat="server" MaxLength="50" Width="300px"></asp:TextBox>
                  </div>
                  <div>
                     <asp:CheckBox ID="CB_ativo" type="checkbox" runat="server" BorderColor="Black" Checked="True" />                
@@ -41,6 +42,5 @@
 &nbsp;<asp:Button ID="btn_cadastrar"  class="btn btn-primary" runat="server" Text="Salvar" OnClick="btn_cadastrar_Click" />
                      &nbsp;<asp:Button ID="btn_buscar" class="btn btn-primary" runat="server" Text="Buscar" OnClick="btn_buscar_Click" />
                  </div>                 
-                   
-                 </div> 
+
 </asp:Content>

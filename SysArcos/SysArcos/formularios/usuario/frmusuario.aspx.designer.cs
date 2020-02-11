@@ -85,6 +85,15 @@ namespace ProjetoArcos {
         protected global::System.Web.UI.WebControls.Label lbl_cpf;
         
         /// <summary>
+        /// Controle revCPF.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revCPF;
+        
+        /// <summary>
         /// Controle txt_cpf.
         /// </summary>
         /// <remarks>
@@ -101,6 +110,15 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_email;
+        
+        /// <summary>
+        /// Controle revEmail.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revEmail;
         
         /// <summary>
         /// Controle txt_email.

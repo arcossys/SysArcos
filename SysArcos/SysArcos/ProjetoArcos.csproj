@@ -92,6 +92,7 @@
     <Content Include="formularios\tipoevento\frmbuscatipoevento.aspx" />
     <Content Include="formularios\tiporecurso\frmbuscatiporecurso.aspx" />
     <Content Include="formularios\usuario\frmbuscausuario.aspx" />
+    <Content Include="formularios\usuario\frmpermissoes.aspx" />
     <Content Include="formularios\voluntariado\frmbuscavoluntariado.aspx" />
     <Content Include="formularios\voluntario\frmbuscavoluntario.aspx" />
     <Content Include="formularios\categoria_produto\frmcategoria_produto.aspx" />
@@ -256,6 +257,13 @@
     </Compile>
     <Compile Include="EVENTO.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\usuario\frmpermissoes.aspx.cs">
+      <DependentUpon>frmpermissoes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\usuario\frmpermissoes.aspx.designer.cs">
+      <DependentUpon>frmpermissoes.aspx</DependentUpon>
     </Compile>
     <Compile Include="FORNECEDOR.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
@@ -471,6 +479,9 @@
       <DependentUpon>ModelArcos.tt</DependentUpon>
     </Compile>
     <Compile Include="RECURSO.cs">
+      <DependentUpon>ModelArcos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TELA.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
     </Compile>
     <Compile Include="TIPO_EVENTO.cs">

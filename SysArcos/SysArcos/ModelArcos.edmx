@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ARCOS_V2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ARCOS_V2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ASSISTENCIA">
           <Key>
             <PropertyRef Name="ID" />
@@ -213,6 +213,13 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
           <Property Name="ATIVO" Type="bit" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="TELA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="TIPO_EVENTO">
           <Key>
             <PropertyRef Name="ID" />
@@ -240,6 +247,14 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
           <Property Name="EMAIL" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ATIVO" Type="bit" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USUARIO_TELA">
+          <Key>
+            <PropertyRef Name="ID_TELA" />
+            <PropertyRef Name="LOGIN_USUARIO" />
+          </Key>
+          <Property Name="ID_TELA" Type="int" Nullable="false" />
+          <Property Name="LOGIN_USUARIO" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <EntityType Name="VOLUNTARIADO">
           <Key>
@@ -511,6 +526,30 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_URUARIO_TELA__TELA">
+          <End Role="TELA" Type="Self.TELA" Multiplicity="1" />
+          <End Role="USUARIO_TELA" Type="Self.USUARIO_TELA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TELA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USUARIO_TELA">
+              <PropertyRef Name="ID_TELA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_TELA__USUARIO">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="USUARIO_TELA" Type="Self.USUARIO_TELA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="LOGIN" />
+            </Principal>
+            <Dependent Role="USUARIO_TELA">
+              <PropertyRef Name="LOGIN_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_VOLUNTARIADO_ENTIDADE">
           <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="1" />
           <End Role="VOLUNTARIADO" Type="Self.VOLUNTARIADO" Multiplicity="*" />
@@ -573,9 +612,11 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
           <EntitySet Name="FORNECIMENTO_ITENS" EntityType="Self.FORNECIMENTO_ITENS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRODUTO" EntityType="Self.PRODUTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RECURSO" EntityType="Self.RECURSO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TELA" EntityType="Self.TELA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIPO_EVENTO" EntityType="Self.TIPO_EVENTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIPO_RECURSO" EntityType="Self.TIPO_RECURSO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIO_TELA" EntityType="Self.USUARIO_TELA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VOLUNTARIADO" EntityType="Self.VOLUNTARIADO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VOLUNTARIAR" EntityType="Self.VOLUNTARIAR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VOLUNTARIO" EntityType="Self.VOLUNTARIO" Schema="dbo" store:Type="Tables" />
@@ -674,6 +715,14 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
             <End Role="TIPO_RECURSO" EntitySet="TIPO_RECURSO" />
             <End Role="RECURSO" EntitySet="RECURSO" />
           </AssociationSet>
+          <AssociationSet Name="FK_URUARIO_TELA__TELA" Association="Self.FK_URUARIO_TELA__TELA">
+            <End Role="TELA" EntitySet="TELA" />
+            <End Role="USUARIO_TELA" EntitySet="USUARIO_TELA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_TELA__USUARIO" Association="Self.FK_USUARIO_TELA__USUARIO">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="USUARIO_TELA" EntitySet="USUARIO_TELA" />
+          </AssociationSet>
           <AssociationSet Name="FK_VOLUNTARIADO_ENTIDADE" Association="Self.FK_VOLUNTARIADO_ENTIDADE">
             <End Role="ENTIDADE" EntitySet="ENTIDADE" />
             <End Role="VOLUNTARIADO" EntitySet="VOLUNTARIADO" />
@@ -691,8 +740,7 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
             <End Role="VOLUNTARIO" EntitySet="VOLUNTARIO" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ARCOS_V2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -936,6 +984,7 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="ENTIDADE" Relationship="Self.FK_ENTIDADE_USUARIO" FromRole="USUARIO" ToRole="ENTIDADE" />
           <NavigationProperty Name="RECUPERACAO_SENHA" Relationship="Self.FK_RECUPERACAO_SENHA_USUARIO" FromRole="USUARIO" ToRole="RECUPERACAO_SENHA" />
+          <NavigationProperty Name="TELA" Relationship="ARCOS_V2Model.USUARIO_TELA" FromRole="USUARIO" ToRole="TELA" />
         </EntityType>
         <EntityType Name="VOLUNTARIADO">
           <Key>
@@ -1406,7 +1455,24 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
             <End Role="VOLUNTARIO" EntitySet="VOLUNTARIO" />
             <End Role="VOLUNTARIAR" EntitySet="VOLUNTARIAR" />
           </AssociationSet>
+          <EntitySet Name="TELA" EntityType="ARCOS_V2Model.TELA" />
+          <AssociationSet Name="USUARIO_TELA" Association="ARCOS_V2Model.USUARIO_TELA">
+            <End Role="TELA" EntitySet="TELA" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="TELA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRICAO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="USUARIO" Relationship="ARCOS_V2Model.USUARIO_TELA" FromRole="TELA" ToRole="USUARIO" />
+        </EntityType>
+        <Association Name="USUARIO_TELA">
+          <End Type="ARCOS_V2Model.TELA" Role="TELA" Multiplicity="*" />
+          <End Type="ARCOS_V2Model.USUARIO" Role="USUARIO" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1698,6 +1764,22 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TELA">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.TELA">
+              <MappingFragment StoreEntitySet="TELA">
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="USUARIO_TELA" TypeName="ARCOS_V2Model.USUARIO_TELA" StoreEntitySet="USUARIO_TELA">
+            <EndProperty Name="USUARIO">
+              <ScalarProperty Name="LOGIN" ColumnName="LOGIN_USUARIO" />
+            </EndProperty>
+            <EndProperty Name="TELA">
+              <ScalarProperty Name="ID" ColumnName="ID_TELA" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

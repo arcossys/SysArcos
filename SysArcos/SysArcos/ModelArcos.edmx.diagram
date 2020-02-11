@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="260bc477525b46d2b91920acbd462d86" Name="Diagram1" ZoomLevel="29">
+      <Diagram DiagramId="260bc477525b46d2b91920acbd462d86" Name="Diagram1" ZoomLevel="55">
         <EntityTypeShape EntityType="ARCOS_V2Model.ASSISTENCIA" Width="1.5" PointX="5.25" PointY="15.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ARCOS_V2Model.ASSISTIDO" Width="1.5" PointX="3" PointY="24.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ARCOS_V2Model.CATEGORIA_PRODUTO" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
@@ -49,6 +49,8 @@
         <AssociationConnector Association="ARCOS_V2Model.FK_RECUPERACAO_SENHA_USUARIO" ManuallyRouted="false" />
         <AssociationConnector Association="ARCOS_V2Model.FK_VOLUNTARIAR_VOLUNTARIADO" ManuallyRouted="false" />
         <AssociationConnector Association="ARCOS_V2Model.FK_VOLUNTARIAR_VOLUNTARIO" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.TELA" Width="1.5" PointX="10.875" PointY="8.75" />
+        <AssociationConnector Association="ARCOS_V2Model.USUARIO_TELA" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

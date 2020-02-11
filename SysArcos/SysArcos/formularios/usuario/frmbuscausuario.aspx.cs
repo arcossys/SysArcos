@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SysArcos;
 
 namespace ProjetoArcos
 {
@@ -11,7 +12,7 @@ namespace ProjetoArcos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -66,6 +67,21 @@ namespace ProjetoArcos
                     Response.Write("<script>alert('Removido com sucesso!');</script>");
                 }
             }
+        }
+
+        protected void btnPermissoes_Click(object sender, EventArgs e)
+        {
+            if (grid.Rows.Count > 0)
+            {
+                if (grid.SelectedValue != null)
+                {
+                    string login = grid.SelectedValue.ToString();
+                    if (login != null && !login.Equals(""))
+                    {
+                        Response.Redirect("frmpermissoes.aspx?login=" + login);
+                    }
+                }
+            }           
         }
     }
 }
