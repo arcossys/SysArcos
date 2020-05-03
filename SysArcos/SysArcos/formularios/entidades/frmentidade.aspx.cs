@@ -13,6 +13,7 @@ namespace ProjetoArcos
         {
             if (!IsPostBack)
             {
+                carregaAdministradores();
                 String ID = Request.QueryString["ID"];
                 if ((ID != null) && (!ID.Equals("")))
                 {
@@ -116,6 +117,19 @@ namespace ProjetoArcos
         protected void btnNovo_Click(object sender, EventArgs e)
         {
             limpar();
+        }
+
+        private void carregaAdministradores()
+        {
+            using (ARCOS_Entities entity = new ARCOS_Entities())
+            {
+                List<USUARIO> list = entity.USUARIO.OrderBy(x => x.LOGIN).ToList();
+                txtAdmnistrador.DataTextField = "LOGIN";
+                txtAdmnistrador.DataValueField = "LOGIN";
+                txtAdmnistrador.DataSource = list;
+                txtAdmnistrador.DataBind();
+                txtAdmnistrador.Items.Insert(0, "");
+            }
         }
     }
 }
