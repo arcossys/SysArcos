@@ -260,4 +260,4 @@ paket-files/
 __pycache__/
 *.pyc
 
-git update-index --assume-unchanged Web.config
+Web.config
