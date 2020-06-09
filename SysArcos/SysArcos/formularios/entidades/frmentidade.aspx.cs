@@ -27,6 +27,7 @@ namespace ProjetoArcos
                             txtNomeEntidade.Text = u.NOME;
                             //txtNomeEntidade.ReadOnly = true;
                             txtCNPJ.Text = u.CNPJ;
+                            txtTelefone.Text = u.TELEFONE;
                             txtLogradouro.Text = u.LOGRADOURO;
                             txtNumero.Text = u.NOME;
                             txtBairro.Text = u.BAIRRO;
@@ -52,7 +53,7 @@ namespace ProjetoArcos
 
 
                 if (txtNomeEntidade.Text == "" || txtLogradouro.Text == "" || txtNumero.Text == "" || txtBairro.Text == "" || txtCEP.Text == ""
-                    || txtCidade.Text == "" || drpEstado.Text == "" || txtPresidente.Text == "" || txtCNPJ.Text == "")
+                    || txtCidade.Text == "" || drpEstado.Text == "" || txtPresidente.Text == "" || txtCNPJ.Text == ""|| txtTelefone.Text == "")
                 {
                     Response.Write("<script>alert('Há campos obrigatorios não preenchidos!');</script>");
                 }
@@ -74,6 +75,7 @@ namespace ProjetoArcos
                     //entidade.ID_ENTIDADE_CONTROLADORA = Convert.ToInt32(drpControladora.Text);
                     entidade.PRESIDENTE = txtPresidente.Text;
                     entidade.CNPJ = txtCNPJ.Text;
+                    entidade.TELEFONE = txtTelefone.Text;
                     entidade.LOGIN_USUARIO_ADMINISTRADOR = txtAdmnistrador.Text;
                     entidade.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
 

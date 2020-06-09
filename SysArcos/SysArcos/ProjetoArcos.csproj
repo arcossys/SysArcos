@@ -44,10 +44,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit, Version=18.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Documents\ASP.NET AJAX Control Toolkit\Bin\AjaxControlToolkit.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -235,9 +231,6 @@
       <DependentUpon>ModelArcos.tt</DependentUpon>
     </Compile>
     <Compile Include="CATEGORIA_PRODUTO.cs">
-      <DependentUpon>ModelArcos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CONFIG_SERVIDOR.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
@@ -479,13 +472,7 @@
       <DependentUpon>ModelArcos.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RECUPERACAO_SENHA.cs">
-      <DependentUpon>ModelArcos.tt</DependentUpon>
-    </Compile>
     <Compile Include="RECURSO.cs">
-      <DependentUpon>ModelArcos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TELA.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
     </Compile>
     <Compile Include="TIPO_EVENTO.cs">
