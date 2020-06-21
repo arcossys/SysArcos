@@ -36,7 +36,7 @@
     <p>
         <asp:Button ID="btnvoltar" runat="server" Text="Cancelar" CssClass="btn btn-primary" OnClick="btnvoltar_Click" />
 &nbsp;
-        <asp:Button ID="btnselecionar" runat="server" Text="Selecionar" OnClick="btnselecionar_Click" CssClass="btn btn-primary" />
+        <asp:Button ID="btnselecionar" runat="server" Text="Editar" OnClick="btnselecionar_Click" CssClass="btn btn-primary" />
 &nbsp;
         <asp:Button ID="btnremover" runat="server" Text="Remover" OnClick="btnremover_Click" CssClass="btn btn-primary" />
     </p>

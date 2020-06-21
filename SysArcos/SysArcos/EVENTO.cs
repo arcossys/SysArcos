@@ -23,7 +23,7 @@ namespace SysArcos
         public int ID_ENTIDADE { get; set; }
         public System.DateTime DATA_HORA_CRIACAO_REGISTRO { get; set; }
     
-        public virtual ENTIDADE ENTIDADE { get; set; }
         public virtual TIPO_EVENTO TIPO_EVENTO { get; set; }
+        public virtual ENTIDADE ENTIDADE { get; set; }
     }
 }

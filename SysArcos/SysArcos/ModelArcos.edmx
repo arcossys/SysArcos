@@ -46,24 +46,6 @@
           <Property Name="DESCRICAO" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'ARCOS_V2.dbo.CONFIG_SERVIDOR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="CONFIG_SERVIDOR">
-          <Key>
-            <PropertyRef Name="USUARIO_AUTH" />
-            <PropertyRef Name="SENHA_AUTH" />
-            <PropertyRef Name="ENDERECO_SERV_EMAIL" />
-            <PropertyRef Name="PORTA_SERV_EMAIL" />
-            <PropertyRef Name="SSL_SERV_EMAIL" />
-            <PropertyRef Name="ENDERECO_APPLICACAO_REDIRECT" />
-          </Key>
-          <Property Name="USUARIO_AUTH" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="SENHA_AUTH" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="ENDERECO_SERV_EMAIL" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="PORTA_SERV_EMAIL" Type="int" Nullable="false" />
-          <Property Name="SSL_SERV_EMAIL" Type="int" Nullable="false" />
-          <Property Name="ENDERECO_APPLICACAO_REDIRECT" Type="varchar" MaxLength="200" Nullable="false" />
-        </EntityType>
         <EntityType Name="DOACAO">
           <Key>
             <PropertyRef Name="ID" />
@@ -111,6 +93,7 @@ warning 6002: The table/view 'ARCOS_V2.dbo.CONFIG_SERVIDOR' does not have a prim
           <Property Name="ID_ENTIDADE_CONTROLADORA" Type="int" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
           <Property Name="CNPJ" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="TELEFONE" Type="varchar" MaxLength="13" />
         </EntityType>
         <EntityType Name="ESTOQUE">
           <Key>
@@ -185,22 +168,6 @@ warning 6002: The table/view 'ARCOS_V2.dbo.CONFIG_SERVIDOR' does not have a prim
           <Property Name="ID_CATEGORIA" Type="int" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="RECUPERACAO_SENHA">
-          <Key>
-            <PropertyRef Name="LOGIN_USUARIO" />
-            <PropertyRef Name="CHAVE" />
-            <PropertyRef Name="DATA_CRIACAO" />
-            <PropertyRef Name="DATA_EXPIRACAO" />
-            <PropertyRef Name="VALIDADO" />
-          </Key>
-          <Property Name="LOGIN_USUARIO" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="CHAVE" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="DATA_CRIACAO" Type="date" Nullable="false" />
-          <Property Name="DATA_EXPIRACAO" Type="date" Nullable="false" />
-          <Property Name="VALIDADO" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="RECURSO">
           <Key>
             <PropertyRef Name="ID" />
@@ -212,13 +179,6 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
           <Property Name="ID_ENTIDADE" Type="int" Nullable="false" />
           <Property Name="ATIVO" Type="bit" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TELA">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DESCRICAO" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="TIPO_EVENTO">
           <Key>
@@ -247,14 +207,6 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
           <Property Name="EMAIL" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ATIVO" Type="bit" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
-        </EntityType>
-        <EntityType Name="USUARIO_TELA">
-          <Key>
-            <PropertyRef Name="ID_TELA" />
-            <PropertyRef Name="LOGIN_USUARIO" />
-          </Key>
-          <Property Name="ID_TELA" Type="int" Nullable="false" />
-          <Property Name="LOGIN_USUARIO" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <EntityType Name="VOLUNTARIADO">
           <Key>
@@ -490,18 +442,6 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_RECUPERACAO_SENHA_USUARIO">
-          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
-          <End Role="RECUPERACAO_SENHA" Type="Self.RECUPERACAO_SENHA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="USUARIO">
-              <PropertyRef Name="LOGIN" />
-            </Principal>
-            <Dependent Role="RECUPERACAO_SENHA">
-              <PropertyRef Name="LOGIN_USUARIO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_RECURSO_ENTIDADE">
           <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="1" />
           <End Role="RECURSO" Type="Self.RECURSO" Multiplicity="*" />
@@ -523,30 +463,6 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
             </Principal>
             <Dependent Role="RECURSO">
               <PropertyRef Name="ID_TIPO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_URUARIO_TELA__TELA">
-          <End Role="TELA" Type="Self.TELA" Multiplicity="1" />
-          <End Role="USUARIO_TELA" Type="Self.USUARIO_TELA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TELA">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="USUARIO_TELA">
-              <PropertyRef Name="ID_TELA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_USUARIO_TELA__USUARIO">
-          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
-          <End Role="USUARIO_TELA" Type="Self.USUARIO_TELA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="USUARIO">
-              <PropertyRef Name="LOGIN" />
-            </Principal>
-            <Dependent Role="USUARIO_TELA">
-              <PropertyRef Name="LOGIN_USUARIO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -612,33 +528,12 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
           <EntitySet Name="FORNECIMENTO_ITENS" EntityType="Self.FORNECIMENTO_ITENS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRODUTO" EntityType="Self.PRODUTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RECURSO" EntityType="Self.RECURSO" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TELA" EntityType="Self.TELA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIPO_EVENTO" EntityType="Self.TIPO_EVENTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIPO_RECURSO" EntityType="Self.TIPO_RECURSO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="USUARIO_TELA" EntityType="Self.USUARIO_TELA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VOLUNTARIADO" EntityType="Self.VOLUNTARIADO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VOLUNTARIAR" EntityType="Self.VOLUNTARIAR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VOLUNTARIO" EntityType="Self.VOLUNTARIO" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CONFIG_SERVIDOR" EntityType="Self.CONFIG_SERVIDOR" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [CONFIG_SERVIDOR].[USUARIO_AUTH] AS [USUARIO_AUTH], 
-    [CONFIG_SERVIDOR].[SENHA_AUTH] AS [SENHA_AUTH], 
-    [CONFIG_SERVIDOR].[ENDERECO_SERV_EMAIL] AS [ENDERECO_SERV_EMAIL], 
-    [CONFIG_SERVIDOR].[PORTA_SERV_EMAIL] AS [PORTA_SERV_EMAIL], 
-    [CONFIG_SERVIDOR].[SSL_SERV_EMAIL] AS [SSL_SERV_EMAIL], 
-    [CONFIG_SERVIDOR].[ENDERECO_APPLICACAO_REDIRECT] AS [ENDERECO_APPLICACAO_REDIRECT]
-    FROM [dbo].[CONFIG_SERVIDOR] AS [CONFIG_SERVIDOR]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="RECUPERACAO_SENHA" EntityType="Self.RECUPERACAO_SENHA" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [RECUPERACAO_SENHA].[LOGIN_USUARIO] AS [LOGIN_USUARIO], 
-    [RECUPERACAO_SENHA].[CHAVE] AS [CHAVE], 
-    [RECUPERACAO_SENHA].[DATA_CRIACAO] AS [DATA_CRIACAO], 
-    [RECUPERACAO_SENHA].[DATA_EXPIRACAO] AS [DATA_EXPIRACAO], 
-    [RECUPERACAO_SENHA].[VALIDADO] AS [VALIDADO]
-    FROM [dbo].[RECUPERACAO_SENHA] AS [RECUPERACAO_SENHA]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_ASSISTENCIA_ASSISTIDO" Association="Self.FK_ASSISTENCIA_ASSISTIDO">
             <End Role="ASSISTIDO" EntitySet="ASSISTIDO" />
             <End Role="ASSISTENCIA" EntitySet="ASSISTENCIA" />
@@ -703,10 +598,6 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
             <End Role="CATEGORIA_PRODUTO" EntitySet="CATEGORIA_PRODUTO" />
             <End Role="PRODUTO" EntitySet="PRODUTO" />
           </AssociationSet>
-          <AssociationSet Name="FK_RECUPERACAO_SENHA_USUARIO" Association="Self.FK_RECUPERACAO_SENHA_USUARIO">
-            <End Role="USUARIO" EntitySet="USUARIO" />
-            <End Role="RECUPERACAO_SENHA" EntitySet="RECUPERACAO_SENHA" />
-          </AssociationSet>
           <AssociationSet Name="FK_RECURSO_ENTIDADE" Association="Self.FK_RECURSO_ENTIDADE">
             <End Role="ENTIDADE" EntitySet="ENTIDADE" />
             <End Role="RECURSO" EntitySet="RECURSO" />
@@ -714,14 +605,6 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
           <AssociationSet Name="FK_RECURSO_TIPO" Association="Self.FK_RECURSO_TIPO">
             <End Role="TIPO_RECURSO" EntitySet="TIPO_RECURSO" />
             <End Role="RECURSO" EntitySet="RECURSO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_URUARIO_TELA__TELA" Association="Self.FK_URUARIO_TELA__TELA">
-            <End Role="TELA" EntitySet="TELA" />
-            <End Role="USUARIO_TELA" EntitySet="USUARIO_TELA" />
-          </AssociationSet>
-          <AssociationSet Name="FK_USUARIO_TELA__USUARIO" Association="Self.FK_USUARIO_TELA__USUARIO">
-            <End Role="USUARIO" EntitySet="USUARIO" />
-            <End Role="USUARIO_TELA" EntitySet="USUARIO_TELA" />
           </AssociationSet>
           <AssociationSet Name="FK_VOLUNTARIADO_ENTIDADE" Association="Self.FK_VOLUNTARIADO_ENTIDADE">
             <End Role="ENTIDADE" EntitySet="ENTIDADE" />
@@ -757,7 +640,7 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
           <Property Name="ID_ENTIDADE" Type="Int32" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="ASSISTIDO" Relationship="Self.FK_ASSISTENCIA_ASSISTIDO" FromRole="ASSISTENCIA" ToRole="ASSISTIDO" />
-          <NavigationProperty Name="ENTIDADE" Relationship="Self.FK_ASSISTENCIA_ENTIDADE" FromRole="ASSISTENCIA" ToRole="ENTIDADE" />
+          <NavigationProperty Name="ENTIDADE" Relationship="ARCOS_V2Model.FK_ASSISTENCIA_ENTIDADE" FromRole="ASSISTENCIA" ToRole="ENTIDADE" />
         </EntityType>
         <EntityType Name="ASSISTIDO">
           <Key>
@@ -803,7 +686,7 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
           <Property Name="ID_DOADOR" Type="Int32" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="DOADOR" Relationship="Self.FK_DOACAO_DOADOR" FromRole="DOACAO" ToRole="DOADOR" />
-          <NavigationProperty Name="ENTIDADE" Relationship="Self.FK_DOACAO_ENTIDADE" FromRole="DOACAO" ToRole="ENTIDADE" />
+          <NavigationProperty Name="ENTIDADE" Relationship="ARCOS_V2Model.FK_DOACAO_ENTIDADE" FromRole="DOACAO" ToRole="ENTIDADE" />
         </EntityType>
         <EntityType Name="DOADOR">
           <Key>
@@ -823,36 +706,6 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="DOACAO" Relationship="Self.FK_DOACAO_DOADOR" FromRole="DOADOR" ToRole="DOACAO" />
         </EntityType>
-        <EntityType Name="ENTIDADE">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="LOGRADOURO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="NUMERO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="BAIRRO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="CEP" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
-          <Property Name="CIDADE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="ESTADO" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
-          <Property Name="PRESIDENTE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ATIVA" Type="Boolean" Nullable="false" />
-          <Property Name="LOGIN_USUARIO_ADMINISTRADOR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ID_ENTIDADE_CONTROLADORA" Type="Int32" />
-          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CNPJ" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="ASSISTENCIA" Relationship="Self.FK_ASSISTENCIA_ENTIDADE" FromRole="ENTIDADE" ToRole="ASSISTENCIA" />
-          <NavigationProperty Name="DOACAO" Relationship="Self.FK_DOACAO_ENTIDADE" FromRole="ENTIDADE" ToRole="DOACAO" />
-          <NavigationProperty Name="ENTIDADE1" Relationship="Self.FK_ENTIDADE_ENTIDADE_CONTROLADORA" FromRole="ENTIDADE" ToRole="ENTIDADE1" />
-          <NavigationProperty Name="ENTIDADE2" Relationship="Self.FK_ENTIDADE_ENTIDADE_CONTROLADORA" FromRole="ENTIDADE1" ToRole="ENTIDADE" />
-          <NavigationProperty Name="USUARIO" Relationship="Self.FK_ENTIDADE_USUARIO" FromRole="ENTIDADE" ToRole="USUARIO" />
-          <NavigationProperty Name="ESTOQUE" Relationship="Self.FK_ESTOQUE_ENTIDADE" FromRole="ENTIDADE" ToRole="ESTOQUE" />
-          <NavigationProperty Name="EVENTO" Relationship="Self.FK_EVENTO_ENTIDADE" FromRole="ENTIDADE" ToRole="EVENTO" />
-          <NavigationProperty Name="FORNECIMENTO" Relationship="Self.FK_FORNECIMENTO_ENTIDADE" FromRole="ENTIDADE" ToRole="FORNECIMENTO" />
-          <NavigationProperty Name="RECURSO" Relationship="Self.FK_RECURSO_ENTIDADE" FromRole="ENTIDADE" ToRole="RECURSO" />
-          <NavigationProperty Name="VOLUNTARIADO" Relationship="Self.FK_VOLUNTARIADO_ENTIDADE" FromRole="ENTIDADE" ToRole="VOLUNTARIADO" />
-          <NavigationProperty Name="VOLUNTARIO" Relationship="Self.VOLUNTARIO_ENTIDADE" FromRole="ENTIDADE" ToRole="VOLUNTARIO" />
-        </EntityType>
         <EntityType Name="ESTOQUE">
           <Key>
             <PropertyRef Name="ID" />
@@ -862,8 +715,8 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
           <Property Name="ID_ENTIDADE" Type="Int32" Nullable="false" />
           <Property Name="ID_PRODUTO" Type="Int32" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="ENTIDADE" Relationship="Self.FK_ESTOQUE_ENTIDADE" FromRole="ESTOQUE" ToRole="ENTIDADE" />
           <NavigationProperty Name="PRODUTO" Relationship="Self.FK_ESTOQUE_PRODUTO" FromRole="ESTOQUE" ToRole="PRODUTO" />
+          <NavigationProperty Name="ENTIDADE" Relationship="ARCOS_V2Model.FK_ESTOQUE_ENTIDADE" FromRole="ESTOQUE" ToRole="ENTIDADE" />
         </EntityType>
         <EntityType Name="EVENTO">
           <Key>
@@ -877,8 +730,8 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
           <Property Name="ID_TIPO_EVENTO" Type="Int32" Nullable="false" />
           <Property Name="ID_ENTIDADE" Type="Int32" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="ENTIDADE" Relationship="Self.FK_EVENTO_ENTIDADE" FromRole="EVENTO" ToRole="ENTIDADE" />
           <NavigationProperty Name="TIPO_EVENTO" Relationship="Self.FK_EVENTO_TIPO_EVENTO" FromRole="EVENTO" ToRole="TIPO_EVENTO" />
+          <NavigationProperty Name="ENTIDADE" Relationship="ARCOS_V2Model.FK_EVENTO_ENTIDADE" FromRole="EVENTO" ToRole="ENTIDADE" />
         </EntityType>
         <EntityType Name="FORNECEDOR">
           <Key>
@@ -908,9 +761,9 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
           <Property Name="ID_FORNECEDOR" Type="Int32" Nullable="false" />
           <Property Name="ID_ENTIDADE" Type="Int32" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="ENTIDADE" Relationship="Self.FK_FORNECIMENTO_ENTIDADE" FromRole="FORNECIMENTO" ToRole="ENTIDADE" />
           <NavigationProperty Name="FORNECEDOR" Relationship="Self.FK_FORNECIMENTO_FORNECEDOR" FromRole="FORNECIMENTO" ToRole="FORNECEDOR" />
           <NavigationProperty Name="FORNECIMENTO_ITENS" Relationship="Self.FK_FORNECIMENTO_ITENS_FORNECIMENTO" FromRole="FORNECIMENTO" ToRole="FORNECIMENTO_ITENS" />
+          <NavigationProperty Name="ENTIDADE" Relationship="ARCOS_V2Model.FK_FORNECIMENTO_ENTIDADE" FromRole="FORNECIMENTO" ToRole="ENTIDADE" />
         </EntityType>
         <EntityType Name="FORNECIMENTO_ITENS">
           <Key>
@@ -950,8 +803,8 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
           <Property Name="ID_ENTIDADE" Type="Int32" Nullable="false" />
           <Property Name="ATIVO" Type="Boolean" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="ENTIDADE" Relationship="Self.FK_RECURSO_ENTIDADE" FromRole="RECURSO" ToRole="ENTIDADE" />
           <NavigationProperty Name="TIPO_RECURSO" Relationship="Self.FK_RECURSO_TIPO" FromRole="RECURSO" ToRole="TIPO_RECURSO" />
+          <NavigationProperty Name="ENTIDADE" Relationship="ARCOS_V2Model.FK_RECURSO_ENTIDADE" FromRole="RECURSO" ToRole="ENTIDADE" />
         </EntityType>
         <EntityType Name="TIPO_EVENTO">
           <Key>
@@ -982,9 +835,7 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
           <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ATIVO" Type="Boolean" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="ENTIDADE" Relationship="Self.FK_ENTIDADE_USUARIO" FromRole="USUARIO" ToRole="ENTIDADE" />
-          <NavigationProperty Name="RECUPERACAO_SENHA" Relationship="Self.FK_RECUPERACAO_SENHA_USUARIO" FromRole="USUARIO" ToRole="RECUPERACAO_SENHA" />
-          <NavigationProperty Name="TELA" Relationship="ARCOS_V2Model.USUARIO_TELA" FromRole="USUARIO" ToRole="TELA" />
+          <NavigationProperty Name="ENTIDADE" Relationship="ARCOS_V2Model.FK_ENTIDADE_USUARIO" FromRole="USUARIO" ToRole="ENTIDADE" />
         </EntityType>
         <EntityType Name="VOLUNTARIADO">
           <Key>
@@ -997,8 +848,8 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
           <Property Name="OBSERVACAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="ID_ENTIDADE" Type="Int32" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="ENTIDADE" Relationship="Self.FK_VOLUNTARIADO_ENTIDADE" FromRole="VOLUNTARIADO" ToRole="ENTIDADE" />
           <NavigationProperty Name="VOLUNTARIAR" Relationship="Self.FK_VOLUNTARIAR_VOLUNTARIADO" FromRole="VOLUNTARIADO" ToRole="VOLUNTARIAR" />
+          <NavigationProperty Name="ENTIDADE" Relationship="ARCOS_V2Model.FK_VOLUNTARIADO_ENTIDADE" FromRole="VOLUNTARIADO" ToRole="ENTIDADE" />
         </EntityType>
         <EntityType Name="VOLUNTARIAR">
           <Key>
@@ -1031,39 +882,8 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
           <Property Name="ID_ENTIDADE" Type="Int32" />
           <Property Name="ATIVO" Type="Boolean" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="ENTIDADE" Relationship="Self.VOLUNTARIO_ENTIDADE" FromRole="VOLUNTARIO" ToRole="ENTIDADE" />
           <NavigationProperty Name="VOLUNTARIAR" Relationship="Self.FK_VOLUNTARIAR_VOLUNTARIO" FromRole="VOLUNTARIO" ToRole="VOLUNTARIAR" />
-        </EntityType>
-        <EntityType Name="CONFIG_SERVIDOR">
-          <Key>
-            <PropertyRef Name="USUARIO_AUTH" />
-            <PropertyRef Name="SENHA_AUTH" />
-            <PropertyRef Name="ENDERECO_SERV_EMAIL" />
-            <PropertyRef Name="PORTA_SERV_EMAIL" />
-            <PropertyRef Name="SSL_SERV_EMAIL" />
-            <PropertyRef Name="ENDERECO_APPLICACAO_REDIRECT" />
-          </Key>
-          <Property Name="USUARIO_AUTH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="SENHA_AUTH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ENDERECO_SERV_EMAIL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PORTA_SERV_EMAIL" Type="Int32" Nullable="false" />
-          <Property Name="SSL_SERV_EMAIL" Type="Int32" Nullable="false" />
-          <Property Name="ENDERECO_APPLICACAO_REDIRECT" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-        </EntityType>
-        <EntityType Name="RECUPERACAO_SENHA">
-          <Key>
-            <PropertyRef Name="LOGIN_USUARIO" />
-            <PropertyRef Name="CHAVE" />
-            <PropertyRef Name="DATA_CRIACAO" />
-            <PropertyRef Name="DATA_EXPIRACAO" />
-            <PropertyRef Name="VALIDADO" />
-          </Key>
-          <Property Name="LOGIN_USUARIO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CHAVE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DATA_CRIACAO" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="DATA_EXPIRACAO" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="VALIDADO" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="USUARIO" Relationship="Self.FK_RECUPERACAO_SENHA_USUARIO" FromRole="RECUPERACAO_SENHA" ToRole="USUARIO" />
+          <NavigationProperty Name="ENTIDADE" Relationship="ARCOS_V2Model.VOLUNTARIO_ENTIDADE" FromRole="VOLUNTARIO" ToRole="ENTIDADE" />
         </EntityType>
         <Association Name="FK_ASSISTENCIA_ASSISTIDO">
           <End Role="ASSISTIDO" Type="Self.ASSISTIDO" Multiplicity="1" />
@@ -1074,18 +894,6 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
             </Principal>
             <Dependent Role="ASSISTENCIA">
               <PropertyRef Name="ID_ASSISTIDO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ASSISTENCIA_ENTIDADE">
-          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="1" />
-          <End Role="ASSISTENCIA" Type="Self.ASSISTENCIA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ENTIDADE">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="ASSISTENCIA">
-              <PropertyRef Name="ID_ENTIDADE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1122,114 +930,6 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
             </Principal>
             <Dependent Role="DOACAO">
               <PropertyRef Name="ID_DOADOR" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DOACAO_ENTIDADE">
-          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="1" />
-          <End Role="DOACAO" Type="Self.DOACAO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ENTIDADE">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="DOACAO">
-              <PropertyRef Name="ID_ENTIDADE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ENTIDADE_ENTIDADE_CONTROLADORA">
-          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="0..1" />
-          <End Role="ENTIDADE1" Type="Self.ENTIDADE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ENTIDADE">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="ENTIDADE1">
-              <PropertyRef Name="ID_ENTIDADE_CONTROLADORA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ENTIDADE_USUARIO">
-          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
-          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="USUARIO">
-              <PropertyRef Name="LOGIN" />
-            </Principal>
-            <Dependent Role="ENTIDADE">
-              <PropertyRef Name="LOGIN_USUARIO_ADMINISTRADOR" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ESTOQUE_ENTIDADE">
-          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="1" />
-          <End Role="ESTOQUE" Type="Self.ESTOQUE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ENTIDADE">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="ESTOQUE">
-              <PropertyRef Name="ID_ENTIDADE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EVENTO_ENTIDADE">
-          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="1" />
-          <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ENTIDADE">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="EVENTO">
-              <PropertyRef Name="ID_ENTIDADE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_FORNECIMENTO_ENTIDADE">
-          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="1" />
-          <End Role="FORNECIMENTO" Type="Self.FORNECIMENTO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ENTIDADE">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="FORNECIMENTO">
-              <PropertyRef Name="ID_ENTIDADE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RECURSO_ENTIDADE">
-          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="1" />
-          <End Role="RECURSO" Type="Self.RECURSO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ENTIDADE">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="RECURSO">
-              <PropertyRef Name="ID_ENTIDADE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_VOLUNTARIADO_ENTIDADE">
-          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="1" />
-          <End Role="VOLUNTARIADO" Type="Self.VOLUNTARIADO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ENTIDADE">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="VOLUNTARIADO">
-              <PropertyRef Name="ID_ENTIDADE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="VOLUNTARIO_ENTIDADE">
-          <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="0..1" />
-          <End Role="VOLUNTARIO" Type="Self.VOLUNTARIO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ENTIDADE">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="VOLUNTARIO">
-              <PropertyRef Name="ID_ENTIDADE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1305,18 +1005,6 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_RECUPERACAO_SENHA_USUARIO">
-          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
-          <End Role="RECUPERACAO_SENHA" Type="Self.RECUPERACAO_SENHA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="USUARIO">
-              <PropertyRef Name="LOGIN" />
-            </Principal>
-            <Dependent Role="RECUPERACAO_SENHA">
-              <PropertyRef Name="LOGIN_USUARIO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_VOLUNTARIAR_VOLUNTARIADO">
           <End Role="VOLUNTARIADO" Type="Self.VOLUNTARIADO" Multiplicity="1" />
           <End Role="VOLUNTARIAR" Type="Self.VOLUNTARIAR" Multiplicity="*" />
@@ -1347,7 +1035,6 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
           <EntitySet Name="CATEGORIA_PRODUTO" EntityType="Self.CATEGORIA_PRODUTO" />
           <EntitySet Name="DOACAO" EntityType="Self.DOACAO" />
           <EntitySet Name="DOADOR" EntityType="Self.DOADOR" />
-          <EntitySet Name="ENTIDADE" EntityType="Self.ENTIDADE" />
           <EntitySet Name="ESTOQUE" EntityType="Self.ESTOQUE" />
           <EntitySet Name="EVENTO" EntityType="Self.EVENTO" />
           <EntitySet Name="FORNECEDOR" EntityType="Self.FORNECEDOR" />
@@ -1361,14 +1048,8 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
           <EntitySet Name="VOLUNTARIADO" EntityType="Self.VOLUNTARIADO" />
           <EntitySet Name="VOLUNTARIAR" EntityType="Self.VOLUNTARIAR" />
           <EntitySet Name="VOLUNTARIO" EntityType="Self.VOLUNTARIO" />
-          <EntitySet Name="CONFIG_SERVIDOR" EntityType="Self.CONFIG_SERVIDOR" />
-          <EntitySet Name="RECUPERACAO_SENHA" EntityType="Self.RECUPERACAO_SENHA" />
           <AssociationSet Name="FK_ASSISTENCIA_ASSISTIDO" Association="Self.FK_ASSISTENCIA_ASSISTIDO">
             <End Role="ASSISTIDO" EntitySet="ASSISTIDO" />
-            <End Role="ASSISTENCIA" EntitySet="ASSISTENCIA" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ASSISTENCIA_ENTIDADE" Association="Self.FK_ASSISTENCIA_ENTIDADE">
-            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
             <End Role="ASSISTENCIA" EntitySet="ASSISTENCIA" />
           </AssociationSet>
           <AssociationSet Name="FK_ASSISTIDO_RESPONSAVEL" Association="Self.FK_ASSISTIDO_RESPONSAVEL">
@@ -1382,42 +1063,6 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
           <AssociationSet Name="FK_DOACAO_DOADOR" Association="Self.FK_DOACAO_DOADOR">
             <End Role="DOADOR" EntitySet="DOADOR" />
             <End Role="DOACAO" EntitySet="DOACAO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DOACAO_ENTIDADE" Association="Self.FK_DOACAO_ENTIDADE">
-            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
-            <End Role="DOACAO" EntitySet="DOACAO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ENTIDADE_ENTIDADE_CONTROLADORA" Association="Self.FK_ENTIDADE_ENTIDADE_CONTROLADORA">
-            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
-            <End Role="ENTIDADE1" EntitySet="ENTIDADE" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ENTIDADE_USUARIO" Association="Self.FK_ENTIDADE_USUARIO">
-            <End Role="USUARIO" EntitySet="USUARIO" />
-            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ESTOQUE_ENTIDADE" Association="Self.FK_ESTOQUE_ENTIDADE">
-            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
-            <End Role="ESTOQUE" EntitySet="ESTOQUE" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EVENTO_ENTIDADE" Association="Self.FK_EVENTO_ENTIDADE">
-            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
-            <End Role="EVENTO" EntitySet="EVENTO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_FORNECIMENTO_ENTIDADE" Association="Self.FK_FORNECIMENTO_ENTIDADE">
-            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
-            <End Role="FORNECIMENTO" EntitySet="FORNECIMENTO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RECURSO_ENTIDADE" Association="Self.FK_RECURSO_ENTIDADE">
-            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
-            <End Role="RECURSO" EntitySet="RECURSO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_VOLUNTARIADO_ENTIDADE" Association="Self.FK_VOLUNTARIADO_ENTIDADE">
-            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
-            <End Role="VOLUNTARIADO" EntitySet="VOLUNTARIADO" />
-          </AssociationSet>
-          <AssociationSet Name="VOLUNTARIO_ENTIDADE" Association="Self.VOLUNTARIO_ENTIDADE">
-            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
-            <End Role="VOLUNTARIO" EntitySet="VOLUNTARIO" />
           </AssociationSet>
           <AssociationSet Name="FK_ESTOQUE_PRODUTO" Association="Self.FK_ESTOQUE_PRODUTO">
             <End Role="PRODUTO" EntitySet="PRODUTO" />
@@ -1443,10 +1088,6 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
             <End Role="TIPO_RECURSO" EntitySet="TIPO_RECURSO" />
             <End Role="RECURSO" EntitySet="RECURSO" />
           </AssociationSet>
-          <AssociationSet Name="FK_RECUPERACAO_SENHA_USUARIO" Association="Self.FK_RECUPERACAO_SENHA_USUARIO">
-            <End Role="USUARIO" EntitySet="USUARIO" />
-            <End Role="RECUPERACAO_SENHA" EntitySet="RECUPERACAO_SENHA" />
-          </AssociationSet>
           <AssociationSet Name="FK_VOLUNTARIAR_VOLUNTARIADO" Association="Self.FK_VOLUNTARIAR_VOLUNTARIADO">
             <End Role="VOLUNTARIADO" EntitySet="VOLUNTARIADO" />
             <End Role="VOLUNTARIAR" EntitySet="VOLUNTARIAR" />
@@ -1455,23 +1096,198 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
             <End Role="VOLUNTARIO" EntitySet="VOLUNTARIO" />
             <End Role="VOLUNTARIAR" EntitySet="VOLUNTARIAR" />
           </AssociationSet>
-          <EntitySet Name="TELA" EntityType="ARCOS_V2Model.TELA" />
-          <AssociationSet Name="USUARIO_TELA" Association="ARCOS_V2Model.USUARIO_TELA">
-            <End Role="TELA" EntitySet="TELA" />
+          <EntitySet Name="ENTIDADE" EntityType="ARCOS_V2Model.ENTIDADE" />
+          <AssociationSet Name="FK_ASSISTENCIA_ENTIDADE" Association="ARCOS_V2Model.FK_ASSISTENCIA_ENTIDADE">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="ASSISTENCIA" EntitySet="ASSISTENCIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DOACAO_ENTIDADE" Association="ARCOS_V2Model.FK_DOACAO_ENTIDADE">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="DOACAO" EntitySet="DOACAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ENTIDADE_ENTIDADE_CONTROLADORA" Association="ARCOS_V2Model.FK_ENTIDADE_ENTIDADE_CONTROLADORA">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="ENTIDADE1" EntitySet="ENTIDADE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ENTIDADE_USUARIO" Association="ARCOS_V2Model.FK_ENTIDADE_USUARIO">
             <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESTOQUE_ENTIDADE" Association="ARCOS_V2Model.FK_ESTOQUE_ENTIDADE">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="ESTOQUE" EntitySet="ESTOQUE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EVENTO_ENTIDADE" Association="ARCOS_V2Model.FK_EVENTO_ENTIDADE">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="EVENTO" EntitySet="EVENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FORNECIMENTO_ENTIDADE" Association="ARCOS_V2Model.FK_FORNECIMENTO_ENTIDADE">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="FORNECIMENTO" EntitySet="FORNECIMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RECURSO_ENTIDADE" Association="ARCOS_V2Model.FK_RECURSO_ENTIDADE">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="RECURSO" EntitySet="RECURSO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VOLUNTARIADO_ENTIDADE" Association="ARCOS_V2Model.FK_VOLUNTARIADO_ENTIDADE">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="VOLUNTARIADO" EntitySet="VOLUNTARIADO" />
+          </AssociationSet>
+          <AssociationSet Name="VOLUNTARIO_ENTIDADE" Association="ARCOS_V2Model.VOLUNTARIO_ENTIDADE">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="VOLUNTARIO" EntitySet="VOLUNTARIO" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="TELA">
+        <EntityType Name="ENTIDADE">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DESCRICAO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="USUARIO" Relationship="ARCOS_V2Model.USUARIO_TELA" FromRole="TELA" ToRole="USUARIO" />
+          <Property Name="NOME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LOGRADOURO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NUMERO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BAIRRO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CEP" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="CIDADE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="PRESIDENTE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ATIVA" Type="Boolean" Nullable="false" />
+          <Property Name="LOGIN_USUARIO_ADMINISTRADOR" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ID_ENTIDADE_CONTROLADORA" Type="Int32" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CNPJ" Type="String" Nullable="false" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONE" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ASSISTENCIA" Relationship="ARCOS_V2Model.FK_ASSISTENCIA_ENTIDADE" FromRole="ENTIDADE" ToRole="ASSISTENCIA" />
+          <NavigationProperty Name="DOACAO" Relationship="ARCOS_V2Model.FK_DOACAO_ENTIDADE" FromRole="ENTIDADE" ToRole="DOACAO" />
+          <NavigationProperty Name="ENTIDADE1" Relationship="ARCOS_V2Model.FK_ENTIDADE_ENTIDADE_CONTROLADORA" FromRole="ENTIDADE" ToRole="ENTIDADE1" />
+          <NavigationProperty Name="ENTIDADE2" Relationship="ARCOS_V2Model.FK_ENTIDADE_ENTIDADE_CONTROLADORA" FromRole="ENTIDADE1" ToRole="ENTIDADE" />
+          <NavigationProperty Name="USUARIO" Relationship="ARCOS_V2Model.FK_ENTIDADE_USUARIO" FromRole="ENTIDADE" ToRole="USUARIO" />
+          <NavigationProperty Name="ESTOQUE" Relationship="ARCOS_V2Model.FK_ESTOQUE_ENTIDADE" FromRole="ENTIDADE" ToRole="ESTOQUE" />
+          <NavigationProperty Name="EVENTO" Relationship="ARCOS_V2Model.FK_EVENTO_ENTIDADE" FromRole="ENTIDADE" ToRole="EVENTO" />
+          <NavigationProperty Name="FORNECIMENTO" Relationship="ARCOS_V2Model.FK_FORNECIMENTO_ENTIDADE" FromRole="ENTIDADE" ToRole="FORNECIMENTO" />
+          <NavigationProperty Name="RECURSO" Relationship="ARCOS_V2Model.FK_RECURSO_ENTIDADE" FromRole="ENTIDADE" ToRole="RECURSO" />
+          <NavigationProperty Name="VOLUNTARIADO" Relationship="ARCOS_V2Model.FK_VOLUNTARIADO_ENTIDADE" FromRole="ENTIDADE" ToRole="VOLUNTARIADO" />
+          <NavigationProperty Name="VOLUNTARIO" Relationship="ARCOS_V2Model.VOLUNTARIO_ENTIDADE" FromRole="ENTIDADE" ToRole="VOLUNTARIO" />
         </EntityType>
-        <Association Name="USUARIO_TELA">
-          <End Type="ARCOS_V2Model.TELA" Role="TELA" Multiplicity="*" />
-          <End Type="ARCOS_V2Model.USUARIO" Role="USUARIO" Multiplicity="*" />
+        <Association Name="FK_ASSISTENCIA_ENTIDADE">
+          <End Type="ARCOS_V2Model.ENTIDADE" Role="ENTIDADE" Multiplicity="1" />
+          <End Type="ARCOS_V2Model.ASSISTENCIA" Role="ASSISTENCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASSISTENCIA">
+              <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DOACAO_ENTIDADE">
+          <End Type="ARCOS_V2Model.ENTIDADE" Role="ENTIDADE" Multiplicity="1" />
+          <End Type="ARCOS_V2Model.DOACAO" Role="DOACAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DOACAO">
+              <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ENTIDADE_ENTIDADE_CONTROLADORA">
+          <End Type="ARCOS_V2Model.ENTIDADE" Role="ENTIDADE" Multiplicity="0..1" />
+          <End Type="ARCOS_V2Model.ENTIDADE" Role="ENTIDADE1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ENTIDADE1">
+              <PropertyRef Name="ID_ENTIDADE_CONTROLADORA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ENTIDADE_USUARIO">
+          <End Type="ARCOS_V2Model.USUARIO" Role="USUARIO" Multiplicity="1" />
+          <End Type="ARCOS_V2Model.ENTIDADE" Role="ENTIDADE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="LOGIN" />
+            </Principal>
+            <Dependent Role="ENTIDADE">
+              <PropertyRef Name="LOGIN_USUARIO_ADMINISTRADOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESTOQUE_ENTIDADE">
+          <End Type="ARCOS_V2Model.ENTIDADE" Role="ENTIDADE" Multiplicity="1" />
+          <End Type="ARCOS_V2Model.ESTOQUE" Role="ESTOQUE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ESTOQUE">
+              <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EVENTO_ENTIDADE">
+          <End Type="ARCOS_V2Model.ENTIDADE" Role="ENTIDADE" Multiplicity="1" />
+          <End Type="ARCOS_V2Model.EVENTO" Role="EVENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EVENTO">
+              <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FORNECIMENTO_ENTIDADE">
+          <End Type="ARCOS_V2Model.ENTIDADE" Role="ENTIDADE" Multiplicity="1" />
+          <End Type="ARCOS_V2Model.FORNECIMENTO" Role="FORNECIMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FORNECIMENTO">
+              <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RECURSO_ENTIDADE">
+          <End Type="ARCOS_V2Model.ENTIDADE" Role="ENTIDADE" Multiplicity="1" />
+          <End Type="ARCOS_V2Model.RECURSO" Role="RECURSO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RECURSO">
+              <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VOLUNTARIADO_ENTIDADE">
+          <End Type="ARCOS_V2Model.ENTIDADE" Role="ENTIDADE" Multiplicity="1" />
+          <End Type="ARCOS_V2Model.VOLUNTARIADO" Role="VOLUNTARIADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VOLUNTARIADO">
+              <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VOLUNTARIO_ENTIDADE">
+          <End Type="ARCOS_V2Model.ENTIDADE" Role="ENTIDADE" Multiplicity="0..1" />
+          <End Type="ARCOS_V2Model.VOLUNTARIO" Role="VOLUNTARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VOLUNTARIO">
+              <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -1551,26 +1367,6 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
                 <ScalarProperty Name="TIPO_DOACAO" ColumnName="TIPO_DOACAO" />
                 <ScalarProperty Name="ATIVO" ColumnName="ATIVO" />
                 <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ENTIDADE">
-            <EntityTypeMapping TypeName="ARCOS_V2Model.ENTIDADE">
-              <MappingFragment StoreEntitySet="ENTIDADE">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="NOME" ColumnName="NOME" />
-                <ScalarProperty Name="LOGRADOURO" ColumnName="LOGRADOURO" />
-                <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
-                <ScalarProperty Name="BAIRRO" ColumnName="BAIRRO" />
-                <ScalarProperty Name="CEP" ColumnName="CEP" />
-                <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
-                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
-                <ScalarProperty Name="PRESIDENTE" ColumnName="PRESIDENTE" />
-                <ScalarProperty Name="ATIVA" ColumnName="ATIVA" />
-                <ScalarProperty Name="LOGIN_USUARIO_ADMINISTRADOR" ColumnName="LOGIN_USUARIO_ADMINISTRADOR" />
-                <ScalarProperty Name="ID_ENTIDADE_CONTROLADORA" ColumnName="ID_ENTIDADE_CONTROLADORA" />
-                <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
-                <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1741,46 +1537,28 @@ warning 6002: The table/view 'ARCOS_V2.dbo.RECUPERACAO_SENHA' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CONFIG_SERVIDOR">
-            <EntityTypeMapping TypeName="ARCOS_V2Model.CONFIG_SERVIDOR">
-              <MappingFragment StoreEntitySet="CONFIG_SERVIDOR">
-                <ScalarProperty Name="USUARIO_AUTH" ColumnName="USUARIO_AUTH" />
-                <ScalarProperty Name="SENHA_AUTH" ColumnName="SENHA_AUTH" />
-                <ScalarProperty Name="ENDERECO_SERV_EMAIL" ColumnName="ENDERECO_SERV_EMAIL" />
-                <ScalarProperty Name="PORTA_SERV_EMAIL" ColumnName="PORTA_SERV_EMAIL" />
-                <ScalarProperty Name="SSL_SERV_EMAIL" ColumnName="SSL_SERV_EMAIL" />
-                <ScalarProperty Name="ENDERECO_APPLICACAO_REDIRECT" ColumnName="ENDERECO_APPLICACAO_REDIRECT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RECUPERACAO_SENHA">
-            <EntityTypeMapping TypeName="ARCOS_V2Model.RECUPERACAO_SENHA">
-              <MappingFragment StoreEntitySet="RECUPERACAO_SENHA">
-                <ScalarProperty Name="LOGIN_USUARIO" ColumnName="LOGIN_USUARIO" />
-                <ScalarProperty Name="CHAVE" ColumnName="CHAVE" />
-                <ScalarProperty Name="DATA_CRIACAO" ColumnName="DATA_CRIACAO" />
-                <ScalarProperty Name="DATA_EXPIRACAO" ColumnName="DATA_EXPIRACAO" />
-                <ScalarProperty Name="VALIDADO" ColumnName="VALIDADO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TELA">
-            <EntityTypeMapping TypeName="ARCOS_V2Model.TELA">
-              <MappingFragment StoreEntitySet="TELA">
-                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+          <EntitySetMapping Name="ENTIDADE">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.ENTIDADE">
+              <MappingFragment StoreEntitySet="ENTIDADE">
+                <ScalarProperty Name="TELEFONE" ColumnName="TELEFONE" />
+                <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+                <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
+                <ScalarProperty Name="ID_ENTIDADE_CONTROLADORA" ColumnName="ID_ENTIDADE_CONTROLADORA" />
+                <ScalarProperty Name="LOGIN_USUARIO_ADMINISTRADOR" ColumnName="LOGIN_USUARIO_ADMINISTRADOR" />
+                <ScalarProperty Name="ATIVA" ColumnName="ATIVA" />
+                <ScalarProperty Name="PRESIDENTE" ColumnName="PRESIDENTE" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+                <ScalarProperty Name="BAIRRO" ColumnName="BAIRRO" />
+                <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
+                <ScalarProperty Name="LOGRADOURO" ColumnName="LOGRADOURO" />
+                <ScalarProperty Name="NOME" ColumnName="NOME" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="USUARIO_TELA" TypeName="ARCOS_V2Model.USUARIO_TELA" StoreEntitySet="USUARIO_TELA">
-            <EndProperty Name="USUARIO">
-              <ScalarProperty Name="LOGIN" ColumnName="LOGIN_USUARIO" />
-            </EndProperty>
-            <EndProperty Name="TELA">
-              <ScalarProperty Name="ID" ColumnName="ID_TELA" />
-            </EndProperty>
-          </AssociationSetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

@@ -42,6 +42,7 @@ namespace SysArcos
         public Nullable<int> ID_ENTIDADE_CONTROLADORA { get; set; }
         public System.DateTime DATA_HORA_CRIACAO_REGISTRO { get; set; }
         public string CNPJ { get; set; }
+        public string TELEFONE { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ASSISTENCIA> ASSISTENCIA { get; set; }

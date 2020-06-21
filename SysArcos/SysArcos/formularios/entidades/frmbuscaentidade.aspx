@@ -39,6 +39,6 @@
     </asp:GridView>
     <br />
     <asp:Button ID="btncancelar" runat="server" OnClick="btncancelar_Click" Text="Cancelar" CssClass="btn btn-primary" />
-    &nbsp;<asp:Button ID="btnselecionar" runat="server" OnClick="btnselecionar_Click" Text="Selecionar" CssClass="btn btn-primary" />
+    &nbsp;<asp:Button ID="btnselecionar" runat="server" OnClick="btnselecionar_Click" Text="Editar" CssClass="btn btn-primary" />
     &nbsp;<asp:Button ID="btnremover" runat="server" OnClick="btnremover_Click" Text="Remover" CssClass="btn btn-primary" />
 </asp:Content>

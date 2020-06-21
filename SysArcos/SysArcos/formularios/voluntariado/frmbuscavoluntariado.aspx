@@ -13,7 +13,7 @@
     <asp:RadioButton ID="rd_entidade" runat="server" Text="Entidade" GroupName="tipo" />
 &nbsp;<asp:RadioButton ID="rd_datainicial" runat="server" Text="Data Inicial" GroupName="tipo" />
 &nbsp;<asp:RadioButton ID="rd_descricao" runat="server" Text="Descrição" GroupName="tipo" />
-    <br />
+    <br /> 
 
     <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataKeyNames="ID" ShowHeaderWhenEmpty="True">
         <AlternatingRowStyle BackColor="White" />
