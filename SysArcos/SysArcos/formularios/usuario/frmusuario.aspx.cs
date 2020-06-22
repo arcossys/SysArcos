@@ -13,6 +13,7 @@ namespace ProjetoArcos
         {
             if (!IsPostBack)
             {
+                carregaPermissoes();
                 String login = Request.QueryString["login"];
                 if ((login!=null) && (!login.Equals("")))
                 {
@@ -39,7 +40,7 @@ namespace ProjetoArcos
         protected void btn_cadastrar_Click(object sender, EventArgs e)
         {
             if (txt_nomeUsuario.Text == "" || txt_senhaUsuario.Text == "" || txt_user.Text == "" ||
-                 txt_cpf.Text == "" || txt_email.Text == "")
+                 txt_cpf.Text == "" || txt_email.Text == "" || ddlPermissao.Text == "")
             {
                 Response.Write("<script>alert('Há campos obrigatorios não preenchidos!');</script>");
             }
@@ -61,6 +62,7 @@ namespace ProjetoArcos
                         usuario.EMAIL = txt_email.Text.ToLower();
                         usuario.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
                         usuario.ATIVO = CB_ativo.Checked;
+                        usuario.ID_GRUPOPERMISSAO = Convert.ToInt32(ddlPermissao.SelectedValue);
                         entity.USUARIO.Add(usuario);
                     }
                     else
@@ -74,6 +76,7 @@ namespace ProjetoArcos
                         usuario.EMAIL = txt_email.Text.ToLower();
                         usuario.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
                         usuario.ATIVO = CB_ativo.Checked;
+                        usuario.ID_GRUPOPERMISSAO = Convert.ToInt32(ddlPermissao.SelectedValue);
                         entity.Entry(usuario);
                     }
                     limpar();
@@ -96,6 +99,7 @@ namespace ProjetoArcos
             txt_user.Text = string.Empty;
             txt_cpf.Text = string.Empty;
             txt_email.Text = string.Empty;
+            ddlPermissao.SelectedIndex = -1;
             CB_ativo.Checked = true;
             lblAcao.Text = "NOVO";
         }
@@ -104,6 +108,19 @@ namespace ProjetoArcos
         {
             txt_user.ReadOnly = false;
             limpar();
+        }
+
+        private void carregaPermissoes()
+        {
+            using (ARCOS_Entities entity = new ARCOS_Entities())
+            {
+                List<GRUPO_PERMISSAO> list = entity.GRUPO_PERMISSAO.OrderBy(x => x.DESCRICAO).ToList();
+                ddlPermissao.DataTextField = "DESCRICAO";
+                ddlPermissao.DataValueField = "ID";
+                ddlPermissao.DataSource = list;
+                ddlPermissao.DataBind();
+                ddlPermissao.Items.Insert(0, "");
+            }
         }
     }
 }

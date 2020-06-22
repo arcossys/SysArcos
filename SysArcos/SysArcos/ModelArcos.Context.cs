@@ -44,5 +44,6 @@ namespace SysArcos
         public virtual DbSet<VOLUNTARIAR> VOLUNTARIAR { get; set; }
         public virtual DbSet<VOLUNTARIO> VOLUNTARIO { get; set; }
         public virtual DbSet<ENTIDADE> ENTIDADE { get; set; }
+        public virtual DbSet<GRUPO_PERMISSAO> GRUPO_PERMISSAO { get; set; }
     }
 }

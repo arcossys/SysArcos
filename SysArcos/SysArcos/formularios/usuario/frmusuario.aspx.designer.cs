@@ -130,6 +130,24 @@ namespace ProjetoArcos {
         protected global::System.Web.UI.WebControls.TextBox txt_email;
         
         /// <summary>
+        /// Controle lbl_permissao.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_permissao;
+        
+        /// <summary>
+        /// Controle ddlPermissao.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPermissao;
+        
+        /// <summary>
         /// Controle CB_ativo.
         /// </summary>
         /// <remarks>

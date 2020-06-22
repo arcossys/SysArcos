@@ -157,6 +157,31 @@
           <Property Name="VALOR_UNITARIO" Type="money" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="GRUPO_PERMISSAO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PERM_ENTIDADE" Type="bit" Nullable="false" />
+          <Property Name="PERM_VOLUNTARIOS" Type="bit" Nullable="false" />
+          <Property Name="PERM_VOLUNTARIAR" Type="bit" Nullable="false" />
+          <Property Name="PERM_VOLUNTARIADO" Type="bit" Nullable="false" />
+          <Property Name="PERM_USUARIOS" Type="bit" Nullable="false" />
+          <Property Name="PERM_GRUPOPERMISSAO" Type="bit" Nullable="false" />
+          <Property Name="PERM_EVENTO" Type="bit" Nullable="false" />
+          <Property Name="PERM_TIPOEVENTO" Type="bit" Nullable="false" />
+          <Property Name="PERM_RECURSO" Type="bit" Nullable="false" />
+          <Property Name="PERM_TIPORECURSO" Type="bit" Nullable="false" />
+          <Property Name="PERM_FORNECEDOR" Type="bit" Nullable="false" />
+          <Property Name="PERM_FORNECIMENTO" Type="bit" Nullable="false" />
+          <Property Name="PERM_PRODUTO" Type="bit" Nullable="false" />
+          <Property Name="PERM_TIPOPRODUTO" Type="bit" Nullable="false" />
+          <Property Name="PERM_DOACAO" Type="bit" Nullable="false" />
+          <Property Name="PERM_DOADOR" Type="bit" Nullable="false" />
+          <Property Name="PERM_ASSISTENCIA" Type="bit" Nullable="false" />
+          <Property Name="PERM_ASSISTIDO" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="PRODUTO">
           <Key>
             <PropertyRef Name="ID" />
@@ -207,6 +232,7 @@
           <Property Name="EMAIL" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ATIVO" Type="bit" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
+          <Property Name="ID_GRUPOPERMISSAO" Type="int" />
         </EntityType>
         <EntityType Name="VOLUNTARIADO">
           <Key>
@@ -322,7 +348,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ENTIDADE_USUARIO">
+        <Association Name="FK_ENTIDADE_USUARIO_GRUPOPERMISSAO">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
           <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="*" />
           <ReferentialConstraint>
@@ -466,6 +492,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_USUARIO_USUARIO_GRUPOPERMISSAO">
+          <End Role="GRUPO_PERMISSAO" Type="Self.GRUPO_PERMISSAO" Multiplicity="0..1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GRUPO_PERMISSAO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ID_GRUPOPERMISSAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_VOLUNTARIADO_ENTIDADE">
           <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="1" />
           <End Role="VOLUNTARIADO" Type="Self.VOLUNTARIADO" Multiplicity="*" />
@@ -526,6 +564,7 @@
           <EntitySet Name="FORNECEDOR" EntityType="Self.FORNECEDOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FORNECIMENTO" EntityType="Self.FORNECIMENTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FORNECIMENTO_ITENS" EntityType="Self.FORNECIMENTO_ITENS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GRUPO_PERMISSAO" EntityType="Self.GRUPO_PERMISSAO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRODUTO" EntityType="Self.PRODUTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RECURSO" EntityType="Self.RECURSO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIPO_EVENTO" EntityType="Self.TIPO_EVENTO" Schema="dbo" store:Type="Tables" />
@@ -558,7 +597,7 @@
             <End Role="ENTIDADE" EntitySet="ENTIDADE" />
             <End Role="ENTIDADE1" EntitySet="ENTIDADE" />
           </AssociationSet>
-          <AssociationSet Name="FK_ENTIDADE_USUARIO" Association="Self.FK_ENTIDADE_USUARIO">
+          <AssociationSet Name="FK_ENTIDADE_USUARIO_GRUPOPERMISSAO" Association="Self.FK_ENTIDADE_USUARIO_GRUPOPERMISSAO">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="ENTIDADE" EntitySet="ENTIDADE" />
           </AssociationSet>
@@ -605,6 +644,10 @@
           <AssociationSet Name="FK_RECURSO_TIPO" Association="Self.FK_RECURSO_TIPO">
             <End Role="TIPO_RECURSO" EntitySet="TIPO_RECURSO" />
             <End Role="RECURSO" EntitySet="RECURSO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_USUARIO_GRUPOPERMISSAO" Association="Self.FK_USUARIO_USUARIO_GRUPOPERMISSAO">
+            <End Role="GRUPO_PERMISSAO" EntitySet="GRUPO_PERMISSAO" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
           <AssociationSet Name="FK_VOLUNTARIADO_ENTIDADE" Association="Self.FK_VOLUNTARIADO_ENTIDADE">
             <End Role="ENTIDADE" EntitySet="ENTIDADE" />
@@ -836,6 +879,8 @@
           <Property Name="ATIVO" Type="Boolean" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="ENTIDADE" Relationship="ARCOS_V2Model.FK_ENTIDADE_USUARIO" FromRole="USUARIO" ToRole="ENTIDADE" />
+          <Property Name="ID_GRUPOPERMISSAO" Type="Int32" />
+          <NavigationProperty Name="GRUPO_PERMISSAO" Relationship="ARCOS_V2Model.FK_USUARIO_USUARIO_GRUPOPERMISSAO" FromRole="USUARIO" ToRole="GRUPO_PERMISSAO" />
         </EntityType>
         <EntityType Name="VOLUNTARIADO">
           <Key>
@@ -1137,6 +1182,11 @@
             <End Role="ENTIDADE" EntitySet="ENTIDADE" />
             <End Role="VOLUNTARIO" EntitySet="VOLUNTARIO" />
           </AssociationSet>
+          <EntitySet Name="GRUPO_PERMISSAO" EntityType="ARCOS_V2Model.GRUPO_PERMISSAO" />
+          <AssociationSet Name="FK_USUARIO_USUARIO_GRUPOPERMISSAO" Association="ARCOS_V2Model.FK_USUARIO_USUARIO_GRUPOPERMISSAO">
+            <End Role="GRUPO_PERMISSAO" EntitySet="GRUPO_PERMISSAO" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="ENTIDADE">
           <Key>
@@ -1286,6 +1336,44 @@
             </Principal>
             <Dependent Role="VOLUNTARIO">
               <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="GRUPO_PERMISSAO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRICAO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PERM_ENTIDADE" Type="Boolean" Nullable="false" />
+          <Property Name="PERM_VOLUNTARIOS" Type="Boolean" Nullable="false" />
+          <Property Name="PERM_VOLUNTARIAR" Type="Boolean" Nullable="false" />
+          <Property Name="PERM_VOLUNTARIADO" Type="Boolean" Nullable="false" />
+          <Property Name="PERM_USUARIOS" Type="Boolean" Nullable="false" />
+          <Property Name="PERM_EVENTO" Type="Boolean" Nullable="false" />
+          <Property Name="PERM_TIPOEVENTO" Type="Boolean" Nullable="false" />
+          <Property Name="PERM_RECURSO" Type="Boolean" Nullable="false" />
+          <Property Name="PERM_TIPORECURSO" Type="Boolean" Nullable="false" />
+          <Property Name="PERM_FORNECEDOR" Type="Boolean" Nullable="false" />
+          <Property Name="PERM_FORNECIMENTO" Type="Boolean" Nullable="false" />
+          <Property Name="PERM_PRODUTO" Type="Boolean" Nullable="false" />
+          <Property Name="PERM_TIPOPRODUTO" Type="Boolean" Nullable="false" />
+          <Property Name="PERM_DOACAO" Type="Boolean" Nullable="false" />
+          <Property Name="PERM_DOADOR" Type="Boolean" Nullable="false" />
+          <Property Name="PERM_ASSISTENCIA" Type="Boolean" Nullable="false" />
+          <Property Name="PERM_ASSISTIDO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="USUARIO" Relationship="ARCOS_V2Model.FK_USUARIO_USUARIO_GRUPOPERMISSAO" FromRole="GRUPO_PERMISSAO" ToRole="USUARIO" />
+          <Property Name="PERM_GRUPOPERMISSAO" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_USUARIO_USUARIO_GRUPOPERMISSAO">
+          <End Type="ARCOS_V2Model.GRUPO_PERMISSAO" Role="GRUPO_PERMISSAO" Multiplicity="0..1" />
+          <End Type="ARCOS_V2Model.USUARIO" Role="USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GRUPO_PERMISSAO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ID_GRUPOPERMISSAO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1482,6 +1570,7 @@
           <EntitySetMapping Name="USUARIO">
             <EntityTypeMapping TypeName="ARCOS_V2Model.USUARIO">
               <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="ID_GRUPOPERMISSAO" ColumnName="ID_GRUPOPERMISSAO" />
                 <ScalarProperty Name="LOGIN" ColumnName="LOGIN" />
                 <ScalarProperty Name="SENHA" ColumnName="SENHA" />
                 <ScalarProperty Name="NOME" ColumnName="NOME" />
@@ -1554,6 +1643,32 @@
                 <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
                 <ScalarProperty Name="LOGRADOURO" ColumnName="LOGRADOURO" />
                 <ScalarProperty Name="NOME" ColumnName="NOME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GRUPO_PERMISSAO">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.GRUPO_PERMISSAO">
+              <MappingFragment StoreEntitySet="GRUPO_PERMISSAO">
+                <ScalarProperty Name="PERM_GRUPOPERMISSAO" ColumnName="PERM_GRUPOPERMISSAO" />
+                <ScalarProperty Name="PERM_ASSISTIDO" ColumnName="PERM_ASSISTIDO" />
+                <ScalarProperty Name="PERM_ASSISTENCIA" ColumnName="PERM_ASSISTENCIA" />
+                <ScalarProperty Name="PERM_DOADOR" ColumnName="PERM_DOADOR" />
+                <ScalarProperty Name="PERM_DOACAO" ColumnName="PERM_DOACAO" />
+                <ScalarProperty Name="PERM_TIPOPRODUTO" ColumnName="PERM_TIPOPRODUTO" />
+                <ScalarProperty Name="PERM_PRODUTO" ColumnName="PERM_PRODUTO" />
+                <ScalarProperty Name="PERM_FORNECIMENTO" ColumnName="PERM_FORNECIMENTO" />
+                <ScalarProperty Name="PERM_FORNECEDOR" ColumnName="PERM_FORNECEDOR" />
+                <ScalarProperty Name="PERM_TIPORECURSO" ColumnName="PERM_TIPORECURSO" />
+                <ScalarProperty Name="PERM_RECURSO" ColumnName="PERM_RECURSO" />
+                <ScalarProperty Name="PERM_TIPOEVENTO" ColumnName="PERM_TIPOEVENTO" />
+                <ScalarProperty Name="PERM_EVENTO" ColumnName="PERM_EVENTO" />
+                <ScalarProperty Name="PERM_USUARIOS" ColumnName="PERM_USUARIOS" />
+                <ScalarProperty Name="PERM_VOLUNTARIADO" ColumnName="PERM_VOLUNTARIADO" />
+                <ScalarProperty Name="PERM_VOLUNTARIAR" ColumnName="PERM_VOLUNTARIAR" />
+                <ScalarProperty Name="PERM_VOLUNTARIOS" ColumnName="PERM_VOLUNTARIOS" />
+                <ScalarProperty Name="PERM_ENTIDADE" ColumnName="PERM_ENTIDADE" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
