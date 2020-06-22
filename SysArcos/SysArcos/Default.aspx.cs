@@ -28,8 +28,16 @@ namespace ProjetoArcos
                 {
                     // conexão bem sucedida
                     Session["usuariologado"] = u.LOGIN.ToString();
-                    //Redireciona para outra página
-                    Response.Redirect("PaginaInicial.aspx");
+                    if (u.ALTERA_SENHA_PROX_LOGIN)
+                    {
+                        //Redireciona para outra página
+                        Session["altera_primeiro_login"] = true;
+                        Response.Redirect("PaginaInicial.aspx");
+                    }
+                    else
+                        //Redireciona para outra página
+                        Session["altera_primeiro_login"] = false;
+                        Response.Redirect("PaginaInicial.aspx");
                 }
             }
         }

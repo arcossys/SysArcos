@@ -28,7 +28,9 @@ namespace ProjetoArcos
                             txt_nomeUsuario.Text = u.NOME;
                             txt_senhaUsuario.Text = u.SENHA;
                             txt_user.Text = u.LOGIN;
+                            ddlPermissao.SelectedValue = u.GRUPO_PERMISSAO.ID.ToString();
                             CB_ativo.Checked = u.ATIVO;
+                            CB_AlteraProxLogin.Checked = u.ALTERA_SENHA_PROX_LOGIN;
                             lblAcao.Text = "ALTERANDO";
                         }
                     }
@@ -62,6 +64,7 @@ namespace ProjetoArcos
                         usuario.EMAIL = txt_email.Text.ToLower();
                         usuario.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
                         usuario.ATIVO = CB_ativo.Checked;
+                        usuario.ALTERA_SENHA_PROX_LOGIN = CB_AlteraProxLogin.Checked;
                         usuario.ID_GRUPOPERMISSAO = Convert.ToInt32(ddlPermissao.SelectedValue);
                         entity.USUARIO.Add(usuario);
                     }
@@ -76,6 +79,7 @@ namespace ProjetoArcos
                         usuario.EMAIL = txt_email.Text.ToLower();
                         usuario.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
                         usuario.ATIVO = CB_ativo.Checked;
+                        usuario.ALTERA_SENHA_PROX_LOGIN = CB_AlteraProxLogin.Checked;
                         usuario.ID_GRUPOPERMISSAO = Convert.ToInt32(ddlPermissao.SelectedValue);
                         entity.Entry(usuario);
                     }
@@ -101,6 +105,7 @@ namespace ProjetoArcos
             txt_email.Text = string.Empty;
             ddlPermissao.SelectedIndex = -1;
             CB_ativo.Checked = true;
+            CB_AlteraProxLogin.Checked = false;
             lblAcao.Text = "NOVO";
         }
 

@@ -28,6 +28,7 @@ namespace SysArcos
         public bool ATIVO { get; set; }
         public System.DateTime DATA_HORA_CRIACAO_REGISTRO { get; set; }
         public Nullable<int> ID_GRUPOPERMISSAO { get; set; }
+        public bool ALTERA_SENHA_PROX_LOGIN { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ENTIDADE> ENTIDADE { get; set; }

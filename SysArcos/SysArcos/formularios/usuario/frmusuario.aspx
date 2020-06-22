@@ -40,9 +40,10 @@
                  <div>
                     <asp:CheckBox ID="CB_ativo" type="checkbox" runat="server" BorderColor="Black" Checked="True" />                
                     <asp:Label runat="server"  ID="LBCBAtivo" Text="Ativo" /> 
-                     <br />
-                     <br />
-                     <br />
+                 </div>
+                <div>
+                    <asp:CheckBox ID="CB_AlteraProxLogin" type="checkbox" runat="server" BorderColor="Black" Checked="False" />                
+                    <asp:Label runat="server"  ID="Label1" Text="Alterar Senha Próximo Login" /> 
                  </div>
                    
                  <div>

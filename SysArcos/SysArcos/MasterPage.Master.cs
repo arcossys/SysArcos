@@ -12,9 +12,12 @@ namespace ProjetoArcos
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {
+            { 
+                //Valida Permissões
                 String pagina = System.IO.Path.GetFileName(
                     HttpContext.Current.Request.Url.AbsolutePath);
+                if (!pagina.Equals("AlterarSenhaProxLogin.aspx"))
+                    verificarSenhaPrimeiroLogin();
                 validaPermisses(pagina);
 
                 String login = (string)Session["usuariologado"]; //Neste caso deve-se fazer a conversão
@@ -107,6 +110,15 @@ namespace ProjetoArcos
                 if (pagina.Equals("frmbuscavoluntario.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_VOLUNTARIOS);
                 if (pagina.Equals("frmvoluntario.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_VOLUNTARIOS);
             }
+        }
+
+        private void verificarSenhaPrimeiroLogin()
+        {
+            bool altera_primeiro_login = (bool)Session["altera_primeiro_login"];
+            if (altera_primeiro_login){
+               Response.Redirect("/AlterarSenhaProxLogin.aspx");
+            }
+            
         }
     }
 }

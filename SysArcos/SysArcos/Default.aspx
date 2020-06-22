@@ -34,7 +34,7 @@
                                    
                                     <div>
                                         <span style="width:48%; text-align:left;  display: inline-block;">
-                                            <a class="large-text" href="#">Esqueceu a Senha?</a>
+                                            <!--<a class="large-text" href="#">Esqueceu a Senha?</a>-->
                                         </span>
                                         <span style="width:50%; text-align:right;  display: inline-block;">
                                             <asp:Button ID="btnEntrar" runat="server" Text="Entrar" class="btn btn-primary btn-sm" OnClick="btnEntrar_Click">
