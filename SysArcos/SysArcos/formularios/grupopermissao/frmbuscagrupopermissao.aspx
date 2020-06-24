@@ -1,10 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="frmbuscausuario.aspx.cs" Inherits="ProjetoArcos.frmbuscausuario" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="frmbuscagrupopermissao.aspx.cs" Inherits="SysArcos.formularios.usuario.frmbuscagrupopermissao" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="entidade">
-    Buscar Usuários
-</div>
+        Buscar Grupo Permissão
+    </div>
+    <div>
 <div>
 
     <asp:Label ID="Label1" runat="server" Text="Filtro"></asp:Label>
@@ -13,21 +14,17 @@
 
 
     <br />
-    <asp:RadioButton ID="rdNome" runat="server" Checked="True" GroupName="filtro" Text="Nome" />
-&nbsp;<asp:RadioButton ID="rdLogin" runat="server" GroupName="filtro" Text="Login" />
-    <br />
+&nbsp;<br />
 
 </div>
+    </div>
+
 <div>
 
-    <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataKeyNames="LOGIN" ShowHeaderWhenEmpty="True">
+    <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="500px" DataKeyNames="ID" ShowHeaderWhenEmpty="True">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:BoundField HeaderText="Nome" DataField="NOME" />
-            <asp:BoundField HeaderText="Login" DataField="LOGIN" />
-            <asp:BoundField HeaderText="CPF" DataField="CPF" />
-            <asp:BoundField HeaderText="E-mail" DataField="EMAIL" />
-            <asp:BoundField DataField="GRUPO_PERMISSAO.DESCRICAO" HeaderText="Permissão" />
+            <asp:BoundField HeaderText="Grupo Permissão" DataField="DESCRICAO" />
             <asp:CommandField ShowSelectButton="True" />
         </Columns>
         <EditRowStyle BackColor="#2461BF" />

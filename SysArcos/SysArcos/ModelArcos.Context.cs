@@ -39,10 +39,11 @@ namespace SysArcos
         public virtual DbSet<RECURSO> RECURSO { get; set; }
         public virtual DbSet<TIPO_EVENTO> TIPO_EVENTO { get; set; }
         public virtual DbSet<TIPO_RECURSO> TIPO_RECURSO { get; set; }
-        public virtual DbSet<USUARIO> USUARIO { get; set; }
         public virtual DbSet<VOLUNTARIADO> VOLUNTARIADO { get; set; }
         public virtual DbSet<VOLUNTARIAR> VOLUNTARIAR { get; set; }
         public virtual DbSet<VOLUNTARIO> VOLUNTARIO { get; set; }
         public virtual DbSet<ENTIDADE> ENTIDADE { get; set; }
+        public virtual DbSet<GRUPO_PERMISSAO> GRUPO_PERMISSAO { get; set; }
+        public virtual DbSet<USUARIO> USUARIO { get; set; }
     }
 }

@@ -32,9 +32,18 @@
                    &nbsp;<asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="txt_email" ErrorMessage="Formato de e-mail inválido" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
 &nbsp;<asp:TextBox ID="txt_email" class="form-control" runat="server" MaxLength="50" Width="300px"></asp:TextBox>
                  </div>
+                 <div class="form-group">
+                     <asp:Label ID="lbl_permissao" runat="server" Text="Permissão"></asp:Label>
+                     <asp:DropDownList ID="ddlPermissao" runat="server" class="form-control" Width="300px">
+                     </asp:DropDownList>
+                 </div>
                  <div>
                     <asp:CheckBox ID="CB_ativo" type="checkbox" runat="server" BorderColor="Black" Checked="True" />                
                     <asp:Label runat="server"  ID="LBCBAtivo" Text="Ativo" /> 
+                 </div>
+                <div>
+                    <asp:CheckBox ID="CB_AlteraProxLogin" type="checkbox" runat="server" BorderColor="Black" Checked="False" />                
+                    <asp:Label runat="server"  ID="Label1" Text="Alterar Senha Próximo Login" /> 
                  </div>
                    
                  <div>

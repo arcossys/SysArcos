@@ -7,90 +7,72 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace ProjetoArcos {
+namespace SysArcos {
     
     
-    public partial class frmbuscausuario {
+    public partial class AlterarSenhaProxLogin {
         
         /// <summary>
-        /// Controle Label1.
+        /// Controle lblSenhaAtual.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblSenhaAtual;
         
         /// <summary>
-        /// Controle txtBusca.
+        /// Controle txtSenhaAtual.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBusca;
+        protected global::System.Web.UI.WebControls.TextBox txtSenhaAtual;
         
         /// <summary>
-        /// Controle btnBuscar.
+        /// Controle lblNovaSenha.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscar;
+        protected global::System.Web.UI.WebControls.Label lblNovaSenha;
         
         /// <summary>
-        /// Controle rdNome.
+        /// Controle txtNovaSenha.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdNome;
+        protected global::System.Web.UI.WebControls.TextBox txtNovaSenha;
         
         /// <summary>
-        /// Controle rdLogin.
+        /// Controle lblRepetirNovaSenha.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdLogin;
+        protected global::System.Web.UI.WebControls.Label lblRepetirNovaSenha;
         
         /// <summary>
-        /// Controle grid.
+        /// Controle txtRepetirNovaSenha.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grid;
+        protected global::System.Web.UI.WebControls.TextBox txtRepetirNovaSenha;
         
         /// <summary>
-        /// Controle btnCancelar.
+        /// Controle btnAlterarSenha.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelar;
-        
-        /// <summary>
-        /// Controle btnSelecionar.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSelecionar;
-        
-        /// <summary>
-        /// Controle btnRemover.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRemover;
+        protected global::System.Web.UI.WebControls.Button btnAlterarSenha;
     }
 }

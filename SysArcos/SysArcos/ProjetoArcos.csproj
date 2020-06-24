@@ -71,6 +71,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AlterarSenhaProxLogin.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -88,11 +89,13 @@
     <Content Include="formularios\doador\frmbuscadoador.aspx" />
     <Content Include="formularios\entidades\frmbuscaentidade.aspx" />
     <Content Include="formularios\fornecedor\frmbuscafornecedor.aspx" />
+    <Content Include="permissao_negada.aspx" />
     <Content Include="formularios\produto\frmbuscaproduto.aspx" />
     <Content Include="formularios\tipoevento\frmbuscatipoevento.aspx" />
     <Content Include="formularios\tiporecurso\frmbuscatiporecurso.aspx" />
+    <Content Include="formularios\grupopermissao\frmbuscagrupopermissao.aspx" />
     <Content Include="formularios\usuario\frmbuscausuario.aspx" />
-    <Content Include="formularios\usuario\frmpermissoes.aspx" />
+    <Content Include="formularios\grupopermissao\frmgrupopermissao.aspx" />
     <Content Include="formularios\voluntariado\frmbuscavoluntariado.aspx" />
     <Content Include="formularios\voluntario\frmbuscavoluntario.aspx" />
     <Content Include="formularios\categoria_produto\frmcategoria_produto.aspx" />
@@ -224,6 +227,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlterarSenhaProxLogin.aspx.cs">
+      <DependentUpon>AlterarSenhaProxLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AlterarSenhaProxLogin.aspx.designer.cs">
+      <DependentUpon>AlterarSenhaProxLogin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ASSISTENCIA.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
     </Compile>
@@ -255,12 +265,26 @@
     <Compile Include="EVENTO.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
     </Compile>
-    <Compile Include="formularios\usuario\frmpermissoes.aspx.cs">
-      <DependentUpon>frmpermissoes.aspx</DependentUpon>
+    <Compile Include="permissao_negada.aspx.cs">
+      <DependentUpon>permissao_negada.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="formularios\usuario\frmpermissoes.aspx.designer.cs">
-      <DependentUpon>frmpermissoes.aspx</DependentUpon>
+    <Compile Include="permissao_negada.aspx.designer.cs">
+      <DependentUpon>permissao_negada.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\grupopermissao\frmbuscagrupopermissao.aspx.cs">
+      <DependentUpon>frmbuscagrupopermissao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\grupopermissao\frmbuscagrupopermissao.aspx.designer.cs">
+      <DependentUpon>frmbuscagrupopermissao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\grupopermissao\frmgrupopermissao.aspx.cs">
+      <DependentUpon>frmgrupopermissao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\grupopermissao\frmgrupopermissao.aspx.designer.cs">
+      <DependentUpon>frmgrupopermissao.aspx</DependentUpon>
     </Compile>
     <Compile Include="FORNECEDOR.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
@@ -438,6 +462,9 @@
     </Compile>
     <Compile Include="formularios\voluntario\frmvoluntario.aspx.designer.cs">
       <DependentUpon>frmvoluntario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GRUPO_PERMISSAO.cs">
+      <DependentUpon>ModelArcos.tt</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>

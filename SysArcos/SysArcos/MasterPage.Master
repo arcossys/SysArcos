@@ -52,6 +52,7 @@
                     <button type="button" name="drop">USUÁRIOS</button>
                     <div class="drop-content">
                         <a href="/formularios/usuario/frmusuario.aspx">Usuários</a>
+                        <a href="/formularios/grupopermissao/frmgrupopermissao.aspx">Grupo Permissão</a>
                     </div>
                 </div>
 
