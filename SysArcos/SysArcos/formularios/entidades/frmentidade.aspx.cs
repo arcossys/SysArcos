@@ -29,7 +29,7 @@ namespace ProjetoArcos
                             txtCNPJ.Text = u.CNPJ;
                             txtTelefone.Text = u.TELEFONE;
                             txtLogradouro.Text = u.LOGRADOURO;
-                            txtNumero.Text = u.NOME;
+                            txtNumero.Text = u.NUMERO;
                             txtBairro.Text = u.BAIRRO;
                             txtCEP.Text = u.CEP;
                             txtCidade.Text = u.CIDADE;
@@ -114,6 +114,7 @@ namespace ProjetoArcos
             txtPresidente.Text = string.Empty;
             txtCNPJ.Text = string.Empty;
             txtAdmnistrador.Text = string.Empty;
+            txtNumero.Text = string.Empty;
         }
 
         protected void btnNovo_Click(object sender, EventArgs e)
