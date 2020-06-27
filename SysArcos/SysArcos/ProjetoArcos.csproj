@@ -86,6 +86,7 @@
     <Content Include="formularios\assistido\frmassistido.aspx" />
     <Content Include="formularios\assistencia\frmbuscaassistencia.aspx" />
     <Content Include="formularios\assistido\frmbuscaassistido.aspx" />
+    <Content Include="formularios\categoria_produto\frmbuscacategoria_produto.aspx" />
     <Content Include="formularios\doador\frmbuscadoador.aspx" />
     <Content Include="formularios\entidades\frmbuscaentidade.aspx" />
     <Content Include="formularios\fornecedor\frmbuscafornecedor.aspx" />
@@ -265,6 +266,13 @@
     </Compile>
     <Compile Include="EVENTO.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\categoria_produto\frmbuscacategoria_produto.aspx.cs">
+      <DependentUpon>frmbuscacategoria_produto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\categoria_produto\frmbuscacategoria_produto.aspx.designer.cs">
+      <DependentUpon>frmbuscacategoria_produto.aspx</DependentUpon>
     </Compile>
     <Compile Include="formularios\Voluntariar\frmvoluntariar.aspx.cs">
       <DependentUpon>frmvoluntariar.aspx</DependentUpon>
