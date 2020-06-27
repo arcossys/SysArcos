@@ -87,8 +87,10 @@
     <Content Include="formularios\assistencia\frmbuscaassistencia.aspx" />
     <Content Include="formularios\assistido\frmbuscaassistido.aspx" />
     <Content Include="formularios\categoria_produto\frmbuscacategoria_produto.aspx" />
+    <Content Include="formularios\doacao\frmdoacao.aspx" />
     <Content Include="formularios\doador\frmbuscadoador.aspx" />
     <Content Include="formularios\entidades\frmbuscaentidade.aspx" />
+    <Content Include="formularios\estoque\frmestoque.aspx" />
     <Content Include="formularios\fornecedor\frmbuscafornecedor.aspx" />
     <Content Include="formularios\Voluntariar\frmvoluntariar.aspx" />
     <Content Include="permissao_negada.aspx" />
@@ -273,6 +275,20 @@
     </Compile>
     <Compile Include="formularios\categoria_produto\frmbuscacategoria_produto.aspx.designer.cs">
       <DependentUpon>frmbuscacategoria_produto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\doacao\frmdoacao.aspx.cs">
+      <DependentUpon>frmdoacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\doacao\frmdoacao.aspx.designer.cs">
+      <DependentUpon>frmdoacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\estoque\frmestoque.aspx.cs">
+      <DependentUpon>frmestoque.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\estoque\frmestoque.aspx.designer.cs">
+      <DependentUpon>frmestoque.aspx</DependentUpon>
     </Compile>
     <Compile Include="formularios\Voluntariar\frmvoluntariar.aspx.cs">
       <DependentUpon>frmvoluntariar.aspx</DependentUpon>
