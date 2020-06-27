@@ -89,6 +89,7 @@
     <Content Include="formularios\doador\frmbuscadoador.aspx" />
     <Content Include="formularios\entidades\frmbuscaentidade.aspx" />
     <Content Include="formularios\fornecedor\frmbuscafornecedor.aspx" />
+    <Content Include="formularios\Voluntariar\frmvoluntariar.aspx" />
     <Content Include="permissao_negada.aspx" />
     <Content Include="formularios\produto\frmbuscaproduto.aspx" />
     <Content Include="formularios\tipoevento\frmbuscatipoevento.aspx" />
@@ -264,6 +265,13 @@
     </Compile>
     <Compile Include="EVENTO.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\Voluntariar\frmvoluntariar.aspx.cs">
+      <DependentUpon>frmvoluntariar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\Voluntariar\frmvoluntariar.aspx.designer.cs">
+      <DependentUpon>frmvoluntariar.aspx</DependentUpon>
     </Compile>
     <Compile Include="permissao_negada.aspx.cs">
       <DependentUpon>permissao_negada.aspx</DependentUpon>
