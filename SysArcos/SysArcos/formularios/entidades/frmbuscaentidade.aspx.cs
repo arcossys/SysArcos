@@ -71,16 +71,23 @@ namespace ProjetoArcos
                 //String ID = Request.QueryString["ID"];
                 string ID = grid.SelectedValue.ToString();
                 int i = Convert.ToInt32(ID);
-                using (ARCOS_Entities entities = new ARCOS_Entities())
+                try
                 {
-                    ENTIDADE entidade = entities.ENTIDADE.FirstOrDefault(x => x.ID.Equals(i));
-                    entities.ENTIDADE.Remove(entidade);
-                    entities.SaveChanges();
+                    using (ARCOS_Entities entities = new ARCOS_Entities())
+                    {
+                        ENTIDADE entidade = entities.ENTIDADE.FirstOrDefault(x => x.ID.Equals(i));
+                        entities.ENTIDADE.Remove(entidade);
+                        entities.SaveChanges();
 
-                    grid.DataSource = null;
-                    grid.DataBind();
-                    grid.SelectedIndex = -1;
-                    Response.Write("<script>alert('Removido com sucesso!');</script>");
+                        grid.DataSource = null;
+                        grid.DataBind();
+                        grid.SelectedIndex = -1;
+                        Response.Write("<script>alert('Removido com sucesso!');</script>");
+                    }
+                }
+                catch
+                {
+                    Response.Write("<script>alert('Falha ao remover registro!');</script>");
                 }
             }
         }

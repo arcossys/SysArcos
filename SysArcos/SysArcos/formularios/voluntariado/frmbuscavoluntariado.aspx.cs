@@ -50,17 +50,24 @@ namespace ProjetoArcos
             if (grid.SelectedValue != null)
             {
                 Int32 id = Convert.ToInt32(grid.SelectedValue);
-                using (ARCOS_Entities entities = new ARCOS_Entities())
+                try
                 {
-                    VOLUNTARIADO volunt = entities.VOLUNTARIADO.FirstOrDefault(x => x.ID.Equals(id));
-                    entities.VOLUNTARIADO.Remove(volunt);
-                    entities.SaveChanges();
+                    using (ARCOS_Entities entities = new ARCOS_Entities())
+                    {
+                        VOLUNTARIADO volunt = entities.VOLUNTARIADO.FirstOrDefault(x => x.ID.Equals(id));
+                        entities.VOLUNTARIADO.Remove(volunt);
+                        entities.SaveChanges();
 
-                    //Limpar Grid 
-                    grid.DataSource = null;
-                    grid.DataBind();
-                    grid.SelectedIndex = -1;
-                    Response.Write("<script>alert('Removido com sucesso!');</script>");
+                        //Limpar Grid 
+                        grid.DataSource = null;
+                        grid.DataBind();
+                        grid.SelectedIndex = -1;
+                        Response.Write("<script>alert('Removido com sucesso!');</script>");
+                    }
+                }
+                catch
+                {
+                    Response.Write("<script>alert('Falha ao remover registro!');</script>");
                 }
             }
         }

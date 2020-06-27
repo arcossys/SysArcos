@@ -49,18 +49,25 @@ namespace SysArcos.formularios.usuario
             if (grid.SelectedValue != null)
             {
                 string ID = grid.SelectedValue.ToString();
-                using (ARCOS_Entities entities = new ARCOS_Entities())
+                try
                 {
-                    GRUPO_PERMISSAO gp = entities.GRUPO_PERMISSAO.
-                        FirstOrDefault(x => x.ID.ToString().Equals(ID));
-                    entities.GRUPO_PERMISSAO.Remove(gp);
-                    entities.SaveChanges();
+                    using (ARCOS_Entities entities = new ARCOS_Entities())
+                    {
+                        GRUPO_PERMISSAO gp = entities.GRUPO_PERMISSAO.
+                            FirstOrDefault(x => x.ID.ToString().Equals(ID));
+                        entities.GRUPO_PERMISSAO.Remove(gp);
+                        entities.SaveChanges();
 
-                    //Limpar Grid 
-                    grid.DataSource = null;
-                    grid.DataBind();
-                    grid.SelectedIndex = -1;
-                    Response.Write("<script>alert('Removido com sucesso!');</script>");
+                        //Limpar Grid 
+                        grid.DataSource = null;
+                        grid.DataBind();
+                        grid.SelectedIndex = -1;
+                        Response.Write("<script>alert('Removido com sucesso!');</script>");
+                    }
+                }
+                catch
+                {
+                    Response.Write("<script>alert('Falha ao remover registro!');</script>");
                 }
             }
         }

@@ -28,7 +28,7 @@
 
             <div   >
                <asp:Label ID="Label4" runat="server" Text="Data de Nascimento:"></asp:Label>
-               <asp:TextBox ID="txtDataNascimento" class="form-control" runat="server" Width="140px" MaxLength="10" Height="30px"  Placeholder="DD/MM/AAAA"></asp:TextBox>         
+               <asp:TextBox ID="txtDataNascimento" class="form-control" runat="server" Width="180px" MaxLength="10" Height="30px"  Placeholder="DD/MM/AAAA" TextMode="Date"></asp:TextBox>         
             </div>
 
             <div  >

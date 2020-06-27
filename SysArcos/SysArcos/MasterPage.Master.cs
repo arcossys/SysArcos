@@ -69,54 +69,60 @@ namespace ProjetoArcos
                 string login = (string)Session["usuariologado"];
                 USUARIO u =
                     entity.USUARIO.FirstOrDefault(linha => linha.LOGIN.Equals(login));
+                if (u != null)
+                {
+                    if (pagina.Equals("frmassistencia.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_ASSISTENCIA);
+                    if (pagina.Equals("frmbuscaassistencia.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_ASSISTENCIA);
 
-                if (pagina.Equals("frmassistencia.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_ASSISTENCIA);
-                if (pagina.Equals("frmbuscaassistencia.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_ASSISTENCIA);
+                    if (pagina.Equals("frmassistido.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_ASSISTIDO);
+                    if (pagina.Equals("frmbuscaassistido.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_ASSISTIDO);
 
-                if (pagina.Equals("frmassistido.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_ASSISTIDO);
-                if (pagina.Equals("frmbuscaassistido.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_ASSISTIDO);
+                    if (pagina.Equals("frmcategoria_produto.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_TIPOPRODUTO);
 
-                if (pagina.Equals("frmcategoria_produto.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_TIPOPRODUTO);
+                    if (pagina.Equals("frmbuscadoador.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_DOADOR);
+                    if (pagina.Equals("frmdoador.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_DOADOR);
 
-                if (pagina.Equals("frmbuscadoador.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_DOADOR);
-                if (pagina.Equals("frmdoador.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_DOADOR);
+                    if (pagina.Equals("frmbuscaentidade.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_ENTIDADE);
+                    if (pagina.Equals("frmentidade.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_ENTIDADE);
 
-                if (pagina.Equals("frmbuscaentidade.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_ENTIDADE);
-                if (pagina.Equals("frmentidade.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_ENTIDADE);
+                    if (pagina.Equals("frmevento.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_EVENTO);
 
-                if (pagina.Equals("frmevento.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_EVENTO);
+                    if (pagina.Equals("frmbuscafornecedor.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_FORNECEDOR);
+                    if (pagina.Equals("frmfornecedor.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_FORNECEDOR);
 
-                if (pagina.Equals("frmbuscafornecedor.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_FORNECEDOR);
-                if (pagina.Equals("frmfornecedor.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_FORNECEDOR);
+                    if (pagina.Equals("frmbuscaproduto.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_PRODUTO);
+                    if (pagina.Equals("frmproduto.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_PRODUTO);
 
-                if (pagina.Equals("frmbuscaproduto.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_PRODUTO);
-                if (pagina.Equals("frmproduto.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_PRODUTO);
+                    if (pagina.Equals("frmbuscatipoevento.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_EVENTO);
+                    if (pagina.Equals("frmtipoevento.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_EVENTO);
 
-                if (pagina.Equals("frmbuscatipoevento.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_EVENTO);
-                if (pagina.Equals("frmtipoevento.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_EVENTO);
+                    if (pagina.Equals("frmbuscatiporecurso.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_TIPORECURSO);
+                    if (pagina.Equals("frmtiporecurso.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_TIPORECURSO);
 
-                if (pagina.Equals("frmbuscatiporecurso.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_TIPORECURSO);
-                if (pagina.Equals("frmtiporecurso.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_TIPORECURSO);
+                    if (pagina.Equals("frmbuscagrupopermissao")) testaPermissao(u.GRUPO_PERMISSAO.PERM_GRUPOPERMISSAO);
+                    if (pagina.Equals("frmgrupopermissao.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_GRUPOPERMISSAO);
 
-                if (pagina.Equals("frmbuscagrupopermissao")) testaPermissao(u.GRUPO_PERMISSAO.PERM_GRUPOPERMISSAO);
-                if (pagina.Equals("frmgrupopermissao.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_GRUPOPERMISSAO);
+                    if (pagina.Equals("frmbuscausuario.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_USUARIOS);
+                    if (pagina.Equals("frmusuario.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_USUARIOS);
 
-                if (pagina.Equals("frmbuscausuario.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_USUARIOS);
-                if (pagina.Equals("frmusuario.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_USUARIOS);
+                    if (pagina.Equals("frmbuscavoluntariado.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_VOLUNTARIADO);
+                    if (pagina.Equals("frmvoluntariado.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_VOLUNTARIADO);
 
-                if (pagina.Equals("frmbuscavoluntariado.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_VOLUNTARIADO);
-                if (pagina.Equals("frmvoluntariado.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_VOLUNTARIADO);
-
-                if (pagina.Equals("frmbuscavoluntario.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_VOLUNTARIOS);
-                if (pagina.Equals("frmvoluntario.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_VOLUNTARIOS);
+                    if (pagina.Equals("frmbuscavoluntario.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_VOLUNTARIOS);
+                    if (pagina.Equals("frmvoluntario.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_VOLUNTARIOS);
+                }
             }
         }
 
         private void verificarSenhaPrimeiroLogin()
         {
-            bool altera_primeiro_login = (bool)Session["altera_primeiro_login"];
-            if (altera_primeiro_login){
-               Response.Redirect("/AlterarSenhaProxLogin.aspx");
+            if (Session["altera_primeiro_login"] != null)
+            {
+                bool altera_primeiro_login = (bool)Session["altera_primeiro_login"];
+                if (altera_primeiro_login)
+                {
+                    Response.Redirect("/AlterarSenhaProxLogin.aspx");
+                }
             }
             
         }

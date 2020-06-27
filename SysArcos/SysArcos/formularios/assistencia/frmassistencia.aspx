@@ -11,23 +11,35 @@
     </div>      
     <div>
        <asp:Label ID="Label3" runat="server" Text="Data Inicial"></asp:Label>
-       <asp:TextBox ID="txt_inicial" class="form-control" runat="server" MaxLength="14" Placeholder="DD/MM/AAAA" Width="300px"></asp:TextBox>
+       <asp:TextBox ID="txt_inicial" class="form-control" runat="server" MaxLength="14" Placeholder="DD/MM/AAAA" Width="300px" TextMode="Date"></asp:TextBox>
     </div>         
     <div  >                   
        <asp:Label ID="Label2" runat="server" Text="Data Final"></asp:Label>
-       <asp:TextBox ID="txt_final" class="form-control" runat="server" MaxLength="14" Placeholder="DD/MM/AAAA" Width="300px"></asp:TextBox>
+       <asp:TextBox ID="txt_final" class="form-control" runat="server" MaxLength="14" Placeholder="DD/MM/AAAA" Width="300px" TextMode="Date"></asp:TextBox>
     </div>
     <div>                   
         <asp:Label ID="lbl_cpf" runat="server" Text="Descrição"></asp:Label>
         <asp:TextBox ID="txt_descricao" class="form-control" runat="server" MaxLength="14" Width="300px"></asp:TextBox>
     </div>
+    <div>
+
+        <asp:Label ID="txtEntidade" runat="server" Text="Entidade"></asp:Label>
+        <br />
+        <asp:DropDownList ID="ddlEntidade" runat="server">
+        </asp:DropDownList>
+
+    </div>
+    <div>
+
+        <asp:Label ID="txtAssistido" runat="server" Text="Assistido"></asp:Label>
+        <br />
+        <asp:DropDownList ID="ddlAssistido" runat="server">
+        </asp:DropDownList>
+
+    </div>
     <div >                   
        <asp:Label ID="lbl_email" runat="server" Text="Observações"></asp:Label>
        <asp:TextBox ID="txt_observacao" class="form-control" runat="server" MaxLength="50" Width="300px"></asp:TextBox>
-    </div>
-    <div >                   
-       <asp:Label ID="Label1" runat="server" Text="Data e Hora"></asp:Label>
-       <asp:TextBox ID="txt_hora" class="form-control" runat="server" MaxLength="50" Width="300px"></asp:TextBox>
     </div>
     <br />
     <div>

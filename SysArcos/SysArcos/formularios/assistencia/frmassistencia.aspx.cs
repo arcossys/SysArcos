@@ -36,7 +36,7 @@ namespace ProjetoArcos
         protected void btn_cadastrar_Click(object sender, EventArgs e)
         {
            
-            if (txt_inicial.Text == "" || txt_final.Text == "" || txt_descricao.Text == "" || txt_observacao.Text == "" || txt_hora.Text == "")
+            if (txt_inicial.Text == "" || txt_final.Text == "" || txt_descricao.Text == "" || txt_observacao.Text == "")
 
             {
                 Response.Write("<script>alert('Há campos obrigatorios não preenchidos!');</script>");
@@ -85,7 +85,6 @@ namespace ProjetoArcos
             txt_final.Text = string.Empty;
             txt_descricao.Text = string.Empty;
             txt_observacao.Text = string.Empty;
-            txt_hora.Text = string.Empty;
         }
 
         protected void btn_buscar_Click(object sender, EventArgs e)
@@ -99,7 +98,6 @@ namespace ProjetoArcos
             txt_final.Text = string.Empty;
             txt_descricao.Text = string.Empty;
             txt_observacao.Text = string.Empty;
-            txt_hora.Text = string.Empty;
         }
     }
 }
