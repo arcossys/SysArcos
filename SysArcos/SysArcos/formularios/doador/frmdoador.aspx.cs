@@ -50,48 +50,55 @@ namespace ProjetoArcos
             }
             else
             {
-                using (ARCOS_Entities entity = new ARCOS_Entities())
+                try
                 {
-                    DOADOR doador = new DOADOR();
-
-
-                    if (lblAcao.Text.Equals("NOVO"))
+                    using (ARCOS_Entities entity = new ARCOS_Entities())
                     {
-                        doador = new DOADOR();
-                        doador.NOME = txt_nomedoador.Text;
-                        doador.LOGRADOURO = txt_logradouro.Text;
-                        doador.CEP = txt_CEP.Text;
-                        doador.CIDADE = txt_cidade.Text;
-                        doador.BAIRRO = txt_bairro.Text;
-                        doador.NUMERO = txt_numero.Text;
-                        doador.DISPONIBILIDADE = txt_disponibilidade.Text;
-                        doador.ESTADO = drp_estado.SelectedValue;
-                        doador.TIPO_DOACAO = txt_tipodoacao.Text;
-                        doador.ATIVO = cb_ativo.Checked;
-                        doador.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
-                        entity.DOADOR.Add(doador);
-                    }
-                    else
-                    {
-                        doador = entity.DOADOR.FirstOrDefault(x => x.ID.ToString().Equals(lblID.Text));
+                        DOADOR doador = new DOADOR();
 
-                        doador.NOME = txt_nomedoador.Text;
-                        doador.LOGRADOURO = txt_logradouro.Text;
-                        doador.CEP = txt_CEP.Text;
-                        doador.CIDADE = txt_cidade.Text;
-                        doador.BAIRRO = txt_bairro.Text;
-                        doador.NUMERO = txt_numero.Text;
-                        doador.DISPONIBILIDADE = txt_disponibilidade.Text;
-                        doador.ESTADO = drp_estado.SelectedValue;
-                        doador.TIPO_DOACAO = txt_tipodoacao.Text;
-                        doador.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
-                        doador.ATIVO = cb_ativo.Checked;
-                        entity.Entry(doador);
-                    }
-                    entity.SaveChanges();
-                    limpar();
 
-                    Response.Write("<script>alert('Doador salvo com Sucesso!');</script>");
+                        if (lblAcao.Text.Equals("NOVO"))
+                        {
+                            doador = new DOADOR();
+                            doador.NOME = txt_nomedoador.Text;
+                            doador.LOGRADOURO = txt_logradouro.Text;
+                            doador.CEP = txt_CEP.Text;
+                            doador.CIDADE = txt_cidade.Text;
+                            doador.BAIRRO = txt_bairro.Text;
+                            doador.NUMERO = txt_numero.Text;
+                            doador.DISPONIBILIDADE = txt_disponibilidade.Text;
+                            doador.ESTADO = drp_estado.SelectedValue;
+                            doador.TIPO_DOACAO = txt_tipodoacao.Text;
+                            doador.ATIVO = cb_ativo.Checked;
+                            doador.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
+                            entity.DOADOR.Add(doador);
+                        }
+                        else
+                        {
+                            doador = entity.DOADOR.FirstOrDefault(x => x.ID.ToString().Equals(lblID.Text));
+
+                            doador.NOME = txt_nomedoador.Text;
+                            doador.LOGRADOURO = txt_logradouro.Text;
+                            doador.CEP = txt_CEP.Text;
+                            doador.CIDADE = txt_cidade.Text;
+                            doador.BAIRRO = txt_bairro.Text;
+                            doador.NUMERO = txt_numero.Text;
+                            doador.DISPONIBILIDADE = txt_disponibilidade.Text;
+                            doador.ESTADO = drp_estado.SelectedValue;
+                            doador.TIPO_DOACAO = txt_tipodoacao.Text;
+                            doador.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
+                            doador.ATIVO = cb_ativo.Checked;
+                            entity.Entry(doador);
+                        }
+                        entity.SaveChanges();
+                        limpar();
+
+                        Response.Write("<script>alert('Doador salvo com Sucesso!');</script>");
+                    }
+                }
+                catch
+                {
+                    Response.Write("<script>alert('Registro não pode ser salvo!');</script>");
                 }
             }
         }

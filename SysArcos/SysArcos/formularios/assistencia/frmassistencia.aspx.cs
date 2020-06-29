@@ -43,38 +43,45 @@ namespace ProjetoArcos
             }
             else
             {
-                using (ARCOS_Entities entity = new ARCOS_Entities())
+                try
                 {
-
-                    ASSISTENCIA assistencia = null;
-
-                    if (lblAcao.Text.Equals("NOVO"))
+                    using (ARCOS_Entities entity = new ARCOS_Entities())
                     {
-                        assistencia = new ASSISTENCIA();
-                        assistencia.DATA_INICIAL = DateTime.Now;
-                        assistencia.DATA_FINAL = DateTime.Now;
-                        assistencia.DESCRICAO = txt_descricao.Text;
-                        assistencia.OBSERVACOES = txt_observacao.Text;
-                        assistencia.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
+
+                        ASSISTENCIA assistencia = null;
+
+                        if (lblAcao.Text.Equals("NOVO"))
+                        {
+                            assistencia = new ASSISTENCIA();
+                            assistencia.DATA_INICIAL = DateTime.Now;
+                            assistencia.DATA_FINAL = DateTime.Now;
+                            assistencia.DESCRICAO = txt_descricao.Text;
+                            assistencia.OBSERVACOES = txt_observacao.Text;
+                            assistencia.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
 
 
 
+                        }
+                        else
+                        {
+                            assistencia = entity.ASSISTENCIA.FirstOrDefault(x => x.DESCRICAO.Equals(txt_descricao.Text));
+
+                            assistencia = new ASSISTENCIA();
+                            assistencia.DATA_INICIAL = DateTime.Now;
+                            assistencia.DATA_FINAL = DateTime.Now;
+                            assistencia.DESCRICAO = txt_descricao.Text;
+                            assistencia.OBSERVACOES = txt_observacao.Text;
+                            assistencia.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
+                        }
+                        limpar();
+                        entity.SaveChanges();
+
+                        Response.Write("<script>alert('Usuario salvo com Sucesso!');</script>");
                     }
-                    else
-                    {
-                        assistencia = entity.ASSISTENCIA.FirstOrDefault(x => x.DESCRICAO.Equals(txt_descricao.Text));
-
-                        assistencia = new ASSISTENCIA();
-                        assistencia.DATA_INICIAL = DateTime.Now;
-                        assistencia.DATA_FINAL = DateTime.Now;
-                        assistencia.DESCRICAO = txt_descricao.Text;
-                        assistencia.OBSERVACOES = txt_observacao.Text;
-                        assistencia.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
-                    }
-                    limpar();
-                    entity.SaveChanges();
-
-                    Response.Write("<script>alert('Usuario salvo com Sucesso!');</script>");
+                }
+                catch
+                {
+                    Response.Write("<script>alert('Registro não pode ser salvo!');</script>");
                 }
             }
         }

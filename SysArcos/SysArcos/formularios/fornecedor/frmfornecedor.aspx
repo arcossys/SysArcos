@@ -90,7 +90,7 @@
 <div>
 
     <asp:Button ID="btnNovo" runat="server" Text="Novo" CssClass="btn btn-primary" />
-    &nbsp;<asp:Button ID="btnSalvar" runat="server" Text="Salvar" CssClass="btn btn-primary" />
+    &nbsp;<asp:Button ID="btnSalvar" runat="server" Text="Salvar" CssClass="btn btn-primary" OnClick="btnSalvar_Click" />
     &nbsp;<asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary" OnClick="btnBuscar_Click" />
 
 </div>

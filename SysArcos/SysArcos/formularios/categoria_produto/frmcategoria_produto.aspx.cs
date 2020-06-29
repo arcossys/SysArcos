@@ -46,28 +46,35 @@ namespace ProjetoArcos
 
         protected void btncadastrar_Click(object sender, EventArgs e)
         {
-            using (ARCOS_Entities entity = new ARCOS_Entities())
+            try
             {
-
-                CATEGORIA_PRODUTO categoria = null;
-
-                if (txtcategoria.Text == "")
+                using (ARCOS_Entities entity = new ARCOS_Entities())
                 {
-                    Response.Write("<script>alert('Há campos obrigatorios não preenchidos!');</script>");
+
+                    CATEGORIA_PRODUTO categoria = null;
+
+                    if (txtcategoria.Text == "")
+                    {
+                        Response.Write("<script>alert('Há campos obrigatorios não preenchidos!');</script>");
+                    }
+                    else
+                    {
+                        categoria = new CATEGORIA_PRODUTO();
+
+                        categoria.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
+                        categoria.DESCRICAO = txtcategoria.Text;
+
+                        entity.CATEGORIA_PRODUTO.Add(categoria);
+
+                        Response.Write("<script>alert('Cadastrado Com Sucesso!');</script>");
+                    }
+                    txtcategoria.Text = string.Empty;
+                    entity.SaveChanges();
                 }
-                else
-                {
-                    categoria = new CATEGORIA_PRODUTO();
-
-                    categoria.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
-                    categoria.DESCRICAO = txtcategoria.Text;
-
-                    entity.CATEGORIA_PRODUTO.Add(categoria);
-
-                    Response.Write("<script>alert('Cadastrado Com Sucesso!');</script>");
-                }
-                txtcategoria.Text = string.Empty;
-                entity.SaveChanges();
+            }
+            catch
+            {
+                Response.Write("<script>alert('Registro não pode ser salvo!');</script>");
             }
         }
 

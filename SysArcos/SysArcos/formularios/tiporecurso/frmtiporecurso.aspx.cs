@@ -38,47 +38,46 @@ namespace ProjetoArcos
         {
 
             // Criar conexão com o banco
-
-            using (ARCOS_Entities entity = new ARCOS_Entities())
+            try
             {
-
-                if (txtDescricao.Text == "")
-
+                using (ARCOS_Entities entity = new ARCOS_Entities())
                 {
 
-                    Response.Write("<script>alert('Há campos obrigatorios não preenchidos!');</script>");
-
-                }
-
-                else
-
-                {
-
-                    TIPO_RECURSO tiporecurso = null;
-
-                    if (lblID.Text.Equals("NOVO"))
-                        tiporecurso = new TIPO_RECURSO();
+                    if (txtDescricao.Text == "")
+                    {
+                        Response.Write("<script>alert('Há campos obrigatorios não preenchidos!');</script>");
+                    }
                     else
-                        tiporecurso = entity.TIPO_RECURSO.FirstOrDefault(x => x.ID.ToString().Equals(lblID.Text));
+                    {
+                        TIPO_RECURSO tiporecurso = null;
+                        if (lblID.Text.Equals("NOVO"))
+                            tiporecurso = new TIPO_RECURSO();
+                        else
+                            tiporecurso = entity.TIPO_RECURSO.FirstOrDefault(x => x.ID.ToString().Equals(lblID.Text));
 
-                    tiporecurso.DESCRICAO = txtDescricao.Text;
-                    tiporecurso.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
+                        tiporecurso.DESCRICAO = txtDescricao.Text;
+                        tiporecurso.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
 
-                    // Insere o objeto
+                        // Insere o objeto
 
-                    if (lblID.Text.Equals("NOVO"))
-                        entity.TIPO_RECURSO.Add(tiporecurso);
-                    else
-                        entity.Entry(tiporecurso);
+                        if (lblID.Text.Equals("NOVO"))
+                            entity.TIPO_RECURSO.Add(tiporecurso);
+                        else
+                            entity.Entry(tiporecurso);
 
-                    //Salva no disco rígido
-                    entity.SaveChanges();
+                        //Salva no disco rígido
+                        entity.SaveChanges();
 
-                    // Commit
-                    Response.Write("<script>alert('Tipo de evento cadastrado com sucesso!');</script>");
+                        // Commit
+                        Response.Write("<script>alert('Tipo de evento cadastrado com sucesso!');</script>");
 
-                    txtDescricao.Text = string.Empty;
+                        txtDescricao.Text = string.Empty;
+                    }
                 }
+            }
+            catch
+            {
+                Response.Write("<script>alert('Registro não pode ser salvo!');</script>");
             }
         }
 

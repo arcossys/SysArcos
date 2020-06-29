@@ -27,7 +27,7 @@
     <asp:TextBox ID="Txt_vobservacao" runat="server"></asp:TextBox>
     <br />
     <asp:Button ID="Btn_Novo" runat="server" Text="Novo" />
-    <asp:Button ID="Btn_Salvar" runat="server" Text="Salvar" />
+    <asp:Button ID="Btn_Salvar" runat="server" Text="Salvar" OnClick="Btn_Salvar_Click" />
     <asp:Button ID="Btn_Buscar" runat="server" Text="Buscar" />
 </asp:Content>
 

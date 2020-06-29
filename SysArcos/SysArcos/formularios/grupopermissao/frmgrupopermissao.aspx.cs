@@ -46,29 +46,36 @@ namespace SysArcos.formularios.usuario
             }
             else
             {
-                using (ARCOS_Entities entity = new ARCOS_Entities())
+                try
                 {
-                    GRUPO_PERMISSAO gp = new GRUPO_PERMISSAO();
-
-
-                    if (lblAcao.Text.Equals("NOVO"))
+                    using (ARCOS_Entities entity = new ARCOS_Entities())
                     {
-                        gp = new GRUPO_PERMISSAO();
-                        gp.DESCRICAO = txt_descricao.Text;
-                        atualizaPermissao(gp);
-                        entity.GRUPO_PERMISSAO.Add(gp);
-                    }
-                    else
-                    {
-                        gp = entity.GRUPO_PERMISSAO.FirstOrDefault(x => x.ID.ToString().Equals(lblID.Text));
-                        gp.DESCRICAO = txt_descricao.Text;
-                        atualizaPermissao(gp);
-                        entity.Entry(gp);
-                    }
-                    entity.SaveChanges();
-                    limpar();
+                        GRUPO_PERMISSAO gp = new GRUPO_PERMISSAO();
 
-                    Response.Write("<script>alert('Grupo Permissão salvo com Sucesso!');</script>");
+
+                        if (lblAcao.Text.Equals("NOVO"))
+                        {
+                            gp = new GRUPO_PERMISSAO();
+                            gp.DESCRICAO = txt_descricao.Text;
+                            atualizaPermissao(gp);
+                            entity.GRUPO_PERMISSAO.Add(gp);
+                        }
+                        else
+                        {
+                            gp = entity.GRUPO_PERMISSAO.FirstOrDefault(x => x.ID.ToString().Equals(lblID.Text));
+                            gp.DESCRICAO = txt_descricao.Text;
+                            atualizaPermissao(gp);
+                            entity.Entry(gp);
+                        }
+                        entity.SaveChanges();
+                        limpar();
+
+                        Response.Write("<script>alert('Grupo Permissão salvo com Sucesso!');</script>");
+                    }
+                }
+                catch
+                {
+                    Response.Write("<script>alert('Registro não pode ser salvo!');</script>");
                 }
             }
         }

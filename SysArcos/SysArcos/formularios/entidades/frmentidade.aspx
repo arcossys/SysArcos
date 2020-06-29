@@ -37,7 +37,6 @@
 
             <div>
                 <asp:Label ID="Label1" runat="server" Text="Telefone:"></asp:Label><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ForeColor="#FF3300" ControlToValidate="txtTelefone" ValidationGroup="form">*</asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Formato incorreto" ForeColor="#FF3300" ValidationExpression="^\(?\d{2}\)?[\s-]?[\s9]?\d{4}-\d{4}$" ControlToValidate="txtTelefone"></asp:RegularExpressionValidator>
                 <asp:TextBox placeholder="99 99999-9999" class="form-control" ID="txtTelefone" runat="server" Height="30px" Width="200px" MaxLength="13"></asp:TextBox>
             </div>
                 
