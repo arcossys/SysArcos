@@ -105,6 +105,8 @@ namespace ProjetoArcos
                     if (pagina.Equals("frmbuscausuario.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_USUARIOS);
                     if (pagina.Equals("frmusuario.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_USUARIOS);
 
+                    if (pagina.Equals("frvoluntariar.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_VOLUNTARIAR);
+
                     if (pagina.Equals("frmbuscavoluntariado.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_VOLUNTARIADO);
                     if (pagina.Equals("frmvoluntariado.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_VOLUNTARIADO);
 
