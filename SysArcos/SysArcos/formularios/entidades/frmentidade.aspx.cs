@@ -47,50 +47,57 @@ namespace ProjetoArcos
         {
             //Cria novo objeto entidade
             ENTIDADE entidade = null;
-            // Criar conexão com o banco
-            using (ARCOS_Entities entity = new ARCOS_Entities())
+            try
             {
-
-
-                if (txtNomeEntidade.Text == "" || txtLogradouro.Text == "" || txtNumero.Text == "" || txtBairro.Text == "" || txtCEP.Text == ""
-                    || txtCidade.Text == "" || drpEstado.Text == "" || txtPresidente.Text == "" || txtCNPJ.Text == ""|| txtTelefone.Text == "")
+                // Criar conexão com o banco
+                using (ARCOS_Entities entity = new ARCOS_Entities())
                 {
-                    Response.Write("<script>alert('Há campos obrigatorios não preenchidos!');</script>");
-                }
-                else
-                {
-                    if (lblAcao.Text.Equals("NOVO"))
-                        entidade = new ENTIDADE();
+
+
+                    if (txtNomeEntidade.Text == "" || txtLogradouro.Text == "" || txtNumero.Text == "" || txtBairro.Text == "" || txtCEP.Text == ""
+                        || txtCidade.Text == "" || drpEstado.Text == "" || txtPresidente.Text == "" || txtCNPJ.Text == "" || txtTelefone.Text == "")
+                    {
+                        Response.Write("<script>alert('Há campos obrigatorios não preenchidos!');</script>");
+                    }
                     else
-                        entidade = entity.ENTIDADE.FirstOrDefault(x => x.ID.ToString().Equals(lblID.Text));
+                    {
+                        if (lblAcao.Text.Equals("NOVO"))
+                            entidade = new ENTIDADE();
+                        else
+                            entidade = entity.ENTIDADE.FirstOrDefault(x => x.ID.ToString().Equals(lblID.Text));
 
-                    //entidade.ID = Convert.ToInt32(txtID.Text);
-                    entidade.NOME = txtNomeEntidade.Text;
-                    entidade.LOGRADOURO = txtLogradouro.Text;
-                    entidade.NUMERO = txtNumero.Text;
-                    entidade.BAIRRO = txtBairro.Text;
-                    entidade.CEP = txtCEP.Text;
-                    entidade.CIDADE = txtCidade.Text;
-                    entidade.ESTADO = drpEstado.Text;
-                    //entidade.ID_ENTIDADE_CONTROLADORA = Convert.ToInt32(drpControladora.Text);
-                    entidade.PRESIDENTE = txtPresidente.Text;
-                    entidade.CNPJ = txtCNPJ.Text;
-                    entidade.TELEFONE = txtTelefone.Text;
-                    entidade.LOGIN_USUARIO_ADMINISTRADOR = txtAdmnistrador.Text;
-                    entidade.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
+                        //entidade.ID = Convert.ToInt32(txtID.Text);
+                        entidade.NOME = txtNomeEntidade.Text;
+                        entidade.LOGRADOURO = txtLogradouro.Text;
+                        entidade.NUMERO = txtNumero.Text;
+                        entidade.BAIRRO = txtBairro.Text;
+                        entidade.CEP = txtCEP.Text;
+                        entidade.CIDADE = txtCidade.Text;
+                        entidade.ESTADO = drpEstado.Text;
+                        //entidade.ID_ENTIDADE_CONTROLADORA = Convert.ToInt32(drpControladora.Text);
+                        entidade.PRESIDENTE = txtPresidente.Text;
+                        entidade.CNPJ = txtCNPJ.Text;
+                        entidade.TELEFONE = txtTelefone.Text;
+                        entidade.LOGIN_USUARIO_ADMINISTRADOR = txtAdmnistrador.Text;
+                        entidade.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
 
-                    if (lblAcao.Text.Equals("NOVO"))
-                        entity.ENTIDADE.Add(entidade);
-                    else
-                        entity.Entry(entidade);
+                        if (lblAcao.Text.Equals("NOVO"))
+                            entity.ENTIDADE.Add(entidade);
+                        else
+                            entity.Entry(entidade);
 
-                    entity.SaveChanges();
+                        entity.SaveChanges();
 
-                    // Commit
-                    Response.Write("<script>alert('Entidade cadastrada com sucesso!');</script>");
+                        // Commit
+                        Response.Write("<script>alert('Entidade cadastrada com sucesso!');</script>");
 
-                    limpar();
+                        limpar();
+                    }
                 }
+            }
+            catch
+            {
+                Response.Write("<script>alert('Registro não pode ser salvo!');</script>");
             }
 
         }
@@ -115,6 +122,7 @@ namespace ProjetoArcos
             txtCNPJ.Text = string.Empty;
             txtAdmnistrador.Text = string.Empty;
             txtNumero.Text = string.Empty;
+            txtTelefone.Text = string.Empty;
         }
 
         protected void btnNovo_Click(object sender, EventArgs e)

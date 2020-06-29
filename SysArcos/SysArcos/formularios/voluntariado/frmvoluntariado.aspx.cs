@@ -74,44 +74,51 @@ namespace ProjetoArcos
             }
             else
             {
-                using (ARCOS_Entities entity = new ARCOS_Entities())
+                try
                 {
-
-                    VOLUNTARIADO data = null;
-
-                    if (lbl_acao.Text.Equals("NOVO"))
+                    using (ARCOS_Entities entity = new ARCOS_Entities())
                     {
-                        data = new VOLUNTARIADO();
-                        data.ID_ENTIDADE = Convert.ToInt32(Dplist.SelectedValue);
-                        data.DATA_INICIAL = Convert.ToDateTime(txtDataini.Text);
-                        data.DATA_FINAL = Convert.ToDateTime(txtDatafinal.Text);
-                        data.DESCRICAO = txtDesc.Text;
-                        data.OBSERVACAO = txtObser.Text;
-                        data.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
-                        entity.VOLUNTARIADO.Add(data);
+
+                        VOLUNTARIADO data = null;
+
+                        if (lbl_acao.Text.Equals("NOVO"))
+                        {
+                            data = new VOLUNTARIADO();
+                            data.ID_ENTIDADE = Convert.ToInt32(Dplist.SelectedValue);
+                            data.DATA_INICIAL = Convert.ToDateTime(txtDataini.Text);
+                            data.DATA_FINAL = Convert.ToDateTime(txtDatafinal.Text);
+                            data.DESCRICAO = txtDesc.Text;
+                            data.OBSERVACAO = txtObser.Text;
+                            data.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
+                            entity.VOLUNTARIADO.Add(data);
 
 
+                            entity.SaveChanges();
+
+                            Response.Write("<script>alert('Voluntariado salvo com Sucesso!');</script>");
+                        }
+                        else
+                        {
+                            int id_vol = Convert.ToInt32(Request.QueryString["id"]);
+                            data = entity.VOLUNTARIADO.FirstOrDefault(x => x.ID.Equals(id_vol));
+
+                            data.ID_ENTIDADE = Convert.ToInt32(Dplist.SelectedValue);
+                            data.DATA_INICIAL = DateTime.Now;
+                            data.DATA_FINAL = DateTime.Now;
+                            data.DESCRICAO = txtDesc.Text;
+                            data.OBSERVACAO = txtObser.Text;
+                            data.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
+                            entity.Entry(data);
+
+                            Response.Write("<script>alert('Voluntariado alterado com Sucesso!');</script>");
+                        }
                         entity.SaveChanges();
-
-                        Response.Write("<script>alert('Voluntariado salvo com Sucesso!');</script>");
+                        limpar();
                     }
-                    else
-                    {
-                        int id_vol = Convert.ToInt32(Request.QueryString["id"]);
-                        data = entity.VOLUNTARIADO.FirstOrDefault(x => x.ID.Equals(id_vol));
-
-                        data.ID_ENTIDADE = Convert.ToInt32(Dplist.SelectedValue);
-                        data.DATA_INICIAL = DateTime.Now;
-                        data.DATA_FINAL = DateTime.Now;
-                        data.DESCRICAO = txtDesc.Text;
-                        data.OBSERVACAO = txtObser.Text;
-                        data.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
-                        entity.Entry(data);
-
-                        Response.Write("<script>alert('Voluntariado alterado com Sucesso!');</script>");
-                    }
-                    entity.SaveChanges();
-                    limpar();
+                }
+                catch
+                {
+                    Response.Write("<script>alert('Registro não pode ser salvo!');</script>");
                 }
             }
         }

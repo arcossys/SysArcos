@@ -18,5 +18,10 @@ namespace SysArcos
         {
             Response.Redirect("frmbuscafornecedor.aspx");
         }
+
+        protected void btnSalvar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

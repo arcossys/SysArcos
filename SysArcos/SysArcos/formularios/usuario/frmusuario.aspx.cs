@@ -48,45 +48,50 @@ namespace ProjetoArcos
             }
             else
             {
-                using (ARCOS_Entities entity = new ARCOS_Entities())
+                try
                 {
-
-                    USUARIO usuario = null;
-
-                    if (lblAcao.Text.Equals("NOVO"))
+                    using (ARCOS_Entities entity = new ARCOS_Entities())
                     {
-                        usuario = new USUARIO();
-                        usuario.LOGIN = txt_user.Text;
+                        USUARIO usuario = null;
+                        if (lblAcao.Text.Equals("NOVO"))
+                        {
+                            usuario = new USUARIO();
+                            usuario.LOGIN = txt_user.Text;
 
-                        usuario.SENHA = txt_senhaUsuario.Text;
-                        usuario.NOME = txt_nomeUsuario.Text.ToUpper();
-                        usuario.CPF = txt_cpf.Text;
-                        usuario.EMAIL = txt_email.Text.ToLower();
-                        usuario.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
-                        usuario.ATIVO = CB_ativo.Checked;
-                        usuario.ALTERA_SENHA_PROX_LOGIN = CB_AlteraProxLogin.Checked;
-                        usuario.ID_GRUPOPERMISSAO = Convert.ToInt32(ddlPermissao.SelectedValue);
-                        entity.USUARIO.Add(usuario);
+                            usuario.SENHA = txt_senhaUsuario.Text;
+                            usuario.NOME = txt_nomeUsuario.Text.ToUpper();
+                            usuario.CPF = txt_cpf.Text;
+                            usuario.EMAIL = txt_email.Text.ToLower();
+                            usuario.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
+                            usuario.ATIVO = CB_ativo.Checked;
+                            usuario.ALTERA_SENHA_PROX_LOGIN = CB_AlteraProxLogin.Checked;
+                            usuario.ID_GRUPOPERMISSAO = Convert.ToInt32(ddlPermissao.SelectedValue);
+                            entity.USUARIO.Add(usuario);
+                        }
+                        else
+                        {
+                            usuario = entity.USUARIO.FirstOrDefault(x => x.LOGIN.Equals(txt_user.Text));
+
+
+                            usuario.SENHA = txt_senhaUsuario.Text;
+                            usuario.NOME = txt_nomeUsuario.Text.ToUpper();
+                            usuario.CPF = txt_cpf.Text;
+                            usuario.EMAIL = txt_email.Text.ToLower();
+                            usuario.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
+                            usuario.ATIVO = CB_ativo.Checked;
+                            usuario.ALTERA_SENHA_PROX_LOGIN = CB_AlteraProxLogin.Checked;
+                            usuario.ID_GRUPOPERMISSAO = Convert.ToInt32(ddlPermissao.SelectedValue);
+                            entity.Entry(usuario);
+                        }
+                        limpar();
+                        entity.SaveChanges();
+
+                        Response.Write("<script>alert('Usuario salvo com Sucesso!');</script>");
                     }
-                    else
-                    {
-                        usuario = entity.USUARIO.FirstOrDefault(x => x.LOGIN.Equals(txt_user.Text));
-
-
-                        usuario.SENHA = txt_senhaUsuario.Text;
-                        usuario.NOME = txt_nomeUsuario.Text.ToUpper();
-                        usuario.CPF = txt_cpf.Text;
-                        usuario.EMAIL = txt_email.Text.ToLower();
-                        usuario.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
-                        usuario.ATIVO = CB_ativo.Checked;
-                        usuario.ALTERA_SENHA_PROX_LOGIN = CB_AlteraProxLogin.Checked;
-                        usuario.ID_GRUPOPERMISSAO = Convert.ToInt32(ddlPermissao.SelectedValue);
-                        entity.Entry(usuario);
-                    }
-                    limpar();
-                    entity.SaveChanges();
-
-                    Response.Write("<script>alert('Usuario salvo com Sucesso!');</script>");
+                }
+                catch
+                {
+                    Response.Write("<script>alert('Registro não pode ser salvo!');</script>");
                 }
             }
         }

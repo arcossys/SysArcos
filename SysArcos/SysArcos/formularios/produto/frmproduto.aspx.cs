@@ -54,41 +54,48 @@ namespace ProjetoArcos
             }
             else
             {
-                using (ARCOS_Entities entity = new ARCOS_Entities())
+                try
                 {
-
-                    PRODUTO produto = null;
-
-
-                    if (lblAcao.Text.Equals("NOVO"))
+                    using (ARCOS_Entities entity = new ARCOS_Entities())
                     {
-                        produto = new PRODUTO();
-                        produto.DESCRICAO = txt_descricao.Text;
 
-                        produto.ESPECIFICACOES = txt_especificacao.Text;
-                        produto.UNIDADE = txt_unidade.Text;
-                        produto.ID_CATEGORIA = Convert.ToInt32(dlCategoria.SelectedValue);
-                        produto.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
+                        PRODUTO produto = null;
 
-                        entity.PRODUTO.Add(produto);
+
+                        if (lblAcao.Text.Equals("NOVO"))
+                        {
+                            produto = new PRODUTO();
+                            produto.DESCRICAO = txt_descricao.Text;
+
+                            produto.ESPECIFICACOES = txt_especificacao.Text;
+                            produto.UNIDADE = txt_unidade.Text;
+                            produto.ID_CATEGORIA = Convert.ToInt32(dlCategoria.SelectedValue);
+                            produto.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
+
+                            entity.PRODUTO.Add(produto);
+                        }
+                        else
+                        {
+                            produto = entity.PRODUTO.FirstOrDefault(x => x.ID.ToString().Equals(lblID.Text));
+
+
+                            produto.DESCRICAO = txt_descricao.Text;
+                            produto.ESPECIFICACOES = txt_especificacao.Text;
+                            produto.UNIDADE = txt_unidade.Text;
+                            produto.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
+                            produto.ID_CATEGORIA = Convert.ToInt32(dlCategoria.SelectedValue);
+
+                            entity.Entry(produto);
+                        }
+                        limpar();
+                        entity.SaveChanges();
+
+                        Response.Write("<script>alert('Produto salvo com Sucesso!');</script>");
                     }
-                    else
-                    {
-                        produto = entity.PRODUTO.FirstOrDefault(x => x.ID.ToString().Equals(lblID.Text));
-
-
-                        produto.DESCRICAO = txt_descricao.Text;
-                        produto.ESPECIFICACOES = txt_especificacao.Text;
-                        produto.UNIDADE = txt_unidade.Text;
-                        produto.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
-                        produto.ID_CATEGORIA = Convert.ToInt32(dlCategoria.SelectedValue);
-
-                        entity.Entry(produto);
-                    }
-                    limpar();
-                    entity.SaveChanges();
-
-                    Response.Write("<script>alert('Produto salvo com Sucesso!');</script>");
+                }
+                catch
+                {
+                    Response.Write("<script>alert('Registro não pode ser salvo!');</script>");
                 }
             }
         }

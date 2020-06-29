@@ -81,45 +81,53 @@ namespace ProjetoArcos
 
         protected void btn_cadastrar_Click(object sender, EventArgs e)
         {
-            ASSISTIDO assistido = new ASSISTIDO();
-
-            ARCOS_Entities entity = new ARCOS_Entities();
-
-            entity.ASSISTIDO.Add(assistido);
-
-            if (txtNomeAssistido.Text == "" || txtApelido.Text == "" || txtCPF.Text == ""
-                || txtDataNascimento.Text == "" || txtLogradouro.Text == "" || txtNumero.Text == ""
-                || txtBairro.Text == "" || txtCEP.Text == "" || txtCidade.Text == ""
-                || drpEstado.Text == "")
+            try
             {
-                Response.Write("<script>alert('Há campos obrigatórios não preenchidos!');</script>");
+                ASSISTIDO assistido = new ASSISTIDO();
+                using (ARCOS_Entities entity = new ARCOS_Entities())
+                {
+
+                    entity.ASSISTIDO.Add(assistido);
+
+                    if (txtNomeAssistido.Text == "" || txtApelido.Text == "" || txtCPF.Text == ""
+                        || txtDataNascimento.Text == "" || txtLogradouro.Text == "" || txtNumero.Text == ""
+                        || txtBairro.Text == "" || txtCEP.Text == "" || txtCidade.Text == ""
+                        || drpEstado.Text == "")
+                    {
+                        Response.Write("<script>alert('Há campos obrigatórios não preenchidos!');</script>");
+                    }
+                    else
+                    {
+                        assistido.NOME = txtNomeAssistido.Text;
+                        assistido.APELIDO = txtApelido.Text;
+                        assistido.CPF = txtCPF.Text;
+                        assistido.DATA_NASCIMENTO = Convert.ToDateTime(txtDataNascimento.Text);
+                        assistido.LOGRADOURO = txtLogradouro.Text;
+                        assistido.NUMERO = txtNumero.Text;
+                        assistido.BAIRRO = txtBairro.Text;
+                        assistido.CEP = txtCEP.Text;
+                        assistido.CIDADE = txtCidade.Text;
+                        assistido.ESTADO = drpEstado.Text;
+                        assistido.PARENTESCO_ASSISTIDO_RESPONSAVEL = txtParentescoAssistido.Text;
+                        assistido.ID_ASSISTIDO_RESPONSAVEL = 1;
+                        assistido.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
+
+
+
+                        Response.Write("<script>alert('Assistido cadastrado com sucesso!');</script>");
+
+
+                    }
+                    limpar();
+                    entity.SaveChanges();
+
+                    Response.Write("<script>alert('Usuario salvo com Sucesso!');</script>");
+                }
             }
-            else
+            catch
             {
-                assistido.NOME = txtNomeAssistido.Text;
-                assistido.APELIDO = txtApelido.Text;
-                assistido.CPF = txtCPF.Text;
-                assistido.DATA_NASCIMENTO = Convert.ToDateTime(txtDataNascimento.Text);
-                assistido.LOGRADOURO = txtLogradouro.Text;
-                assistido.NUMERO = txtNumero.Text;
-                assistido.BAIRRO = txtBairro.Text;
-                assistido.CEP = txtCEP.Text;
-                assistido.CIDADE = txtCidade.Text;
-                assistido.ESTADO = drpEstado.Text;
-                assistido.PARENTESCO_ASSISTIDO_RESPONSAVEL = txtParentescoAssistido.Text;
-                assistido.ID_ASSISTIDO_RESPONSAVEL = 1;
-                assistido.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
-
-
-
-                Response.Write("<script>alert('Assistido cadastrado com sucesso!');</script>");
-
-
+                Response.Write("<script>alert('Registro não pode ser salvo!');</script>");
             }
-            limpar();
-            entity.SaveChanges();
-
-            Response.Write("<script>alert('Usuario salvo com Sucesso!');</script>");
         }
     }
 }
