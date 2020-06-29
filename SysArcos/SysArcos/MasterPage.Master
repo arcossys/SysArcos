@@ -5,11 +5,11 @@
 <html>
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />-->
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="css/formularios.css" rel="stylesheet" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="css/master.css" rel="stylesheet" />
+    <link href="css/menu.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
     <script src="JSPaginaMestre.js"></script>
     <title>Sistema Arcos</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -18,12 +18,86 @@
 <body>
     <form id="form1" runat="server">
         <div class="logout">
-            <asp:Label ID="lbl_welcomeUser" runat="server" Text="Label" class="logout"></asp:Label>
-            <asp:LinkButton ID="lnk_logout" runat="server" OnClick="lnk_logout_Click" class="logout">( SAIR )</asp:LinkButton>
+            <div class="logoitem">
+                <img src="/imagens/ArcosSys.png" class="logo">
+            </div>
+            <div class="logoutitem">
+                <asp:Label ID="lbl_welcomeUser" runat="server" Text="Label" class="logout"></asp:Label>
+                <span><asp:LinkButton ID="lnk_logout" runat="server" OnClick="lnk_logout_Click" class="logout">( SAIR )</asp:LinkButton></span>
+            </div>
         </div>
-        
+        <div class="divisor"></div>
+	    <input type="checkbox" id="bt_menu" />
+	    <label for="bt_menu">&#9776;</label>
+	    <nav class="menu">
+		    <ul>
+			    <li>
+                    <a href="#">Entidades</a>
+                    <ul>
+                        <li><a href="/formularios/entidades/frmentidade.aspx">Entidade</a></li>
+                    </ul>
+			    </li>
+			    <li>
+				    <a href="#">Voluntários</a>
+                    <ul>
+                        <li><a href="/formularios/voluntario/frmvoluntario.aspx">Voluntários</a></li>
+                        <li><a href="/formularios/Voluntariar/frmvoluntariar.aspx">Voluntariar</a></li>
+                        <li><a href="/formularios/voluntariado/frmvoluntariado.aspx">Voluntariado</a></li>
+                    </ul>
+			    </li>
+			    <li><a href="#">Usuários</a>
+				    <ul>
+					    <li><a href="/formularios/usuario/frmusuario.aspx">Usuário</a></li>
+					    <li><a href="/formularios/grupopermissao/frmgrupopermissao.aspx">Grupo Permissão</a></li>
+				    </ul>
+			    </li>
+			    <li>
+				    <a href="#">Evento</a>
+                    <ul>
+					    <li><a href="/formularios/evento/frmevento.aspx">Evento</a></li>
+					    <li><a href="/formularios/tipoevento/frmtipoevento.aspx">Tipo Evento</a></li>
+				    </ul>
+			    </li>
+			    <li>
+				    <a href="#">Recurso</a>
+                    <ul>
+					    <li><a href="/formularios/recurso/recurso.aspx">Recurso</a></li>
+					    <li><a href="/formularios/tiporecurso/frmtiporecurso.aspx">Tipo Recurso</a></li>
+				    </ul>
+			    </li>
+			    <li>
+				    <a href="#">Fornecedores</a>
+                    <ul>
+					    <li><a href="/formularios/fornecedor/frmfornecedor.aspx">Fornecedor</a></li>
+					    <li><a href="/formularios/fornecimento/fornecimento.aspx">Fornecimento</a></li>
+				    </ul>
+			    </li>
+			    <li>
+				    <a href="#">Estoque</a>
+                    <ul>
+                        <li><a href="/formularios/estoque/frmestoque.aspx">Estoque</a></li>
+					    <li><a href="/formularios/produto/frmproduto.aspx">Produto</a></li>
+					    <li><a href="/formularios/categoria_produto/frmcategoria_produto.aspx">Tipo Produto</a></li>
+				    </ul>
+			    </li>
+			    <li>
+				    <a href="#">Doações</a>
+                    <ul>
+					    <li><a href="/formularios/doacao/frmdoacao.aspx">Doação</a></li>
+					    <li><a href="/formularios/doador/frmdoador.aspx">Doador</a></li>
+				    </ul>
+			    </li>
+                <li>
+				    <a href="#">Assistência</a>
+                    <ul>
+					    <li><a href="/formularios/assistencia/frmassistencia.aspx">Assistência</a></li>
+					    <li><a href="/formularios/assistido/frmassistido.aspx">Assistido</a></li>
+				    </ul>
+			    </li>
+		    </ul>
+	    </nav>
 
-        <div>
+        <!--<div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light" >
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Alterna navegação">
                    <span class="navbar-toggler-icon"></span>
@@ -32,12 +106,7 @@
                     <img  src="\imagens\ArcosSys.png" class="img-responsive">
                 </div>
 
-                <div class="menu-drop">
-                    <button type="button"name="drop">ENTIDADES</button>
-                        <div class="drop-content">
-                            <a href="/formularios/entidades/frmentidade.aspx">Entidade</a>
-                        </div>
-                </div>
+
 
                 <div class="menu-drop">
                     <button type="button" name="drop">VOLUNTARIOS</button>
@@ -109,7 +178,7 @@
             </nav>
             
 
-        </div>
+        </div>-->
 
             <!--Menu-->
         

@@ -2,8 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <p>
-        Voluntariar</p>
+    <p>Voluntariar</p>
     <asp:Label ID="LblAcao" runat="server" Text="Novo"></asp:Label>
 </asp:Content>
 

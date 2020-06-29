@@ -80,6 +80,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="css\formularios.css" />
     <Content Include="css\master.css" />
+    <Content Include="css\menu.css" />
     <Content Include="css\PaginaLogin.css" />
     <Content Include="Default.aspx" />
     <Content Include="formularios\assistencia\frmassistencia.aspx" />
@@ -92,6 +93,8 @@
     <Content Include="formularios\entidades\frmbuscaentidade.aspx" />
     <Content Include="formularios\estoque\frmestoque.aspx" />
     <Content Include="formularios\fornecedor\frmbuscafornecedor.aspx" />
+    <Content Include="formularios\fornecimento\fornecimento.aspx" />
+    <Content Include="formularios\recurso\recurso.aspx" />
     <Content Include="formularios\Voluntariar\frmvoluntariar.aspx" />
     <Content Include="permissao_negada.aspx" />
     <Content Include="formularios\produto\frmbuscaproduto.aspx" />
@@ -289,6 +292,20 @@
     </Compile>
     <Compile Include="formularios\estoque\frmestoque.aspx.designer.cs">
       <DependentUpon>frmestoque.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\fornecimento\fornecimento.aspx.cs">
+      <DependentUpon>fornecimento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\fornecimento\fornecimento.aspx.designer.cs">
+      <DependentUpon>fornecimento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\recurso\recurso.aspx.cs">
+      <DependentUpon>recurso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\recurso\recurso.aspx.designer.cs">
+      <DependentUpon>recurso.aspx</DependentUpon>
     </Compile>
     <Compile Include="formularios\Voluntariar\frmvoluntariar.aspx.cs">
       <DependentUpon>frmvoluntariar.aspx</DependentUpon>
