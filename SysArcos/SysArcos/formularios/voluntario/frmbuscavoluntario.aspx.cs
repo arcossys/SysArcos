@@ -25,18 +25,25 @@ namespace ProjetoArcos
             {
                 //string login = grid.SelectedValue.ToString();  // Linha que deu origem ao comando abaixo.
                 string ID = grid.SelectedValue.ToString();
-                using (ARCOS_Entities entities = new ARCOS_Entities())
+                try
                 {
-                    // USUARIO usuario = entities.USUARIO.FirstOrDefault(x => x.LOGIN.Equals(login)); // Linha que deu origem ao comando abaixo.
-                    VOLUNTARIO voluntario = entities.VOLUNTARIO.FirstOrDefault(x => x.ID.ToString().Equals(ID));
-                    entities.VOLUNTARIO.Remove(voluntario);
-                    entities.SaveChanges();
+                    using (ARCOS_Entities entities = new ARCOS_Entities())
+                    {
+                        // USUARIO usuario = entities.USUARIO.FirstOrDefault(x => x.LOGIN.Equals(login)); // Linha que deu origem ao comando abaixo.
+                        VOLUNTARIO voluntario = entities.VOLUNTARIO.FirstOrDefault(x => x.ID.ToString().Equals(ID));
+                        entities.VOLUNTARIO.Remove(voluntario);
+                        entities.SaveChanges();
 
-                    //Limpar Grid 
-                    grid.DataSource = null;
-                    grid.DataBind();
-                    grid.SelectedIndex = -1;
-                    Response.Write("<script>alert('Voluntário removido com sucesso!');</script>");
+                        //Limpar Grid 
+                        grid.DataSource = null;
+                        grid.DataBind();
+                        grid.SelectedIndex = -1;
+                        Response.Write("<script>alert('Voluntário removido com sucesso!');</script>");
+                    }
+                }
+                catch
+                {
+                    Response.Write("<script>alert('Falha ao remover registro!');</script>");
                 }
             }
         }

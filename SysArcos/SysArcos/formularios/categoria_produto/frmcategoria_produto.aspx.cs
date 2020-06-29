@@ -76,5 +76,10 @@ namespace ProjetoArcos
             txtcategoria.Text = string.Empty;
             lblAcao.Text = "NOVO";
         }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmbuscacategoria_produto.aspx");
+        }
     }
 }

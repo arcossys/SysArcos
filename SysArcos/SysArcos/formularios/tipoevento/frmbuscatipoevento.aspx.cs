@@ -56,17 +56,24 @@ namespace ProjetoArcos
             {
                 string tipo_evento = grid.SelectedValue.ToString();
                 //obtendo a conexão com o banco de dados
-                using (ARCOS_Entities entities = new ARCOS_Entities())
+                try
                 {
-                    TIPO_EVENTO evento = entities.TIPO_EVENTO.FirstOrDefault(x => x.ID.ToString().Equals(tipo_evento));
-                    entities.TIPO_EVENTO.Remove(evento);
-                    entities.SaveChanges();
+                    using (ARCOS_Entities entities = new ARCOS_Entities())
+                    {
+                        TIPO_EVENTO evento = entities.TIPO_EVENTO.FirstOrDefault(x => x.ID.ToString().Equals(tipo_evento));
+                        entities.TIPO_EVENTO.Remove(evento);
+                        entities.SaveChanges();
 
-                    //limpar grid
-                    grid.DataSource = null;
-                    grid.DataBind();
-                    grid.SelectedIndex = -1;
-                    Response.Write("<script>alert('Removido com sucesso!');</script>");
+                        //limpar grid
+                        grid.DataSource = null;
+                        grid.DataBind();
+                        grid.SelectedIndex = -1;
+                        Response.Write("<script>alert('Removido com sucesso!');</script>");
+                    }
+                }
+                catch
+                {
+                    Response.Write("<script>alert('Falha ao remover registro!');</script>");
                 }
             }
         }

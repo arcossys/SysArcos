@@ -10,87 +10,78 @@
 namespace SysArcos.formularios.usuario {
     
     
-    public partial class frmpermissoes {
+    public partial class frmgrupopermissao {
         
         /// <summary>
-        /// Controle lblLogin.
+        /// Controle lblAcao.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLogin;
+        protected global::System.Web.UI.WebControls.Label lblAcao;
         
         /// <summary>
-        /// Controle Label2.
+        /// Controle lblID.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label lblID;
         
         /// <summary>
-        /// Controle lblUsuario.
+        /// Controle lbl_user.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUsuario;
+        protected global::System.Web.UI.WebControls.Label lbl_user;
         
         /// <summary>
-        /// Controle Label1.
+        /// Controle txt_descricao.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox txt_descricao;
         
         /// <summary>
-        /// Controle ddlTelas.
+        /// Controle tvPermissao.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTelas;
+        protected global::System.Web.UI.WebControls.TreeView tvPermissao;
         
         /// <summary>
-        /// Controle btnAdicionar.
+        /// Controle btnNovo.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdicionar;
+        protected global::System.Web.UI.WebControls.Button btnNovo;
         
         /// <summary>
-        /// Controle grid.
+        /// Controle btn_cadastrar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grid;
+        protected global::System.Web.UI.WebControls.Button btn_cadastrar;
         
         /// <summary>
-        /// Controle btnVoltar.
+        /// Controle btn_buscar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVoltar;
-        
-        /// <summary>
-        /// Controle btnRemover.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRemover;
+        protected global::System.Web.UI.WebControls.Button btn_buscar;
     }
 }

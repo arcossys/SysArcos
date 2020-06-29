@@ -38,6 +38,7 @@
 &nbsp;
         <asp:Button ID="btnselecionar" runat="server" Text="Editar" OnClick="btnselecionar_Click" CssClass="btn btn-primary" />
 &nbsp;
-        <asp:Button ID="btnremover" runat="server" Text="Remover" OnClick="btnremover_Click" CssClass="btn btn-primary" />
+        <asp:Button ID="btnremover" runat="server" Text="Remover" OnClick="btnremover_Click" CssClass="btn btn-primary" 
+            OnClientClick="return confirm('Deseja remover?');"/>
     </p>
 </asp:Content>

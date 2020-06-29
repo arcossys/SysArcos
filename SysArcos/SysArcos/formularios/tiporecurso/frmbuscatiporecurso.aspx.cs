@@ -46,16 +46,23 @@ namespace ProjetoArcos
             if (Grid.SelectedValue != null)
             {
                 string ID = Grid.SelectedValue.ToString();
-                using (ARCOS_Entities entities = new ARCOS_Entities())
+                try
                 {
-                    TIPO_RECURSO TIPO_RECURSO = entities.TIPO_RECURSO.FirstOrDefault(x => x.ID.ToString().Equals(ID));
-                    entities.TIPO_RECURSO.Remove(TIPO_RECURSO);
-                    entities.SaveChanges();
+                    using (ARCOS_Entities entities = new ARCOS_Entities())
+                    {
+                        TIPO_RECURSO TIPO_RECURSO = entities.TIPO_RECURSO.FirstOrDefault(x => x.ID.ToString().Equals(ID));
+                        entities.TIPO_RECURSO.Remove(TIPO_RECURSO);
+                        entities.SaveChanges();
 
-                    Grid.DataSource = null;
-                    Grid.DataBind();
-                    Grid.SelectedIndex = -1;
-                    Response.Write("<script>alert('Removido com sucesso!');</script>");
+                        Grid.DataSource = null;
+                        Grid.DataBind();
+                        Grid.SelectedIndex = -1;
+                        Response.Write("<script>alert('Removido com sucesso!');</script>");
+                    }
+                }
+                catch
+                {
+                    Response.Write("<script>alert('Falha ao remover registro!');</script>");
                 }
             }
         }

@@ -27,6 +27,7 @@
             <asp:BoundField HeaderText="Login" DataField="LOGIN" />
             <asp:BoundField HeaderText="CPF" DataField="CPF" />
             <asp:BoundField HeaderText="E-mail" DataField="EMAIL" />
+            <asp:BoundField DataField="GRUPO_PERMISSAO.DESCRICAO" HeaderText="Permissão" />
             <asp:CommandField ShowSelectButton="True" />
         </Columns>
         <EditRowStyle BackColor="#2461BF" />
@@ -51,7 +52,5 @@
 &nbsp;<asp:Button ID="btnRemover" class="btn btn-primary" runat="server" Text="Remover" OnClick="btnRemover_Click" 
     OnClientClick="return confirm('Deseja remover?');"/>
 
-&nbsp;<asp:Button ID="btnPermissoes" runat="server" Text="Permissões" CssClass="btn btn-primary" OnClick="btnPermissoes_Click"/>
-
-</div>
+&nbsp;</div>
 </asp:Content>

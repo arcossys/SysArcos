@@ -22,32 +22,43 @@ namespace ProjetoArcos
 
                 if (rdativo.Checked)
                 {
-                    lista = entities.ENTIDADE.Where(x => x.ATIVA.Equals(rdativo.Checked)).ToList();
+                    if (rdnome.Checked)
+                    {
+                        lista = entities.ENTIDADE.Where(x => x.NOME.StartsWith(txtbusca.Text) && x.ATIVA.Equals(rdativo.Checked)).ToList();
+                    }
+                    else if (rdcidade.Checked)
+                    {
+                        lista = entities.ENTIDADE.Where(x => x.CIDADE.StartsWith(txtbusca.Text) && x.ATIVA.Equals(rdativo.Checked)).ToList();
+                    }
+                    else if (rdpresidente.Checked)
+                    {
+                        lista = entities.ENTIDADE.Where(x => x.PRESIDENTE.StartsWith(txtbusca.Text) && x.ATIVA.Equals(rdativo.Checked)).ToList();
+                    }
+                    else if (rdCNPJ.Checked)
+                    {
+                        lista = entities.ENTIDADE.Where(x => x.CNPJ.StartsWith(txtbusca.Text) && x.ATIVA.Equals(rdativo.Checked)).ToList();
+                    }
                 }
                 else if (rddesativado.Checked)
                 {
-                    lista = entities.ENTIDADE.Where(x => x.ATIVA.Equals(rddesativado.Checked)).ToList();
+                    if (rdnome.Checked)
+                    {
+                        lista = entities.ENTIDADE.Where(x => x.NOME.StartsWith(txtbusca.Text) && x.ATIVA.Equals(false)).ToList();
+                    }
+                    else if (rdcidade.Checked)
+                    {
+                        lista = entities.ENTIDADE.Where(x => x.CIDADE.StartsWith(txtbusca.Text) && x.ATIVA.Equals(false)).ToList();
+                    }
+                    else if (rdpresidente.Checked)
+                    {
+                        lista = entities.ENTIDADE.Where(x => x.PRESIDENTE.StartsWith(txtbusca.Text) && x.ATIVA.Equals(false)).ToList();
+                    }
+                    else if (rdCNPJ.Checked)
+                    {
+                        lista = entities.ENTIDADE.Where(x => x.CNPJ.StartsWith(txtbusca.Text) && x.ATIVA.Equals(false)).ToList();
+                    }
                 }
-
-                if (rdnome.Checked)
-                {
-                    lista = entities.ENTIDADE.Where(x => x.NOME.StartsWith(txtbusca.Text)).ToList();
-                }
-                else if (rdcidade.Checked)
-                {
-                    lista = entities.ENTIDADE.Where(x => x.CIDADE.StartsWith(txtbusca.Text)).ToList();
-                }
-                else if (rdpresidente.Checked)
-                {
-                    lista = entities.ENTIDADE.Where(x => x.PRESIDENTE.StartsWith(txtbusca.Text)).ToList();
-                }
-                else if (rdCNPJ.Checked)
-                {
-                    lista = entities.ENTIDADE.Where(x => x.CNPJ.StartsWith(txtbusca.Text)).ToList();
-                }
-
-                lista = entities.ENTIDADE.ToList();
-
+                else { lista = entities.ENTIDADE.ToList(); }
                 grid.DataSource = lista.OrderBy(x => x.ID);
                 grid.DataBind();
             }
@@ -71,16 +82,23 @@ namespace ProjetoArcos
                 //String ID = Request.QueryString["ID"];
                 string ID = grid.SelectedValue.ToString();
                 int i = Convert.ToInt32(ID);
-                using (ARCOS_Entities entities = new ARCOS_Entities())
+                try
                 {
-                    ENTIDADE entidade = entities.ENTIDADE.FirstOrDefault(x => x.ID.Equals(i));
-                    entities.ENTIDADE.Remove(entidade);
-                    entities.SaveChanges();
+                    using (ARCOS_Entities entities = new ARCOS_Entities())
+                    {
+                        ENTIDADE entidade = entities.ENTIDADE.FirstOrDefault(x => x.ID.Equals(i));
+                        entities.ENTIDADE.Remove(entidade);
+                        entities.SaveChanges();
 
-                    grid.DataSource = null;
-                    grid.DataBind();
-                    grid.SelectedIndex = -1;
-                    Response.Write("<script>alert('Removido com sucesso!');</script>");
+                        grid.DataSource = null;
+                        grid.DataBind();
+                        grid.SelectedIndex = -1;
+                        Response.Write("<script>alert('Removido com sucesso!');</script>");
+                    }
+                }
+                catch
+                {
+                    Response.Write("<script>alert('Falha ao remover registro!');</script>");
                 }
             }
         }

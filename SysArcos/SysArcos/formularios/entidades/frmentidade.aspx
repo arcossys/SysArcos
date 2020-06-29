@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <div style="clear:both"></div>
     <div class="areaformulario">
 
         <div class="container-fluid">
@@ -37,8 +37,8 @@
 
             <div>
                 <asp:Label ID="Label1" runat="server" Text="Telefone:"></asp:Label><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ForeColor="#FF3300" ControlToValidate="txtTelefone" ValidationGroup="form">*</asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Formato incorreto" ForeColor="#FF3300" ValidationExpression="^[1-9]{2} [9]{0,1}[6-9]{1}[0-9]{3}\-[0-9]{4}$" ControlToValidate="txtTelefone"></asp:RegularExpressionValidator>
-                <asp:TextBox class="form-control" ID="txtTelefone" runat="server" Height="30px" Width="200px" MaxLength="13"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Formato incorreto" ForeColor="#FF3300" ValidationExpression="^\(?\d{2}\)?[\s-]?[\s9]?\d{4}-\d{4}$" ControlToValidate="txtTelefone"></asp:RegularExpressionValidator>
+                <asp:TextBox placeholder="99 99999-9999" class="form-control" ID="txtTelefone" runat="server" Height="30px" Width="200px" MaxLength="13"></asp:TextBox>
             </div>
                 
             <div>
@@ -75,7 +75,7 @@
             <div>
                 <asp:Label ID="Label8" runat="server" Text="Estado:"></asp:Label>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="drpEstado" ErrorMessage="Estado Vazio" ForeColor="#FF3300" ValidationGroup="form">*</asp:RequiredFieldValidator>
-                <asp:DropDownList ID="drpEstado" class="form-control" runat="server" Height="30px" Width="300px" ValidationGroup="form">
+                <asp:DropDownList ID="drpEstado" class="form-control" runat="server" Height="30px" Width="300px" ValidationGroup="form" CssClass="form-control">
                     <asp:ListItem></asp:ListItem>
                     <asp:ListItem>AC</asp:ListItem>
                     <asp:ListItem>AL</asp:ListItem>
@@ -114,7 +114,7 @@
                 <asp:Label ID="Label11" runat="server" Text="Administrador:"></asp:Label>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="txtAdmnistrador" ErrorMessage="Administrador Vazio" ForeColor="#FF3300" ValidationGroup="form">*</asp:RequiredFieldValidator>
                 <br />
-                <asp:DropDownList ID="txtAdmnistrador" runat="server" Height="30px" Width="300px" ValidationGroup="form">
+                <asp:DropDownList ID="txtAdmnistrador" runat="server" Height="30px" Width="300px" ValidationGroup="form" CssClass="form-control">
                 </asp:DropDownList>
                 <br />
                 <br />

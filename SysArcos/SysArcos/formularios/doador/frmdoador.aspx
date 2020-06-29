@@ -81,9 +81,8 @@
     </div>
     <div>
         <asp:Button ID="btn_novo" class="btn btn-primary" runat="server" Text="Novo" Font-Bold="True" Width="100px" OnClick="btn_novo_Click" />
-        <asp:Button ID="btnCadastra" class="btn btn-primary" runat="server" OnClick="btnCadastra_Click" Text="Salvar" Font-Bold="True" Width="100px" />
-        &nbsp;
-        <asp:Button ID="btnConsulta" class="btn btn-primary" runat="server" Text="Buscar" Font-Bold="True" Width="100px" OnClick="btnConsulta_Click" />
+        &nbsp;<asp:Button ID="btnCadastra" class="btn btn-primary" runat="server" OnClick="btnCadastra_Click" Text="Salvar" Font-Bold="True" Width="100px" />
+        &nbsp;<asp:Button ID="btnConsulta" class="btn btn-primary" runat="server" Text="Buscar" Font-Bold="True" Width="100px" OnClick="btnConsulta_Click" />
         <br />
         <br />
     </div>

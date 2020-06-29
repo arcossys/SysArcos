@@ -31,17 +31,24 @@ namespace ProjetoArcos
             if (grid.SelectedValue != null)
             {
                 string descricao = grid.SelectedValue.ToString();
-                using (ARCOS_Entities entities = new ARCOS_Entities())
+                try
                 {
-                    PRODUTO produto = entities.PRODUTO.FirstOrDefault(x => x.DESCRICAO.Equals(descricao));
-                    entities.PRODUTO.Remove(produto);
-                    entities.SaveChanges();
+                    using (ARCOS_Entities entities = new ARCOS_Entities())
+                    {
+                        PRODUTO produto = entities.PRODUTO.FirstOrDefault(x => x.DESCRICAO.Equals(descricao));
+                        entities.PRODUTO.Remove(produto);
+                        entities.SaveChanges();
 
-                    //Limpar Grid 
-                    grid.DataSource = null;
-                    grid.DataBind();
-                    grid.SelectedIndex = -1;
-                    Response.Write("<script>alert('Removido com sucesso!');</script>");
+                        //Limpar Grid 
+                        grid.DataSource = null;
+                        grid.DataBind();
+                        grid.SelectedIndex = -1;
+                        Response.Write("<script>alert('Removido com sucesso!');</script>");
+                    }
+                }
+                catch
+                {
+                    Response.Write("<script>alert('Falha ao remover registro!');</script>");
                 }
             }
 

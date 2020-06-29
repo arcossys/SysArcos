@@ -54,17 +54,24 @@ namespace ProjetoArcos
             if (grid.SelectedValue!=null)
             {
                 string login = grid.SelectedValue.ToString();
-                using (ARCOS_Entities entities = new ARCOS_Entities())
+                try
                 {
-                    USUARIO usuario = entities.USUARIO.FirstOrDefault(x => x.LOGIN.Equals(login));
-                    entities.USUARIO.Remove(usuario);
-                    entities.SaveChanges();
+                    using (ARCOS_Entities entities = new ARCOS_Entities())
+                    {
+                        USUARIO usuario = entities.USUARIO.FirstOrDefault(x => x.LOGIN.Equals(login));
+                        entities.USUARIO.Remove(usuario);
+                        entities.SaveChanges();
 
-                    //Limpar Grid 
-                    grid.DataSource = null;
-                    grid.DataBind();
-                    grid.SelectedIndex = -1;
-                    Response.Write("<script>alert('Removido com sucesso!');</script>");
+                        //Limpar Grid 
+                        grid.DataSource = null;
+                        grid.DataBind();
+                        grid.SelectedIndex = -1;
+                        Response.Write("<script>alert('Removido com sucesso!');</script>");
+                    }
+                }
+                catch
+                {
+                    Response.Write("<script>alert('Falha ao remover registro!');</script>");
                 }
             }
         }

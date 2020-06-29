@@ -22,6 +22,6 @@
     <p>
         <asp:Button ID="btnNovo" runat="server" class="btn btn-primary" Text="Novo" OnClick="btnNovo_Click" />
 &nbsp;<asp:Button ID="btncadastrar" runat="server" class="btn btn-primary" Text="Cadastrar" OnClick="btncadastrar_Click" />
-&nbsp;<asp:Button ID="btnBuscar" runat="server" CssClass="btn btn-primary" Text="Buscar" />
+&nbsp;<asp:Button ID="btnBuscar" runat="server" CssClass="btn btn-primary" Text="Buscar" OnClick="btnBuscar_Click" />
     </p>
     </asp:Content>
