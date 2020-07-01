@@ -19,7 +19,7 @@
     <form id="form1" runat="server">
         <div class="logout">
             <div class="logoitem">
-                <img src="/imagens/ArcosSys.png" class="logo">
+                <a href="/PaginaInicial.aspx"><img src="/imagens/ArcosSys.png" class="logo"></a>
             </div>
             <div class="logoutitem">
                 <asp:Label ID="lbl_welcomeUser" runat="server" Text="Label" class="logout"></asp:Label>

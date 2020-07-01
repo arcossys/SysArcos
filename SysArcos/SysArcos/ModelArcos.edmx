@@ -349,7 +349,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ENTIDADE_USUARIO">
+        <Association Name="FK_ENTIDADE_USUARIO_GRUPOPERMISSAO">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
           <End Role="ENTIDADE" Type="Self.ENTIDADE" Multiplicity="*" />
           <ReferentialConstraint>
@@ -493,7 +493,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_USUARIO_GRUPOPERMISSAO">
+        <Association Name="FK_USUARIO_USUARIO_GRUPOPERMISSAO">
           <End Role="GRUPO_PERMISSAO" Type="Self.GRUPO_PERMISSAO" Multiplicity="0..1" />
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
           <ReferentialConstraint>
@@ -598,7 +598,7 @@
             <End Role="ENTIDADE" EntitySet="ENTIDADE" />
             <End Role="ENTIDADE1" EntitySet="ENTIDADE" />
           </AssociationSet>
-          <AssociationSet Name="FK_ENTIDADE_USUARIO" Association="Self.FK_ENTIDADE_USUARIO">
+          <AssociationSet Name="FK_ENTIDADE_USUARIO_GRUPOPERMISSAO" Association="Self.FK_ENTIDADE_USUARIO_GRUPOPERMISSAO">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="ENTIDADE" EntitySet="ENTIDADE" />
           </AssociationSet>
@@ -646,7 +646,7 @@
             <End Role="TIPO_RECURSO" EntitySet="TIPO_RECURSO" />
             <End Role="RECURSO" EntitySet="RECURSO" />
           </AssociationSet>
-          <AssociationSet Name="FK_USUARIO_GRUPOPERMISSAO" Association="Self.FK_USUARIO_GRUPOPERMISSAO">
+          <AssociationSet Name="FK_USUARIO_USUARIO_GRUPOPERMISSAO" Association="Self.FK_USUARIO_USUARIO_GRUPOPERMISSAO">
             <End Role="GRUPO_PERMISSAO" EntitySet="GRUPO_PERMISSAO" />
             <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
