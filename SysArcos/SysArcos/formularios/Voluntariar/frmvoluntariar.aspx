@@ -2,14 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   <div class="entidade">
+    <div class="entidade">
         Voluntariar
     </div>
     <div class="acao"><asp:Label ID="lblAcao" runat="server" Text="Novo"></asp:Label></div>
-    <div>
-        <asp:Label ID="Lbl_nome" runat="server" Text="Nome"></asp:Label>
-    <asp:TextBox ID="Txt_nome" class="form-control" runat="server" MaxLength="14" Width="300px"></asp:TextBox>
-    </div>
     <div>
         <asp:Label ID="Lbl_vdatainicial" runat="server" Text="Data Inicial"></asp:Label>
     <asp:TextBox ID="Txt_vdatainicial" class="form-control" runat="server" MaxLength="14" Placeholder="DD/MM/AAAA" Width="300px" TextMode="Date"></asp:TextBox>

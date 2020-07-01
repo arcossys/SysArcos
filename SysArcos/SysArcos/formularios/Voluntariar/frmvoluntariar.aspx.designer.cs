@@ -22,24 +22,6 @@ namespace SysArcos.formularios.Voluntariar {
         protected global::System.Web.UI.WebControls.Label lblAcao;
         
         /// <summary>
-        /// Controle Lbl_nome.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_nome;
-        
-        /// <summary>
-        /// Controle Txt_nome.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Txt_nome;
-        
-        /// <summary>
         /// Controle Lbl_vdatainicial.
         /// </summary>
         /// <remarks>

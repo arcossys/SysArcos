@@ -48,7 +48,7 @@
         <EntityTypeShape EntityType="ARCOS_V2Model.VOLUNTARIAR" Width="1.5" PointX="7.5" PointY="36.125" />
         <AssociationConnector Association="ARCOS_V2Model.FK_VOLUNTARIAR_VOLUNTARIADO" />
         <AssociationConnector Association="ARCOS_V2Model.FK_VOLUNTARIAR_VOLUNTARIO" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

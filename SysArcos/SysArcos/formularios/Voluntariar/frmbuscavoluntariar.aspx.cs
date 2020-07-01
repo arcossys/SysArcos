@@ -16,11 +16,6 @@ namespace SysArcos
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            ARCOS_Entities conexao = new ARCOS_Entities();
-            List<VOLUNTARIAR> listaBusca =
-            conexao.VOLUNTARIAR.Where(linha => linha.NOME.Contains(txtBusca.Text)).ToList();
-            grid.DataSource = listaBusca;
-            grid.DataBind();
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
