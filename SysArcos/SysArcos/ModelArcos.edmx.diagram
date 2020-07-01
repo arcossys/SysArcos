@@ -5,49 +5,49 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="260bc477525b46d2b91920acbd462d86" Name="Diagram1" ZoomLevel="85">
-        <EntityTypeShape EntityType="ARCOS_V2Model.ASSISTENCIA" Width="1.5" PointX="5.25" PointY="15.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ARCOS_V2Model.ASSISTIDO" Width="1.5" PointX="3" PointY="24.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ARCOS_V2Model.CATEGORIA_PRODUTO" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ARCOS_V2Model.DOACAO" Width="1.5" PointX="8.25" PointY="15.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ARCOS_V2Model.DOADOR" Width="1.5" PointX="6" PointY="22.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ARCOS_V2Model.ESTOQUE" Width="1.5" PointX="5.25" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ARCOS_V2Model.EVENTO" Width="1.5" PointX="5.25" PointY="19.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ARCOS_V2Model.FORNECEDOR" Width="1.5" PointX="6" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ARCOS_V2Model.FORNECIMENTO" Width="1.5" PointX="8" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ARCOS_V2Model.FORNECIMENTO_ITENS" Width="1.5" PointX="10.5" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ARCOS_V2Model.PRODUTO" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ARCOS_V2Model.RECURSO" Width="1.5" PointX="8.25" PointY="19.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ARCOS_V2Model.TIPO_EVENTO" Width="1.5" PointX="3" PointY="29.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ARCOS_V2Model.TIPO_RECURSO" Width="1.5" PointX="6" PointY="27.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ARCOS_V2Model.VOLUNTARIADO" Width="1.5" PointX="5.25" PointY="33.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ARCOS_V2Model.VOLUNTARIAR" Width="1.5" PointX="7.5" PointY="36.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ARCOS_V2Model.VOLUNTARIO" Width="1.5" PointX="5.25" PointY="37.375" IsExpanded="true" />
-        <AssociationConnector Association="ARCOS_V2Model.FK_ASSISTENCIA_ASSISTIDO" ManuallyRouted="false" />
-        <AssociationConnector Association="ARCOS_V2Model.FK_ASSISTIDO_RESPONSAVEL" ManuallyRouted="false" />
-        <AssociationConnector Association="ARCOS_V2Model.FK_PRODUTO_CATEGORIA" ManuallyRouted="false" />
-        <AssociationConnector Association="ARCOS_V2Model.FK_DOACAO_DOADOR" ManuallyRouted="false" />
-        <AssociationConnector Association="ARCOS_V2Model.FK_ESTOQUE_PRODUTO" ManuallyRouted="false" />
-        <AssociationConnector Association="ARCOS_V2Model.FK_EVENTO_TIPO_EVENTO" ManuallyRouted="false" />
-        <AssociationConnector Association="ARCOS_V2Model.FK_FORNECIMENTO_FORNECEDOR" ManuallyRouted="false" />
-        <AssociationConnector Association="ARCOS_V2Model.FK_FORNECIMENTO_ITENS_FORNECIMENTO" ManuallyRouted="false" />
-        <AssociationConnector Association="ARCOS_V2Model.FK_FORNECIMENTO_ITENS_PRODUTO" ManuallyRouted="false" />
-        <AssociationConnector Association="ARCOS_V2Model.FK_RECURSO_TIPO" ManuallyRouted="false" />
-        <AssociationConnector Association="ARCOS_V2Model.FK_VOLUNTARIAR_VOLUNTARIADO" ManuallyRouted="false" />
-        <AssociationConnector Association="ARCOS_V2Model.FK_VOLUNTARIAR_VOLUNTARIO" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="ARCOS_V2Model.ENTIDADE" Width="1.5" PointX="3" PointY="14.25" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.ASSISTENCIA" PointX="8.25" PointY="11.125" Width="1.5" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.ASSISTIDO" PointX="6" PointY="5.25" Width="1.5" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.CATEGORIA_PRODUTO" PointX="3.75" PointY="25.625" Width="1.5" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.DOACAO" PointX="5.25" PointY="15.125" Width="1.5" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.DOADOR" PointX="3" PointY="20.75" Width="1.5" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.ENTIDADE" PointX="3" PointY="13.625" Width="1.5" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.ESTOQUE" PointX="8.25" PointY="15.375" Width="1.5" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.EVENTO" PointX="8.25" PointY="19.125" Width="1.5" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.FORNECEDOR" PointX="3" PointY="28.75" Width="1.5" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.FORNECIMENTO" PointX="5.25" PointY="19.125" Width="1.5" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.FORNECIMENTO_ITENS" PointX="10.5" PointY="19.375" Width="1.5" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.PRODUTO" PointX="6" PointY="25.125" Width="1.5" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.RECURSO" PointX="5.25" PointY="11.125" Width="1.5" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.TIPO_EVENTO" PointX="6" PointY="29.625" Width="1.5" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.TIPO_RECURSO" PointX="3" PointY="10.625" Width="1.5" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.USUARIO" PointX="0.75" PointY="15.25" Width="1.5" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.VOLUNTARIADO" PointX="5.25" PointY="33.75" Width="1.5" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.VOLUNTARIAR" PointX="7.5" PointY="36.25" Width="1.5" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.VOLUNTARIO" PointX="5.25" PointY="37.25" Width="1.5" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_ASSISTENCIA_ASSISTIDO" />
         <AssociationConnector Association="ARCOS_V2Model.FK_ASSISTENCIA_ENTIDADE" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_ASSISTIDO_RESPONSAVEL" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_PRODUTO_CATEGORIA" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_DOACAO_DOADOR" />
         <AssociationConnector Association="ARCOS_V2Model.FK_DOACAO_ENTIDADE" />
         <AssociationConnector Association="ARCOS_V2Model.FK_ENTIDADE_ENTIDADE_CONTROLADORA" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_ENTIDADE_USUARIO" />
         <AssociationConnector Association="ARCOS_V2Model.FK_ESTOQUE_ENTIDADE" />
         <AssociationConnector Association="ARCOS_V2Model.FK_EVENTO_ENTIDADE" />
         <AssociationConnector Association="ARCOS_V2Model.FK_FORNECIMENTO_ENTIDADE" />
         <AssociationConnector Association="ARCOS_V2Model.FK_RECURSO_ENTIDADE" />
         <AssociationConnector Association="ARCOS_V2Model.FK_VOLUNTARIADO_ENTIDADE" />
         <AssociationConnector Association="ARCOS_V2Model.VOLUNTARIO_ENTIDADE" />
-        <EntityTypeShape EntityType="ARCOS_V2Model.GRUPO_PERMISSAO" Width="1.5" PointX="13.125" PointY="5.125" />
-        <EntityTypeShape EntityType="ARCOS_V2Model.USUARIO" Width="1.5" PointX="15.375" PointY="6.125" />
-        <AssociationConnector Association="ARCOS_V2Model.FK_ENTIDADE_USUARIO_GRUPOPERMISSAO" />
-        <AssociationConnector Association="ARCOS_V2Model.FK_USUARIO_USUARIO_GRUPOPERMISSAO" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_ESTOQUE_PRODUTO" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_EVENTO_TIPO_EVENTO" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_FORNECIMENTO_FORNECEDOR" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_FORNECIMENTO_ITENS_FORNECIMENTO" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_FORNECIMENTO_ITENS_PRODUTO" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_RECURSO_TIPO" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_VOLUNTARIAR_VOLUNTARIADO" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_VOLUNTARIAR_VOLUNTARIO" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.GRUPO_PERMISSAO1" Width="1.5" PointX="0.75" PointY="8.625" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_USUARIO_USUARIO_GRUPOPERMISSAO1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
