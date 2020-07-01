@@ -253,13 +253,12 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DATA_INICIAL" Type="date" Nullable="false" />
-          <Property Name="DATA_FINAL" Type="date" Nullable="false" />
+          <Property Name="DATA_FINAL" Type="date" />
           <Property Name="ID_VOLUNTARIO" Type="int" Nullable="false" />
           <Property Name="ID_VOLUNTARIADO" Type="int" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
-          <Property Name="DESCRICAO" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="OBSERVACAO" Type="text" Nullable="false" />
-          <Property Name="NOME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIÇÃO" Type="varchar" MaxLength="100" />
+          <Property Name="OBSERVACAO" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="VOLUNTARIO">
           <Key>
@@ -891,15 +890,16 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DATA_INICIAL" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="DATA_FINAL" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="DATA_FINAL" Type="DateTime" Precision="0" />
           <Property Name="ID_VOLUNTARIO" Type="Int32" Nullable="false" />
           <Property Name="ID_VOLUNTARIADO" Type="Int32" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="VOLUNTARIADO" Relationship="Self.FK_VOLUNTARIAR_VOLUNTARIADO" FromRole="VOLUNTARIAR" ToRole="VOLUNTARIADO" />
           <NavigationProperty Name="VOLUNTARIO" Relationship="Self.FK_VOLUNTARIAR_VOLUNTARIO" FromRole="VOLUNTARIAR" ToRole="VOLUNTARIO" />
           <Property Name="DESCRICAO" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="OBSERVACAO" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OBSERVACAO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="NOME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIÇÃO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="VOLUNTARIO">
           <Key>
@@ -1638,9 +1638,8 @@
           <EntitySetMapping Name="VOLUNTARIAR">
             <EntityTypeMapping TypeName="ARCOS_V2Model.VOLUNTARIAR">
               <MappingFragment StoreEntitySet="VOLUNTARIAR">
-                <ScalarProperty Name="NOME" ColumnName="NOME" />
+                <ScalarProperty Name="DESCRIÇÃO" ColumnName="DESCRIÇÃO" />
                 <ScalarProperty Name="OBSERVACAO" ColumnName="OBSERVACAO" />
-                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="DATA_INICIAL" ColumnName="DATA_INICIAL" />
                 <ScalarProperty Name="DATA_FINAL" ColumnName="DATA_FINAL" />
