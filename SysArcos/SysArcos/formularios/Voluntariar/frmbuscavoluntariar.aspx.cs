@@ -13,5 +13,43 @@ namespace SysArcos
         {
 
         }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            ARCOS_Entities conexao = new ARCOS_Entities();
+            List<VOLUNTARIAR> listaBusca =
+            conexao.VOLUNTARIAR.Where(linha => linha.NOME.Contains(txtBusca.Text)).ToList();
+            grid.DataSource = listaBusca;
+            grid.DataBind();
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmvoluntariar.aspx");
+        }
+
+        protected void btnRemover_Click(object sender, EventArgs e)
+        {
+            ARCOS_Entities conexao = new ARCOS_Entities();
+
+            int IDSelecionado = Convert.ToInt32(grid.SelectedValue.ToString());
+
+            VOLUNTARIAR aluno = conexao.VOLUNTARIAR.FirstOrDefault(
+                    linha => linha.ID.ToString().Equals(IDSelecionado.ToString())
+                    );
+
+            conexao.VOLUNTARIAR.Remove(aluno);
+
+            conexao.SaveChanges();
+
+            atualizaGrid(conexao);
+        }
+
+        private void atualizaGrid(ARCOS_Entities conexao)
+        {
+            var lista = conexao.VOLUNTARIAR.ToList();
+            grid.DataSource = lista;
+            grid.DataBind();
+        }
     }
 }

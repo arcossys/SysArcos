@@ -19,6 +19,7 @@ namespace SysArcos.formularios.Voluntariar
                     VOLUNTARIAR u = entities.VOLUNTARIAR.FirstOrDefault(x => x.DESCRICAO.Equals(descricao));
                     if (u != null)
                     {
+                        Txt_nome.Text = u.NOME;
                         Txt_vdescricao.Text = u.DESCRICAO;
                         u.DATA_INICIAL = Convert.ToDateTime(Txt_vdatainicial.Text);
                         u.DATA_FINAL = Convert.ToDateTime(Txt_vdatafinal.Text);
@@ -32,7 +33,7 @@ namespace SysArcos.formularios.Voluntariar
         protected void Btn_Salvar_Click(object sender, EventArgs e)
         {
 
-            if (Txt_vdatainicial.Text == "" || Txt_vdatafinal.Text == "" || Txt_vdescricao.Text == "" || Txt_vobservacao.Text == "")
+            if (Txt_vdatainicial.Text == "" || Txt_vdatafinal.Text == "" || Txt_vdescricao.Text == "" || Txt_vobservacao.Text == "" || Txt_nome.Text == "")
 
             {
                 Response.Write("<script>alert('Há campos obrigatorios não preenchidos!');</script>");
@@ -49,6 +50,7 @@ namespace SysArcos.formularios.Voluntariar
                         if (lblAcao.Text.Equals("NOVO"))
                         {
                             VOLUNTARIAR volunt = new VOLUNTARIAR();
+                            volunt.NOME = Txt_nome.Text;
                             volunt.ID_VOLUNTARIO = Convert.ToInt32(Ddl_voluntario.SelectedValue.ToString());
                             volunt.ID_VOLUNTARIADO = Convert.ToInt32(Ddl_vvoluntariado.SelectedValue.ToString());
                             volunt.DATA_INICIAL = DateTime.Now;
@@ -65,6 +67,7 @@ namespace SysArcos.formularios.Voluntariar
                             voluntariar = entity.VOLUNTARIAR.FirstOrDefault(x => x.DESCRICAO.Equals(Txt_vdescricao.Text));
 
                             VOLUNTARIAR volunt = new VOLUNTARIAR();
+                            volunt.NOME = Txt_nome.Text;
                             volunt.ID_VOLUNTARIO = Convert.ToInt32(Ddl_voluntario.SelectedValue.ToString());
                             volunt.ID_VOLUNTARIADO = Convert.ToInt32(Ddl_vvoluntariado.SelectedValue.ToString());
                             volunt.DATA_INICIAL = DateTime.Now;
@@ -94,6 +97,7 @@ namespace SysArcos.formularios.Voluntariar
             Txt_vdatafinal.Text = string.Empty;
             Txt_vdescricao.Text = string.Empty;
             Txt_vobservacao.Text = string.Empty;
+            Txt_nome.Text = string.Empty;
         }
 
         protected void btn_buscar_Click(object sender, EventArgs e)
@@ -102,6 +106,7 @@ namespace SysArcos.formularios.Voluntariar
         }
         private void limpar()
         {
+            Txt_nome.Text = string.Empty;
             Ddl_voluntario.Text = string.Empty;
             Ddl_vvoluntariado.Text = string.Empty;
             Txt_vdatainicial.Text = string.Empty;
@@ -125,5 +130,4 @@ namespace SysArcos.formularios.Voluntariar
             Ddl_vvoluntariado.DataTextField = "ID";
         }
     }
-
 }

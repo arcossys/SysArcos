@@ -22,6 +22,7 @@ namespace SysArcos
         public System.DateTime DATA_HORA_CRIACAO_REGISTRO { get; set; }
         public string DESCRICAO { get; set; }
         public string OBSERVACAO { get; set; }
+        public string NOME { get; set; }
     
         public virtual VOLUNTARIADO VOLUNTARIADO { get; set; }
         public virtual VOLUNTARIO VOLUNTARIO { get; set; }

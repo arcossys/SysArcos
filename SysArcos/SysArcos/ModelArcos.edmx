@@ -259,6 +259,7 @@
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
           <Property Name="DESCRICAO" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="OBSERVACAO" Type="text" Nullable="false" />
+          <Property Name="NOME" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="VOLUNTARIO">
           <Key>
@@ -898,6 +899,7 @@
           <NavigationProperty Name="VOLUNTARIO" Relationship="Self.FK_VOLUNTARIAR_VOLUNTARIO" FromRole="VOLUNTARIAR" ToRole="VOLUNTARIO" />
           <Property Name="DESCRICAO" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="OBSERVACAO" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NOME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="VOLUNTARIO">
           <Key>
@@ -1636,6 +1638,7 @@
           <EntitySetMapping Name="VOLUNTARIAR">
             <EntityTypeMapping TypeName="ARCOS_V2Model.VOLUNTARIAR">
               <MappingFragment StoreEntitySet="VOLUNTARIAR">
+                <ScalarProperty Name="NOME" ColumnName="NOME" />
                 <ScalarProperty Name="OBSERVACAO" ColumnName="OBSERVACAO" />
                 <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
