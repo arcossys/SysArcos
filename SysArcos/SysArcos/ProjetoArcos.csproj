@@ -315,6 +315,9 @@
     <Compile Include="formularios\Voluntariar\frmvoluntariar.aspx.designer.cs">
       <DependentUpon>frmvoluntariar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GRUPO_PERMISSAO1.cs">
+      <DependentUpon>ModelArcos.tt</DependentUpon>
+    </Compile>
     <Compile Include="permissao_negada.aspx.cs">
       <DependentUpon>permissao_negada.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

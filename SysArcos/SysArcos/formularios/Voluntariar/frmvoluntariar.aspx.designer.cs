@@ -13,13 +13,31 @@ namespace SysArcos.formularios.Voluntariar {
     public partial class frmvoluntariar {
         
         /// <summary>
-        /// Controle LblAcao.
+        /// Controle lblAcao.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblAcao;
+        protected global::System.Web.UI.WebControls.Label lblAcao;
+        
+        /// <summary>
+        /// Controle Lbl_nome.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Lbl_nome;
+        
+        /// <summary>
+        /// Controle Txt_nome.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Txt_nome;
         
         /// <summary>
         /// Controle Lbl_vdatainicial.
@@ -40,13 +58,13 @@ namespace SysArcos.formularios.Voluntariar {
         protected global::System.Web.UI.WebControls.TextBox Txt_vdatainicial;
         
         /// <summary>
-        /// Controle Lbl_vdatafinal.
+        /// Controle Label2.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_vdatafinal;
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
         /// Controle Txt_vdatafinal.
@@ -103,13 +121,13 @@ namespace SysArcos.formularios.Voluntariar {
         protected global::System.Web.UI.WebControls.Label Lbl_ventidade;
         
         /// <summary>
-        /// Controle Ddl_ventidade.
+        /// Controle Ddl_vvoluntariado.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Ddl_ventidade;
+        protected global::System.Web.UI.WebControls.DropDownList Ddl_vvoluntariado;
         
         /// <summary>
         /// Controle Lbl_vobservacao.
