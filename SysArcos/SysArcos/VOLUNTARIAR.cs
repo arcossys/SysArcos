@@ -20,10 +20,8 @@ namespace SysArcos
         public int ID_VOLUNTARIO { get; set; }
         public int ID_VOLUNTARIADO { get; set; }
         public System.DateTime DATA_HORA_CRIACAO_REGISTRO { get; set; }
-        public string DESCRICAO { get; set; }
-        public string OBSERVACAO { get; set; }
-        public string NOME { get; set; }
         public string DESCRIÇÃO { get; set; }
+        public string OBSERVACAO { get; set; }
     
         public virtual VOLUNTARIADO VOLUNTARIADO { get; set; }
         public virtual VOLUNTARIO VOLUNTARIO { get; set; }

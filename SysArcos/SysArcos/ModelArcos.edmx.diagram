@@ -22,7 +22,6 @@
         <EntityTypeShape EntityType="ARCOS_V2Model.TIPO_RECURSO" PointX="3" PointY="10.625" Width="1.5" />
         <EntityTypeShape EntityType="ARCOS_V2Model.USUARIO" PointX="0.75" PointY="15.25" Width="1.5" />
         <EntityTypeShape EntityType="ARCOS_V2Model.VOLUNTARIADO" PointX="5.25" PointY="33.75" Width="1.5" />
-        <EntityTypeShape EntityType="ARCOS_V2Model.VOLUNTARIAR" PointX="7.5" PointY="36.25" Width="1.5" />
         <EntityTypeShape EntityType="ARCOS_V2Model.VOLUNTARIO" PointX="5.25" PointY="37.25" Width="1.5" />
         <AssociationConnector Association="ARCOS_V2Model.FK_ASSISTENCIA_ASSISTIDO" />
         <AssociationConnector Association="ARCOS_V2Model.FK_ASSISTENCIA_ENTIDADE" />
@@ -44,10 +43,11 @@
         <AssociationConnector Association="ARCOS_V2Model.FK_FORNECIMENTO_ITENS_FORNECIMENTO" />
         <AssociationConnector Association="ARCOS_V2Model.FK_FORNECIMENTO_ITENS_PRODUTO" />
         <AssociationConnector Association="ARCOS_V2Model.FK_RECURSO_TIPO" />
-        <AssociationConnector Association="ARCOS_V2Model.FK_VOLUNTARIAR_VOLUNTARIADO" />
-        <AssociationConnector Association="ARCOS_V2Model.FK_VOLUNTARIAR_VOLUNTARIO" />
         <EntityTypeShape EntityType="ARCOS_V2Model.GRUPO_PERMISSAO1" Width="1.5" PointX="0.75" PointY="8.625" />
         <AssociationConnector Association="ARCOS_V2Model.FK_USUARIO_USUARIO_GRUPOPERMISSAO1" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.VOLUNTARIAR" Width="1.5" PointX="7.5" PointY="36.125" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_VOLUNTARIAR_VOLUNTARIADO" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_VOLUNTARIAR_VOLUNTARIO" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

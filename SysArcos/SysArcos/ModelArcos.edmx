@@ -881,25 +881,8 @@
           <Property Name="OBSERVACAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="ID_ENTIDADE" Type="Int32" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="VOLUNTARIAR" Relationship="Self.FK_VOLUNTARIAR_VOLUNTARIADO" FromRole="VOLUNTARIADO" ToRole="VOLUNTARIAR" />
           <NavigationProperty Name="ENTIDADE" Relationship="ARCOS_V2Model.FK_VOLUNTARIADO_ENTIDADE" FromRole="VOLUNTARIADO" ToRole="ENTIDADE" />
-        </EntityType>
-        <EntityType Name="VOLUNTARIAR">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DATA_INICIAL" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="DATA_FINAL" Type="DateTime" Precision="0" />
-          <Property Name="ID_VOLUNTARIO" Type="Int32" Nullable="false" />
-          <Property Name="ID_VOLUNTARIADO" Type="Int32" Nullable="false" />
-          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="VOLUNTARIADO" Relationship="Self.FK_VOLUNTARIAR_VOLUNTARIADO" FromRole="VOLUNTARIAR" ToRole="VOLUNTARIADO" />
-          <NavigationProperty Name="VOLUNTARIO" Relationship="Self.FK_VOLUNTARIAR_VOLUNTARIO" FromRole="VOLUNTARIAR" ToRole="VOLUNTARIO" />
-          <Property Name="DESCRICAO" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="OBSERVACAO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="NOME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DESCRIÇÃO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="VOLUNTARIAR" Relationship="ARCOS_V2Model.FK_VOLUNTARIAR_VOLUNTARIADO" FromRole="VOLUNTARIADO" ToRole="VOLUNTARIAR" />
         </EntityType>
         <EntityType Name="VOLUNTARIO">
           <Key>
@@ -919,8 +902,8 @@
           <Property Name="ID_ENTIDADE" Type="Int32" />
           <Property Name="ATIVO" Type="Boolean" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="VOLUNTARIAR" Relationship="Self.FK_VOLUNTARIAR_VOLUNTARIO" FromRole="VOLUNTARIO" ToRole="VOLUNTARIAR" />
           <NavigationProperty Name="ENTIDADE" Relationship="ARCOS_V2Model.VOLUNTARIO_ENTIDADE" FromRole="VOLUNTARIO" ToRole="ENTIDADE" />
+          <NavigationProperty Name="VOLUNTARIAR" Relationship="ARCOS_V2Model.FK_VOLUNTARIAR_VOLUNTARIO" FromRole="VOLUNTARIO" ToRole="VOLUNTARIAR" />
         </EntityType>
         <Association Name="FK_ASSISTENCIA_ASSISTIDO">
           <End Role="ASSISTIDO" Type="Self.ASSISTIDO" Multiplicity="1" />
@@ -1042,30 +1025,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_VOLUNTARIAR_VOLUNTARIADO">
-          <End Role="VOLUNTARIADO" Type="Self.VOLUNTARIADO" Multiplicity="1" />
-          <End Role="VOLUNTARIAR" Type="Self.VOLUNTARIAR" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="VOLUNTARIADO">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="VOLUNTARIAR">
-              <PropertyRef Name="ID_VOLUNTARIADO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_VOLUNTARIAR_VOLUNTARIO">
-          <End Role="VOLUNTARIO" Type="Self.VOLUNTARIO" Multiplicity="1" />
-          <End Role="VOLUNTARIAR" Type="Self.VOLUNTARIAR" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="VOLUNTARIO">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="VOLUNTARIAR">
-              <PropertyRef Name="ID_VOLUNTARIO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="ARCOS_Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ASSISTENCIA" EntityType="Self.ASSISTENCIA" />
           <EntitySet Name="ASSISTIDO" EntityType="Self.ASSISTIDO" />
@@ -1082,7 +1041,6 @@
           <EntitySet Name="TIPO_EVENTO" EntityType="Self.TIPO_EVENTO" />
           <EntitySet Name="TIPO_RECURSO" EntityType="Self.TIPO_RECURSO" />
           <EntitySet Name="VOLUNTARIADO" EntityType="Self.VOLUNTARIADO" />
-          <EntitySet Name="VOLUNTARIAR" EntityType="Self.VOLUNTARIAR" />
           <EntitySet Name="VOLUNTARIO" EntityType="Self.VOLUNTARIO" />
           <AssociationSet Name="FK_ASSISTENCIA_ASSISTIDO" Association="Self.FK_ASSISTENCIA_ASSISTIDO">
             <End Role="ASSISTIDO" EntitySet="ASSISTIDO" />
@@ -1123,14 +1081,6 @@
           <AssociationSet Name="FK_RECURSO_TIPO" Association="Self.FK_RECURSO_TIPO">
             <End Role="TIPO_RECURSO" EntitySet="TIPO_RECURSO" />
             <End Role="RECURSO" EntitySet="RECURSO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_VOLUNTARIAR_VOLUNTARIADO" Association="Self.FK_VOLUNTARIAR_VOLUNTARIADO">
-            <End Role="VOLUNTARIADO" EntitySet="VOLUNTARIADO" />
-            <End Role="VOLUNTARIAR" EntitySet="VOLUNTARIAR" />
-          </AssociationSet>
-          <AssociationSet Name="FK_VOLUNTARIAR_VOLUNTARIO" Association="Self.FK_VOLUNTARIAR_VOLUNTARIO">
-            <End Role="VOLUNTARIO" EntitySet="VOLUNTARIO" />
-            <End Role="VOLUNTARIAR" EntitySet="VOLUNTARIAR" />
           </AssociationSet>
           <EntitySet Name="ENTIDADE" EntityType="ARCOS_V2Model.ENTIDADE" />
           <AssociationSet Name="FK_ASSISTENCIA_ENTIDADE" Association="ARCOS_V2Model.FK_ASSISTENCIA_ENTIDADE">
@@ -1183,6 +1133,15 @@
           <AssociationSet Name="FK_USUARIO_USUARIO_GRUPOPERMISSAO1" Association="ARCOS_V2Model.FK_USUARIO_USUARIO_GRUPOPERMISSAO1">
             <End Role="GRUPO_PERMISSAO1" EntitySet="GRUPO_PERMISSAO1Set" />
             <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <EntitySet Name="VOLUNTARIAR" EntityType="ARCOS_V2Model.VOLUNTARIAR" />
+          <AssociationSet Name="FK_VOLUNTARIAR_VOLUNTARIADO" Association="ARCOS_V2Model.FK_VOLUNTARIAR_VOLUNTARIADO">
+            <End Role="VOLUNTARIADO" EntitySet="VOLUNTARIADO" />
+            <End Role="VOLUNTARIAR" EntitySet="VOLUNTARIAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VOLUNTARIAR_VOLUNTARIO" Association="ARCOS_V2Model.FK_VOLUNTARIAR_VOLUNTARIO">
+            <End Role="VOLUNTARIO" EntitySet="VOLUNTARIO" />
+            <End Role="VOLUNTARIAR" EntitySet="VOLUNTARIAR" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="ENTIDADE">
@@ -1432,6 +1391,45 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="VOLUNTARIAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DATA_INICIAL" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DATA_FINAL" Type="DateTime" Precision="0" />
+          <Property Name="ID_VOLUNTARIO" Type="Int32" Nullable="false" />
+          <Property Name="ID_VOLUNTARIADO" Type="Int32" Nullable="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DESCRIÇÃO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OBSERVACAO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="VOLUNTARIADO" Relationship="ARCOS_V2Model.FK_VOLUNTARIAR_VOLUNTARIADO" FromRole="VOLUNTARIAR" ToRole="VOLUNTARIADO" />
+          <NavigationProperty Name="VOLUNTARIO" Relationship="ARCOS_V2Model.FK_VOLUNTARIAR_VOLUNTARIO" FromRole="VOLUNTARIAR" ToRole="VOLUNTARIO" />
+        </EntityType>
+        <Association Name="FK_VOLUNTARIAR_VOLUNTARIADO">
+          <End Type="ARCOS_V2Model.VOLUNTARIADO" Role="VOLUNTARIADO" Multiplicity="1" />
+          <End Type="ARCOS_V2Model.VOLUNTARIAR" Role="VOLUNTARIAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VOLUNTARIADO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VOLUNTARIAR">
+              <PropertyRef Name="ID_VOLUNTARIADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VOLUNTARIAR_VOLUNTARIO">
+          <End Type="ARCOS_V2Model.VOLUNTARIO" Role="VOLUNTARIO" Multiplicity="1" />
+          <End Type="ARCOS_V2Model.VOLUNTARIAR" Role="VOLUNTARIAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VOLUNTARIO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VOLUNTARIAR">
+              <PropertyRef Name="ID_VOLUNTARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1635,20 +1633,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="VOLUNTARIAR">
-            <EntityTypeMapping TypeName="ARCOS_V2Model.VOLUNTARIAR">
-              <MappingFragment StoreEntitySet="VOLUNTARIAR">
-                <ScalarProperty Name="DESCRIÇÃO" ColumnName="DESCRIÇÃO" />
-                <ScalarProperty Name="OBSERVACAO" ColumnName="OBSERVACAO" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="DATA_INICIAL" ColumnName="DATA_INICIAL" />
-                <ScalarProperty Name="DATA_FINAL" ColumnName="DATA_FINAL" />
-                <ScalarProperty Name="ID_VOLUNTARIO" ColumnName="ID_VOLUNTARIO" />
-                <ScalarProperty Name="ID_VOLUNTARIADO" ColumnName="ID_VOLUNTARIADO" />
-                <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="VOLUNTARIO">
             <EntityTypeMapping TypeName="ARCOS_V2Model.VOLUNTARIO">
               <MappingFragment StoreEntitySet="VOLUNTARIO">
@@ -1727,6 +1711,20 @@
                 <ScalarProperty Name="PERM_VOLUNTARIOS" ColumnName="PERM_VOLUNTARIOS" />
                 <ScalarProperty Name="PERM_ENTIDADE" ColumnName="PERM_ENTIDADE" />
                 <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VOLUNTARIAR">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.VOLUNTARIAR">
+              <MappingFragment StoreEntitySet="VOLUNTARIAR">
+                <ScalarProperty Name="OBSERVACAO" ColumnName="OBSERVACAO" />
+                <ScalarProperty Name="DESCRIÇÃO" ColumnName="DESCRIÇÃO" />
+                <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
+                <ScalarProperty Name="ID_VOLUNTARIADO" ColumnName="ID_VOLUNTARIADO" />
+                <ScalarProperty Name="ID_VOLUNTARIO" ColumnName="ID_VOLUNTARIO" />
+                <ScalarProperty Name="DATA_FINAL" ColumnName="DATA_FINAL" />
+                <ScalarProperty Name="DATA_INICIAL" ColumnName="DATA_INICIAL" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
