@@ -257,7 +257,7 @@
           <Property Name="ID_VOLUNTARIO" Type="int" Nullable="false" />
           <Property Name="ID_VOLUNTARIADO" Type="int" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
-          <Property Name="DESCRIÇÃO" Type="varchar" MaxLength="100" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="100" />
           <Property Name="OBSERVACAO" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="VOLUNTARIO">
@@ -1143,7 +1143,7 @@
             <End Role="VOLUNTARIO" EntitySet="VOLUNTARIO" />
             <End Role="VOLUNTARIAR" EntitySet="VOLUNTARIAR" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="ENTIDADE">
           <Key>
             <PropertyRef Name="ID" />
@@ -1401,7 +1401,7 @@
           <Property Name="ID_VOLUNTARIO" Type="Int32" Nullable="false" />
           <Property Name="ID_VOLUNTARIADO" Type="Int32" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="DESCRIÇÃO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="OBSERVACAO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="VOLUNTARIADO" Relationship="ARCOS_V2Model.FK_VOLUNTARIAR_VOLUNTARIADO" FromRole="VOLUNTARIAR" ToRole="VOLUNTARIADO" />
           <NavigationProperty Name="VOLUNTARIO" Relationship="ARCOS_V2Model.FK_VOLUNTARIAR_VOLUNTARIO" FromRole="VOLUNTARIAR" ToRole="VOLUNTARIO" />
@@ -1430,7 +1430,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1719,7 +1719,7 @@
             <EntityTypeMapping TypeName="ARCOS_V2Model.VOLUNTARIAR">
               <MappingFragment StoreEntitySet="VOLUNTARIAR">
                 <ScalarProperty Name="OBSERVACAO" ColumnName="OBSERVACAO" />
-                <ScalarProperty Name="DESCRIÇÃO" ColumnName="DESCRIÇÃO" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
                 <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
                 <ScalarProperty Name="ID_VOLUNTARIADO" ColumnName="ID_VOLUNTARIADO" />
                 <ScalarProperty Name="ID_VOLUNTARIO" ColumnName="ID_VOLUNTARIO" />
