@@ -27,6 +27,7 @@ namespace SysArcos
         public bool PERM_VOLUNTARIAR { get; set; }
         public bool PERM_VOLUNTARIADO { get; set; }
         public bool PERM_USUARIOS { get; set; }
+        public bool PERM_GRUPOPERMISSAO { get; set; }
         public bool PERM_EVENTO { get; set; }
         public bool PERM_TIPOEVENTO { get; set; }
         public bool PERM_RECURSO { get; set; }
@@ -39,7 +40,6 @@ namespace SysArcos
         public bool PERM_DOADOR { get; set; }
         public bool PERM_ASSISTENCIA { get; set; }
         public bool PERM_ASSISTIDO { get; set; }
-        public bool PERM_GRUPOPERMISSAO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<USUARIO> USUARIO { get; set; }

@@ -96,6 +96,16 @@
     <Content Include="formularios\fornecimento\fornecimento.aspx" />
     <Content Include="formularios\recurso\recurso.aspx" />
     <Content Include="formularios\Voluntariar\frmvoluntariar.aspx" />
+    <Content Include="ModelArcos.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelArcos.edmx</DependentUpon>
+      <LastGenOutput>ModelArcos.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelArcos.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelArcos.edmx</DependentUpon>
+      <LastGenOutput>ModelArcos.cs</LastGenOutput>
+    </Content>
     <Content Include="permissao_negada.aspx" />
     <Content Include="formularios\produto\frmbuscaproduto.aspx" />
     <Content Include="formularios\tipoevento\frmbuscatipoevento.aspx" />
@@ -120,16 +130,6 @@
     <Content Include="imagens\ArcosLogo.png" />
     <Content Include="imagens\ArcosSys.png" />
     <Content Include="JSPaginaMestre.js" />
-    <Content Include="ModelArcos.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelArcos.Context.cs</LastGenOutput>
-      <DependentUpon>ModelArcos.edmx</DependentUpon>
-    </Content>
-    <Content Include="ModelArcos.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelArcos.edmx</DependentUpon>
-      <LastGenOutput>ModelArcos.cs</LastGenOutput>
-    </Content>
     <Content Include="PaginaInicial.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -155,6 +155,13 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="formularios\Voluntariar\frmbuscavoluntariar.aspx" />
+    <EntityDeploy Include="ModelArcos.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelArcos.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="ModelArcos.edmx.diagram">
+      <DependentUpon>ModelArcos.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
@@ -315,8 +322,32 @@
     <Compile Include="formularios\Voluntariar\frmvoluntariar.aspx.designer.cs">
       <DependentUpon>frmvoluntariar.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GRUPO_PERMISSAO1.cs">
+    <Compile Include="FORNECEDOR.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FORNECIMENTO.cs">
+      <DependentUpon>ModelArcos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FORNECIMENTO_ITENS.cs">
+      <DependentUpon>ModelArcos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GRUPO_PERMISSAO.cs">
+      <DependentUpon>ModelArcos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelArcos.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelArcos.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelArcos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelArcos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelArcos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelArcos.edmx</DependentUpon>
     </Compile>
     <Compile Include="permissao_negada.aspx.cs">
       <DependentUpon>permissao_negada.aspx</DependentUpon>
@@ -338,15 +369,6 @@
     </Compile>
     <Compile Include="formularios\grupopermissao\frmgrupopermissao.aspx.designer.cs">
       <DependentUpon>frmgrupopermissao.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FORNECEDOR.cs">
-      <DependentUpon>ModelArcos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="FORNECIMENTO.cs">
-      <DependentUpon>ModelArcos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="FORNECIMENTO_ITENS.cs">
-      <DependentUpon>ModelArcos.tt</DependentUpon>
     </Compile>
     <Compile Include="formularios\assistencia\frmassistencia.aspx.cs">
       <DependentUpon>frmassistencia.aspx</DependentUpon>
@@ -516,30 +538,12 @@
     <Compile Include="formularios\voluntario\frmvoluntario.aspx.designer.cs">
       <DependentUpon>frmvoluntario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GRUPO_PERMISSAO.cs">
-      <DependentUpon>ModelArcos.tt</DependentUpon>
-    </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
-    </Compile>
-    <Compile Include="ModelArcos.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelArcos.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelArcos.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelArcos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelArcos.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelArcos.edmx</DependentUpon>
     </Compile>
     <Compile Include="PaginaInicial.aspx.cs">
       <DependentUpon>PaginaInicial.aspx</DependentUpon>
@@ -552,6 +556,13 @@
       <DependentUpon>ModelArcos.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="formularios\Voluntariar\frmbuscavoluntariar.aspx.cs">
+      <DependentUpon>frmbuscavoluntariar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\Voluntariar\frmbuscavoluntariar.aspx.designer.cs">
+      <DependentUpon>frmbuscavoluntariar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RECURSO.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
     </Compile>
@@ -573,22 +584,8 @@
     <Compile Include="VOLUNTARIO.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
     </Compile>
-    <Compile Include="formularios\Voluntariar\frmbuscavoluntariar.aspx.cs">
-      <DependentUpon>frmbuscavoluntariar.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="formularios\Voluntariar\frmbuscavoluntariar.aspx.designer.cs">
-      <DependentUpon>frmbuscavoluntariar.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="ModelArcos.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelArcos.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="ModelArcos.edmx.diagram">
-      <DependentUpon>ModelArcos.edmx</DependentUpon>
-    </Content>
     <Content Include="MasterPage.Master" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />

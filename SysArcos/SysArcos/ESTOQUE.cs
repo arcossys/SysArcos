@@ -20,7 +20,7 @@ namespace SysArcos
         public int ID_PRODUTO { get; set; }
         public System.DateTime DATA_HORA_CRIACAO_REGISTRO { get; set; }
     
-        public virtual PRODUTO PRODUTO { get; set; }
         public virtual ENTIDADE ENTIDADE { get; set; }
+        public virtual PRODUTO PRODUTO { get; set; }
     }
 }

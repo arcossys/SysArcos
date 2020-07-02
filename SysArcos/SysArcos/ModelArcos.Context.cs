@@ -30,21 +30,20 @@ namespace SysArcos
         public virtual DbSet<CATEGORIA_PRODUTO> CATEGORIA_PRODUTO { get; set; }
         public virtual DbSet<DOACAO> DOACAO { get; set; }
         public virtual DbSet<DOADOR> DOADOR { get; set; }
+        public virtual DbSet<ENTIDADE> ENTIDADE { get; set; }
         public virtual DbSet<ESTOQUE> ESTOQUE { get; set; }
         public virtual DbSet<EVENTO> EVENTO { get; set; }
         public virtual DbSet<FORNECEDOR> FORNECEDOR { get; set; }
         public virtual DbSet<FORNECIMENTO> FORNECIMENTO { get; set; }
         public virtual DbSet<FORNECIMENTO_ITENS> FORNECIMENTO_ITENS { get; set; }
+        public virtual DbSet<GRUPO_PERMISSAO> GRUPO_PERMISSAO { get; set; }
         public virtual DbSet<PRODUTO> PRODUTO { get; set; }
         public virtual DbSet<RECURSO> RECURSO { get; set; }
         public virtual DbSet<TIPO_EVENTO> TIPO_EVENTO { get; set; }
         public virtual DbSet<TIPO_RECURSO> TIPO_RECURSO { get; set; }
-        public virtual DbSet<VOLUNTARIADO> VOLUNTARIADO { get; set; }
-        public virtual DbSet<VOLUNTARIO> VOLUNTARIO { get; set; }
-        public virtual DbSet<ENTIDADE> ENTIDADE { get; set; }
-        public virtual DbSet<GRUPO_PERMISSAO> GRUPO_PERMISSAO { get; set; }
         public virtual DbSet<USUARIO> USUARIO { get; set; }
-        public virtual DbSet<GRUPO_PERMISSAO1> GRUPO_PERMISSAO1Set { get; set; }
+        public virtual DbSet<VOLUNTARIADO> VOLUNTARIADO { get; set; }
         public virtual DbSet<VOLUNTARIAR> VOLUNTARIAR { get; set; }
+        public virtual DbSet<VOLUNTARIO> VOLUNTARIO { get; set; }
     }
 }

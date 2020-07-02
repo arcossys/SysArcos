@@ -16,7 +16,7 @@ namespace SysArcos
     {
         public int ID { get; set; }
         public System.DateTime DATA_INICIAL { get; set; }
-        public System.DateTime DATA_FINAL { get; set; }
+        public Nullable<System.DateTime> DATA_FINAL { get; set; }
         public int ID_VOLUNTARIO { get; set; }
         public int ID_VOLUNTARIADO { get; set; }
         public System.DateTime DATA_HORA_CRIACAO_REGISTRO { get; set; }
