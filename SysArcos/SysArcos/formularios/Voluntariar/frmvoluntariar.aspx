@@ -38,7 +38,7 @@
     <br />
     <div>   
         &nbsp;<asp:Button ID="Btn_Novo" runat="server" class="btn btn-primary" Text="Novo" OnClick="btnNovo_Click" />
-    &nbsp;<asp:Button ID="Btn_Salvar" class="btn btn-primary" runat="server" Text="Salvar" OnClick="btn_cadastrar_Click" />
+        &nbsp;<asp:Button ID="Btn_Salvar" class="btn btn-primary"  runat="server" Text="Salvar" OnClick="Btn_Salvar_Click1" />
     &nbsp;<asp:Button ID="Btn_Buscar" class="btn btn-primary" runat="server" Text="Buscar" OnClick="btn_buscar_Click"/>
 
     </div>
