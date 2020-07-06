@@ -7,11 +7,13 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace ProjetoArcos {
-    
-    
-    public partial class frmvoluntario {
-        
+namespace ProjetoArcos
+{
+
+
+    public partial class frmvoluntario
+    {
+
         /// <summary>
         /// Controle lbl_Status.
         /// </summary>
@@ -20,7 +22,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_Status;
-        
+
         /// <summary>
         /// Controle ValidationSummary1.
         /// </summary>
@@ -29,7 +31,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
-        
+
         /// <summary>
         /// Controle lblID.
         /// </summary>
@@ -38,7 +40,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblID;
-        
+
         /// <summary>
         /// Controle lbl_vnome.
         /// </summary>
@@ -47,7 +49,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_vnome;
-        
+
         /// <summary>
         /// Controle rqd_Nome.
         /// </summary>
@@ -56,7 +58,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqd_Nome;
-        
+
         /// <summary>
         /// Controle txt_vnome.
         /// </summary>
@@ -65,7 +67,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_vnome;
-        
+
         /// <summary>
         /// Controle lbl_vcpf.
         /// </summary>
@@ -74,7 +76,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_vcpf;
-        
+
         /// <summary>
         /// Controle rqd_CPF.
         /// </summary>
@@ -83,7 +85,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqd_CPF;
-        
+
         /// <summary>
         /// Controle txt_vcpf.
         /// </summary>
@@ -92,7 +94,16 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_vcpf;
-        
+
+        /// <summary>
+        /// Controle RegularExpressionValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+
         /// <summary>
         /// Controle lbl_vEndereco.
         /// </summary>
@@ -101,7 +112,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_vEndereco;
-        
+
         /// <summary>
         /// Controle rqd_Endereco.
         /// </summary>
@@ -110,7 +121,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqd_Endereco;
-        
+
         /// <summary>
         /// Controle txt_vendereco.
         /// </summary>
@@ -119,7 +130,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_vendereco;
-        
+
         /// <summary>
         /// Controle lbl_vnumero.
         /// </summary>
@@ -128,7 +139,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_vnumero;
-        
+
         /// <summary>
         /// Controle rqd_Numero.
         /// </summary>
@@ -137,7 +148,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqd_Numero;
-        
+
         /// <summary>
         /// Controle txt_vnumero.
         /// </summary>
@@ -146,7 +157,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_vnumero;
-        
+
         /// <summary>
         /// Controle lbl_vBairro.
         /// </summary>
@@ -155,7 +166,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_vBairro;
-        
+
         /// <summary>
         /// Controle rqd_Bairro.
         /// </summary>
@@ -164,7 +175,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqd_Bairro;
-        
+
         /// <summary>
         /// Controle txt_vBairro.
         /// </summary>
@@ -173,7 +184,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_vBairro;
-        
+
         /// <summary>
         /// Controle lbl_vcep.
         /// </summary>
@@ -182,7 +193,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_vcep;
-        
+
         /// <summary>
         /// Controle rqd_CEP.
         /// </summary>
@@ -191,7 +202,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqd_CEP;
-        
+
         /// <summary>
         /// Controle txt_vcep.
         /// </summary>
@@ -200,7 +211,16 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_vcep;
-        
+
+        /// <summary>
+        /// Controle RegularExpressionValidator2.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+
         /// <summary>
         /// Controle lbl_vCidade.
         /// </summary>
@@ -209,7 +229,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_vCidade;
-        
+
         /// <summary>
         /// Controle rqd_Cidade.
         /// </summary>
@@ -218,7 +238,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqd_Cidade;
-        
+
         /// <summary>
         /// Controle txt_vCidade.
         /// </summary>
@@ -227,7 +247,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_vCidade;
-        
+
         /// <summary>
         /// Controle lbl_vEstado.
         /// </summary>
@@ -236,7 +256,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_vEstado;
-        
+
         /// <summary>
         /// Controle drp_vEstado.
         /// </summary>
@@ -245,7 +265,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drp_vEstado;
-        
+
         /// <summary>
         /// Controle lbl_vDispo.
         /// </summary>
@@ -254,7 +274,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_vDispo;
-        
+
         /// <summary>
         /// Controle rqd_Dispo.
         /// </summary>
@@ -263,7 +283,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqd_Dispo;
-        
+
         /// <summary>
         /// Controle txt_vDispo.
         /// </summary>
@@ -272,7 +292,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_vDispo;
-        
+
         /// <summary>
         /// Controle lbl_vSerDisp.
         /// </summary>
@@ -281,7 +301,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_vSerDisp;
-        
+
         /// <summary>
         /// Controle rqd_ServDisp.
         /// </summary>
@@ -290,7 +310,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqd_ServDisp;
-        
+
         /// <summary>
         /// Controle txt_vSerDisp.
         /// </summary>
@@ -299,7 +319,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_vSerDisp;
-        
+
         /// <summary>
         /// Controle ckb_vativo.
         /// </summary>
@@ -308,7 +328,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox ckb_vativo;
-        
+
         /// <summary>
         /// Controle btn_Limpar.
         /// </summary>
@@ -317,7 +337,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_Limpar;
-        
+
         /// <summary>
         /// Controle btn_Cadastrar.
         /// </summary>
@@ -326,7 +346,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_Cadastrar;
-        
+
         /// <summary>
         /// Controle btn_Consultar.
         /// </summary>
