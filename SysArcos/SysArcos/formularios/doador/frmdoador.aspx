@@ -76,7 +76,7 @@
         <br />
         <asp:TextBox ID="txt_tipodoacao" runat="server" Width="294px"></asp:TextBox>
         <br />
-        <asp:CheckBox ID="cb_ativo" runat="server" Text="Ativo" />
+        <asp:CheckBox ID="cb_ativo" runat="server" Text="Ativo" Checked="True" />
         <br />
     </div>
     <div>

@@ -101,7 +101,7 @@
     </div>
 
     <div>
-        <asp:CheckBox ID="ckb_vativo" runat="server" Text="Ativo" />
+        <asp:CheckBox ID="ckb_vativo" runat="server" Text="Ativo" Checked="True" />
     </div>
 &nbsp;<asp:Button ID="btn_Limpar" class="btn btn-primary" Font-Bold="True" runat="server" OnClick="btn_Limpar_Click" Text="Novo" />
 &nbsp;<asp:Button ID="btn_Cadastrar" class="btn btn-primary" Font-Bold="True" runat="server" Text="Salvar" OnClick="btn_Cadastrar_Click" ValidationGroup="Cadastrar" />

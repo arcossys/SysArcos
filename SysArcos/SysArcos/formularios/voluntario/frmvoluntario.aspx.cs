@@ -142,7 +142,7 @@ namespace ProjetoArcos
             drp_vEstado.SelectedValue = null;
             txt_vDispo.Text = string.Empty;
             txt_vSerDisp.Text = string.Empty;
-            ckb_vativo.Checked = false;
+            ckb_vativo.Checked = true;
         }
     }
 }

@@ -26,6 +26,13 @@
             <asp:TextBox ID="txtSenha" runat="server" Placeholder="Senha"  type="password" class="rounded" Height="35px"></asp:TextBox>
         
             <asp:Button ID="btnEntrar" runat="server" Text="Entrar" style="font-weight:bold" class="btn btn-primary btn-sm" OnClick="btnEntrar_Click" />
+        
+
+              <br />
+              <br />
+              <asp:Label ID="Label1" runat="server" Text="Versão 0.8"></asp:Label>
+        
+
           </div>
         </div>
     </form>
