@@ -19,7 +19,7 @@
     <form id="form1" runat="server">
         <div class="logout">
             <div class="logoitem">
-                <img src="/imagens/ArcosSys.png" class="logo">
+                <a href="/PaginaInicial.aspx"><img src="/imagens/ArcosSys.png" class="logo"></a>
             </div>
             <div class="logoutitem">
                 <asp:Label ID="lbl_welcomeUser" runat="server" Text="Label" class="logout"></asp:Label>
@@ -35,14 +35,6 @@
                     <a href="#">Entidades</a>
                     <ul>
                         <li><a href="/formularios/entidades/frmentidade.aspx">Entidade</a></li>
-                    </ul>
-			    </li>
-			    <li>
-				    <a href="#">Voluntários</a>
-                    <ul>
-                        <li><a href="/formularios/voluntario/frmvoluntario.aspx">Voluntários</a></li>
-                        <li><a href="/formularios/Voluntariar/frmvoluntariar.aspx">Voluntariar</a></li>
-                        <li><a href="/formularios/voluntariado/frmvoluntariado.aspx">Voluntariado</a></li>
                     </ul>
 			    </li>
 			    <li><a href="#">Usuários</a>
@@ -93,6 +85,14 @@
 					    <li><a href="/formularios/assistencia/frmassistencia.aspx">Assistência</a></li>
 					    <li><a href="/formularios/assistido/frmassistido.aspx">Assistido</a></li>
 				    </ul>
+			    </li>
+                <li>
+				    <a href="#">Voluntários</a>
+                    <ul>
+                        <li><a href="/formularios/voluntario/frmvoluntario.aspx">Voluntários</a></li>
+                        <li><a href="/formularios/Voluntariar/frmvoluntariar.aspx">Voluntariar</a></li>
+                        <li><a href="/formularios/voluntariado/frmvoluntariado.aspx">Voluntariado</a></li>
+                    </ul>
 			    </li>
 		    </ul>
 	    </nav>

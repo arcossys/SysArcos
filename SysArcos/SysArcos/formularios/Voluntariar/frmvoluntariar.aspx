@@ -2,32 +2,46 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <p>Voluntariar</p>
-    <asp:Label ID="LblAcao" runat="server" Text="Novo"></asp:Label>
-    <br />
-    <br />
-    <asp:Label ID="Lbl_vdatainicial" runat="server" Text="Data Inicial"></asp:Label>
-    <asp:TextBox ID="Txt_vdatainicial" runat="server"></asp:TextBox>
-    <br />
-    <asp:Label ID="Lbl_vdatafinal" runat="server" Text="Data Final"></asp:Label>
-    <asp:TextBox ID="Txt_vdatafinal" runat="server"></asp:TextBox>
-    <br />
-    <asp:Label ID="Lbl_vdescricao" runat="server" Text="Descrição"></asp:Label>
-    <asp:TextBox ID="Txt_vdescricao" runat="server"></asp:TextBox>
-    <br />
-    <asp:Label ID="Lbl_voluntario" runat="server" Text="Voluntario"></asp:Label>
+    <div class="entidade">
+        Voluntariar
+    </div>
+    <div class="acao"><asp:Label ID="lblAcao" runat="server" Text="Novo"></asp:Label></div>
+    <div>
+        <asp:Label ID="Lbl_vdatainicial" runat="server" Text="Data Inicial"></asp:Label>
+    <asp:TextBox ID="Txt_vdatainicial" class="form-control" runat="server" MaxLength="14" Placeholder="DD/MM/AAAA" Width="300px" TextMode="Date"></asp:TextBox>
+    </div>
+   <div>
+       <asp:Label ID="Label2" runat="server" Text="Data Final"></asp:Label>
+    <asp:TextBox ID="Txt_vdatafinal" class="form-control" runat="server" MaxLength="14" Placeholder="DD/MM/AAAA" Width="300px" TextMode="Date"></asp:TextBox>
+   </div>
+    <div>
+        <asp:Label ID="Lbl_vdescricao" runat="server" Text="Descrição"></asp:Label>
+    <asp:TextBox ID="Txt_vdescricao" class="form-control" runat="server" MaxLength="14" Width="300px"></asp:TextBox>
+    </div>  
+    <div>
+        <asp:Label ID="Lbl_voluntario" runat="server" Text="Voluntario"></asp:Label>
+         <br />
     <asp:DropDownList ID="Ddl_voluntario" runat="server">
     </asp:DropDownList>
-    <br />
-    <asp:Label ID="Lbl_ventidade" runat="server" Text="Entidade"></asp:Label>
-    <asp:DropDownList ID="Ddl_ventidade" runat="server">
+    </div>
+    <div><asp:Label ID="Lbl_ventidade" runat="server" Text="Voluntariado"></asp:Label>
+        <br />
+    <asp:DropDownList ID="Ddl_vvoluntariado" runat="server">
     </asp:DropDownList>
+    </div>
+    
+    <div> <asp:Label ID="Lbl_vobservacao" runat="server" Text="Observação"></asp:Label>
+    <asp:TextBox ID="Txt_vobservacao" class="form-control" runat="server" MaxLength="50" Width="300px"></asp:TextBox>
+
+    </div>
+   
     <br />
-    <asp:Label ID="Lbl_vobservacao" runat="server" Text="Observação"></asp:Label>
-    <asp:TextBox ID="Txt_vobservacao" runat="server"></asp:TextBox>
-    <br />
-    <asp:Button ID="Btn_Novo" runat="server" Text="Novo" />
-    <asp:Button ID="Btn_Salvar" runat="server" Text="Salvar" OnClick="Btn_Salvar_Click" />
-    <asp:Button ID="Btn_Buscar" runat="server" Text="Buscar" />
+    <div>   
+        &nbsp;<asp:Button ID="Btn_Novo" runat="server" class="btn btn-primary" Text="Novo" OnClick="btnNovo_Click" />
+        &nbsp;<asp:Button ID="Btn_Salvar" class="btn btn-primary"  runat="server" Text="Salvar" OnClick="Btn_Salvar_Click1" />
+    &nbsp;<asp:Button ID="Btn_Buscar" class="btn btn-primary" runat="server" Text="Buscar" OnClick="btn_buscar_Click"/>
+
+    </div>
+ 
 </asp:Content>
 

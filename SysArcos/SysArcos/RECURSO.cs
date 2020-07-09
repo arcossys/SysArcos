@@ -22,7 +22,7 @@ namespace SysArcos
         public bool ATIVO { get; set; }
         public System.DateTime DATA_HORA_CRIACAO_REGISTRO { get; set; }
     
-        public virtual TIPO_RECURSO TIPO_RECURSO { get; set; }
         public virtual ENTIDADE ENTIDADE { get; set; }
+        public virtual TIPO_RECURSO TIPO_RECURSO { get; set; }
     }
 }

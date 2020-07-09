@@ -20,7 +20,9 @@
     <div>
         <asp:Label ID="lbl_vcpf" runat="server" Text="CPF"></asp:Label>
         <asp:RequiredFieldValidator ID="rqd_CPF" runat="server" ErrorMessage="Campo &quot;CPF&quot; é obrigatório." ForeColor="Red" ControlToValidate="txt_vcpf" ValidationGroup="Cadastrar">*</asp:RequiredFieldValidator>
-        <asp:TextBox ID="txt_vcpf" runat="server" Height="30px" Width="300px" CssClass="form-control" Placeholder="XXX.XXX.XXX-XX"></asp:TextBox>
+        <asp:TextBox onkeydown="mascara( this,CPF  );" ID="txt_vcpf" runat="server" Height="30px" Width="300px" CssClass="form-control" Placeholder="XXX.XXX.XXX-XX" MaxLength="14"></asp:TextBox>
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Formato invalido" ControlToValidate="txt_vcpf" ValidationExpression="^[0-9]{3}\.[0-9]{3}\.[0-9]{3}\-[0-9]{2}$"></asp:RegularExpressionValidator>
+
     </div>
 
     <div>
@@ -43,7 +45,8 @@
     <div>
         <asp:Label ID="lbl_vcep" runat="server" Text="CEP"></asp:Label>
         <asp:RequiredFieldValidator ID="rqd_CEP" runat="server" ErrorMessage="Campo &quot;CEP&quot; é obrigatório." ForeColor="Red" ControlToValidate="txt_vcep" ValidationGroup="Cadastrar">*</asp:RequiredFieldValidator>
-        <asp:TextBox ID="txt_vcep" runat="server" Height="30px" Width="300px" CssClass="form-control" Placeholder="XXXXX-XXX"></asp:TextBox>
+        <asp:TextBox onkeydown="mascara( this,CEP);" ID="txt_vcep" runat="server" Height="30px" Width="300px" CssClass="form-control" Placeholder="XXXXX-XXX" MaxLength="9"></asp:TextBox>
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Formato incorreto" ControlToValidate="txt_vcep" ValidationExpression="^[0-9]{5}\-[0-9]{3}$"></asp:RegularExpressionValidator>
     </div>
 
     <div>
@@ -104,4 +107,26 @@
 &nbsp;<asp:Button ID="btn_Cadastrar" class="btn btn-primary" Font-Bold="True" runat="server" Text="Salvar" OnClick="btn_Cadastrar_Click" ValidationGroup="Cadastrar" />
 &nbsp;<asp:Button ID="btn_Consultar" class="btn btn-primary" Font-Bold="True" runat="server" Text="Buscar" OnClick="btn_Consultar_Click" />
 &nbsp;<br />
+    <script>
+        function mascara(o, f) {
+            v_obj = o
+            v_fun = f
+            setTimeout("execmascara()", 1)
+        }
+        function execmascara() {
+            v_obj.value = v_fun(v_obj.value)
+        }
+        function CPF(cpf) {
+            cpf = cpf.replace(/\D/g, "")
+            cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2")
+            cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2")
+            cpf = cpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2")
+            return cpf
+        }
+        function CEP(cep) {
+            cep = cep.replace(/\D/g, "")
+            cep = cep.replace(/(\d{5})(\d)/, "$1-$2")
+            return cep
+        }
+    </script>
 </asp:Content>

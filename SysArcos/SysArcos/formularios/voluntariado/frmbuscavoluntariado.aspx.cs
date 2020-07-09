@@ -25,7 +25,8 @@ namespace ProjetoArcos
                 }
                 else if (rd_datainicial.Checked)
                 {
-                    lista = entities.VOLUNTARIADO.Where(x => x.DATA_INICIAL.Equals(txt_Busca.Text)).ToList();
+                    DateTime data = Convert.ToDateTime(txt_Busca.Text);
+                    lista = entities.VOLUNTARIADO.Where(x => x.DATA_INICIAL.Equals(data)).ToList();
                 }
                 else if (rd_descricao.Checked)
                 {

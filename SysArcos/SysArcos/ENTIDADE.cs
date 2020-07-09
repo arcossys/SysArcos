@@ -51,6 +51,7 @@ namespace SysArcos
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ENTIDADE> ENTIDADE1 { get; set; }
         public virtual ENTIDADE ENTIDADE2 { get; set; }
+        public virtual USUARIO USUARIO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ESTOQUE> ESTOQUE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -63,6 +64,5 @@ namespace SysArcos
         public virtual ICollection<VOLUNTARIADO> VOLUNTARIADO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VOLUNTARIO> VOLUNTARIO { get; set; }
-        public virtual USUARIO USUARIO { get; set; }
     }
 }
