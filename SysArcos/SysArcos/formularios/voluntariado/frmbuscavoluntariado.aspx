@@ -19,8 +19,8 @@
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField HeaderText="Entidade" DataField="ENTIDADE.NOME" />
-            <asp:BoundField HeaderText="Data Inicial" DataField="DATA_INICIAL" />
-            <asp:BoundField HeaderText="Data Final" DataField="DATA_FINAL" />
+            <asp:BoundField HeaderText="Data Inicial" DataField="DATA_INICIAL" DataFormatString="{0:dd/MM/yyyy}" />
+            <asp:BoundField HeaderText="Data Final" DataField="DATA_FINAL" DataFormatString="{0:dd/MM/yyyy}" />
             <asp:BoundField HeaderText="Descrição" DataField="DESCRICAO" />
             <asp:BoundField DataField="OBSERVACAO" HeaderText="Observação" />
             <asp:CommandField ShowSelectButton="True" />

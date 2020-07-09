@@ -5,7 +5,12 @@
     <div class="entidade">
         Voluntariar
     </div>
-    <div class="acao"><asp:Label ID="lblAcao" runat="server" Text="Novo"></asp:Label></div>
+    <div class="acao"><asp:Label ID="lblAcao" runat="server" Text="NOVO"></asp:Label></div>
+    <div>
+
+        <asp:Label ID="lblID" runat="server"></asp:Label>
+
+    </div>
     <div>
         <asp:Label ID="Lbl_vdatainicial" runat="server" Text="Data Inicial"></asp:Label>
     <asp:TextBox ID="Txt_vdatainicial" class="form-control" runat="server" MaxLength="14" Placeholder="DD/MM/AAAA" Width="300px" TextMode="Date"></asp:TextBox>
@@ -15,18 +20,14 @@
     <asp:TextBox ID="Txt_vdatafinal" class="form-control" runat="server" MaxLength="14" Placeholder="DD/MM/AAAA" Width="300px" TextMode="Date"></asp:TextBox>
    </div>
     <div>
-        <asp:Label ID="Lbl_vdescricao" runat="server" Text="Descrição"></asp:Label>
-    <asp:TextBox ID="Txt_vdescricao" class="form-control" runat="server" MaxLength="14" Width="300px"></asp:TextBox>
-    </div>  
-    <div>
         <asp:Label ID="Lbl_voluntario" runat="server" Text="Voluntario"></asp:Label>
          <br />
-    <asp:DropDownList ID="Ddl_voluntario" runat="server">
+    <asp:DropDownList ID="Ddl_voluntario" runat="server" class="form-control" Width="300px">
     </asp:DropDownList>
     </div>
     <div><asp:Label ID="Lbl_ventidade" runat="server" Text="Voluntariado"></asp:Label>
         <br />
-    <asp:DropDownList ID="Ddl_vvoluntariado" runat="server">
+    <asp:DropDownList ID="Ddl_vvoluntariado" runat="server" class="form-control" Width="300px">
     </asp:DropDownList>
     </div>
     

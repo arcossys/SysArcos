@@ -12,20 +12,24 @@
 &nbsp;<asp:TextBox ID="txtBusca" runat="server"></asp:TextBox>
 &nbsp;<asp:Button ID="btnBuscar" runat="server" class="btn btn-success" Text="Buscar" OnClick="btnBuscar_Click" />
 
+            <br />
+            <asp:RadioButton ID="rbVoluntario" runat="server" Checked="True" Text="Voluntário" ValidationGroup="filtro" />
+&nbsp;<asp:RadioButton ID="rbVoluntariado" runat="server" Text="Voluntariado" ValidationGroup="filtro" />
+
     <br />
     <br />
 
 </div>
 <div>
 
-    <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataKeyNames="LOGIN" ShowHeaderWhenEmpty="True">
+    <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataKeyNames="ID" ShowHeaderWhenEmpty="True">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:BoundField HeaderText="DATA INICIAL" DataField="DATA_INICIAL" />
-            <asp:BoundField HeaderText="DATA FINAL" DataField="DATA_FINAL" />
-            <asp:BoundField HeaderText="DESCRICAO" DataField="DESCRICAO" />
+            <asp:BoundField HeaderText="VOLUNTÁRIO" DataField="VOLUNTARIO.NOME" />
+            <asp:BoundField DataField="VOLUNTARIADO.DESCRICAO" HeaderText="VOLUNTARIADO" />
+            <asp:BoundField HeaderText="DATA INICIAL" DataField="DATA_INICIAL" DataFormatString="{0:dd/MM/yyyy}" />
+            <asp:BoundField HeaderText="DATA FINAL" DataField="DATA_FINAL" DataFormatString="{0:dd/MM/yyyy}" />
             <asp:BoundField HeaderText="OBSERVACOES" DataField="OBSERVACAO" />
-            <asp:BoundField HeaderText="DATA HORA CRIACAO REGISTRO" DataField="DATA_HORA_CRIACAO_REGISTRO" />
             <asp:CommandField ShowSelectButton="True" />
         </Columns>
         <EditRowStyle BackColor="#2461BF" />
@@ -46,7 +50,8 @@
     <br />
     <asp:Button ID="btnCancelar" class="btn btn-primary" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
 
-&nbsp;&nbsp;<asp:Button ID="btnRemover" class="btn btn-primary" runat="server" Text="Remover" OnClick="btnRemover_Click" 
+&nbsp;&nbsp;<asp:Button ID="btnEditar" runat="server" Text="Editar" class="btn btn-primary" OnClick="btnEditar_Click" />
+&nbsp;<asp:Button ID="btnRemover" class="btn btn-primary" runat="server" Text="Remover" OnClick="btnRemover_Click" 
     OnClientClick="return confirm('Deseja remover?');"/>
 
 </div>

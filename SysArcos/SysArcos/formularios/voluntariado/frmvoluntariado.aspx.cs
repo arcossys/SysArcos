@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,56 +10,52 @@ namespace ProjetoArcos
 {
     public partial class frmvoluntariado1 : System.Web.UI.Page
     {
+       
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                using (ARCOS_Entities entities = new ARCOS_Entities())
+                {
+                    carregarEntidades(entities);
+                    int id_vol = Convert.ToInt32(Request.QueryString["id"]);
+                    if ((id_vol != 0) && (!id_vol.Equals("")))
+                    {
+                        VOLUNTARIADO v = entities.VOLUNTARIADO.FirstOrDefault(x => x.ID.Equals(id_vol));
+                        if (entities != null)
+                        {
+                            lbl_acao.Text = "ALTERANDO";
+                            txtDataini.Text = v.DATA_INICIAL.ToString("yyyy-MM-dd");
+                            txtDatafinal.Text = (v.DATA_FINAL.HasValue ? v.DATA_FINAL.Value.ToString("yyyy-MM-dd") : "");
+                            txtDesc.Text = v.DESCRICAO;
+                            txtObser.Text = v.OBSERVACAO;
+                            ddlEntidade.SelectedValue = v.ID_ENTIDADE.ToString();
+                        }
+                    }
+                }
+                
+            }
+        }
+
+        private void carregarEntidades(ARCOS_Entities entities)
+        {
+            List<ENTIDADE> lista = entities.ENTIDADE.Where(x => x.ATIVA == true).OrderBy(x => x.NOME).ToList();
+            ddlEntidade.DataTextField = "NOME";
+            ddlEntidade.DataValueField = "ID";
+            ddlEntidade.DataSource = lista;
+            ddlEntidade.DataBind();
+            ddlEntidade.Items.Insert(0, "");
+        }
+
         private void limpar()
         {
-            Dplist.SelectedIndex = 0;
+            ddlEntidade.SelectedIndex = 0;
             txtDataini.Text = string.Empty;
             txtDatafinal.Text = string.Empty;
             txtDesc.Text = string.Empty;
             txtObser.Text = string.Empty;
             lbl_acao.Text = "NOVO";
         }
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (!IsPostBack)
-            {
-                int id_vol = Convert.ToInt32(Request.QueryString["id"]);
-                if ((id_vol != 0) && (!id_vol.Equals("")))
-                {
-                    using (ARCOS_Entities entities = new ARCOS_Entities())
-                    {
-                        VOLUNTARIADO v = entities.VOLUNTARIADO.FirstOrDefault(x => x.ID.Equals(id_vol));
-                        if (entities != null)
-                        {
-                            List<ENTIDADE> lista = entities.ENTIDADE.Where(x => x.ATIVA == true).OrderBy(x => x.NOME).ToList();
-                            Dplist.DataTextField = "NOME";
-                            Dplist.DataValueField = "ID";
-                            Dplist.DataSource = lista;
-                            Dplist.DataBind();
-                            Dplist.Items.Insert(0, "");
-                            lbl_acao.Text = "ALTERANDO";
-                            txtDataini.Text = v.DATA_INICIAL.ToString();
-                            txtDatafinal.Text = v.DATA_FINAL.ToString();
-                            txtDesc.Text = v.DESCRICAO;
-                            txtObser.Text = v.OBSERVACAO;
-                        }
-                        else
-                        {
-                            if (entities != null)
-                            {
-                                List<ENTIDADE> lista = entities.ENTIDADE.Where(x => x.ATIVA == true).OrderBy(x => x.NOME).ToList();
-                                Dplist.DataTextField = "NOME";
-                                Dplist.DataValueField = "ID";
-                                Dplist.DataSource = lista;
-                                Dplist.DataBind();
-                                Dplist.Items.Insert(0, "");
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
 
         protected void btnBusca_Click(object sender, EventArgs e)
         {
@@ -84,7 +81,7 @@ namespace ProjetoArcos
                         if (lbl_acao.Text.Equals("NOVO"))
                         {
                             data = new VOLUNTARIADO();
-                            data.ID_ENTIDADE = Convert.ToInt32(Dplist.SelectedValue);
+                            data.ID_ENTIDADE = Convert.ToInt32(ddlEntidade.SelectedValue);
                             data.DATA_INICIAL = Convert.ToDateTime(txtDataini.Text);
                             data.DATA_FINAL = Convert.ToDateTime(txtDatafinal.Text);
                             data.DESCRICAO = txtDesc.Text;
@@ -102,7 +99,7 @@ namespace ProjetoArcos
                             int id_vol = Convert.ToInt32(Request.QueryString["id"]);
                             data = entity.VOLUNTARIADO.FirstOrDefault(x => x.ID.Equals(id_vol));
 
-                            data.ID_ENTIDADE = Convert.ToInt32(Dplist.SelectedValue);
+                            data.ID_ENTIDADE = Convert.ToInt32(ddlEntidade.SelectedValue);
                             data.DATA_INICIAL = DateTime.Now;
                             data.DATA_FINAL = DateTime.Now;
                             data.DESCRICAO = txtDesc.Text;
@@ -122,5 +119,11 @@ namespace ProjetoArcos
                 }
             }
         }
+
+        protected void btnNovo_Click(object sender, EventArgs e)
+        {
+            limpar();
+        }
+
     }
 }

@@ -16,6 +16,24 @@ namespace SysArcos
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
+            using (ARCOS_Entities entities = new ARCOS_Entities())
+            {
+                List<VOLUNTARIAR> lista = null;
+                if (txtBusca.Text == string.Empty)
+                {
+                    lista = entities.VOLUNTARIAR.ToList();
+                }
+                else if (rbVoluntariado.Checked)
+                {
+                    lista = entities.VOLUNTARIAR.Where(x => x.VOLUNTARIADO.DESCRICAO.StartsWith(txtBusca.Text)).ToList();
+                }
+                else if (rbVoluntario.Checked)
+                {
+                    lista = entities.VOLUNTARIAR.Where(x => x.VOLUNTARIO.NOME.StartsWith(txtBusca.Text)).ToList();
+                }
+                grid.DataSource = lista.OrderBy(x => x.DATA_INICIAL);
+                grid.DataBind();
+            }
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -45,6 +63,13 @@ namespace SysArcos
             var lista = conexao.VOLUNTARIAR.ToList();
             grid.DataSource = lista;
             grid.DataBind();
+        }
+
+        protected void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (grid.SelectedValue != null)
+                //Redireciona para a página de cadastro com o login como parâmtro
+                Response.Redirect("frmvoluntariar.aspx?id=" + grid.SelectedValue.ToString());
         }
     }
 }
