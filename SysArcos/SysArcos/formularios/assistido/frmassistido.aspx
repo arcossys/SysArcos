@@ -23,7 +23,7 @@
 
             <div  >
                <asp:Label ID="Label3" runat="server" Text="CPF:"></asp:Label>
-               <asp:TextBox ID="txtCPF"  class="form-control" runat="server" Width="300px" MaxLength="50" Height="30px"  Placeholder="XXX.XXX.XXX-XX"></asp:TextBox>
+               <asp:TextBox ID="txtCPF"  class="form-control" runat="server" Width="300px" MaxLength="50" Height="30px"  Placeholder="999.999.999-99"  onkeydown="mascara( this,CPF  );"></asp:TextBox>
             </div>
 
             <div   >
@@ -42,7 +42,7 @@
                <asp:Label ID="Label13" runat="server" Text="Bairro:" ToolTip="  "></asp:Label>
                <asp:TextBox ID="txtBairro" class="form-control" runat="server" Width="300px" MaxLength="30" Height="30px"></asp:TextBox>
                <asp:Label ID="Label6" runat="server" Text="CEP:"></asp:Label>
-               <asp:TextBox ID="txtCEP" class="form-control" runat="server" MaxLength="9" Height="30px" Width="300px"  Placeholder="XXXXX-XXX"></asp:TextBox>
+               <asp:TextBox ID="txtCEP" class="form-control" runat="server" MaxLength="9" Height="30px" Width="300px"  Placeholder="99999-999"  onkeydown="mascara( this,CEP  );"></asp:TextBox>
             </div>
 
              <div   >

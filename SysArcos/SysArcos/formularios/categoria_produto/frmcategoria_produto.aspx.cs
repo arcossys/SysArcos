@@ -18,13 +18,13 @@ namespace ProjetoArcos
                 {
                     using (ARCOS_Entities entities = new ARCOS_Entities())
                     {
-                        CATEGORIA_PRODUTO c = entities.CATEGORIA_PRODUTO.FirstOrDefault(x => x.ID.Equals(ID));
+                        CATEGORIA_PRODUTO c = entities.CATEGORIA_PRODUTO.FirstOrDefault(x => x.ID.ToString().Equals(ID));
                         if (c != null)
                         {
                             CATEGORIA_PRODUTO cat = entities.CATEGORIA_PRODUTO.FirstOrDefault(x => x.ID.ToString().Equals(ID));
                             txtcategoria.Text = cat.DESCRICAO;
                             lblID.Text = cat.ID.ToString();
-                            lblAcao.Text = "Alterando";
+                            lblAcao.Text = "ALTERANDO";
                         }
                         else
                         {
@@ -59,17 +59,24 @@ namespace ProjetoArcos
                     }
                     else
                     {
-                        categoria = new CATEGORIA_PRODUTO();
-
-                        categoria.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
-                        categoria.DESCRICAO = txtcategoria.Text;
-
-                        entity.CATEGORIA_PRODUTO.Add(categoria);
-
-                        Response.Write("<script>alert('Cadastrado Com Sucesso!');</script>");
+                        if (lblAcao.Text.ToString().Equals("NOVO"))
+                        {
+                            categoria = new CATEGORIA_PRODUTO();
+                            categoria.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
+                            categoria.DESCRICAO = txtcategoria.Text;
+                            entity.CATEGORIA_PRODUTO.Add(categoria);
+                        }
+                        else
+                        {
+                            categoria = entity.CATEGORIA_PRODUTO.FirstOrDefault(x => x.ID.ToString().Equals(lblID.Text));
+                            categoria.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
+                            categoria.DESCRICAO = txtcategoria.Text;
+                            entity.Entry(categoria);
+                        }
                     }
                     txtcategoria.Text = string.Empty;
                     entity.SaveChanges();
+                    Response.Write("<script>alert('Cadastrado Com Sucesso!');</script>");
                 }
             }
             catch

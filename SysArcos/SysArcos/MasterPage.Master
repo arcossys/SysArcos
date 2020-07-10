@@ -11,6 +11,7 @@
     <link href="css/menu.css" rel="stylesheet" />
     <script src="Scripts/jquery-3.0.0.min.js"></script>
     <script src="JSPaginaMestre.js"></script>
+	<script src="/Scripts/validacoes.js"></script>
     <title>Sistema Arcos</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -96,89 +97,6 @@
 			    </li>
 		    </ul>
 	    </nav>
-
-        <!--<div>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light" >
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Alterna navegação">
-                   <span class="navbar-toggler-icon"></span>
-                </button>
-                <div>
-                    <img  src="\imagens\ArcosSys.png" class="img-responsive">
-                </div>
-
-
-
-                <div class="menu-drop">
-                    <button type="button" name="drop">VOLUNTARIOS</button>
-                        <div class="drop-content">
-                            <a href="/formularios/voluntario/frmvoluntario.aspx">Voluntários</a>
-                            <a href="/formularios/voluntariar/frmvoluntariar.aspx">Voluntáriar</a>
-                            <a href="/formularios/voluntariado/frmvoluntariado.aspx">Voluntariado</a>
-                        </div>
-                </div>
-
-                <div class="menu-drop">
-                    <button type="button" name="drop">USUÁRIOS</button>
-                    <div class="drop-content">
-                        <a href="/formularios/usuario/frmusuario.aspx">Usuários</a>
-                        <a href="/formularios/grupopermissao/frmgrupopermissao.aspx">Grupo Permissão</a>
-                    </div>
-                </div>
-
-                <div class="menu-drop">
-                    <button type="button" name="drop">EVENTO</button>
-                    <div class="drop-content">
-                        <a href="/formularios/evento/frmevento.aspx">Evento</a>
-                        <a href="/formularios/tipoevento/frmtipoevento.aspx">Tipo de Evento</a>
-                    </div>
-                </div>
-
-                <div class="menu-drop">
-                    <button type="button" name="drop">RECURSO</button>
-                    <div class="drop-content">
-                        <a href="#">Recurso</a>
-                        <a href="/formularios/tiporecurso/frmtiporecurso.aspx">Tipo de Recurso</a>
-                    </div>
-                </div>
-
-                <div class="menu-drop">
-                    <button type="button" name="drop">FORNECEDORES</button>
-                    <div class="drop-content">
-                        <a href="/formularios/fornecedor/frmfornecedor.aspx">Fornecedor</a>
-                        <a href="#">Fornecimento</a>
-                    </div>
-                </div>
-
-                <div class="menu-drop">
-                    <button type="button" name="drop">ESTOQUE</button>
-                    <div class="drop-content">
-                        <a href="/formularios/estoque/frmestoque.aspx">Estoque</a>
-                        <a href="/formularios/produto/frmproduto.aspx">Produto</a>
-                        <a href="/formularios/categoria_produto/frmcategoria_produto.aspx">Tipo de Produto</a>
-                    </div>
-                </div>
-
-                <div class="menu-drop">
-                    <button type="button" name="drop">DOAÇÕES</button>
-                    <div class="drop-content">
-                        <a href="/formularios/doacao/frmdoacao.aspx">Doação</a>
-                        <a href="/formularios/doador/frmdoador.aspx">Doador</a>
-                    </div>
-                </div>
-
-                <div class="menu-drop">
-                    <button type="button" name="drop">ASSISTENCIA</button>
-                    <div class="drop-content">
-                        <a href="/formularios/assistencia/frmassistencia.aspx">Assistencia</a>
-                        <a href="/formularios/assistido/frmassistido.aspx">Assistido</a>
-                    </div>
-                </div>
-
-
-            </nav>
-            
-
-        </div>-->
 
             <!--Menu-->
         

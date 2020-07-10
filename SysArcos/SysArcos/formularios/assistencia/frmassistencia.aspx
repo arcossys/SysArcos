@@ -19,13 +19,13 @@
     </div>
     <div>                   
         <asp:Label ID="lbl_cpf" runat="server" Text="Descrição"></asp:Label>
-        <asp:TextBox ID="txt_descricao" class="form-control" runat="server" MaxLength="14" Width="300px"></asp:TextBox>
+        <asp:TextBox ID="txt_descricao" runat="server" MaxLength="14" Width="300px" class="form-control"></asp:TextBox>
     </div>
     <div>
 
         <asp:Label ID="txtEntidade" runat="server" Text="Entidade"></asp:Label>
         <br />
-        <asp:DropDownList ID="ddlEntidade" runat="server">
+        <asp:DropDownList ID="ddlEntidade" runat="server"  Width="300px" class="form-control">
         </asp:DropDownList>
 
     </div>
@@ -33,7 +33,7 @@
 
         <asp:Label ID="txtAssistido" runat="server" Text="Assistido"></asp:Label>
         <br />
-        <asp:DropDownList ID="ddlAssistido" runat="server">
+        <asp:DropDownList ID="ddlAssistido" runat="server"  Width="300px" class="form-control">
         </asp:DropDownList>
 
     </div>

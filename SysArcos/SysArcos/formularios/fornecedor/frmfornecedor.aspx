@@ -11,43 +11,43 @@
 <div>
 
     <asp:Label ID="Label1" runat="server" Text="CNPJ"></asp:Label>
-    <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" Width="300px"  Placeholder="XXX.XXX.XXX-XX"></asp:TextBox>
+    <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" Width="300px"  Placeholder="999.999.999-99" MaxLength="18"  onkeydown="mascara( this,CNPJ  );" ></asp:TextBox>
 
 </div>
 <div>
 
     <asp:Label ID="Label2" runat="server" Text="Nome"></asp:Label>
-    <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" Width="300px"></asp:TextBox>
+    <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" Width="300px" MaxLength="50"></asp:TextBox>
 
 </div>
 <div>
 
     <asp:Label ID="Label3" runat="server" Text="Logradouro"></asp:Label>
-    <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control" Width="300px"></asp:TextBox>
+    <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control" Width="300px" MaxLength="50"></asp:TextBox>
 
 </div>
 <div>
 
     <asp:Label ID="Label4" runat="server" Text="Número"></asp:Label>
-    <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control" Width="300px"></asp:TextBox>
+    <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control" Width="300px" MaxLength="10"></asp:TextBox>
 
 </div>
 <div>
 
     <asp:Label ID="Label5" runat="server" Text="Bairro"></asp:Label>
-    <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control" Width="300px"></asp:TextBox>
+    <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control" Width="300px" MaxLength="30"></asp:TextBox>
 
 </div>
 <div>
 
     <asp:Label ID="Label6" runat="server" Text="CEP"></asp:Label>
-    <asp:TextBox ID="TextBox6" runat="server" CssClass="form-control" Width="300px"  Placeholder="XXXXX-XXX"></asp:TextBox>
+    <asp:TextBox ID="TextBox6" runat="server" CssClass="form-control" Width="300px"  Placeholder="99999-999" MaxLength="9"  onkeydown="mascara( this,CEP  );" ></asp:TextBox>
 
 </div>
 <div>
 
     <asp:Label ID="Label7" runat="server" Text="Cidade"></asp:Label>
-    <asp:TextBox ID="TextBox7" runat="server" CssClass="form-control" Width="300px"></asp:TextBox>
+    <asp:TextBox ID="TextBox7" runat="server" CssClass="form-control" Width="300px" MaxLength="40"></asp:TextBox>
 
 </div>
 <div>
@@ -84,7 +84,7 @@
 </div>
 <div>
     <asp:Label ID="Label9" runat="server" Text="Observação"></asp:Label>
-    <asp:TextBox ID="TextBox8" runat="server" CssClass="form-control" Width="300px"></asp:TextBox>
+    <asp:TextBox ID="TextBox8" runat="server" CssClass="form-control" Width="300px" MaxLength="255"></asp:TextBox>
 </div>
 <br />
 <div>

@@ -30,8 +30,8 @@ namespace SysArcos
         public Nullable<int> ID_GRUPOPERMISSAO { get; set; }
         public bool ALTERA_SENHA_PROX_LOGIN { get; set; }
     
+        public virtual GRUPO_PERMISSAO GRUPO_PERMISSAO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ENTIDADE> ENTIDADE { get; set; }
-        public virtual GRUPO_PERMISSAO GRUPO_PERMISSAO { get; set; }
     }
 }

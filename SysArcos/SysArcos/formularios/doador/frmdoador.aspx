@@ -30,7 +30,7 @@
     </div>
     <div  >
         <asp:Label ID="Label6" runat="server" Text="CEP:"></asp:Label>
-        <asp:TextBox ID="txt_CEP" class="form-control" runat="server" MaxLength="9" Height="30px" Width="300px"  Placeholder="XXXXX-XXX"></asp:TextBox>
+        <asp:TextBox ID="txt_CEP" class="form-control" runat="server" MaxLength="9" Height="30px" Width="300px"  Placeholder="99999-999"  onkeydown="mascara( this,CEP  );"></asp:TextBox>
     </div>
     <div   >
         <asp:Label ID="Label7" runat="server" Text="Cidade:"></asp:Label>
@@ -74,7 +74,7 @@
         <asp:TextBox ID="txt_disponibilidade"  class="form-control" runat="server" MaxLength="50" Width="300px" Height="30px"></asp:TextBox>
         <asp:Label ID="Label12" runat="server" Text="Tipo de doação"></asp:Label>
         <br />
-        <asp:TextBox ID="txt_tipodoacao" runat="server" Width="294px"></asp:TextBox>
+        <asp:TextBox ID="txt_tipodoacao" runat="server" Width="294px" class="form-control"></asp:TextBox>
         <br />
         <asp:CheckBox ID="cb_ativo" runat="server" Text="Ativo" Checked="True" />
         <br />

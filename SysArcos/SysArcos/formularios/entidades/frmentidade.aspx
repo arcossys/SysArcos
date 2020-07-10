@@ -31,13 +31,14 @@
             <div>
                 <asp:Label ID="Label10" runat="server" Text="CNPJ: "></asp:Label>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="txtCNPJ" ErrorMessage="RequiredFieldValidator" ForeColor="#FF3300" ValidationGroup="form">*</asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtCNPJ" ErrorMessage="Formato Incorreto" ForeColor="#FF3300" ValidationExpression="[0-9]{14}" ValidationGroup="form">Formato Incorreto</asp:RegularExpressionValidator>
-                <asp:TextBox ID="txtCNPJ" class="form-control" runat="server" Width="195px" MaxLength="14" Height="30px" Placeholder="APENAS NÚMEROS" ValidationGroup="form"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtCNPJ" ErrorMessage="Formato Incorreto" ForeColor="#FF3300" ValidationExpression="[0-9]{2}\.[0-9]{3}\.[0-9]{3}\/[0-9]{4}\-[0-9]{2}" ValidationGroup="form">Formato Incorreto</asp:RegularExpressionValidator>
+                <asp:TextBox ID="txtCNPJ" onkeydown="mascara( this,CNPJ  );" class="form-control" runat="server" Width="195px" MaxLength="18" Height="30px" Placeholder="99.999.999/9999-99" ValidationGroup="form"></asp:TextBox>
             </div>
 
             <div>
                 <asp:Label ID="Label1" runat="server" Text="Telefone:"></asp:Label><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ForeColor="#FF3300" ControlToValidate="txtTelefone" ValidationGroup="form">*</asp:RequiredFieldValidator>
-                <asp:TextBox placeholder="99 99999-9999" class="form-control" ID="txtTelefone" runat="server" Height="30px" Width="200px" MaxLength="13"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtTelefone" ErrorMessage="Formato Incorreto" ForeColor="#FF3300" ValidationExpression="^[1-9]{2} (?:[2-8]|9[1-9])[0-9]{3}[0-9]{4}$" ValidationGroup="form">Formato Incorreto</asp:RegularExpressionValidator>
+                <asp:TextBox placeholder="99 99999999" class="form-control" ID="txtTelefone" runat="server" Height="30px" Width="200px" MaxLength="12"  onkeydown="mascara( this,FONE  );"></asp:TextBox>
             </div>
                 
             <div>
@@ -61,8 +62,8 @@
             <div>
                 <asp:Label ID="Label6" runat="server" Text="CEP:"></asp:Label>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txtCEP" ErrorMessage="RequiredFieldValidator" ForeColor="#FF3300" ValidationGroup="form">*</asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtCEP" ErrorMessage="Formato Incorreto" ForeColor="#FF3300" ValidationExpression="[0-9]{8}" ValidationGroup="form"></asp:RegularExpressionValidator>
-                <asp:TextBox ID="txtCEP" class="form-control" runat="server" MaxLength="9" Height="30px" Width="300px" Placeholder="APENAS NÚMEROS" ValidationGroup="form"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtCEP" ErrorMessage="Formato Incorreto" ForeColor="#FF3300" ValidationExpression="[0-9]{5}\-[0-9]{3}" ValidationGroup="form"></asp:RegularExpressionValidator>
+                <asp:TextBox ID="txtCEP" class="form-control" runat="server" MaxLength="9" Height="30px" Width="300px" Placeholder="99999-999" ValidationGroup="form"  onkeydown="mascara( this,CEP  );" ></asp:TextBox>
             </div>
 
             <div>

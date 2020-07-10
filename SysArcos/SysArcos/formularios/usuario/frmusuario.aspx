@@ -25,8 +25,8 @@
              </div>
                <div  class="form-group" >                   
                    <asp:Label ID="lbl_cpf" runat="server" Text="CPF:"></asp:Label>
-                   &nbsp;<asp:RegularExpressionValidator ID="revCPF" runat="server" ControlToValidate="txt_cpf" ErrorMessage="Formato de CPF inválido, informe apenas números" ForeColor="Red" ValidationExpression="[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}"></asp:RegularExpressionValidator>
-                   <asp:TextBox ID="txt_cpf" class="form-control" runat="server" MaxLength="14" Placeholder="XXX.XXX.XXX-XX" Width="300px"></asp:TextBox>               </div>
+                   &nbsp;<asp:RegularExpressionValidator ID="revCPF" runat="server" ControlToValidate="txt_cpf" ErrorMessage="Formato de CPF inválido" ForeColor="Red" ValidationExpression="[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}"></asp:RegularExpressionValidator>
+                   <asp:TextBox ID="txt_cpf" class="form-control" runat="server" MaxLength="14" Placeholder="999.999.999-99" Width="300px"  onkeydown="mascara( this,CPF  );"></asp:TextBox>               </div>
                  <div  class="form-group" >                   
                    <asp:Label ID="lbl_email" runat="server" Text="E-mail"></asp:Label>
                    &nbsp;<asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="txt_email" ErrorMessage="Formato de e-mail inválido" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
