@@ -19,10 +19,10 @@
           </div>
 
           <div class="container">
-            <label for="uname" style="color: white"><b>Username</b></label>
+            <label for="uname" style="color: white"><b>Usuário</b></label>
             <asp:TextBox ID="txtUsuario" runat="server" Placeholder="Usuario" class="form-control" Height="35px"></asp:TextBox>
 
-            <label for="psw" style="color:white"><b>Password</b></label>
+            <label for="psw" style="color:white"><b>Senha</b></label>
             <asp:TextBox ID="txtSenha" runat="server" Placeholder="Senha"  type="password" class="rounded" Height="35px"></asp:TextBox>
         
             <asp:Button ID="btnEntrar" runat="server" Text="Entrar" style="font-weight:bold" class="btn btn-primary btn-sm" OnClick="btnEntrar_Click" />
