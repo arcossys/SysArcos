@@ -11,7 +11,7 @@
     <br />
     <br />
     <asp:RadioButton ID="rd_entidade" runat="server" Text="Entidade" GroupName="tipo" />
-&nbsp;<asp:RadioButton ID="rd_datainicial" runat="server" Text="Data Inicial" GroupName="tipo" />
+&nbsp;<asp:RadioButton ID="rd_datainicial" runat="server" Text="Data Inicial (dd/mm/aaaa)" GroupName="tipo" />
 &nbsp;<asp:RadioButton ID="rd_descricao" runat="server" Text="Descrição" GroupName="tipo" />
     <br /> 
 

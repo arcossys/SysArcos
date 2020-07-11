@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,26 +19,42 @@ namespace ProjetoArcos
         {
             using (ARCOS_Entities entities = new ARCOS_Entities())
             {
-                List<VOLUNTARIADO> lista = null;
-                if (rd_entidade.Checked)
+                try
                 {
-                    lista = entities.VOLUNTARIADO.Where(x => x.ENTIDADE.NOME.StartsWith(txt_Busca.Text)).ToList();
+                    List<VOLUNTARIADO> lista = null;
+                    if (rd_entidade.Checked)
+                    {
+                        lista = entities.VOLUNTARIADO.Where(x => x.ENTIDADE.NOME.StartsWith(txt_Busca.Text)).ToList();
+                    }
+                    else if (rd_datainicial.Checked)
+                    {
+                        DateTime data = Convert.ToDateTime(txt_Busca.Text);
+                        lista = entities.VOLUNTARIADO.Where(x => x.DATA_INICIAL.Equals(data)).ToList();
+                    }
+                    else if (rd_descricao.Checked)
+                    {
+                        lista = entities.VOLUNTARIADO.Where(x => x.DESCRICAO.StartsWith(txt_Busca.Text)).ToList();
+                    }
+                    else
+                    {
+                        lista = entities.VOLUNTARIADO.ToList();
+                    }
+
+                    //Verifica se usuário é administrador
+                    ArrayList entidades = (ArrayList)Session["entidades"];
+                    if (entidades != null && entidades.Count > 0)
+                    {
+                        lista = lista.Where(x => entidades.Contains(x.ENTIDADE.ID)).ToList();
+
+                    }
+
+                    grid.DataSource = lista;//.OrderBy(x => x.VOLUNTARIAR);
+                    grid.DataBind();
                 }
-                else if (rd_datainicial.Checked)
+                catch
                 {
-                    DateTime data = Convert.ToDateTime(txt_Busca.Text);
-                    lista = entities.VOLUNTARIADO.Where(x => x.DATA_INICIAL.Equals(data)).ToList();
+                    Response.Write("<script>alert('Parâmetro incorreto de busca!');</script>");
                 }
-                else if (rd_descricao.Checked)
-                {
-                    lista = entities.VOLUNTARIADO.Where(x => x.DESCRICAO.StartsWith(txt_Busca.Text)).ToList();
-                }
-                else
-                {
-                    lista = entities.VOLUNTARIADO.ToList();
-                }
-                grid.DataSource = lista;//.OrderBy(x => x.VOLUNTARIAR);
-                grid.DataBind();
             }
         }
 

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -20,45 +22,39 @@ namespace ProjetoArcos
             {
                 List<ENTIDADE> lista = null;
 
-                if (rdativo.Checked)
+                if (txtbusca.Text == string.Empty)
                 {
-                    if (rdnome.Checked)
-                    {
-                        lista = entities.ENTIDADE.Where(x => x.NOME.StartsWith(txtbusca.Text) && x.ATIVA.Equals(rdativo.Checked)).ToList();
-                    }
-                    else if (rdcidade.Checked)
-                    {
-                        lista = entities.ENTIDADE.Where(x => x.CIDADE.StartsWith(txtbusca.Text) && x.ATIVA.Equals(rdativo.Checked)).ToList();
-                    }
-                    else if (rdpresidente.Checked)
-                    {
-                        lista = entities.ENTIDADE.Where(x => x.PRESIDENTE.StartsWith(txtbusca.Text) && x.ATIVA.Equals(rdativo.Checked)).ToList();
-                    }
-                    else if (rdCNPJ.Checked)
-                    {
-                        lista = entities.ENTIDADE.Where(x => x.CNPJ.StartsWith(txtbusca.Text) && x.ATIVA.Equals(rdativo.Checked)).ToList();
-                    }
+                    lista = entities.ENTIDADE.Where(x =>x.ATIVA.Equals(ckAtivo.Checked)).ToList();
                 }
-                else if (rddesativado.Checked)
+                else if (rdnome.Checked)
                 {
-                    if (rdnome.Checked)
-                    {
-                        lista = entities.ENTIDADE.Where(x => x.NOME.StartsWith(txtbusca.Text) && x.ATIVA.Equals(false)).ToList();
-                    }
-                    else if (rdcidade.Checked)
-                    {
-                        lista = entities.ENTIDADE.Where(x => x.CIDADE.StartsWith(txtbusca.Text) && x.ATIVA.Equals(false)).ToList();
-                    }
-                    else if (rdpresidente.Checked)
-                    {
-                        lista = entities.ENTIDADE.Where(x => x.PRESIDENTE.StartsWith(txtbusca.Text) && x.ATIVA.Equals(false)).ToList();
-                    }
-                    else if (rdCNPJ.Checked)
-                    {
-                        lista = entities.ENTIDADE.Where(x => x.CNPJ.StartsWith(txtbusca.Text) && x.ATIVA.Equals(false)).ToList();
-                    }
+                    lista = entities.ENTIDADE.Where(x => x.NOME.StartsWith(txtbusca.Text) &&
+                                                         x.ATIVA.Equals(ckAtivo.Checked)).ToList();
                 }
-                else { lista = entities.ENTIDADE.ToList(); }
+                else if (rdcidade.Checked)
+                {
+                    lista = entities.ENTIDADE.Where(x => x.CIDADE.StartsWith(txtbusca.Text) &&
+                                                         x.ATIVA.Equals(ckAtivo.Checked)).ToList();
+                }
+                else if (rdpresidente.Checked)
+                {
+                    lista = entities.ENTIDADE.Where(x => x.PRESIDENTE.StartsWith(txtbusca.Text) &&
+                                                         x.ATIVA.Equals(ckAtivo.Checked)).ToList();
+                }
+                else if (rdCNPJ.Checked)
+                {
+                    lista = entities.ENTIDADE.Where(x => x.CNPJ.StartsWith(txtbusca.Text) &&
+                                                         x.ATIVA.Equals(ckAtivo.Checked)).ToList();
+                }
+
+                //Verifica se usuário é administrador
+                ArrayList entidades = (ArrayList) Session["entidades"];
+                if (entidades != null && entidades.Count > 0)
+                {
+                    lista = lista.Where(x => entidades.Contains(x.ID)).ToList();
+                    
+                }
+
                 grid.DataSource = lista.OrderBy(x => x.ID);
                 grid.DataBind();
             }

@@ -9,8 +9,7 @@
     <asp:TextBox ID="txtbusca" runat="server"></asp:TextBox>
     <asp:Button ID="btnbuscar" runat="server" class="btn btn-success" OnClick="btnbuscar_Click" Text="Buscar" />
     <div>
-        <asp:RadioButton ID="rdativo" runat="server" Text="Ativo" GroupName="ativo" Checked="True" />
-        <asp:RadioButton ID="rddesativado" runat="server" Text="Inativo" GroupName="ativo" />
+        <asp:CheckBox ID="ckAtivo" runat="server" Checked="True" Text="Usuários ativos" />
     </div>
     <asp:RadioButton ID="rdnome" runat="server" Text="Nome" GroupName="filtro" Checked="True" />
     <asp:RadioButton ID="rdcidade" runat="server" Text="Cidade" GroupName="filtro" />

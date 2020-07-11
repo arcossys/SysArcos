@@ -22,7 +22,7 @@
         <asp:RequiredFieldValidator ID="rqd_CPF" runat="server" ErrorMessage="Campo &quot;CPF&quot; é obrigatório." ForeColor="Red" ControlToValidate="txt_vcpf" ValidationGroup="Cadastrar">*</asp:RequiredFieldValidator>
         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Formato invalido" ControlToValidate="txt_vcpf" ValidationExpression="^[0-9]{3}\.[0-9]{3}\.[0-9]{3}\-[0-9]{2}$" ForeColor="Red"></asp:RegularExpressionValidator>
 
-        <asp:TextBox onkeydown="mascara( this,CPF  );" ID="txt_vcpf" runat="server" Height="30px" Width="300px" CssClass="form-control" Placeholder="XXX.XXX.XXX-XX" MaxLength="14"></asp:TextBox>
+        <asp:TextBox onkeydown="mascara( this,CPF  );" ID="txt_vcpf" runat="server" Height="30px" Width="300px" CssClass="form-control" Placeholder="999.999.999-99" MaxLength="14"></asp:TextBox>
 
     </div>
 
@@ -47,7 +47,7 @@
         <asp:Label ID="lbl_vcep" runat="server" Text="CEP"></asp:Label>
         <asp:RequiredFieldValidator ID="rqd_CEP" runat="server" ErrorMessage="Campo &quot;CEP&quot; é obrigatório." ForeColor="Red" ControlToValidate="txt_vcep" ValidationGroup="Cadastrar">*</asp:RequiredFieldValidator>
         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Formato incorreto" ControlToValidate="txt_vcep" ValidationExpression="^[0-9]{5}\-[0-9]{3}$" ForeColor="Red"></asp:RegularExpressionValidator>
-        <asp:TextBox onkeydown="mascara( this,CEP);" ID="txt_vcep" runat="server" Height="30px" Width="300px" CssClass="form-control" Placeholder="XXXXX-XXX" MaxLength="9"></asp:TextBox>
+        <asp:TextBox onkeydown="mascara( this,CEP);" ID="txt_vcep" runat="server" Height="30px" Width="300px" CssClass="form-control" Placeholder="99999-999" MaxLength="9"></asp:TextBox>
     </div>
 
     <div>

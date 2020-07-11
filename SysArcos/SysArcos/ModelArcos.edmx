@@ -234,6 +234,7 @@
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
           <Property Name="ID_GRUPOPERMISSAO" Type="int" />
           <Property Name="ALTERA_SENHA_PROX_LOGIN" Type="bit" Nullable="false" />
+          <Property Name="ADM" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="VOLUNTARIADO">
           <Key>
@@ -910,6 +911,7 @@
           <Property Name="ALTERA_SENHA_PROX_LOGIN" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="GRUPO_PERMISSAO" Relationship="Self.FK_USUARIO_USUARIO_GRUPOPERMISSAO" FromRole="USUARIO" ToRole="GRUPO_PERMISSAO" />
           <NavigationProperty Name="ENTIDADE" Relationship="ARCOS_V2Model.FK_ENTIDADE_USUARIO_GRUPOPERMISSAO" FromRole="USUARIO" ToRole="ENTIDADE" />
+          <Property Name="ADM" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="VOLUNTARIADO">
           <Key>
@@ -1600,6 +1602,7 @@
           <EntitySetMapping Name="USUARIO">
             <EntityTypeMapping TypeName="ARCOS_V2Model.USUARIO">
               <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="ADM" ColumnName="ADM" />
                 <ScalarProperty Name="LOGIN" ColumnName="LOGIN" />
                 <ScalarProperty Name="SENHA" ColumnName="SENHA" />
                 <ScalarProperty Name="NOME" ColumnName="NOME" />

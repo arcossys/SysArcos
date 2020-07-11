@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -26,8 +27,16 @@ namespace ProjetoArcos
                 }
                 else
                 {
+                    //Verifica se é administrador e caso não seja, 
+                    //verifica as entidades que está vinculado
+                    ArrayList entidades = new ArrayList();
+                    foreach (ENTIDADE i in u.ENTIDADE)
+                        entidades.Add(i.ID);
+
+
                     // conexão bem sucedida
                     Session["usuariologado"] = u.LOGIN.ToString();
+                    Session["entidades"] = entidades;
                     if (u.ALTERA_SENHA_PROX_LOGIN)
                     {
                         //Redireciona para outra página
