@@ -116,7 +116,9 @@
                 <br />
                 <asp:DropDownList ID="txtAdmnistrador" runat="server" Height="30px" Width="300px" ValidationGroup="form" CssClass="form-control">
                 </asp:DropDownList>
+                <asp:CheckBox ID="cbAtivo" runat="server" Text="Ativo" />
                 <br />
+
                 <br />
             </div>
 
