@@ -11,38 +11,50 @@
     </div>
     <div>
 
-        <asp:Label ID="Label1" runat="server" Text="Nome"></asp:Label>
-        <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" Width="300px"></asp:TextBox>
+        <asp:Label ID="lblNome" runat="server" Text="Nome"></asp:Label>
+        <asp:TextBox ID="txtNome" runat="server" CssClass="form-control" Width="300px"></asp:TextBox>
 
     </div>
     <div>
 
-        <asp:Label ID="Label2" runat="server" Text="Descricao"></asp:Label>
-        <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" Width="300px"></asp:TextBox>
+        <asp:Label ID="lblDescricao" runat="server" Text="Descricao"></asp:Label>
+        <asp:TextBox ID="txtDescricao" runat="server" CssClass="form-control" Width="300px"></asp:TextBox>
 
     </div>
     <div>
 
-        <asp:Label ID="Label3" runat="server" Text="Início"></asp:Label>
-        <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control" Width="300px" Placeholder="DD/MM/AAAA HH:MM"></asp:TextBox>
+        <asp:Label ID="lblDataInicio" runat="server" Text="Data Início"></asp:Label>
+        <asp:TextBox ID="txtDataInicio" runat="server" CssClass="form-control" Width="150px" Placeholder="DD/MM/AAAA HH:MM" TextMode="Date"></asp:TextBox>
 
     </div>
     <div>
 
-        <asp:Label ID="Label4" runat="server" Text="Fim"></asp:Label>
-        <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control" Width="300px"  Placeholder="DD/MM/AAAA HH:MM"></asp:TextBox>
+        <asp:Label ID="Label1" runat="server" Text="Hara Início"></asp:Label>
+        <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" TextMode="Time" Width="150px"></asp:TextBox>
 
     </div>
     <div>
 
-        <asp:Label ID="Label6" runat="server" Text="Tipo Evento"></asp:Label>
+        <asp:Label ID="lblDataFim" runat="server" Text="Data Fim"></asp:Label>
+        <asp:TextBox ID="txtDataFim" runat="server" CssClass="form-control" Width="150px"  Placeholder="DD/MM/AAAA HH:MM" TextMode="Date"></asp:TextBox>
+
+    </div>
+    <div>
+
+        <asp:Label ID="Label2" runat="server" Text="Hora Fim"></asp:Label>
+        <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" TextMode="Time" Width="150px"></asp:TextBox>
+
+    </div>
+    <div>
+
+        <asp:Label ID="lblTipoEvento" runat="server" Text="Tipo Evento"></asp:Label>
         <asp:DropDownList ID="ddlTipoEvento" runat="server" CssClass="form-control" Width="300px">
         </asp:DropDownList>
 
     </div>
     <div>
 
-        <asp:Label ID="Label7" runat="server" Text="Entidade"></asp:Label>
+        <asp:Label ID="lblEntidade" runat="server" Text="Entidade"></asp:Label>
         <asp:DropDownList ID="ddlEntidade" runat="server" CssClass="form-control" Width="300px">
         </asp:DropDownList>
 
@@ -50,9 +62,9 @@
     <br />
     <div>
 
-        <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary" Text="Novo" />
-&nbsp;<asp:Button ID="Button2" runat="server" CssClass="btn btn-primary" Text="Salvar" />
-&nbsp;<asp:Button ID="btnBuscar" runat="server" CssClass="btn btn-primary" Text="Buscar" />
+        <asp:Button ID="btnNovo" runat="server" CssClass="btn btn-primary" Text="Novo" />
+&nbsp;<asp:Button ID="btnSalvar" runat="server" CssClass="btn btn-primary" Text="Salvar" />
+&nbsp;<asp:Button ID="btnBuscar" runat="server" CssClass="btn btn-primary" Text="Buscar" OnClick="btnBuscar_Click" />
 
     </div>
 </asp:Content>

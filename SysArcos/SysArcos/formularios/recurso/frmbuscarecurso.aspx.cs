@@ -5,18 +5,18 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace SysArcos.formularios.doacao
+namespace SysArcos.formularios.recurso
 {
-    public partial class frmdoacao : System.Web.UI.Page
+    public partial class frmBuscaRecurso : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void Button3_Click(object sender, EventArgs e)
+        protected void Button2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("frmbuscadoacao.aspx");
+            Response.Redirect("frmrecurso.aspx");
         }
     }
 }

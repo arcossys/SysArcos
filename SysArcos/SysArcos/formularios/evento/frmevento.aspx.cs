@@ -43,5 +43,10 @@ namespace ProjetoArcos
                 ddlEntidade.Items.Insert(0, "");
             }
         }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmbuscaevento.aspx");
+        }
     }
 }

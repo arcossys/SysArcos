@@ -1,28 +1,32 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="frmbuscafornecedor.aspx.cs" Inherits="SysArcos.frmbuscafornecedor" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="frmbuscadoacao.aspx.cs" Inherits="SysArcos.formularios.doacao.frmbuscadoacao" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="entidade">
-        Buscar Fornecedores
+        Buscar Doação
     </div>
     <div>
 
         <asp:Label ID="Label1" runat="server" Text="Filtro"></asp:Label>
-        &nbsp;<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-        &nbsp;<asp:Button ID="Button1" runat="server" Text="Buscar" CssClass="btn btn-success" OnClick="Button1_Click" />
+&nbsp;<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+&nbsp;<asp:Button ID="Button4" runat="server" Text="Buscar" CssClass="btn btn-success" />
 
     </div>
     <div>
 
-        <asp:RadioButton ID="RadioButton1" runat="server" Text="CNPJ" />
-        &nbsp;<asp:RadioButton ID="RadioButton2" runat="server" Checked="True" Text="Nome" />
+        <asp:RadioButton ID="RadioButton1" runat="server" Text="Entidade" />
+&nbsp;<asp:RadioButton ID="RadioButton2" runat="server" Text="Doador" />
 
     </div>
-    <br />
     <div>
 
-        <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" />
+            <Columns>
+                <asp:BoundField HeaderText="Entidade" />
+                <asp:BoundField HeaderText="Doador" />
+                <asp:BoundField HeaderText="Data" />
+            </Columns>
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -39,10 +43,9 @@
     <br />
     <div>
 
-        <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="btn btn-primary" OnClick="btnCancelar_Click" />
-&nbsp;<asp:Button ID="btnSelecionar" runat="server" Text="Editar" CssClass="btn btn-primary" />
-&nbsp;<asp:Button ID="btnRemover" runat="server" Text="Remover" CssClass="btn btn-primary" 
-    OnClientClick="return confirm('Deseja remover?');"/>
+        <asp:Button ID="Button1" runat="server" Text="Cancelar" CssClass="btn btn-primary" OnClick="Button1_Click" />
+&nbsp;<asp:Button ID="Button2" runat="server" Text="Editar" CssClass="btn btn-primary" />
+&nbsp;<asp:Button ID="Button3" runat="server" Text="Remover" CssClass="btn btn-primary" />
 
     </div>
 </asp:Content>

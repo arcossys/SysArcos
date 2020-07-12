@@ -88,13 +88,17 @@
     <Content Include="formularios\assistencia\frmbuscaassistencia.aspx" />
     <Content Include="formularios\assistido\frmbuscaassistido.aspx" />
     <Content Include="formularios\categoria_produto\frmbuscacategoria_produto.aspx" />
+    <Content Include="formularios\doacao\frmbuscadoacao.aspx" />
     <Content Include="formularios\doacao\frmdoacao.aspx" />
     <Content Include="formularios\doador\frmbuscadoador.aspx" />
     <Content Include="formularios\entidades\frmbuscaentidade.aspx" />
+    <Content Include="formularios\estoque\frmbuscaestoque.aspx" />
     <Content Include="formularios\estoque\frmestoque.aspx" />
+    <Content Include="formularios\evento\frmbuscaevento.aspx" />
     <Content Include="formularios\fornecedor\frmbuscafornecedor.aspx" />
     <Content Include="formularios\fornecimento\fornecimento.aspx" />
-    <Content Include="formularios\recurso\recurso.aspx" />
+    <Content Include="formularios\recurso\frmbuscarecurso.aspx" />
+    <Content Include="formularios\recurso\frmrecurso.aspx" />
     <Content Include="formularios\Voluntariar\frmvoluntariar.aspx" />
     <Content Include="ModelArcos.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -288,12 +292,26 @@
     <Compile Include="formularios\categoria_produto\frmbuscacategoria_produto.aspx.designer.cs">
       <DependentUpon>frmbuscacategoria_produto.aspx</DependentUpon>
     </Compile>
+    <Compile Include="formularios\doacao\frmbuscadoacao.aspx.cs">
+      <DependentUpon>frmbuscadoacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\doacao\frmbuscadoacao.aspx.designer.cs">
+      <DependentUpon>frmbuscadoacao.aspx</DependentUpon>
+    </Compile>
     <Compile Include="formularios\doacao\frmdoacao.aspx.cs">
       <DependentUpon>frmdoacao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="formularios\doacao\frmdoacao.aspx.designer.cs">
       <DependentUpon>frmdoacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\estoque\frmbuscaestoque.aspx.cs">
+      <DependentUpon>frmbuscaestoque.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\estoque\frmbuscaestoque.aspx.designer.cs">
+      <DependentUpon>frmbuscaestoque.aspx</DependentUpon>
     </Compile>
     <Compile Include="formularios\estoque\frmestoque.aspx.cs">
       <DependentUpon>frmestoque.aspx</DependentUpon>
@@ -302,6 +320,13 @@
     <Compile Include="formularios\estoque\frmestoque.aspx.designer.cs">
       <DependentUpon>frmestoque.aspx</DependentUpon>
     </Compile>
+    <Compile Include="formularios\evento\frmbuscaevento.aspx.cs">
+      <DependentUpon>frmbuscaevento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\evento\frmbuscaevento.aspx.designer.cs">
+      <DependentUpon>frmbuscaevento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="formularios\fornecimento\fornecimento.aspx.cs">
       <DependentUpon>fornecimento.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -309,12 +334,19 @@
     <Compile Include="formularios\fornecimento\fornecimento.aspx.designer.cs">
       <DependentUpon>fornecimento.aspx</DependentUpon>
     </Compile>
-    <Compile Include="formularios\recurso\recurso.aspx.cs">
-      <DependentUpon>recurso.aspx</DependentUpon>
+    <Compile Include="formularios\recurso\frmbuscarecurso.aspx.cs">
+      <DependentUpon>frmbuscarecurso.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="formularios\recurso\recurso.aspx.designer.cs">
-      <DependentUpon>recurso.aspx</DependentUpon>
+    <Compile Include="formularios\recurso\frmbuscarecurso.aspx.designer.cs">
+      <DependentUpon>frmbuscarecurso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\recurso\frmrecurso.aspx.cs">
+      <DependentUpon>frmrecurso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\recurso\frmrecurso.aspx.designer.cs">
+      <DependentUpon>frmrecurso.aspx</DependentUpon>
     </Compile>
     <Compile Include="formularios\Voluntariar\frmvoluntariar.aspx.cs">
       <DependentUpon>frmvoluntariar.aspx</DependentUpon>

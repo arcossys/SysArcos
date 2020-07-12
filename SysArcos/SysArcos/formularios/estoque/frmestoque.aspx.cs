@@ -13,5 +13,10 @@ namespace SysArcos.formularios.estoque
         {
 
         }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmbuscaestoque.aspx");
+        }
     }
 }

@@ -13,5 +13,10 @@ namespace SysArcos.formularios.recurso
         {
 
         }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("frmbuscarecurso.aspx");
+        }
     }
 }

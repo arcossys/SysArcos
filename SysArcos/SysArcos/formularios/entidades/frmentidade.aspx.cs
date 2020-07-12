@@ -125,7 +125,7 @@ namespace ProjetoArcos
             txtAdmnistrador.Text = string.Empty;
             txtNumero.Text = string.Empty;
             txtTelefone.Text = string.Empty;
-            cbAtivo.Checked:= true;
+            cbAtivo.Checked= true;
         }
 
         protected void btnNovo_Click(object sender, EventArgs e)

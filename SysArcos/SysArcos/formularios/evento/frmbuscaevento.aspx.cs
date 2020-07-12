@@ -5,23 +5,18 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace SysArcos
+namespace SysArcos.formularios.evento
 {
-    public partial class frmbuscafornecedor : System.Web.UI.Page
+    public partial class frmbuscaevento : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("frmfornecedor.aspx");
+            Response.Redirect("frmevento.aspx");
         }
     }
 }

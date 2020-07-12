@@ -54,7 +54,7 @@
 			    <li>
 				    <a href="#">Recurso</a>
                     <ul>
-					    <li><a href="/formularios/recurso/recurso.aspx">Recurso</a></li>
+					    <li><a href="/formularios/recurso/frmrecurso.aspx">Recurso</a></li>
 					    <li><a href="/formularios/tiporecurso/frmtiporecurso.aspx">Tipo Recurso</a></li>
 				    </ul>
 			    </li>
