@@ -18,9 +18,7 @@
               <div class="row">
                   <div class="col-12 col-md-12">
              <img src="imagens/ArcosSys.png" alt="Avatar" class="avatar" />
-                   </div>
-                  </div>
-         </div>
+          </div>
 
           <div class="container">
               <div class="row">
