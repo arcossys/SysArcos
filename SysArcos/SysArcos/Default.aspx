@@ -14,11 +14,15 @@
 <body>        
     <form id="form1" runat="server" class="align-content-lg-center" >    
         <div>
-          <div class="imgcontainer">
+          <div class="imgcontainer"></div>
+              <div class="row"></div>
+                  <div class="col-12 col-md-12"></div>
              <img src="imagens/ArcosSys.png" alt="Avatar" class="avatar" />
-          </div>
+         </div>
 
           <div class="container">
+              <div class="row"></div>
+              <div class="col-12 col-md-12"></div>
             <label for="uname" style="color: white"><b>Usuário</b></label>
             <asp:TextBox ID="txtUsuario" runat="server" Placeholder="Usuario" class="form-control" Height="35px"></asp:TextBox>
 
@@ -34,6 +38,7 @@
         
 
           </div>
-        </div>
+        
     </form>
-</body</html>
+</body>
+</html>
