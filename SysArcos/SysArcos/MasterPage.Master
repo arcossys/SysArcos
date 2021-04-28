@@ -11,7 +11,8 @@
     <link href="css/formularios.css" rel="stylesheet" />
     <link href="css/master.css" rel="stylesheet" />
     <link href="css/menu.css" rel="stylesheet" />
-    <script src="Scripts/jquery-3.0.0.min.js"></script>
+	<link href="css/PaginationGrids.css" rel="stylesheet" />
+	<script src="Scripts/jquery-3.0.0.min.js"></script>
     <script src="JSPaginaMestre.js"></script>
 	<script src="/Scripts/validacoes.js"></script>
     <title>Sistema Arcos</title>

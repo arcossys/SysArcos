@@ -22,36 +22,19 @@ namespace ProjetoArcos
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            using (ARCOS_Entities entities = new ARCOS_Entities())
-            {
-                List<USUARIO> lista = null;
-                if (rdLogin.Checked)
-                {
-                    lista = entities.USUARIO.Where(x => x.LOGIN.StartsWith(txtBusca.Text)).ToList();
-                }
-                else if (rdNome.Checked)
-                {
-                    lista = entities.USUARIO.Where(x => x.NOME.StartsWith(txtBusca.Text)).ToList();
-                }
-                else
-                {
-                    lista = entities.USUARIO.ToList();
-                }
-                grid.DataSource = lista.OrderBy(x => x.LOGIN);
-                grid.DataBind();
-            }
+            buscar();
         }
 
         protected void btnSelecionar_Click(object sender, EventArgs e)
         {
-            if (grid.SelectedValue!=null)
+            if (grid.SelectedValue != null)
                 //Redireciona para a página de cadastro com o login como parâmtro
                 Response.Redirect("frmusuario.aspx?login=" + grid.SelectedValue.ToString());
         }
 
         protected void btnRemover_Click(object sender, EventArgs e)
         {
-            if (grid.SelectedValue!=null)
+            if (grid.SelectedValue != null)
             {
                 string login = grid.SelectedValue.ToString();
                 try
@@ -88,7 +71,41 @@ namespace ProjetoArcos
                         Response.Redirect("frmpermissoes.aspx?login=" + login);
                     }
                 }
-            }           
+            }
+        }
+
+        protected void grid_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grid.PageIndex = e.NewPageIndex;
+            buscar();
+        }
+
+        private void buscar()
+        {
+            using (ARCOS_Entities entities = new ARCOS_Entities())
+            {
+                List<USUARIO> lista = null;
+                if (rdLogin.Checked)
+                {
+                    lista = entities.USUARIO.Where(x => x.LOGIN.StartsWith(txtBusca.Text))
+                        .OrderBy(x => x.NOME)
+                        .ToList();
+                }
+                else if (rdNome.Checked)
+                {
+                    lista = entities.USUARIO.Where(x => x.NOME.StartsWith(txtBusca.Text))
+                        .OrderBy(x => x.NOME)
+                        .ToList();
+                }
+                else
+                {
+                    lista = entities.USUARIO
+                        .OrderBy(x => x.NOME)
+                        .ToList();
+                }
+                grid.DataSource = lista;
+                grid.DataBind();
+            }
         }
     }
 }
