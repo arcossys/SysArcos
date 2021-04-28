@@ -5,3 +5,12 @@
     align-content: center;
     background: LightBlue;
 }
+
+.row_fields {
+    padding-top: 10px;
+}
+
+.row_buttons {
+    padding-top: 20px;
+}
+
