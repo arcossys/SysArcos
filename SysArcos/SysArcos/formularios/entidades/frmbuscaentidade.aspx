@@ -16,7 +16,7 @@
     <asp:RadioButton ID="rdpresidente" runat="server" Text="Presidente" GroupName="filtro" />
     <asp:RadioButton ID="rdCNPJ" runat="server" Text="CNPJ" GroupName="filtro" />
     <br />
-    <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataKeyNames="ID" ShowHeaderWhenEmpty="True">
+    <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataKeyNames="ID" ShowHeaderWhenEmpty="True" AllowPaging="True" OnPageIndexChanging="grid_PageIndexChanging" PageSize="20">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="NOME" HeaderText="Nome" />
@@ -28,7 +28,7 @@
         <EditRowStyle BackColor="#2461BF" />
         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
         <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" CssClass="GridPager"/>
         <RowStyle BackColor="#EFF3FB" />
         <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
         <SortedAscendingCellStyle BackColor="#F5F7FB" />
