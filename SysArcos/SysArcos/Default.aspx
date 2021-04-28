@@ -22,20 +22,31 @@
             <div class="col">
                 <img src="imagens/ArcosSys.png" alt="Avatar" class="avatar"/>
             </div>
-         </div>
-     <br />
+        </div>
+        <br />
        
     <div class="row">
           <div class="col">
-              <form id="form1" runat="server">    
-                <label for="uname" style="color: white"><b>Usuário</b></label>
-                <asp:TextBox ID="txtUsuario" runat="server" Placeholder="Usuario" class="form-control" Height="35px"></asp:TextBox>
-
-                <label for="psw" style="color:white"><b>Senha</b></label>
-                <asp:TextBox ID="txtSenha" runat="server" Placeholder="Senha"  type="password" class="rounded" Height="35px"></asp:TextBox>
-        
-                <asp:Button ID="btnEntrar" runat="server" Text="Entrar" style="font-weight:bold" class="btn btn-primary btn-sm" OnClick="btnEntrar_Click" />
-        
+              <form id="form1" runat="server">  
+                  <div class="campo">
+                      <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="">Usuário</span>
+                          </div>
+                          <asp:TextBox ID="txtUsuario" runat="server" class="form-control"></asp:TextBox>
+                      </div> 
+                  </div>
+                  <div class="campo">
+                      <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="">Senha</span>
+                          </div>
+                          <asp:TextBox ID="txtSenha" runat="server" type="password" class="form-control"></asp:TextBox>
+                      </div>
+                  </div>
+                  <div class="campo">
+                    <asp:Button ID="btnEntrar" runat="server" Text="Entrar" style="font-weight:bold" class="btn btn-primary btn-sm" OnClick="btnEntrar_Click" />
+                  </div>  
 
               <br />
               <br />
