@@ -67,6 +67,7 @@
 
 .menu ul li:hover ul {
    visibility: visible;
+   position:relative;
 }
 
 .menu a:hover {

@@ -18,46 +18,7 @@ namespace ProjetoArcos
 
         protected void btnbuscar_Click(object sender, EventArgs e)
         {
-            using (ARCOS_Entities entities = new ARCOS_Entities())
-            {
-                List<ENTIDADE> lista = null;
-
-                if (txtbusca.Text == string.Empty)
-                {
-                    lista = entities.ENTIDADE.Where(x =>x.ATIVA.Equals(ckAtivo.Checked)).ToList();
-                }
-                else if (rdnome.Checked)
-                {
-                    lista = entities.ENTIDADE.Where(x => x.NOME.StartsWith(txtbusca.Text) &&
-                                                         x.ATIVA.Equals(ckAtivo.Checked)).ToList();
-                }
-                else if (rdcidade.Checked)
-                {
-                    lista = entities.ENTIDADE.Where(x => x.CIDADE.StartsWith(txtbusca.Text) &&
-                                                         x.ATIVA.Equals(ckAtivo.Checked)).ToList();
-                }
-                else if (rdpresidente.Checked)
-                {
-                    lista = entities.ENTIDADE.Where(x => x.PRESIDENTE.StartsWith(txtbusca.Text) &&
-                                                         x.ATIVA.Equals(ckAtivo.Checked)).ToList();
-                }
-                else if (rdCNPJ.Checked)
-                {
-                    lista = entities.ENTIDADE.Where(x => x.CNPJ.StartsWith(txtbusca.Text) &&
-                                                         x.ATIVA.Equals(ckAtivo.Checked)).ToList();
-                }
-
-                //Verifica se usuário é administrador
-                ArrayList entidades = (ArrayList) Session["entidades"];
-                if (entidades != null && entidades.Count > 0)
-                {
-                    lista = lista.Where(x => entidades.Contains(x.ID)).ToList();
-                    
-                }
-
-                grid.DataSource = lista.OrderBy(x => x.ID);
-                grid.DataBind();
-            }
+            buscar();
         }
 
         protected void btncancelar_Click(object sender, EventArgs e)
@@ -97,6 +58,57 @@ namespace ProjetoArcos
                     Response.Write("<script>alert('Falha ao remover registro!');</script>");
                 }
             }
+        }
+
+        private void buscar()
+        {
+            using (ARCOS_Entities entities = new ARCOS_Entities())
+            {
+                IQueryable<ENTIDADE> query = null;
+                if (txtbusca.Text == string.Empty)
+                {
+                    query = entities.ENTIDADE
+                        .Where(x => x.ATIVA.Equals(ckAtivo.Checked));
+                }
+                else if (rdnome.Checked)
+                {
+                    query = entities.ENTIDADE.Where(x => x.NOME.StartsWith(txtbusca.Text) &&
+                                                         x.ATIVA.Equals(ckAtivo.Checked));
+                }
+                else if (rdcidade.Checked)
+                {
+                    query = entities.ENTIDADE.Where(x => x.CIDADE.StartsWith(txtbusca.Text) &&
+                                                         x.ATIVA.Equals(ckAtivo.Checked));
+                }
+                else if (rdpresidente.Checked)
+                {
+                    query = entities.ENTIDADE.Where(x => x.PRESIDENTE.StartsWith(txtbusca.Text) &&
+                                                         x.ATIVA.Equals(ckAtivo.Checked));
+                }
+                else if (rdCNPJ.Checked)
+                {
+                    query = entities.ENTIDADE.Where(x => x.CNPJ.StartsWith(txtbusca.Text) &&
+                                                         x.ATIVA.Equals(ckAtivo.Checked));
+                }
+
+                List<ENTIDADE> lista = query.OrderBy(x => x.NOME).ToList();
+                //Verifica se usuário é administrador
+                ArrayList entidades = (ArrayList)Session["entidades"];
+                if (entidades != null && entidades.Count > 0)
+                {
+                    lista = lista.Where(x => entidades.Contains(x.ID)).ToList();
+
+                }
+
+                grid.DataSource = lista;
+                grid.DataBind();
+            }
+        }
+
+        protected void grid_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grid.PageIndex = e.NewPageIndex;
+            buscar();
         }
     }
 }

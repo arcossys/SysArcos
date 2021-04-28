@@ -83,6 +83,7 @@
     <Content Include="css\master.css" />
     <Content Include="css\menu.css" />
     <Content Include="css\PaginaLogin.css" />
+    <Content Include="css\PaginationGrids.css" />
     <Content Include="Default.aspx" />
     <Content Include="formularios\assistencia\frmassistencia.aspx" />
     <Content Include="formularios\assistido\frmassistido.aspx" />
