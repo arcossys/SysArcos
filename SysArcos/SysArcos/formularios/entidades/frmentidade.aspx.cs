@@ -81,7 +81,7 @@ namespace ProjetoArcos
                         entidade.TELEFONE = txtTelefone.Text;
                         entidade.LOGIN_USUARIO_ADMINISTRADOR = txtAdmnistrador.Text;
                         entidade.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
-                        entidade.ATIVA = cbAtivo.Checked;    
+                        entidade.ATIVA = cbAtivo.Checked;
 
                         if (lblAcao.Text.Equals("NOVO"))
                             entity.ENTIDADE.Add(entidade);
@@ -125,7 +125,7 @@ namespace ProjetoArcos
             txtAdmnistrador.Text = string.Empty;
             txtNumero.Text = string.Empty;
             txtTelefone.Text = string.Empty;
-            cbAtivo.Checked= true;
+            cbAtivo.Checked = true;
         }
 
         protected void btnNovo_Click(object sender, EventArgs e)
