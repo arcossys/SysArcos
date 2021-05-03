@@ -18,6 +18,7 @@ namespace SysArcos
         public ENTIDADE()
         {
             this.ASSISTENCIA = new HashSet<ASSISTENCIA>();
+            this.ASSISTIDO = new HashSet<ASSISTIDO>();
             this.DOACAO = new HashSet<DOACAO>();
             this.ENTIDADE1 = new HashSet<ENTIDADE>();
             this.ESTOQUE = new HashSet<ESTOQUE>();
@@ -46,6 +47,8 @@ namespace SysArcos
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ASSISTENCIA> ASSISTENCIA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ASSISTIDO> ASSISTIDO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DOACAO> DOACAO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

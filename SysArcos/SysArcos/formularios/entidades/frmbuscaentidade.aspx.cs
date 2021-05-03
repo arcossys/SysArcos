@@ -93,8 +93,11 @@ namespace ProjetoArcos
 
                 List<ENTIDADE> lista = query.OrderBy(x => x.NOME).ToList();
                 //Verifica se usuário é administrador
+                String login = (String)Session["usuariologado"];
                 ArrayList entidades = (ArrayList)Session["entidades"];
-                if (entidades != null && entidades.Count > 0)
+                USUARIO u = entities.USUARIO.First(linha => linha.LOGIN.Equals(login));
+                
+                if ((!u.ADM) && (entidades != null && entidades.Count > 0))
                 {
                     lista = lista.Where(x => entidades.Contains(x.ID)).ToList();
 
