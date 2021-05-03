@@ -12,24 +12,18 @@ namespace SysArcos
     using System;
     using System.Collections.Generic;
     
-    public partial class FORNECIMENTO
+    public partial class ESTADO_CIVIL
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public FORNECIMENTO()
+        public ESTADO_CIVIL()
         {
-            this.FORNECIMENTO_ITENS = new HashSet<FORNECIMENTO_ITENS>();
+            this.ASSISTIDO = new HashSet<ASSISTIDO>();
         }
     
         public int ID { get; set; }
-        public System.DateTime DATA { get; set; }
-        public string OBSERVACOES { get; set; }
-        public int ID_FORNECEDOR { get; set; }
-        public int ID_ENTIDADE { get; set; }
-        public System.DateTime DATA_HORA_CRIACAO_REGISTRO { get; set; }
+        public string DESCRICAO { get; set; }
     
-        public virtual ENTIDADE ENTIDADE { get; set; }
-        public virtual FORNECEDOR FORNECEDOR { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FORNECIMENTO_ITENS> FORNECIMENTO_ITENS { get; set; }
+        public virtual ICollection<ASSISTIDO> ASSISTIDO { get; set; }
     }
 }
