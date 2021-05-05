@@ -5,7 +5,7 @@
 button[name="drop"] {
     border: none;
     cursor: pointer;
-    background-color: #F8F9FA;
+    background-color: #d8f1fa;
     padding: 10px;
     height: auto;
     width: auto;
@@ -19,7 +19,7 @@ button[name="drop"] {
     border-left: solid gray 1px;
     border-right: solid gray 1px;
     display: none;
-    background-color: #C5CAE9;
+    background-color: #d8f1fa;
     position: absolute;
     width: 200px;
 }
@@ -40,12 +40,12 @@ button[name="drop"] {
    display: block;
  }
 
-.menu-drop:hover button[name="drop"] {
-    background-color: #F8F9FA;
- }
+    .menu-drop:hover button[name="drop"] {
+        background-color: #d8f1fa;
+    }
 
 .drop-content a:hover {
-    background-color: #E8EAF6;
+    background-color: #d8f1fa;
 }
 
 .acao {

@@ -23,29 +23,30 @@
     <form id="form1" runat="server">
 		
 
-        <div class="logout">
+        <div class="logout" >
             <div class="logoitem">
                 <a href="/PaginaInicial.aspx"><img src="/imagens/ArcosSys.png" class="logo"></a>
             </div>
             <div class="logoutitem">
                 <asp:Label ID="lbl_welcomeUser" runat="server" Text="Label" class="logout"></asp:Label>
-                <span><asp:LinkButton ID="lnk_logout" runat="server" OnClick="lnk_logout_Click" class="logout">( SAIR )</asp:LinkButton></span>
+                <span><asp:LinkButton ID="lnk_logout" runat="server" OnClick="lnk_logout_Click" class="logout"> <Right>( SAIR ) </Right> </asp:LinkButton></span> 
             </div>
         </div>
        
         <div>
-		    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+           
+		    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#ade9ed;">
 
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
+                <span class="navbar-toggler-icon " style="background-color:red;"> </span>
               </button>
 
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color:#ade9ed;"> 
                 <ul class="navbar-nav mr-auto">     
                   
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Entidades
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  >
+                          <b>Entidades</b>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="/formularios/entidades/frmentidade.aspx">Entidade</a>
@@ -54,7 +55,7 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Usuários
+                          <b>Usuários </b>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="/formularios/usuario/frmusuario.aspx">Usuário</a>
@@ -64,7 +65,7 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Eventos
+                          <b>Eventos</b>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="/formularios/evento/frmevento.aspx">Evento</a>
@@ -74,7 +75,7 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Recursos
+                          <b>Recursos</b>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="/formularios/recurso/frmrecurso.aspx">Recurso</a>
@@ -84,7 +85,7 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         Fornecedores
+                         <b>Fornecedores</b>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="/formularios/fornecedor/frmfornecedor.aspx">Fornecedor</a>
@@ -94,7 +95,7 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         Estoque
+                         <b>Estoque</b>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="/formularios/estoque/frmestoque.aspx">Estoque</a>
@@ -105,7 +106,7 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         Doações
+                         <b>Doações</b>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="/formularios/doacao/frmdoacao.aspx">Doação</a>
@@ -115,7 +116,7 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         Assistências
+                         <b>Assistências</b>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="/formularios/assistencia/frmassistencia.aspx">Assistência</a>
@@ -125,7 +126,7 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         Voluntários
+                         <b>Voluntários</b>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="/formularios/voluntario/frmvoluntario.aspx">Voluntários</a>
