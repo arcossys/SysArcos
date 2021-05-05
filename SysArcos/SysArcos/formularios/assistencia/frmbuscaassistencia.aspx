@@ -2,24 +2,25 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <div class="entidade">
-            Buscar Assistências
+    <div class="entidade">
+        Buscar Assistências
+    </div>    
+    <div class="row">
+        <div class="col-md-12 col-lg-1 row_fields">
+            <asp:Label ID="Label1" runat="server" width="100%" Text="Filtro"></asp:Label>
         </div>
-
-        <div>
-
-    <asp:Label ID="Label1" runat="server" Text="Filtro"></asp:Label>
-&nbsp;<asp:TextBox ID="txtBusca" runat="server"></asp:TextBox>
-&nbsp;<asp:Button ID="btnBuscar" runat="server" class="btn btn-success" Text="Buscar" OnClick="btnBuscar_Click" />
-
-    <br />
+        <div class="col-lg-9 col-md-12">
+            <asp:TextBox ID="txtBusca" width="100%" Height="40px" runat="server"></asp:TextBox>
+        </div>
+        <div class="col-lg-2 col-md-12">
+            <asp:Button ID="btnBuscar" width="100%" runat="server" class="btn btn-success" Text="Buscar" OnClick="btnBuscar_Click" />
+        </div>
+    </div>
+    <br/>
     <asp:RadioButton ID="rdNome" runat="server" Checked="True" GroupName="filtro" Text="Nome" />
-&nbsp;<asp:RadioButton ID="rdLogin" runat="server" GroupName="filtro" Text="Login" />
-    <br />
-
-</div>
-<div>
-
+    <asp:RadioButton ID="rdLogin" runat="server" GroupName="filtro" Text="Login" />
+    <br/>    
+    <div>
     <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataKeyNames="LOGIN" ShowHeaderWhenEmpty="True">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
@@ -41,17 +42,18 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
-
-</div>
-<div>
-
-    <br />
-    <asp:Button ID="btnCancelar" class="btn btn-primary" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
-
-&nbsp;<asp:Button ID="btnSelecionar" class="btn btn-primary" runat="server" Text="Editar" OnClick="btnSelecionar_Click" />
-&nbsp;<asp:Button ID="btnRemover" class="btn btn-primary" runat="server" Text="Remover" OnClick="btnRemover_Click" 
-    OnClientClick="return confirm('Deseja remover?');"/>
-
-</div>
-
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-12 col-lg-4 row_buttons">
+            <asp:Button ID="btnCancelar" class="btn btn-primary" runat="server" Width="100%" Text="Cancelar" Font-Size="X-Large" OnClick="btnCancelar_Click" />
+        </div>
+        <div class="col-md-12 col-lg-4 row_buttons">
+            <asp:Button ID="btnSelecionar" class="btn btn-primary" runat="server" Width="100%" Text="Editar" Font-Size="X-Large" OnClick="btnSelecionar_Click" />
+        </div>
+        <div class="col-md-12 col-lg-4 row_buttons">
+            <asp:Button ID="btnRemover" class="btn btn-primary" runat="server" Width="100%" Text="Remover" Font-Size="X-Large" OnClick="btnRemover_Click" 
+            OnClientClick="return confirm('Deseja remover?');"/>
+        </div>    
+    </div>
 </asp:Content>

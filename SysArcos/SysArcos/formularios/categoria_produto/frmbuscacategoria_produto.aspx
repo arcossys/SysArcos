@@ -2,14 +2,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div>
-        <asp:Label ID="lblBusca" runat="server" Text="Buscar"></asp:Label>
-    &nbsp;<asp:TextBox ID="txtBuscar" runat="server"></asp:TextBox>
-    &nbsp;<asp:Button ID="btnBuscar" runat="server" Text="Buscar" class="btn btn-success" OnClick="btnBuscar_Click"/>
-    &nbsp;
-    </div>
+    <div class="row">
+        <div class="col-lg-1 col-md-12" style="margin-top:10px" >
+            <asp:Label ID="lblBusca" runat="server"   Width="100%" Height="40px" Font-Size="X-Large" Text="Buscar:"></asp:Label>
+        </div>
+        <div class="col-lg-9 col-md-12">
+            <asp:TextBox ID="txtBuscar" runat="server" Width="100%" MaxLength="50" Height="40px" placeholder="Pesquisar..."></asp:TextBox>
+        </div>
+        <div class="col-lg-2 col-md-12">
+            <asp:Button ID="btnBuscar" runat="server" Text="Buscar" Width="100%" Font-Size="Large" class="btn btn-success" OnClick="btnBuscar_Click"/>
+        </div>
+    </div> 
     <div style="margin-top:10px">
-
         <asp:GridView ID="gridBusca" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="500px" DataKeyNames="ID">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
@@ -27,14 +31,16 @@
             <SortedDescendingCellStyle BackColor="#E9EBEF" />
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
-
-    </div>
-    <div style="margin-top:10px">
-
-        <asp:Button ID="brnCancelar" runat="server" CssClass="btn btn-primary" Text="Cancelar" OnClick="brnCancelar_Click" />
-&nbsp;<asp:Button ID="btnEditar" runat="server" CssClass="btn btn-primary" Text="Editar" OnClick="btnEditar_Click" />
-&nbsp;<asp:Button ID="btnRemover" runat="server" CssClass="btn btn-primary" Text="Remover" 
-    OnClientClick="return confirm('Deseja remover?');" OnClick="btnRemover_Click"/>
-
+    </div>   
+    <div class="row"> 
+        <div class="col-12 col-lg-4 row_buttons">
+            <asp:Button ID="brnCancelar" runat="server" CssClass="btn btn-primary" Text="Cancelar" OnClick="brnCancelar_Click" Width="100%" Font-Size="X-Large" />
+        </div>
+        <div class="col-12 col-lg-4 row_buttons">
+            <asp:Button ID="btnEditar" runat="server" CssClass="btn btn-primary" Text="Editar" OnClick="btnEditar_Click" Width="100%" Font-Size="X-Large" />
+        </div>
+        <div class="col-12 col-lg-4 row_buttons">        
+            <asp:Button ID="btnRemover" runat="server" CssClass="btn btn-primary" Text="Remover" OnClientClick="return confirm('Deseja remover?');" OnClick="btnRemover_Click" Width="100%" Font-Size="X-Large" />
+        </div>
     </div>
 </asp:Content>

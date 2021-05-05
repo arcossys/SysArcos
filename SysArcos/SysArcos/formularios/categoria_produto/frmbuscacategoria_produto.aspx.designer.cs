@@ -7,11 +7,13 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace SysArcos.formularios.categoria_produto {
-    
-    
-    public partial class frmbuscacategoria_produto {
-        
+namespace SysArcos.formularios.categoria_produto
+{
+
+
+    public partial class frmbuscacategoria_produto
+    {
+
         /// <summary>
         /// Controle lblBusca.
         /// </summary>
@@ -20,7 +22,7 @@ namespace SysArcos.formularios.categoria_produto {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblBusca;
-        
+
         /// <summary>
         /// Controle txtBuscar.
         /// </summary>
@@ -29,7 +31,7 @@ namespace SysArcos.formularios.categoria_produto {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBuscar;
-        
+
         /// <summary>
         /// Controle btnBuscar.
         /// </summary>
@@ -38,7 +40,7 @@ namespace SysArcos.formularios.categoria_produto {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBuscar;
-        
+
         /// <summary>
         /// Controle gridBusca.
         /// </summary>
@@ -47,7 +49,7 @@ namespace SysArcos.formularios.categoria_produto {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gridBusca;
-        
+
         /// <summary>
         /// Controle brnCancelar.
         /// </summary>
@@ -56,7 +58,7 @@ namespace SysArcos.formularios.categoria_produto {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button brnCancelar;
-        
+
         /// <summary>
         /// Controle btnEditar.
         /// </summary>
@@ -65,7 +67,7 @@ namespace SysArcos.formularios.categoria_produto {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEditar;
-        
+
         /// <summary>
         /// Controle btnRemover.
         /// </summary>
