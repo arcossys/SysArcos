@@ -15,12 +15,12 @@
 
     <div class="form-group" >
         <div class="row">
-        <div class="col-12 col-lg-4">
-        <asp:Label ID="lbl_user" runat="server" Text="Descrição:"></asp:Label>
-        <asp:TextBox ID="txt_descricao" class="form-control" runat="server" Width="100%" MaxLength="50" Height="40px"></asp:TextBox>       
-    </div>
-</div>
+            <div class="col-12 col-lg-4">
+                <asp:Label ID="lbl_user" runat="server" Text="Descrição:"></asp:Label>
+                <asp:TextBox ID="txt_descricao" class="form-control" runat="server" Width="100%" MaxLength="50" Height="40px"></asp:TextBox>       
+             </div>
         </div>
+    </div>
 
     <div>
         <asp:TreeView ID="tvPermissao" runat="server" ExpandDepth="0" ImageSet="Contacts" NodeIndent="10">
@@ -74,15 +74,15 @@
 
     <div class="row">
           <div class="col-12 col-lg-4 row_buttons"> 
-          <asp:Button ID="btnNovo" runat="server" class="btn btn-primary" Text="Novo" OnClick="btnNovo_Click" Width="100%" Font-Size="X-Large"/>
+            <asp:Button ID="btnNovo" runat="server" class="btn btn-primary" Text="Novo" OnClick="btnNovo_Click" Width="100%" Font-Size="X-Large"/>
           </div>
           
           <div class="col-12 col-lg-4 row_buttons">
-          <asp:Button ID="btn_cadastrar"  class="btn btn-primary" runat="server" Text="Salvar" OnClick="btn_cadastrar_Click" Width="100%" Font-Size="X-Large"/>
+            <asp:Button ID="btn_cadastrar"  class="btn btn-primary" runat="server" Text="Salvar" OnClick="btn_cadastrar_Click" Width="100%" Font-Size="X-Large"/>
           </div>
 
           <div class="col-12 col-lg-4 row_buttons">
-          <asp:Button ID="btn_buscar" class="btn btn-primary" runat="server" Text="Buscar" OnClick="btn_buscar_Click" Width="100%" Font-Size="X-Large"/>
+            <asp:Button ID="btn_buscar" class="btn btn-primary" runat="server" Text="Buscar" OnClick="btn_buscar_Click" Width="100%" Font-Size="X-Large"/>
           </div>
                      
     </div>

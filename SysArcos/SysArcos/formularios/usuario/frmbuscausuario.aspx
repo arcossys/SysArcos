@@ -2,30 +2,29 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="entidade">
+<div class="entidade">
     Buscar Usuários
 </div>
-<div>
+    <div>
     <div class="row">
                 <div class="col-12 col-lg-4">
-    <asp:Label ID="Label1" runat="server" Text="Filtro"></asp:Label>
-&nbsp;<asp:TextBox ID="txtBusca" runat="server" Width="100%" MaxLength="50" Height="40px"></asp:TextBox>
+                    <asp:Label ID="Label1" runat="server" Text="Filtro"></asp:Label>&nbsp;<asp:TextBox ID="txtBusca" runat="server" Width="100%" MaxLength="50" Height="40px"></asp:TextBox>
 
-<div class="col-12 col-lg-4 row_buttons">
-<asp:Button ID="btnBuscar" runat="server" class="btn btn-success" Text="Buscar" OnClick="btnBuscar_Click" Width="100%" Font-Size="X-Large" />
-                 </div>
-        </div>
+                    <div class="col-12 col-lg-4 row_buttons">
+                        <asp:Button ID="btnBuscar" runat="server" class="btn btn-success" Text="Buscar" OnClick="btnBuscar_Click" Width="100%" Font-Size="X-Large" />
+                    </div>
+                </div>
     </div>
 
 
     <br />
 
     <div class="col-12 col-lg-4 row_buttons">
-    <asp:RadioButton ID="rdNome" runat="server" Checked="True" GroupName="filtro" Text="Nome" Width="100%" Font-Size="X-Large" />
+        <asp:RadioButton ID="rdNome" runat="server" Checked="True" GroupName="filtro" Text="Nome" Width="100%" Font-Size="X-Large" />
     </div>
 
     <div class="col-12 col-lg-4 row_buttons">
-    <asp:RadioButton ID="rdLogin" runat="server" GroupName="filtro" Text="Login" Width="100%" Font-Size="X-Large" />
+        <asp:RadioButton ID="rdLogin" runat="server" GroupName="filtro" Text="Login" Width="100%" Font-Size="X-Large" />
     </div>
     <br />
 
@@ -69,19 +68,19 @@
     <br />
 <div class="row">
 
-<div class="col-12 col-lg-4 row_buttons">
-<asp:Button ID="btnCancelar" class="btn btn-primary" runat="server" Text="Cancelar" OnClick="btnCancelar_Click"  Width="100%" Font-Size="X-Large"/>
-</div>
+    <div class="col-12 col-lg-4 row_buttons">
+        <asp:Button ID="btnCancelar" class="btn btn-primary" runat="server" Text="Cancelar" OnClick="btnCancelar_Click"  Width="100%" Font-Size="X-Large"/>
+    </div>
 
- <div class="col-12 col-lg-4 row_buttons">
-<asp:Button ID="btnSelecionar" class="btn btn-primary" runat="server" Text="Editar" OnClick="btnSelecionar_Click"  Width="100%" Font-Size="X-Large" />
-  </div>
+    <div class="col-12 col-lg-4 row_buttons">
+        <asp:Button ID="btnSelecionar" class="btn btn-primary" runat="server" Text="Editar" OnClick="btnSelecionar_Click"  Width="100%" Font-Size="X-Large" />
+    </div>
 
-<div class="col-12 col-lg-4 row_buttons">
-<asp:Button ID="btnRemover" class="btn btn-primary" runat="server" Text="Remover" OnClick="btnRemover_Click" Width="100%" Font-Size="X-Large" />
-</div>
+    <div class="col-12 col-lg-4 row_buttons">
+        <asp:Button ID="btnRemover" class="btn btn-primary" runat="server" Text="Remover" OnClick="btnRemover_Click" Width="100%" Font-Size="X-Large" OnClientClick="return confirm('Deseja remover?');"/> />
+    </div>
 
-    <OnClientClick="return confirm('Deseja remover?');"/>
+    
 
 &nbsp;</div>
 </asp:Content>

@@ -35,13 +35,13 @@
        
         <div>
            
-		    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#ade9ed;">
+		    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#85cbde;">
 
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
                 <span class="navbar-toggler-icon " style="background-color:red;"> </span>
               </button>
 
-              <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color:#ade9ed;"> 
+              <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color:#85cbde;"> 
                 <ul class="navbar-nav mr-auto">     
                   
                     <li class="nav-item dropdown">
@@ -49,7 +49,7 @@
                           <b>Entidades</b>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/formularios/entidades/frmentidade.aspx">Entidade</a>
+                          <a class="dropdown-item" href="/formularios/entidades/frmentidade.aspx"><b>Entidade</b></a>
                         </div>
                     </li>
 
@@ -58,8 +58,8 @@
                           <b>Usuários </b>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/formularios/usuario/frmusuario.aspx">Usuário</a>
-                          <a class="dropdown-item" href="/formularios/grupopermissao/frmgrupopermissao.aspx">Grupo Permissão</a>
+                          <a class="dropdown-item" href="/formularios/usuario/frmusuario.aspx"><b>Usuário</b></a>
+                          <a class="dropdown-item" href="/formularios/grupopermissao/frmgrupopermissao.aspx"><b>Grupo Permissão</b></a>
                         </div>
                     </li>
 
@@ -68,8 +68,8 @@
                           <b>Eventos</b>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/formularios/evento/frmevento.aspx">Evento</a>
-                          <a class="dropdown-item" href="/formularios/tipoevento/frmtipoevento.aspx">Tipo Evento</a>
+                          <a class="dropdown-item" href="/formularios/evento/frmevento.aspx"><b>Evento</b></a>
+                          <a class="dropdown-item" href="/formularios/tipoevento/frmtipoevento.aspx"><b>Tipo Evento</b></a>
                         </div>
                     </li>
 
@@ -78,8 +78,8 @@
                           <b>Recursos</b>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/formularios/recurso/frmrecurso.aspx">Recurso</a>
-                          <a class="dropdown-item" href="/formularios/tiporecurso/frmtiporecurso.aspx">Tipo Recurso</a>
+                          <a class="dropdown-item" href="/formularios/recurso/frmrecurso.aspx"><b>Recurso</b></a>
+                          <a class="dropdown-item" href="/formularios/tiporecurso/frmtiporecurso.aspx"><b>Tipo Recurso</b></a>
                         </div>
                     </li>
 
@@ -88,8 +88,8 @@
                          <b>Fornecedores</b>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/formularios/fornecedor/frmfornecedor.aspx">Fornecedor</a>
-                          <a class="dropdown-item" href="/formularios/fornecimento/fornecimento.aspx">Fornecimento</a>
+                          <a class="dropdown-item" href="/formularios/fornecedor/frmfornecedor.aspx"><b>Fornecedor</b></a>
+                          <a class="dropdown-item" href="/formularios/fornecimento/fornecimento.aspx"><b>Fornecimento</b></a>
                         </div>
                     </li>
 
@@ -98,9 +98,9 @@
                          <b>Estoque</b>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/formularios/estoque/frmestoque.aspx">Estoque</a>
-                          <a class="dropdown-item" href="/formularios/produto/frmproduto.aspx">Produto</a>
-                          <a class="dropdown-item" href="/formularios/categoria_produto/frmcategoria_produto.aspx">Tipo Produto</a>
+                          <a class="dropdown-item" href="/formularios/estoque/frmestoque.aspx"><b>Estoque</b></a>
+                          <a class="dropdown-item" href="/formularios/produto/frmproduto.aspx"><b>Produto</b></a>
+                          <a class="dropdown-item" href="/formularios/categoria_produto/frmcategoria_produto.aspx"><b>Tipo Produto</b></a>
                         </div>
                     </li>
 
@@ -109,8 +109,8 @@
                          <b>Doações</b>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/formularios/doacao/frmdoacao.aspx">Doação</a>
-                          <a class="dropdown-item" href="/formularios/doador/frmdoador.aspx">Doador</a>
+                          <a class="dropdown-item" href="/formularios/doacao/frmdoacao.aspx"><b>Doação</b></a>
+                          <a class="dropdown-item" href="/formularios/doador/frmdoador.aspx"><b>Doador</b></a>
                         </div>
                     </li>
 
@@ -119,8 +119,8 @@
                          <b>Assistências</b>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/formularios/assistencia/frmassistencia.aspx">Assistência</a>
-                          <a class="dropdown-item" href="/formularios/assistido/frmassistido.aspx">Assistido</a>
+                          <a class="dropdown-item" href="/formularios/assistencia/frmassistencia.aspx"><b>Assistência</b></a>
+                          <a class="dropdown-item" href="/formularios/assistido/frmassistido.aspx"><b>Assistido</b></a>
                         </div>
                     </li>
 
@@ -129,9 +129,9 @@
                          <b>Voluntários</b>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/formularios/voluntario/frmvoluntario.aspx">Voluntários</a>
-                          <a class="dropdown-item" href="/formularios/Voluntariar/frmvoluntariar.aspx">Voluntariar</a>
-                          <a class="dropdown-item" href="/formularios/voluntariado/frmvoluntariado.aspx">Voluntariado</a>
+                          <a class="dropdown-item" href="/formularios/voluntario/frmvoluntario.aspx"><b>Voluntários</b></a>
+                          <a class="dropdown-item" href="/formularios/Voluntariar/frmvoluntariar.aspx"><b>Voluntariar</b></a>
+                          <a class="dropdown-item" href="/formularios/voluntariado/frmvoluntariado.aspx"><b>Voluntariado</b></a>
                         </div>
                     </li>
 

@@ -8,16 +8,29 @@
     <div>
 
         <asp:Label ID="Label1" runat="server" Text="Buscar"></asp:Label>
-&nbsp;<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-&nbsp;<asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-success" />
 
+<div class="row">
+    <div class="col-12 col-lg-4">
+        <asp:TextBox ID="TextBox1" runat="server" Width="100%" MaxLength="50" Height="40px"></asp:TextBox>
     </div>
+
+    <div class="col-12 col-lg-4 row_buttons"> 
+        <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-success" width="100%" Font-Size="X-Large" />
+    </div>
+
+</div>
     <div>
 
-        <asp:RadioButton ID="rbNome" runat="server" GroupName="filtro" Text="Nome" Checked="True" />
-&nbsp;<asp:RadioButton ID="rbDescricao" runat="server" GroupName="filtro" Text="Descrição" />
-
+<div class="row">
+    <div class="col-12 col-lg-4">
+        <asp:RadioButton ID="rbNome" runat="server" GroupName="filtro" Text="Nome" Checked="True" Width="100%" MaxLength="50" Height="40px"/>
     </div>
+
+    <div class="col-12 col-lg-4">
+        <asp:RadioButton ID="rbDescricao" runat="server" GroupName="filtro" Text="Descrição" Width="100%" MaxLength="50" Height="40px" />
+    </div>
+
+</div>
     <div>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" />
@@ -42,9 +55,19 @@
     </div>
     <div>
 
-        <asp:Button ID="btnCancelar" runat="server" CssClass="btn btn-primary" OnClick="btnCancelar_Click" Text="Cancelar" />
-&nbsp;<asp:Button ID="btnEditar" runat="server" CssClass="btn btn-primary" Text="Editar" />
-&nbsp;<asp:Button ID="btnRemover" runat="server" CssClass="btn btn-primary" Text="Remover" />
 
+<div class="row">
+    <div class="col-12 col-lg-4 row_buttons"> 
+        <asp:Button ID="btnCancelar" runat="server" CssClass="btn btn-primary" OnClick="btnCancelar_Click" Text="Cancelar" Width="100%" Font-Size="X-Large" />
     </div>
+
+    <div class="col-12 col-lg-4 row_buttons"> 
+        <asp:Button ID="btnEditar" runat="server" CssClass="btn btn-primary" Text="Editar" Width="100%" Font-Size="X-Large" />
+    </div>
+
+    <div class="col-12 col-lg-4 row_buttons"> 
+        <asp:Button ID="btnRemover" runat="server" CssClass="btn btn-primary" Text="Remover" Width="100%" Font-Size="X-Large" />
+    </div>
+
+</div>
 </asp:Content>
