@@ -2,57 +2,98 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="entidade">
-        Assistido
-    </div>
-    <div class="acao" >
-        <asp:Label ID="lblAcao" runat="server" Text="NOVO"></asp:Label>
-    </div> 
-
-            <div  >
-               <asp:Label ID="Label2" runat="server" Text="Nome:"></asp:Label>
-               <asp:TextBox ID="txtNomeAssistido" class="form-control"  runat="server" Width="300px" MaxLength="50" Height="30px"></asp:TextBox>
+    <div style="clear:both"></div>
+    <div class="areaformulario">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="entidade col">
+                    Assistido
+                </div>
             </div>
-
-
-            <div  >
-               <asp:Label ID="Label10" runat="server" Text="Apelido: "></asp:Label>
-               <asp:TextBox ID="txtApelido" class="form-control" runat="server" Width="195px" MaxLength="14" Height="30px"></asp:TextBox>
+        </div>
+        <div class="row">
+            <div class="acao col">
+                <asp:Label ID="lblAcao" runat="server" Text="NOVO"></asp:Label>
             </div>
-
-
-            <div  >
+        </div> 
+        <div class="row">
+            <div class="col-12 col-lg-10 row_fields">
+                    <asp:Label ID="Label2" runat="server" Text="Nome:"></asp:Label>
+            </div>
+            <div class="col-12 col-lg-4">
+                    <asp:TextBox ID="txtNomeAssistido" class="form-control"  runat="server" MaxLength="50"></asp:TextBox>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-10 row_fields">
+                    <asp:Label ID="Label10" runat="server" Text="Apelido: "></asp:Label>
+            </div>
+            <div class="col-12 col-lg-4">
+                    <asp:TextBox ID="txtApelido" class="form-control" runat="server" MaxLength="14"></asp:TextBox>
+            </div>
+        </div>
+		<div class="row">
+			<div class="col-12 col-lg-10 row_fields">
                <asp:Label ID="Label3" runat="server" Text="CPF:"></asp:Label>
-               <asp:TextBox ID="txtCPF"  class="form-control" runat="server" Width="300px" MaxLength="50" Height="30px"  Placeholder="999.999.999-99"  onkeydown="mascara( this,CPF  );"></asp:TextBox>
-            </div>
-
-            <div   >
+			</div>
+			<div class="col-12 col-lg-4">
+               <asp:TextBox ID="txtCPF"  class="form-control" runat="server" MaxLength="50"  Placeholder="999.999.999-99"  onkeydown="mascara( this,CPF  );"></asp:TextBox>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-lg-10 row_fields">
                <asp:Label ID="Label4" runat="server" Text="Data de Nascimento:"></asp:Label>
-               <asp:TextBox ID="txtDataNascimento" class="form-control" runat="server" Width="180px" MaxLength="10" Height="30px"  Placeholder="DD/MM/AAAA" TextMode="Date"></asp:TextBox>         
-            </div>
-
-            <div  >
+			</div>
+			<div class="col-12 col-lg-4">
+               <asp:TextBox ID="txtDataNascimento" class="form-control" runat="server" MaxLength="10"  Placeholder="DD/MM/AAAA" TextMode="Date"></asp:TextBox>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-lg-10 row_fields">
                <asp:Label ID="Label5" runat="server" Text="Logradouro:" ToolTip="  "></asp:Label>
-               <asp:TextBox ID="txtLogradouro" class="form-control" runat="server" Width="300px" MaxLength="30" Height="30px"></asp:TextBox>
-            </div>
-
-            <div  >
+			</div>
+			<div class="col-12 col-lg-4">
+               <asp:TextBox ID="txtLogradouro" class="form-control" runat="server" MaxLength="30"></asp:TextBox>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-lg-10 row_fields">
                <asp:Label ID="Label12" runat="server" Text="Número:" ToolTip="  "></asp:Label>
-               <asp:TextBox ID="txtNumero" class="form-control" runat="server" Width="300px" MaxLength="30" Height="30px"></asp:TextBox>
+			</div>
+			<div class="col-12 col-lg-4">
+               <asp:TextBox ID="txtNumero" class="form-control" runat="server" MaxLength="30"></asp:TextBox>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-lg-10 row_fields">
                <asp:Label ID="Label13" runat="server" Text="Bairro:" ToolTip="  "></asp:Label>
-               <asp:TextBox ID="txtBairro" class="form-control" runat="server" Width="300px" MaxLength="30" Height="30px"></asp:TextBox>
+			</div>
+			<div class="col-12 col-lg-4">
+               <asp:TextBox ID="txtBairro" class="form-control" runat="server" MaxLength="30"></asp:TextBox>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-lg-10 row_fields">
                <asp:Label ID="Label6" runat="server" Text="CEP:"></asp:Label>
-               <asp:TextBox ID="txtCEP" class="form-control" runat="server" MaxLength="9" Height="30px" Width="300px"  Placeholder="99999-999"  onkeydown="mascara( this,CEP  );"></asp:TextBox>
-            </div>
-
-             <div   >
+			</div>
+			<div class="col-12 col-lg-4">
+               <asp:TextBox ID="txtCEP" class="form-control" runat="server" MaxLength="9"  Placeholder="99999-999"  onkeydown="mascara( this,CEP  );"></asp:TextBox>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-lg-10 row_fields">
                <asp:Label ID="Label7" runat="server" Text="Cidade:"></asp:Label>
-               <asp:TextBox ID="txtCidade" class="form-control" runat="server" MaxLength="40" Height="30px" Width="300px"></asp:TextBox>
-             </div>
-
-              <div   >
+			</div>
+			<div class="col-12 col-lg-4">
+               <asp:TextBox ID="txtCidade" class="form-control" runat="server" MaxLength="40"></asp:TextBox>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-lg-10 row_fields">
                 <asp:Label ID="Label8" runat="server" Text="Estado:"></asp:Label>
-                <asp:DropDownList ID="drpEstado" class="form-control" runat="server" Height="30px" Width="300px">
+			</div>
+			<div class="col-12 col-lg-4">
+                <asp:DropDownList ID="drpEstado" class="form-control" runat="server">
                    <asp:ListItem></asp:ListItem>
                    <asp:ListItem>AC</asp:ListItem>
                    <asp:ListItem>AL</asp:ListItem>
@@ -82,20 +123,38 @@
                    <asp:ListItem>SE</asp:ListItem>
                    <asp:ListItem>TO</asp:ListItem>
                 </asp:DropDownList>
-              </div>
-
-             <div   >
-                 Parentesco do Assistido:<asp:TextBox ID="txtParentescoAssistido"  class="form-control" runat="server" MaxLength="50" Width="300px" Height="30px"></asp:TextBox>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-lg-10 row_fields">
+                Parentesco do Assistido:
+			</div>
+			<div class="col-12 col-lg-4">
+                 <asp:TextBox ID="txtParentescoAssistido"  class="form-control" runat="server" MaxLength="50"></asp:TextBox>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-lg-10 row_fields">
                  Assistido Responsável<br />
-                 <asp:TextBox ID="txtIDResponsavelAssistido" runat="server" Width="300px" class="form-control" Height="30px"></asp:TextBox>
-               
-             </div>
-                <br />
-
-                <div>
-                     &nbsp;<asp:Button ID="btnNovo" runat="server" class="btn btn-primary" Text="Novo" OnClick="btnNovo_Click" />
-&nbsp;<asp:Button ID="btn_cadastrar"  class="btn btn-primary" runat="server" Text="Salvar" OnClick="btn_cadastrar_Click" />
-                     &nbsp;<asp:Button ID="btn_buscar" class="btn btn-primary" runat="server" Text="Buscar" OnClick="btn_buscar_Click" />
-                 </div>
-
+			</div>
+			<div class="col-12 col-lg-4">
+                 <asp:TextBox ID="txtIDResponsavelAssistido" runat="server" class="form-control"></asp:TextBox>
+			</div>
+		</div>
+        <br />
+	    <div class="row">
+		    <div class="col-12 col-lg-4 row_buttons"> 
+                &nbsp;<asp:Button ID="btnNovo" runat="server" class="btn btn-primary" Text="Novo" OnClick="btnNovo_Click" Width="100%" font-size="x-large"/>
+		    </div>
+		    <div class="col-12 col-lg-4 row_buttons">
+			    &nbsp;<asp:Button ID="btn_cadastrar"  class="btn btn-primary" runat="server" Text="Salvar" OnClick="btn_cadastrar_Click" Width="100%" font-size="x-large"/>
+		    </div>
+		    <div class="col-12 col-lg-4 row_buttons">
+			    &nbsp;<asp:Button ID="btn_buscar" class="btn btn-primary" runat="server" Text="Buscar" OnClick="btn_buscar_Click" width="100%" font-size="x-large"/>
+		    </div>
+		    <br/>
+		    <br/>
+		    <br/>            	
+	    </div>
+    </div>
 </asp:Content>
