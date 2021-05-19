@@ -11,10 +11,9 @@
     <br />
     <br />
     <asp:RadioButton ID="rd_entidade" runat="server" Text="Entidade" GroupName="tipo" />
-&nbsp;<asp:RadioButton ID="rd_datainicial" runat="server" Text="Data Inicial (dd/mm/aaaa)" GroupName="tipo" />
-&nbsp;<asp:RadioButton ID="rd_descricao" runat="server" Text="Descrição" GroupName="tipo" />
+    &nbsp;<asp:RadioButton ID="rd_datainicial" runat="server" Text="Data Inicial (dd/mm/aaaa)" GroupName="tipo" />
+    &nbsp;<asp:RadioButton ID="rd_descricao" runat="server" Text="Descrição" GroupName="tipo" />
     <br /> 
-
     <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataKeyNames="ID" ShowHeaderWhenEmpty="True">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
@@ -36,10 +35,9 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
-
     <br />
     <asp:Button ID="btn_Selecionar" runat="server" class="btn btn-primary" Text="Alterar" OnClick="btn_Selecionar_Click" />
-&nbsp;<asp:Button ID="btn_Cancelar" runat="server" class="btn btn-primary" Text="Cancelar" OnClick="btn_Cancelar_Click" />
-&nbsp;<asp:Button ID="btn_Remover" runat="server" class="btn btn-primary" Text="Remover" OnClick="btn_Remover_Click" 
+    &nbsp;<asp:Button ID="btn_Cancelar" runat="server" class="btn btn-primary" Text="Cancelar" OnClick="btn_Cancelar_Click" />
+    &nbsp;<asp:Button ID="btn_Remover" runat="server" class="btn btn-primary" Text="Remover" OnClick="btn_Remover_Click" 
     OnClientClick="return confirm('Deseja remover?');"/>
 </asp:Content>
