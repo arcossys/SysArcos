@@ -2,15 +2,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="row">
-        <div class="col-lg-1 col-md-12" style="margin-top:10px" >
-            <asp:Label ID="lblBusca" runat="server"   Width="100%" Height="40px" Font-Size="X-Large" Text="Buscar:"></asp:Label>
-        </div>
-        <div class="col-lg-9 col-md-12">
-            <asp:TextBox ID="txtBuscar" runat="server" Width="100%" MaxLength="50" Height="40px" placeholder="Pesquisar..."></asp:TextBox>
-        </div>
-        <div class="col-lg-2 col-md-12">
-            <asp:Button ID="btnBuscar" runat="server" Text="Buscar" Width="100%" Font-Size="Large" class="btn btn-success" OnClick="btnBuscar_Click"/>
+    <div class="row">        
+        <div class="col-8 col-lg-5">
+            <div class="input-group">
+               <div class="input-group-prepend">
+                 <span class="input-group-text" id="">Filtro</span>
+                </div>
+                 <asp:TextBox ID="txtBusca" runat="server" class="form-control"></asp:TextBox>
+             </div>
+         </div>  
+         <div class="col-4 col-lg-2">
+            <asp:Button ID="btnBuscar" Width="100%" runat="server" class="btn btn-success" Text="Buscar" OnClick="btnBuscar_Click"/>
         </div>
     </div> 
     <div style="margin-top:10px">

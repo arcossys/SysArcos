@@ -19,7 +19,7 @@
             <asp:Label ID="Label2" runat="server" Text="Doador"></asp:Label>
         </div>
         <div class="col-12 col-lg-4">
-            <asp:DropDownList ID="DropDownList2" runat="server" CssClass="form-control" Width="100%">
+            <asp:DropDownList ID="DropDownList2" runat="server" CssClass="form-control" Width="100%" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
             </asp:DropDownList>
         </div>
     </div>

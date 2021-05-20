@@ -15,7 +15,7 @@
                 <asp:TextBox ID="txtBusca" runat="server" class="form-control"></asp:TextBox>
             </div>
         </div>
-        <div class="col-4 col-lg-1">
+        <div class="col-4 col-lg-2">
             <asp:Button ID="btnBuscar" Width="100%" runat="server" class="btn btn-success" Text="Buscar" OnClick="btnBuscar_Click" />
         </div>
     </div>

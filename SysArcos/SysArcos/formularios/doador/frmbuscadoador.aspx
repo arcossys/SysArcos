@@ -6,22 +6,36 @@
         Buscar Doadores
     </div>
     <div class="row">
-        <div class="col-md-12 col-lg-1 row_fields">
-            <asp:Label ID="Label1" runat="server" Width="100%" Text="Filtro:"></asp:Label>
-        </div>
-        <div class="col-lg-9 col-md-12">
-            <asp:TextBox ID="txtbusca" Width="100%" Height="40px" runat="server"></asp:TextBox>
-        </div>
-        <div class="col-lg-2 col-md-12">
-            <asp:Button ID="btnbuscar" runat="server" class="btn btn-success" Width="100%" Text="Buscar" OnClick="btnbuscar_Click" />
+        <div class="col-8 col-lg-5">
+           <div class="input-group">
+                <div class="input-group-prepend">
+                <span class="input-group-text" id="">Filtro</span>
+            </div>
+                 <asp:TextBox ID="txtbusca" runat="server" class="form-control"></asp:TextBox>
+              </div>
+         </div>
+        <div class="col-4 col-lg-2">
+           <asp:Button ID="btnbuscar" runat="server" class="btn btn-success" Width="100%" Text="Buscar" OnClick="btnbuscar_Click" /> 
         </div>
     </div>
-    <br/>
-    <div>
-        <asp:RadioButton ID="rdnome" runat="server" Text="Nome" GroupName="filtro" />
-        <asp:RadioButton ID="rdcidade" runat="server" Text="Cidade" GroupName="filtro" />
-        <asp:RadioButton ID="rdtipodoaçao" runat="server" Text="Tipo de doação" GroupName="filtro" />
-    </div>
+    <br/> 
+     <br/>
+    <div class="row">
+        <div  class="col-12 col-lg-6 row_fields">
+              <fieldset class="border p-2 border-primary">
+                   <div class="form-check">
+                         <asp:RadioButton ID="rdcidade" runat="server" Text="Cidade" GroupName="filtro" />
+                   </div>
+                    <div class="form-check">
+                        <asp:RadioButton ID="rdtipodoaçao" runat="server" Text="Tipo de doação" GroupName="filtro" />
+                     </div>
+                   <div class="form-check">
+                        <asp:RadioButton ID="rdnome" runat="server" Text="Nome" GroupName="filtro" />
+                   </div>
+                   
+                 </fieldset>
+            </div>      
+      </div>
     <br/>
     <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataKeyNames="ID">
         <AlternatingRowStyle BackColor="White" />

@@ -7,20 +7,13 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace ProjetoArcos {
-    
-    
-    public partial class frmbusca {
-        
-        /// <summary>
-        /// Controle Label1.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
+namespace ProjetoArcos
+{
+
+
+    public partial class frmbusca
+    {
+
         /// <summary>
         /// Controle txtbusca.
         /// </summary>
@@ -29,7 +22,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtbusca;
-        
+
         /// <summary>
         /// Controle btnbuscar.
         /// </summary>
@@ -38,16 +31,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnbuscar;
-        
-        /// <summary>
-        /// Controle rdnome.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdnome;
-        
+
         /// <summary>
         /// Controle rdcidade.
         /// </summary>
@@ -56,7 +40,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton rdcidade;
-        
+
         /// <summary>
         /// Controle rdtipodoaçao.
         /// </summary>
@@ -65,7 +49,16 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton rdtipodoaçao;
-        
+
+        /// <summary>
+        /// Controle rdnome.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdnome;
+
         /// <summary>
         /// Controle grid.
         /// </summary>
@@ -74,7 +67,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grid;
-        
+
         /// <summary>
         /// Controle btncancelar.
         /// </summary>
@@ -83,7 +76,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btncancelar;
-        
+
         /// <summary>
         /// Controle btnselecionar.
         /// </summary>
@@ -92,7 +85,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnselecionar;
-        
+
         /// <summary>
         /// Controle btnremover.
         /// </summary>

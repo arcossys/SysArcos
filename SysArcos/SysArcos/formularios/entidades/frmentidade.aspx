@@ -100,7 +100,7 @@
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="drpEstado" ErrorMessage="Estado Vazio" ForeColor="#FF3300" ValidationGroup="form">*</asp:RequiredFieldValidator>
             </div>
             <div class="col-12 col-lg-4">
-                <asp:DropDownList ID="drpEstado" class="form-control" runat="server" Height="40px" Width="100%" ValidationGroup="form" CssClass="form-control">
+                <asp:DropDownList ID="drpEstado" class="form-control" runat="server" Height="40px" Width="100%" ValidationGroup="form" CssClass="form-control" >
                 <asp:ListItem></asp:ListItem>
                 <asp:ListItem>AC</asp:ListItem>
                 <asp:ListItem>AL</asp:ListItem>

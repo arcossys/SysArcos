@@ -15,22 +15,13 @@ namespace SysArcos.formularios.categoria_produto
     {
 
         /// <summary>
-        /// Controle lblBusca.
+        /// Controle txtBusca.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBusca;
-
-        /// <summary>
-        /// Controle txtBuscar.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBuscar;
+        protected global::System.Web.UI.WebControls.TextBox txtBusca;
 
         /// <summary>
         /// Controle btnBuscar.
