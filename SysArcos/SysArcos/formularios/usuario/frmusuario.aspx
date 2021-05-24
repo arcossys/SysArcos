@@ -12,27 +12,27 @@
                     <asp:Label ID="lblAcao" runat="server" Text="NOVO"></asp:Label>
                 </div>
     </div>        
-    <div class="form-group" >  
-    </div>               
-              
+    <div class="form-group" >                               
               <div class="row">
                   <div class="col-12 col-lg-4">
                     <asp:Label ID="lbl_user" runat="server" Text="Usuário:"></asp:Label>
                     <asp:TextBox ID="txt_user" class="form-control" runat="server" Width="100%" MaxLength="50" Height="40px" ValidationGroup="form"></asp:TextBox>
                   </div>
               </div>
+        </div>
+
             <div class="form-group" >
-                 <div class="row">
+             <div class="row">
             <div class="col-12 col-lg-4">
               <asp:Label ID="lbl_senha" runat="server" Text="Senha:"></asp:Label>
-              <asp:TextBox ID="txt_senhaUsuario"  type="password" class="form-control" runat="server" MaxLength="50" Placeholder="max: 8 dig" Width="100%" Height="40px"></asp:TextBox>     
+              <asp:TextBox ID="txt_senhaUsuario"  type="password" class="form-control" runat="server" MaxLength="8" Placeholder="max: 8 dig" Width="100%" Height="40px"></asp:TextBox>     
 
             </div>
                   </div>
              </div>
 
              <div class="form-group" >  
-                    <div class="row">
+             <div class="row">
              <div class="col-12 col-lg-4">
                  <asp:Label ID="lbl_nomeUsuario" runat="server" Text="Nome:"></asp:Label>
                  <asp:TextBox ID="txt_nomeUsuario" class="form-control" runat="server" Width="100%" MaxLength="50" Height="40px" ValidationGroup="form"></asp:TextBox>                
@@ -46,7 +46,9 @@
                 <div class="col-12 col-lg-4">
                    <asp:Label ID="lbl_cpf" runat="server" Text="CPF:"></asp:Label>
                    &nbsp;<asp:RegularExpressionValidator ID="revCPF" runat="server" ControlToValidate="txt_cpf" ErrorMessage="Formato de CPF inválido" ForeColor="Red" ValidationExpression="[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}"></asp:RegularExpressionValidator>
-                   <asp:TextBox ID="txt_cpf" class="form-control" runat="server" MaxLength="50" Placeholder="999.999.999-99" Width="100%"  onkeydown="mascara( this,CPF  );"></asp:TextBox>               </div>
+                   <asp:TextBox ID="txt_cpf" class="form-control" runat="server" MaxLength="50" Placeholder="999.999.999-99" Width="100%"  onkeydown="mascara( this,CPF  );"></asp:TextBox> 
+
+                </div>
                      </div>
                 </div>
 
@@ -67,13 +69,12 @@
                      <asp:DropDownList ID="ddlPermissao" runat="server" class="form-control" WMaxLength="50" Width="100%">
                      </asp:DropDownList>
                  </div>
-                <div>
-                    </div>
+                </div>
                          </div>
 
                     <asp:CheckBox ID="ckAdministrador" runat="server" Text="Administrador" />
 
-                </div>
+                
                  <div>
                     <asp:CheckBox ID="CB_ativo" type="checkbox" runat="server" BorderColor="Black" Checked="True" Text="Ativo" />                
                  </div>

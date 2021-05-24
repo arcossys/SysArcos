@@ -11,8 +11,16 @@ namespace ProjetoArcos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string Data_Atual = DateTime.Today.ToString();
             if (!IsPostBack)
-            {
+            {       if (txtDataInicio.Text != Data_Atual)
+                {
+                    btnSalvar.Enabled = true;
+                }
+            else
+                {
+                    btnSalvar.Enabled = false;
+                }
                     carregarEntidade();
                     carregaTipoEvento();
             }
@@ -47,6 +55,15 @@ namespace ProjetoArcos
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             Response.Redirect("frmbuscaevento.aspx");
+        }
+
+        protected void txtDataInicio_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void btnSalvar_Click(object sender, EventArgs e)
+        {       
         }
     }
 }

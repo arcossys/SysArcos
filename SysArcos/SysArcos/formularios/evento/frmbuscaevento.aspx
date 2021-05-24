@@ -5,7 +5,7 @@
     <div class="entidade">
         Buscar Eventos
     </div>
-    <div>
+    
 
         <asp:Label ID="Label1" runat="server" Text="Buscar"></asp:Label>
 
@@ -15,12 +15,11 @@
     </div>
 
     <div class="col-12 col-lg-4 row_buttons"> 
-        <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-success" width="100%" Font-Size="X-Large" />
+        <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-success" width="100%" Font-Size="X-Large" OnClick="btnBuscar_Click" />
     </div>
 
 </div>
-    <div>
-
+    
 <div class="row">
     <div class="col-12 col-lg-4">
         <asp:RadioButton ID="rbNome" runat="server" GroupName="filtro" Text="Nome" Checked="True" Width="100%" MaxLength="50" Height="40px"/>
@@ -35,11 +34,11 @@
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:BoundField HeaderText="Entidade" />
-                <asp:BoundField HeaderText="Nome" />
-                <asp:BoundField HeaderText="Descrição" />
-                <asp:BoundField HeaderText="Data Início" />
-                <asp:BoundField HeaderText="Data Fim" />
+                <asp:BoundField HeaderText="Entidade" DataField="ENTIDADE.NOME" />
+                <asp:BoundField HeaderText="Nome" DataField="NOME" />
+                <asp:BoundField HeaderText="Descrição" DataField="DESCRICAO" />
+                <asp:BoundField HeaderText="Data Início" DataField="DATA_HORA_INICIO" />
+                <asp:BoundField HeaderText="Data Fim" DataField="DATA_HORA_TERMINO" />
             </Columns>
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

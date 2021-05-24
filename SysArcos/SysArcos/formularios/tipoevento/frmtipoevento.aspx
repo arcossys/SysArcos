@@ -13,19 +13,23 @@
     <div>
         <asp:Label ID="lblID" runat="server" Visible="False"></asp:Label>
     </div>
-    
+
+<div class="form-group">   
 <div class="row">
     <div class="col-12 col-lg-4">
         <asp:Label ID="lblTipoEvento" runat="server" Text="Tipo de Evento"></asp:Label>
         <asp:TextBox ID="txtTipoEvento" runat="server"  OnTextChanged="TextBox1_TextChanged" Width="100%" MaxLength="50" Height="40px" CssClass="form-control"></asp:TextBox>
     </div> 
 </div>
+</div>
 
+<div class="form-group" >
 <div class="row">
     <div class="col-12 col-lg-4">
         <asp:Label ID="lblDescricao" runat="server" Text="Descrição"></asp:Label>
         <asp:TextBox ID="txtDescricaoEvento" runat="server" Width="100%" MaxLength="50" Height="40px" CssClass="form-control"></asp:TextBox>
     </div>
+</div>
 </div>
     <br />
     <div>

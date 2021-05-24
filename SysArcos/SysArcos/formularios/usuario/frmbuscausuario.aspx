@@ -31,7 +31,7 @@
 </div>
 <div>
 
-    <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataKeyNames="LOGIN" ShowHeaderWhenEmpty="True" PageSize="20" AllowPaging="True" OnPageIndexChanging="grid_PageIndexChanging">
+    <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataKeyNames="LOGIN" ShowHeaderWhenEmpty="True" PageSize="20" AllowPaging="True" OnPageIndexChanging="grid_PageIndexChanging" OnSelectedIndexChanged="grid_SelectedIndexChanged">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField HeaderText="Nome" DataField="NOME" />
@@ -77,7 +77,7 @@
     </div>
 
     <div class="col-12 col-lg-4 row_buttons">
-        <asp:Button ID="btnRemover" class="btn btn-primary" runat="server" Text="Remover" OnClick="btnRemover_Click" Width="100%" Font-Size="X-Large" OnClientClick="return confirm('Deseja remover?');"/> />
+        <asp:Button ID="btnRemover" class="btn btn-primary" runat="server" Text="Remover" OnClick="btnRemover_Click" Width="100%" Font-Size="X-Large" OnClientClick="return confirm('Deseja remover?);"/> />
     </div>
 
     
