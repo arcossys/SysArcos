@@ -50,7 +50,7 @@
 
               <br />
               <br />
-                <asp:Label ID="Label1" runat="server" Text="Versão 0.91"></asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="Versão 0.911"></asp:Label>
                 </form>
             </div>
        </div>    
