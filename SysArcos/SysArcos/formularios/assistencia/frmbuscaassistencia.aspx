@@ -25,14 +25,8 @@
                 <div class="form-check">
                     <asp:RadioButton ID="rdNome" runat="server" Checked="True" GroupName="filtro"
                         CssClass="form-check-input"/>
-                    <asp:Label ID="lblRdNome" Text="Nome" runat="server"
+                    <asp:Label ID="lblRdDescricao" Text="Descrição" runat="server"
                         CssClass="form-check-label" for="rdNome"></asp:Label>
-                </div>
-                <div class="form-check">
-                    <asp:RadioButton ID="rdLogin" runat="server" GroupName="filtro"
-                        CssClass="form-check-input"/>
-                    <asp:Label ID="lblRgLogin" Text="Login" runat="server"
-                        CssClass="form-check-label" for="rLogin"></asp:Label>
                 </div>
             </fieldset>
         </div>

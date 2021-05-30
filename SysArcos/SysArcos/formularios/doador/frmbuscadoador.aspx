@@ -18,8 +18,7 @@
            <asp:Button ID="btnbuscar" runat="server" class="btn btn-success" Width="100%" Text="Buscar" OnClick="btnbuscar_Click" /> 
         </div>
     </div>
-    <br/> 
-     <br/>
+
     <div class="row">
         <div  class="col-12 col-lg-6 row_fields">
               <fieldset class="border p-2 border-primary">

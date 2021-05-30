@@ -24,22 +24,22 @@ namespace SysArcos.formularios.doacao
         protected global::System.Web.UI.WebControls.TextBox txtBusca;
 
         /// <summary>
-        /// Controle Button4.
+        /// Controle btnBuscar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button4;
+        protected global::System.Web.UI.WebControls.Button btnBuscar;
 
         /// <summary>
-        /// Controle rdNome.
+        /// Controle rdDescricao.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdNome;
+        protected global::System.Web.UI.WebControls.RadioButton rdDescricao;
 
         /// <summary>
         /// Controle lblRdNome.
@@ -51,57 +51,57 @@ namespace SysArcos.formularios.doacao
         protected global::System.Web.UI.WebControls.Label lblRdNome;
 
         /// <summary>
-        /// Controle rdLogin.
+        /// Controle rdData.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdLogin;
+        protected global::System.Web.UI.WebControls.RadioButton rdData;
 
         /// <summary>
-        /// Controle lblRgLogin.
+        /// Controle lblData.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRgLogin;
+        protected global::System.Web.UI.WebControls.Label lblData;
 
         /// <summary>
-        /// Controle GridView1.
+        /// Controle gridBusca.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView gridBusca;
 
         /// <summary>
-        /// Controle Button1.
+        /// Controle btnCancelar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnCancelar;
 
         /// <summary>
-        /// Controle Button2.
+        /// Controle btnEditar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button btnEditar;
 
         /// <summary>
-        /// Controle Button3.
+        /// Controle btnRemover.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.Button btnRemover;
     }
 }

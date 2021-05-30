@@ -53,7 +53,7 @@
             <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary" Font-Size="X-Large" Width="100%" Text="Novo" />
         </div>
         <div class="col-12 col-lg-4 row_buttons">
-            <asp:Button ID="Button2" runat="server" CssClass="btn btn-primary" Font-Size="X-Large" Width="100%" Text="Salvar" />
+            <asp:Button ID="Button2" runat="server" CssClass="btn btn-primary" Font-Size="X-Large" Width="100%" Text="Salvar" OnClick="Button2_Click" />
         </div>
         <div class="col-12 col-lg-4 row_buttons">
             <asp:Button ID="Button3" runat="server" CssClass="btn btn-primary" Font-Size="X-Large" Width="100%" Text="Buscar" OnClick="Button3_Click" />

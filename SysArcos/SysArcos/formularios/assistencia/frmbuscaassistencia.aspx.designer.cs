@@ -42,31 +42,13 @@ namespace ProjetoArcos
         protected global::System.Web.UI.WebControls.RadioButton rdNome;
 
         /// <summary>
-        /// Controle lblRdNome.
+        /// Controle lblRdDescricao.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRdNome;
-
-        /// <summary>
-        /// Controle rdLogin.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdLogin;
-
-        /// <summary>
-        /// Controle lblRgLogin.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRgLogin;
+        protected global::System.Web.UI.WebControls.Label lblRdDescricao;
 
         /// <summary>
         /// Controle grid.

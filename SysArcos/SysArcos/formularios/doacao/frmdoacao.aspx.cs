@@ -52,6 +52,10 @@ namespace SysArcos.formularios.doacao
             Response.Redirect("frmbuscadoacao.aspx");
         }
 
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
         

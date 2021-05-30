@@ -16,7 +16,7 @@
         </div>
     </div> 
     <div style="margin-top:10px">
-        <asp:GridView ID="gridBusca" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="500px" DataKeyNames="ID">
+        <asp:GridView ID="gridBusca" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataKeyNames="ID">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="DESCRICAO" HeaderText="Tipos Produtos" />

@@ -15,29 +15,29 @@
             </div>
         </div>        
         <div class="col-4 col-lg-2">
-            <asp:Button ID="Button4" runat="server"  Font-Size="Larger" width="100%" Text="Buscar" CssClass="btn btn-success" />
+            <asp:Button ID="btnBuscar" runat="server"  Font-Size="Larger" width="100%" Text="Buscar" CssClass="btn btn-success" OnClick="btnBuscar_Click" />
         </div>
     </div>  
     <div class="row">
         <div  class="col-12 col-lg-6 row_fields">
             <fieldset class="border p-2 border-primary">
                 <div class="form-check">
-                    <asp:RadioButton ID="rdNome" runat="server" Checked="True" GroupName="filtro"
+                    <asp:RadioButton ID="rdDescricao" runat="server" Checked="True" GroupName="filtro"
                         CssClass="form-check-input"/>
-                    <asp:Label ID="lblRdNome" Text="Nome" runat="server"
+                    <asp:Label ID="lblRdNome" Text="Descrição" runat="server"
                         CssClass="form-check-label" for="rdNome"></asp:Label>
                 </div>
                 <div class="form-check">
-                    <asp:RadioButton ID="rdLogin" runat="server" GroupName="filtro"
+                    <asp:RadioButton ID="rdData" runat="server" GroupName="filtro"
                         CssClass="form-check-input"/>
-                    <asp:Label ID="lblRgLogin" Text="Login" runat="server"
+                    <asp:Label ID="lblData" Text="Data" runat="server"
                         CssClass="form-check-label" for="rLogin"></asp:Label>
                 </div>
             </fieldset>
         </div>
     </div>
     <div>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+        <asp:GridView ID="gridBusca" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
             <%--<AlternatingRowStyle BackColor="White" />--%>
             <Columns>
                 <asp:BoundField HeaderText="Entidade" />
@@ -59,13 +59,13 @@
     <br/>
     <div class="row">        
         <div class="col-12 col-lg-4 row_buttons">    
-            <asp:Button ID="Button1" runat="server" Text="Cancelar"  CssClass="btn btn-primary" OnClick="Button1_Click" Width="100%" Font-Size="X-Large" />
+            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar"  CssClass="btn btn-primary" OnClick="btnCancelar_Click" Width="100%" Font-Size="X-Large" />
         </div>
         <div class="col-12 col-lg-4 row_buttons">   
-            <asp:Button ID="Button2" runat="server" Text="Editar" CssClass="btn btn-primary" Width="100%" Font-Size="X-Large" />
+            <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-primary" Width="100%" Font-Size="X-Large" />
         </div>
         <div class="col-12 col-lg-4 row_buttons">       
-            <asp:Button ID="Button3" runat="server" Text="Remover" CssClass="btn btn-primary" Width="100%" Font-Size="X-Large" />
+            <asp:Button ID="btnRemover" runat="server" Text="Remover" CssClass="btn btn-primary" Width="100%" Font-Size="X-Large" />
         </div>
     </div>
 </asp:Content>
