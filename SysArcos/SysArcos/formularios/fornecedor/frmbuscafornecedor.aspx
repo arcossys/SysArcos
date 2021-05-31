@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="frmbuscafornecedor.aspx.cs" Inherits="SysArcos.frmbuscafornecedor" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -40,9 +41,9 @@
     <div>
 
         <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="btn btn-primary" OnClick="btnCancelar_Click" />
-&nbsp;<asp:Button ID="btnSelecionar" runat="server" Text="Editar" CssClass="btn btn-primary" />
-&nbsp;<asp:Button ID="btnRemover" runat="server" Text="Remover" CssClass="btn btn-primary" 
-    OnClientClick="return confirm('Deseja remover?');"/>
+        &nbsp;<asp:Button ID="btnSelecionar" runat="server" Text="Editar" CssClass="btn btn-primary" />
+        &nbsp;<asp:Button ID="btnRemover" runat="server" Text="Remover" CssClass="btn btn-primary"
+            OnClientClick="return confirm('Deseja remover?');" />
 
     </div>
 </asp:Content>

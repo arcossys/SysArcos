@@ -7,11 +7,13 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace ProjetoArcos {
-    
-    
-    public partial class frmbuscatipoevento {
-        
+namespace ProjetoArcos
+{
+
+
+    public partial class frmbuscatipoevento
+    {
+
         /// <summary>
         /// Controle lblBuscar.
         /// </summary>
@@ -20,7 +22,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblBuscar;
-        
+
         /// <summary>
         /// Controle txtBusca.
         /// </summary>
@@ -29,7 +31,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBusca;
-        
+
         /// <summary>
         /// Controle btnBuscar.
         /// </summary>
@@ -38,7 +40,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBuscar;
-        
+
         /// <summary>
         /// Controle rdbLista.
         /// </summary>
@@ -47,7 +49,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rdbLista;
-        
+
         /// <summary>
         /// Controle grid.
         /// </summary>
@@ -56,7 +58,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grid;
-        
+
         /// <summary>
         /// Controle btnCancelar.
         /// </summary>
@@ -65,7 +67,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
-        
+
         /// <summary>
         /// Controle btnAlterar.
         /// </summary>
@@ -74,7 +76,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAlterar;
-        
+
         /// <summary>
         /// Controle btnRemover.
         /// </summary>

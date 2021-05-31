@@ -34,3 +34,11 @@ function FONE(fone) {
     fone = fone.replace(/(\d{2})(\d)/, "$1 $2")
     return fone
 }
+
+function DATA(data) {
+    data = data.replace(/\D/g, "")
+    data = data.replace(/(\d{2})(\d)/, "$1/$2")
+    data = data.replace(/(\d{2})(\d)/, "$1/$2")
+    data = data.replace(/(\d{4})(\d)/, "$1/$2")
+    return data
+}

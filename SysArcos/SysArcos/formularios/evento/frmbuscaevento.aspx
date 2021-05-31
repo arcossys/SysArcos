@@ -14,35 +14,34 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Filtro</span>
                 </div>
-                <asp:TextBox ID="TextBox1" runat="server" placeholder="Pesquisar..." CssClass="form-control"></asp:TextBox>
+
+                <asp:TextBox ID="TextBox1" CssClass="form-control" runat="server" placeholder="Pesquisar..."></asp:TextBox>
             </div>
         </div>
         <div class="col-4 col-lg-2">
-            <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-success" Width="100%" />
+            <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-success" Width="100%"  OnClick="btnBuscar_Click" />
         </div>
     </div>
 
     <div class="row">
         <div class="col-12 col-lg-6 row_fields">
             <fieldset class="border p-2 border-primary">
-                <div><asp:RadioButton ID="rbNome" runat="server" GroupName="filtro" Text="Nome" Checked="True" /></div>
-                <div><asp:RadioButton ID="rbDescricao" runat="server" GroupName="filtro" Text="Descrição" /></div>
+                <div><asp:RadioButton ID="rbNome" runat="server" GroupName="filtro" Text="Nome" Checked="True" Width="100%" MaxLength="50" Height="40px" /></div>
+                <div><asp:RadioButton ID="rbDescricao" runat="server" GroupName="filtro" Text="Descrição" Width="100%" MaxLength="50" Height="40px" /></div>
             </fieldset>
         </div>
     </div>
-
     <br />
-
     <div class="row">
         <div class="col-12">
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                    <asp:BoundField HeaderText="Entidade" />
-                    <asp:BoundField HeaderText="Nome" />
-                    <asp:BoundField HeaderText="Descrição" />
-                    <asp:BoundField HeaderText="Data Início" />
-                    <asp:BoundField HeaderText="Data Fim" />
+                    <asp:BoundField HeaderText="Entidade" DataField="ENTIDADE.NOME" />
+                    <asp:BoundField HeaderText="Nome" DataField="NOME" />
+                    <asp:BoundField HeaderText="Descrição" DataField="DESCRICAO" />
+                    <asp:BoundField HeaderText="Data Início" DataField="DATA_HORA_INICIO" />
+                    <asp:BoundField HeaderText="Data Fim" DataField="DATA_HORA_TERMINO" />
                 </Columns>
                 <EditRowStyle BackColor="#2461BF" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -57,16 +56,16 @@
             </asp:GridView>
         </div>
     </div>
-    <br />
+
     <div class="row">
         <div class="col-12 col-lg-4 row_buttons">
-            <asp:Button ID="btnCancelar" runat="server" CssClass="btn btn-primary" Width="100%" OnClick="btnCancelar_Click" Text="Cancelar" />
+            <asp:Button ID="btnCancelar" runat="server" CssClass="btn btn-primary" OnClick="btnCancelar_Click" Text="Cancelar" Width="100%" Font-Size="X-Large" />
         </div>
         <div class="col-12 col-lg-4 row_buttons">
-            <asp:Button ID="btnEditar" runat="server" CssClass="btn btn-primary" Text="Editar" Width="100%"/>
+            <asp:Button ID="btnEditar" runat="server" CssClass="btn btn-primary" Text="Editar" Width="100%" Font-Size="X-Large" />
         </div>
         <div class="col-12 col-lg-4 row_buttons">
-            <asp:Button ID="btnRemover" runat="server" CssClass="btn btn-primary" Text="Remover" Width="100%"/>
+            <asp:Button ID="btnRemover" runat="server" CssClass="btn btn-primary" Text="Remover" Width="100%" Font-Size="X-Large" />
         </div>
     </div>
     

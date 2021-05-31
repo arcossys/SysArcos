@@ -22,32 +22,36 @@
                 <img src="imagens/ArcosSys.png" alt="Avatar" class="avatar"/>
             </div>
         </div>
-        <br />       
+      
+        <br />
+       
         <div class="row">
-            <div class="col">
-                <form id="form1" runat="server">  
-                    <div class="campo">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
+              <div class="col">
+                  <form id="form1" runat="server">  
+                      <div class="campo">
+                          <div class="input-group">
+                              <div class="input-group-prepend">
                                 <span class="input-group-text" id="">Usuário</span>
-                            </div>
-                            <asp:TextBox ID="txtUsuario" runat="server" class="form-control"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="campo">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
+                              </div>
+                              <asp:TextBox ID="txtUsuario" runat="server" class="form-control"></asp:TextBox>
+                          </div> 
+                      </div>
+                      <div class="campo">
+                          <div class="input-group">
+                              <div class="input-group-prepend">
                                 <span class="input-group-text" id="">Senha</span>
-                            </div>
-                            <asp:TextBox ID="txtSenha" runat="server" type="password" class="form-control"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="campo">
+                              </div>
+                              <asp:TextBox ID="txtSenha" runat="server" type="password" class="form-control"></asp:TextBox>
+                          </div>
+                      </div>
+                      <div class="campo">
                         <asp:Button ID="btnEntrar" runat="server" Text="Entrar" style="font-weight:bold" class="btn btn-primary btn-sm" OnClick="btnEntrar_Click" />
-                    </div>  
-                    <br/>
-                    <br/>
-                    <asp:Label ID="Label1" runat="server" Text="Versão 0.9"></asp:Label>
+                      </div>  
+
+                  <br />
+                  <br />
+                    <asp:Label ID="Label1" runat="server" Text="Versão 0.911"></asp:Label>
+
                 </form>
             </div>
         </div>    

@@ -19,13 +19,13 @@ namespace SysArcos.formularios.categoria_produto
             using (ARCOS_Entities entities = new ARCOS_Entities())
             {
                 List<CATEGORIA_PRODUTO> lista;
-                if (txtBuscar.Text.Equals(""))
+                if (txtBusca.Text.Equals(""))
                 {
                     lista = entities.CATEGORIA_PRODUTO.ToList();
                 }
                 else
                 {
-                    lista = entities.CATEGORIA_PRODUTO.Where(x=>x.DESCRICAO.Contains(txtBuscar.Text)).ToList();
+                    lista = entities.CATEGORIA_PRODUTO.Where(x=>x.DESCRICAO.Contains(txtBusca.Text)).ToList();
                 }
                 
                 gridBusca.DataSource = lista.OrderBy(x => x.DESCRICAO);
@@ -67,9 +67,10 @@ namespace SysArcos.formularios.categoria_produto
                 Response.Redirect("frmcategoria_produto.aspx?ID=" + gridBusca.SelectedValue.ToString());
         }
 
+    
         protected void brnCancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("frmbuscacategoria_produto.aspx");
+            Response.Redirect("frmcategoria_produto.aspx");
         }
     }
 }

@@ -14,9 +14,14 @@ namespace SysArcos.formularios.doacao
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void btnCancelar_Click(object sender, EventArgs e)
         {
             Response.Redirect("frmdoacao.aspx");
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

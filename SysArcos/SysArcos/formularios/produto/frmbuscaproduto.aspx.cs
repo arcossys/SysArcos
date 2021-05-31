@@ -63,11 +63,11 @@ namespace ProjetoArcos
             {
                 List<PRODUTO> lista = null;
 
-                if (rdEspecificacao.Checked)
+                if (rdDescricao.Checked)
                 {
                     lista = entities.PRODUTO.Where(x => x.DESCRICAO.StartsWith(txtBusca.Text)).ToList();
                 }
-                else if (rdDescricao.Checked)
+                else if (rdEspecificacao.Checked)
                 {
                     lista = entities.PRODUTO.Where(x => x.ESPECIFICACOES.StartsWith(txtBusca.Text)).ToList();
                 }
