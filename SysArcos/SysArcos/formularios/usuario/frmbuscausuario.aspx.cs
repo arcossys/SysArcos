@@ -12,7 +12,14 @@ namespace ProjetoArcos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (grid.SelectedValue == null)
+            {
+                btnRemover.Enabled = false;
+            }
+            else
+            {
+                btnRemover.Enabled = true;
+            }
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -23,6 +30,7 @@ namespace ProjetoArcos
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             buscar();
+           
         }
 
         protected void btnSelecionar_Click(object sender, EventArgs e)
@@ -34,6 +42,13 @@ namespace ProjetoArcos
 
         protected void btnRemover_Click(object sender, EventArgs e)
         {
+            if (grid.SelectedValue==null)
+            {
+                Response.Write("<script>alert('NÃO É POSSÍVEL EXCLUIR, NÃO FOI SELECIONADO NENHUM VALOR');</script>");
+            }
+
+            else
+
             if (grid.SelectedValue != null)
             {
                 string login = grid.SelectedValue.ToString();
@@ -54,9 +69,12 @@ namespace ProjetoArcos
                 }
                 catch
                 {
+                    
                     Response.Write("<script>alert('Falha ao remover registro!');</script>");
                 }
             }
+
+            
         }
 
         protected void btnPermissoes_Click(object sender, EventArgs e)
@@ -82,6 +100,7 @@ namespace ProjetoArcos
 
         private void buscar()
         {
+           
             using (ARCOS_Entities entities = new ARCOS_Entities())
             {
                 List<USUARIO> lista = null;
@@ -106,6 +125,11 @@ namespace ProjetoArcos
                 grid.DataSource = lista;
                 grid.DataBind();
             }
+        }
+
+        protected void grid_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnRemover.Enabled = true;
         }
     }
 }

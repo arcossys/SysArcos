@@ -7,17 +7,24 @@
     </div>
     <div>
 <div>
+<div class="row">
+    <div class="col-12 col-lg-4">
+        <asp:Label ID="Label1" runat="server" Text="Filtro"></asp:Label>
+        <asp:TextBox ID="txtBusca" runat="server"  Width="100%" MaxLength="50" Height="40px" ></asp:TextBox>
+    </div>
 
-    <asp:Label ID="Label1" runat="server" Text="Filtro"></asp:Label>
-&nbsp;<asp:TextBox ID="txtBusca" runat="server"></asp:TextBox>
-&nbsp;<asp:Button ID="btnBuscar" runat="server" class="btn btn-success" Text="Buscar" OnClick="btnBuscar_Click" />
+<div class="col-12 col-lg-4 row_buttons">
+    <asp:Button ID="btnBuscar" runat="server" class="btn btn-success" Text="Buscar" OnClick="btnBuscar_Click" Width="100%" Font-Size="X-Large" />
+</div>
+
 
 
     <br />
 &nbsp;<br />
 
 </div>
-    </div>
+</div>
+        </div>
 
 <div>
 
@@ -43,11 +50,22 @@
 <div>
 
     <br />
-    <asp:Button ID="btnCancelar" class="btn btn-primary" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
+    
 
-&nbsp;<asp:Button ID="btnSelecionar" class="btn btn-primary" runat="server" Text="Editar" OnClick="btnSelecionar_Click" />
-&nbsp;<asp:Button ID="btnRemover" class="btn btn-primary" runat="server" Text="Remover" OnClick="btnRemover_Click" 
-    OnClientClick="return confirm('Deseja remover?');"/>
+<div class="row">
 
-&nbsp;</div>
+<div class="col-12 col-lg-4 row_buttons"> 
+    <asp:Button ID="btnCancelar" class="btn btn-primary" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" Width="100%" Font-Size="X-Large" />
+</div>
+
+
+<div class="col-12 col-lg-4 row_buttons"> 
+    <asp:Button ID="btnSelecionar" class="btn btn-primary" runat="server" Text="Editar" OnClick="btnSelecionar_Click" Width="100%" Font-Size="X-Large" />
+</div>
+
+<div class="col-12 col-lg-4 row_buttons"> 
+    <asp:Button ID="btnRemover" class="btn btn-primary" runat="server" Text="Remover" OnClick="btnRemover_Click" OnClientClick="return confirm('Deseja remover?');" Width="100%" Font-Size="X-Large"/>
+ </div>
+
+</div>
 </asp:Content>
