@@ -14,13 +14,15 @@ namespace ProjetoArcos
             if (!IsPostBack)
             {
                 String id = Request.QueryString["id"];
-                if ((id != null) && (!id.Equals(""))){
-                    lblID.Text = id;
+                if ((id != null) && (!id.Equals("")))
+                {
+                    int i = Convert.ToInt32(ID);
                     using (ARCOS_Entities entities = new ARCOS_Entities())
                     {
                         VOLUNTARIO u = entities.VOLUNTARIO.FirstOrDefault(x => x.ID.ToString().Equals(id));
                         if (u != null)
                         {
+                            lblID.Text = i.ToString();
                             txt_vnome.Text = u.NOME;
                             txt_vcpf.Text = u.CPF;
                             txt_vendereco.Text = u.LOGRADOURO;
@@ -33,6 +35,7 @@ namespace ProjetoArcos
                             drp_vEstado.SelectedValue = u.ESTADO;
                             ckb_vativo.Checked = u.ATIVO;
                             lbl_Status.Text = "Alterando";
+                            ckb_vativo.Checked = u.ATIVO;
                         }
                     }
                 }
@@ -54,7 +57,6 @@ namespace ProjetoArcos
                     }
                     else
                     {
-
 
                         if (lbl_Status.Text.Equals("Cadastrando"))
                         {
@@ -87,11 +89,11 @@ namespace ProjetoArcos
 
                         }
                         else
-
                         {
-
-                            voluntario = entities.VOLUNTARIO.FirstOrDefault(x => x.ID.ToString().Equals(lblID.Text));
-
+                            if (lbl_Status.Text.Equals("NOVO"))
+                                voluntario = new VOLUNTARIO();
+                            else
+                                voluntario = entities.VOLUNTARIO.FirstOrDefault(x => x.ID.ToString().Equals(lblID.Text));
 
                             voluntario.NOME = txt_vnome.Text;
                             voluntario.CPF = txt_vcpf.Text;

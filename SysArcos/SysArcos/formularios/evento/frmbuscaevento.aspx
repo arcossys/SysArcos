@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <div class="entidade">
         Buscar Eventos
     </div>
@@ -13,6 +14,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="">Filtro</span>
                 </div>
+
                 <asp:TextBox ID="TextBox1" CssClass="form-control" runat="server" placeholder="Pesquisar..."></asp:TextBox>
             </div>
         </div>
@@ -66,4 +68,5 @@
             <asp:Button ID="btnRemover" runat="server" CssClass="btn btn-primary" Text="Remover" Width="100%" Font-Size="X-Large" />
         </div>
     </div>
+    
 </asp:Content>
