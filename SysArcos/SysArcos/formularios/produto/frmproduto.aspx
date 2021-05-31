@@ -15,7 +15,7 @@
         </div>
       
         <div class="row">
-            <asp:Label ID="lblID" runat="server"></asp:Label>
+            <asp:Label ID="lblID" runat="server" Visible="False"></asp:Label>
         </div>
       
         <div class="row">
