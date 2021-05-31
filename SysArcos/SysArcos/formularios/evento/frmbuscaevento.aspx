@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="frmbuscaevento.aspx.cs" Inherits="SysArcos.formularios.evento.frmbuscaevento" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -6,16 +7,15 @@
         Buscar Eventos
     </div>
     <div>
-
         <asp:Label ID="Label1" runat="server" Text="Buscar"></asp:Label>
-&nbsp;<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-&nbsp;<asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-success" />
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-success" />
 
     </div>
     <div>
 
         <asp:RadioButton ID="rbNome" runat="server" GroupName="filtro" Text="Nome" Checked="True" />
-&nbsp;<asp:RadioButton ID="rbDescricao" runat="server" GroupName="filtro" Text="Descrição" />
+        <asp:RadioButton ID="rbDescricao" runat="server" GroupName="filtro" Text="Descrição" />
 
     </div>
     <div>
@@ -43,8 +43,8 @@
     <div>
 
         <asp:Button ID="btnCancelar" runat="server" CssClass="btn btn-primary" OnClick="btnCancelar_Click" Text="Cancelar" />
-&nbsp;<asp:Button ID="btnEditar" runat="server" CssClass="btn btn-primary" Text="Editar" />
-&nbsp;<asp:Button ID="btnRemover" runat="server" CssClass="btn btn-primary" Text="Remover" />
+        <asp:Button ID="btnEditar" runat="server" CssClass="btn btn-primary" Text="Editar" />
+        <asp:Button ID="btnRemover" runat="server" CssClass="btn btn-primary" Text="Remover" />
 
     </div>
 </asp:Content>

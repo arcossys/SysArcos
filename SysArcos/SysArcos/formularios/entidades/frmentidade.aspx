@@ -1,15 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="frmentidade.aspx.cs" Inherits="ProjetoArcos.cadentidade1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <div style="clear: both"></div>
     <div class="areaformulario">
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="entidade col-12">
-            Entidades
+        <div class="container-fluid">
+            <div class="row">
+                <div class="entidade col-12">
+                    Entidades
+                </div>
             </div>
 
             <div class="row">
@@ -83,7 +82,6 @@
                     </div>
                 </div>
             </div>
-        </div>
 
             <div class="row">
                 <div class="col-12 col-lg-2">
@@ -185,15 +183,6 @@
                 </div>
 
             </div>
-            <div class="col-12 col-lg-4 row_buttons">
-                <asp:Button ID="btnCadastra" class="btn btn-primary" runat="server" OnClick="btnCadastra_Click" Text="Salvar" Font-Bold="True" ValidationGroup="form" Width="100%" Font-Size="X-Large" />
-            </div>
-            <div class="col-12 col-lg-4 row_buttons">
-                <asp:Button ID="btnConsulta" class="btn btn-primary" runat="server" Text="Buscar" Font-Bold="True" OnClick="btnConsulta_Click" Width="100%" Font-Size="X-Large" />
-            </div>
-            <br />
-            <br />
-            <br />
         </div>
     </div>
 </asp:Content>

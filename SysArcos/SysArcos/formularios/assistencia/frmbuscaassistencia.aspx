@@ -24,14 +24,14 @@
             <fieldset class="border p-2 border-primary">
                 <div class="form-check">
                     <asp:RadioButton ID="rdNome" runat="server" Checked="True" GroupName="filtro"
-                        CssClass="form-check-input"/>
+                        CssClass="form-check-input" />
                     <asp:Label ID="lblRdDescricao" Text="Descrição" runat="server"
                         CssClass="form-check-label" for="rdNome"></asp:Label>
                 </div>
             </fieldset>
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col-12 row_fields">
             <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataKeyNames="LOGIN" ShowHeaderWhenEmpty="True">
