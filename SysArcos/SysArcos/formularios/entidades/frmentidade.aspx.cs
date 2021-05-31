@@ -138,12 +138,14 @@ namespace ProjetoArcos
             using (ARCOS_Entities entity = new ARCOS_Entities())
             {
                 List<USUARIO> list = entity.USUARIO.OrderBy(x => x.LOGIN).ToList();
-                txtAdmnistrador.DataTextField = "LOGIN";
-                txtAdmnistrador.DataValueField = "LOGIN";
+                txtAdmnistrador.DataTextField = "LOGIN";//Carrega o campo que será mostrado
+                txtAdmnistrador.DataValueField = "LOGIN";//Carrega Primary Key
                 txtAdmnistrador.DataSource = list;
                 txtAdmnistrador.DataBind();
                 txtAdmnistrador.Items.Insert(0, "");
             }
         }
+
+      
     }
 }
