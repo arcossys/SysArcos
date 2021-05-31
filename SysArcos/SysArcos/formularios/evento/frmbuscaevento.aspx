@@ -65,6 +65,5 @@
         <div class="col-12 col-lg-4 row_buttons">
             <asp:Button ID="btnRemover" runat="server" CssClass="btn btn-primary" Text="Remover" Width="100%" Font-Size="X-Large" />
         </div>
-
     </div>
 </asp:Content>

@@ -18,7 +18,7 @@ namespace SysArcos
         public ASSISTIDO()
         {
             this.ASSISTENCIA = new HashSet<ASSISTENCIA>();
-            this.ASSISTIDO1 = new HashSet<ASSISTIDO>();
+            this.ASSISTIDO_DEPENDENTES = new HashSet<ASSISTIDO>();
         }
     
         public int ID { get; set; }
@@ -36,11 +36,21 @@ namespace SysArcos
         public Nullable<int> ID_ASSISTIDO_RESPONSAVEL { get; set; }
         public bool ATIVO { get; set; }
         public System.DateTime DATA_HORA_CRIACAO_REGISTRO { get; set; }
+        public string NUM_NIS { get; set; }
+        public string PROFISSAO { get; set; }
+        public string TELEFONE { get; set; }
+        public string EMAIL { get; set; }
+        public string RG { get; set; }
+        public Nullable<int> ID_ENTIDADE { get; set; }
+        public Nullable<int> ID_ESTADO_CIVIL { get; set; }
+        public string OBSERVACAO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ASSISTENCIA> ASSISTENCIA { get; set; }
+        public virtual ENTIDADE ENTIDADE { get; set; }
+        public virtual ESTADO_CIVIL ESTADO_CIVIL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ASSISTIDO> ASSISTIDO1 { get; set; }
-        public virtual ASSISTIDO ASSISTIDO2 { get; set; }
+        public virtual ICollection<ASSISTIDO> ASSISTIDO_DEPENDENTES { get; set; }
+        public virtual ASSISTIDO ASSISTIDO_TITULAR { get; set; }
     }
 }

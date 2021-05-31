@@ -104,7 +104,8 @@ namespace ProjetoArcos
         {
             txt_descricao.Text = string.Empty;
             txt_especificacao.Text = string.Empty;
-            txt_unidade.Text = string.Empty;           
+            txt_unidade.Text = string.Empty;
+            dlCategoria.SelectedIndex = 0;
             lblAcao.Text = "NOVO";
         }
 
