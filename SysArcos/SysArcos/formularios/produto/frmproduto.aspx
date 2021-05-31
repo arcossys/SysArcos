@@ -7,14 +7,17 @@
         <div class="entidade row">
             Produtos
         </div>
+      
         <div class="row">
             <div class="acao col-12">
                 <asp:Label ID="lblAcao" runat="server" Text="NOVO"></asp:Label>
             </div>
         </div>
+      
         <div class="row">
             <asp:Label ID="lblID" runat="server"></asp:Label>
         </div>
+      
         <div class="row">
             <div class="col-12 col-lg-10 row_fields">
                 <asp:Label ID="lbl_user" runat="server" Text="Descrição:"></asp:Label>
@@ -41,6 +44,7 @@
                 <asp:TextBox ID="txt_unidade" class="form-control" runat="server" MaxLength="30"></asp:TextBox>
             </div>
         </div>
+      
         <div class="row">
             <div class="col-12 col-lg-10 row_fields">
                 <asp:Label ID="Label2" runat="server" Text="Categoria"></asp:Label>
@@ -50,8 +54,8 @@
                     <asp:ListItem Text=""></asp:ListItem>
                 </asp:DropDownList>
             </div>
-
         </div>
+      
         <div class="row">
             <div class="col-12 col-lg-4 row_buttons">
                 <asp:Button ID="btnNovo" runat="server" Font-Size="X-Large" Width="100%" class="btn btn-primary" Text="Novo" OnClick="btnNovo_Click" />
