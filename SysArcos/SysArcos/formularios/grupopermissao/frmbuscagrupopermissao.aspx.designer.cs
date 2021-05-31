@@ -7,11 +7,13 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace SysArcos.formularios.usuario {
-    
-    
-    public partial class frmbuscagrupopermissao {
-        
+namespace SysArcos.formularios.usuario
+{
+
+
+    public partial class frmbuscagrupopermissao
+    {
+
         /// <summary>
         /// Controle Label1.
         /// </summary>
@@ -20,7 +22,7 @@ namespace SysArcos.formularios.usuario {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-        
+
         /// <summary>
         /// Controle txtBusca.
         /// </summary>
@@ -29,7 +31,7 @@ namespace SysArcos.formularios.usuario {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBusca;
-        
+
         /// <summary>
         /// Controle btnBuscar.
         /// </summary>
@@ -38,7 +40,7 @@ namespace SysArcos.formularios.usuario {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBuscar;
-        
+
         /// <summary>
         /// Controle grid.
         /// </summary>
@@ -47,7 +49,7 @@ namespace SysArcos.formularios.usuario {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grid;
-        
+
         /// <summary>
         /// Controle btnCancelar.
         /// </summary>
@@ -56,7 +58,7 @@ namespace SysArcos.formularios.usuario {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
-        
+
         /// <summary>
         /// Controle btnSelecionar.
         /// </summary>
@@ -65,7 +67,7 @@ namespace SysArcos.formularios.usuario {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSelecionar;
-        
+
         /// <summary>
         /// Controle btnRemover.
         /// </summary>

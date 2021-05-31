@@ -4,155 +4,157 @@
 
 <html>
 <head runat="server">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="css/formularios.css" rel="stylesheet" />
     <link href="css/master.css" rel="stylesheet" />
     <!--<link href="css/menu.css" rel="stylesheet" />-->
-	<link href="css/PaginationGrids.css" rel="stylesheet" />
+
+	  <link href="css/PaginationGrids.css" rel="stylesheet" />
     <script src="/Scripts/jquery-3.6.0.min.js"></script>
 
     <!--<script src="JSPaginaMestre.js"></script>-->
-	<script src="/Scripts/validacoes.js"></script>
+    <script src="/Scripts/validacoes.js"></script>
     <title>Sistema Arcos</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-		
 
-        <div class="logout">
-            <div class="logoitem">
-                <a href="/PaginaInicial.aspx"><img src="/imagens/ArcosSys.png" class="logo"></a>
+        <div class="row" style="padding: 5px">
+            <div class="col-12 col-lg-6">
+                <a href="/PaginaInicial.aspx">
+                    <img src="/imagens/ArcosSys.png" class="logo">
+                </a>
             </div>
-            <div class="logoutitem">
+            <div class="col-12 col-lg-6 align-self-end" style="text-align:right">
                 <asp:Label ID="lbl_welcomeUser" runat="server" Text="Label" class="logout"></asp:Label>
-                <span><asp:LinkButton ID="lnk_logout" runat="server" OnClick="lnk_logout_Click" class="logout">( SAIR )</asp:LinkButton></span>
+                <asp:LinkButton ID="lnk_logout" runat="server" OnClick="lnk_logout_Click" class="logout">( SAIR ) </asp:LinkButton>
             </div>
         </div>
-       
+
+
         <div>
-		    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #85cbde;">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon " style="background-color: #d8f1fa;"></span>
+                </button>
 
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: #85cbde;">
+                    <ul class="navbar-nav mr-auto">
 
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">     
-                  
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Entidades
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/formularios/entidades/frmentidade.aspx">Entidade</a>
-                        </div>
-                    </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <b>Entidades</b>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/formularios/entidades/frmentidade.aspx"><b>Entidade</b></a>
+                            </div>
+                        </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Usuários
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/formularios/usuario/frmusuario.aspx">Usuário</a>
-                          <a class="dropdown-item" href="/formularios/grupopermissao/frmgrupopermissao.aspx">Grupo Permissão</a>
-                        </div>
-                    </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <b>Usuários </b>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/formularios/usuario/frmusuario.aspx"><b>Usuário</b></a>
+                                <a class="dropdown-item" href="/formularios/grupopermissao/frmgrupopermissao.aspx"><b>Grupo Permissão</b></a>
+                            </div>
+                        </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Eventos
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/formularios/evento/frmevento.aspx">Evento</a>
-                          <a class="dropdown-item" href="/formularios/tipoevento/frmtipoevento.aspx">Tipo Evento</a>
-                        </div>
-                    </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <b>Eventos</b>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/formularios/evento/frmevento.aspx"><b>Evento</b></a>
+                                <a class="dropdown-item" href="/formularios/tipoevento/frmtipoevento.aspx"><b>Tipo Evento</b></a>
+                            </div>
+                        </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Recursos
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/formularios/recurso/frmrecurso.aspx">Recurso</a>
-                          <a class="dropdown-item" href="/formularios/tiporecurso/frmtiporecurso.aspx">Tipo Recurso</a>
-                        </div>
-                    </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <b>Recursos</b>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/formularios/recurso/frmrecurso.aspx"><b>Recurso</b></a>
+                                <a class="dropdown-item" href="/formularios/tiporecurso/frmtiporecurso.aspx"><b>Tipo Recurso</b></a>
+                            </div>
+                        </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         Fornecedores
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/formularios/fornecedor/frmfornecedor.aspx">Fornecedor</a>
-                          <a class="dropdown-item" href="/formularios/fornecimento/fornecimento.aspx">Fornecimento</a>
-                        </div>
-                    </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <b>Fornecedores</b>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/formularios/fornecedor/frmfornecedor.aspx"><b>Fornecedor</b></a>
+                                <a class="dropdown-item" href="/formularios/fornecimento/fornecimento.aspx"><b>Fornecimento</b></a>
+                            </div>
+                        </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         Estoque
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/formularios/estoque/frmestoque.aspx">Estoque</a>
-                          <a class="dropdown-item" href="/formularios/produto/frmproduto.aspx">Produto</a>
-                          <a class="dropdown-item" href="/formularios/categoria_produto/frmcategoria_produto.aspx">Tipo Produto</a>
-                        </div>
-                    </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <b>Estoque</b>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/formularios/estoque/frmestoque.aspx"><b>Estoque</b></a>
+                                <a class="dropdown-item" href="/formularios/produto/frmproduto.aspx"><b>Produto</b></a>
+                                <a class="dropdown-item" href="/formularios/categoria_produto/frmcategoria_produto.aspx"><b>Tipo Produto</b></a>
+                            </div>
+                        </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         Doações
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/formularios/doacao/frmdoacao.aspx">Doação</a>
-                          <a class="dropdown-item" href="/formularios/doador/frmdoador.aspx">Doador</a>
-                        </div>
-                    </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <b>Doações</b>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/formularios/doacao/frmdoacao.aspx"><b>Doação</b></a>
+                                <a class="dropdown-item" href="/formularios/doador/frmdoador.aspx"><b>Doador</b></a>
+                            </div>
+                        </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         Assistências
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/formularios/assistencia/frmassistencia.aspx">Assistência</a>
-                          <a class="dropdown-item" href="/formularios/assistido/frmassistido.aspx">Assistido</a>
-                        </div>
-                    </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <b>Assistências</b>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/formularios/assistencia/frmassistencia.aspx"><b>Assistência</b></a>
+                                <a class="dropdown-item" href="/formularios/assistido/frmassistido.aspx"><b>Assistido</b></a>
+                            </div>
+                        </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         Voluntários
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/formularios/voluntario/frmvoluntario.aspx">Voluntários</a>
-                          <a class="dropdown-item" href="/formularios/Voluntariar/frmvoluntariar.aspx">Voluntariar</a>
-                          <a class="dropdown-item" href="/formularios/voluntariado/frmvoluntariado.aspx">Voluntariado</a>
-                        </div>
-                    </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <b>Voluntários</b>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/formularios/voluntario/frmvoluntario.aspx"><b>Voluntários</b></a>
+                                <a class="dropdown-item" href="/formularios/Voluntariar/frmvoluntariar.aspx"><b>Voluntariar</b></a>
+                                <a class="dropdown-item" href="/formularios/voluntariado/frmvoluntariado.aspx"><b>Voluntariado</b></a>
+                            </div>
+                        </li>
 
 
-                </ul>
-              </div>
+                    </ul>
+                </div>
             </nav>
-         </div>
-         <!--Menu-->
-        
-         <div class="geralFrms">
-             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-             </asp:ContentPlaceHolder>
-         </div>
+        </div>
+        <!--Menu-->
+
+        <div class="geralFrms">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
 
 
-		
-                
+
+
     </form>
 
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-    </body>
+</body>
 </html>
