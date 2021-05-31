@@ -30,6 +30,8 @@ namespace SysArcos
         public virtual DbSet<CATEGORIA_PRODUTO> CATEGORIA_PRODUTO { get; set; }
         public virtual DbSet<DOACAO> DOACAO { get; set; }
         public virtual DbSet<DOADOR> DOADOR { get; set; }
+        public virtual DbSet<ENTIDADE> ENTIDADE { get; set; }
+        public virtual DbSet<ESTADO_CIVIL> ESTADO_CIVIL { get; set; }
         public virtual DbSet<ESTOQUE> ESTOQUE { get; set; }
         public virtual DbSet<EVENTO> EVENTO { get; set; }
         public virtual DbSet<FORNECEDOR> FORNECEDOR { get; set; }
@@ -42,8 +44,7 @@ namespace SysArcos
         public virtual DbSet<TIPO_RECURSO> TIPO_RECURSO { get; set; }
         public virtual DbSet<USUARIO> USUARIO { get; set; }
         public virtual DbSet<VOLUNTARIADO> VOLUNTARIADO { get; set; }
-        public virtual DbSet<VOLUNTARIO> VOLUNTARIO { get; set; }
         public virtual DbSet<VOLUNTARIAR> VOLUNTARIAR { get; set; }
-        public virtual DbSet<ENTIDADE> ENTIDADE { get; set; }
+        public virtual DbSet<VOLUNTARIO> VOLUNTARIO { get; set; }
     }
 }

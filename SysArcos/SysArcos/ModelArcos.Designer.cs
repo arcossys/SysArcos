@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Prof. Ronaldo\Source\Repos\arcossys\SysArcos2\SysArcos\SysArcos\ModelArcos.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Documentos\FATEC\GTI\Interdisciplinar\012021\arcos_sys\SysArcos-Inter12021-1\SysArcos\SysArcos\ModelArcos.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

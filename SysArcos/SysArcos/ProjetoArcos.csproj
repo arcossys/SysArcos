@@ -282,6 +282,9 @@
     <Compile Include="ENTIDADE.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
     </Compile>
+    <Compile Include="ESTADO_CIVIL.cs">
+      <DependentUpon>ModelArcos.tt</DependentUpon>
+    </Compile>
     <Compile Include="ESTOQUE.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
     </Compile>
