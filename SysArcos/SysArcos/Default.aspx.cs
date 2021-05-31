@@ -19,7 +19,7 @@ namespace ProjetoArcos
         {
             using (ARCOS_Entities entities = new ARCOS_Entities())
             {
-                USUARIO u = entities.USUARIO.FirstOrDefault(x => x.LOGIN.Equals(txtUsuario.Text) && x.SENHA.Equals(txtSenha.Text));
+                USUARIO u = entities.USUARIO.Where(x => x.LOGIN.Equals(txtUsuario.Text) && x.SENHA.Equals(txtSenha.Text)).FirstOrDefault();
                 if (u == null)
                 {
                     //conexão falhada
