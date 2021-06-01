@@ -3,9 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <div class="entidade">
         Buscar Assistências
     </div>
+
     <div class="row">
         <div class="col-8 col-lg-5">
             <div class="input-group">
@@ -19,6 +21,7 @@
             <asp:Button ID="btnBuscar" Width="100%" runat="server" class="btn btn-success" Text="Buscar" OnClick="btnBuscar_Click" />
         </div>
     </div>
+
     <div class="row">
         <div class="col-12 col-lg-6 row_fields">
             <fieldset class="border p-2 border-primary">

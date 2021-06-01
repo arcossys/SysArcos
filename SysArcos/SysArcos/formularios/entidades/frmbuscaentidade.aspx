@@ -33,27 +33,35 @@
         </div>
     </div>
 
-    <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataKeyNames="ID" ShowHeaderWhenEmpty="True" AllowPaging="True" OnPageIndexChanging="grid_PageIndexChanging" PageSize="20">
-        <AlternatingRowStyle BackColor="White" />
-        <Columns>
-            <asp:BoundField DataField="NOME" HeaderText="Nome" />
-            <asp:BoundField DataField="CIDADE" HeaderText="Cidade" />
-            <asp:BoundField DataField="PRESIDENTE" HeaderText="Presidente" />
-            <asp:BoundField DataField="CNPJ" HeaderText="CNPJ" />
-            <asp:CommandField ShowSelectButton="True" />
-        </Columns>
-        <EditRowStyle BackColor="#2461BF" />
-        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" CssClass="GridPager" />
-        <RowStyle BackColor="#EFF3FB" />
-        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-        <SortedAscendingCellStyle BackColor="#F5F7FB" />
-        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-        <SortedDescendingCellStyle BackColor="#E9EBEF" />
-        <SortedDescendingHeaderStyle BackColor="#4870BE" />
-    </asp:GridView>
     <br />
+
+    <div class="row">
+        <div class="col-12">
+            <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataKeyNames="ID" ShowHeaderWhenEmpty="True" AllowPaging="True" OnPageIndexChanging="grid_PageIndexChanging" PageSize="20">
+                <AlternatingRowStyle BackColor="White" />
+                <Columns>
+                    <asp:BoundField DataField="NOME" HeaderText="Nome" />
+                    <asp:BoundField DataField="CIDADE" HeaderText="Cidade" />
+                    <asp:BoundField DataField="PRESIDENTE" HeaderText="Presidente" />
+                    <asp:BoundField DataField="CNPJ" HeaderText="CNPJ" />
+                    <asp:CommandField ShowSelectButton="True" />
+                </Columns>
+                <EditRowStyle BackColor="#2461BF" />
+                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" CssClass="GridPager" />
+                <RowStyle BackColor="#EFF3FB" />
+                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                <SortedDescendingHeaderStyle BackColor="#4870BE" />
+            </asp:GridView>
+        </div>
+    </div>
+
+    <br />
+
     <div class="row">
         <div class="col-12 col-lg-4 row_buttons">
             <asp:Button ID="btncancelar" runat="server" OnClick="btncancelar_Click" Text="Cancelar" CssClass="btn btn-primary" Width="100%" Font-Size="X-Large" />

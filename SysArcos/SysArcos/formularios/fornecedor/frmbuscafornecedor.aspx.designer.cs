@@ -7,20 +7,13 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace SysArcos {
-    
-    
-    public partial class frmbuscafornecedor {
-        
-        /// <summary>
-        /// Controle Label1.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
+namespace SysArcos
+{
+
+
+    public partial class frmbuscafornecedor
+    {
+
         /// <summary>
         /// Controle TextBox1.
         /// </summary>
@@ -29,7 +22,7 @@ namespace SysArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox1;
-        
+
         /// <summary>
         /// Controle Button1.
         /// </summary>
@@ -38,7 +31,7 @@ namespace SysArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
-        
+
         /// <summary>
         /// Controle RadioButton1.
         /// </summary>
@@ -47,7 +40,7 @@ namespace SysArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton RadioButton1;
-        
+
         /// <summary>
         /// Controle RadioButton2.
         /// </summary>
@@ -56,7 +49,7 @@ namespace SysArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton RadioButton2;
-        
+
         /// <summary>
         /// Controle grid.
         /// </summary>
@@ -65,7 +58,7 @@ namespace SysArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grid;
-        
+
         /// <summary>
         /// Controle btnCancelar.
         /// </summary>
@@ -74,7 +67,7 @@ namespace SysArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
-        
+
         /// <summary>
         /// Controle btnSelecionar.
         /// </summary>
@@ -83,7 +76,7 @@ namespace SysArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSelecionar;
-        
+
         /// <summary>
         /// Controle btnRemover.
         /// </summary>

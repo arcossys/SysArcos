@@ -1,41 +1,44 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="frmbuscadoador.aspx.cs" Inherits="ProjetoArcos.frmbusca" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="entidade">
         Buscar Doadores
     </div>
+
     <div class="row">
         <div class="col-8 col-lg-5">
-           <div class="input-group">
+            <div class="input-group">
                 <div class="input-group-prepend">
-                <span class="input-group-text" id="">Filtro</span>
+                    <span class="input-group-text" id="">Filtro</span>
+                </div>
+                <asp:TextBox ID="txtbusca" runat="server" class="form-control"></asp:TextBox>
             </div>
-                 <asp:TextBox ID="txtbusca" runat="server" class="form-control"></asp:TextBox>
-              </div>
-         </div>
+        </div>
         <div class="col-4 col-lg-2">
-           <asp:Button ID="btnbuscar" runat="server" class="btn btn-success" Width="100%" Text="Buscar" OnClick="btnbuscar_Click" /> 
+            <asp:Button ID="btnbuscar" runat="server" class="btn btn-success" Width="100%" Text="Buscar" OnClick="btnbuscar_Click" />
         </div>
     </div>
 
     <div class="row">
-        <div  class="col-12 col-lg-6 row_fields">
-              <fieldset class="border p-2 border-primary">
-                   <div class="form-check">
-                         <asp:RadioButton ID="rdcidade" runat="server" Text="Cidade" GroupName="filtro" />
-                   </div>
-                    <div class="form-check">
-                        <asp:RadioButton ID="rdtipodoaçao" runat="server" Text="Tipo de doação" GroupName="filtro" />
-                     </div>
-                   <div class="form-check">
-                        <asp:RadioButton ID="rdnome" runat="server" Text="Nome" GroupName="filtro" />
-                   </div>
-                   
-                 </fieldset>
-            </div>      
-      </div>
-    <br/>
+        <div class="col-12 col-lg-6 row_fields">
+            <fieldset class="border p-2 border-primary">
+                <div class="form-check">
+                    <asp:RadioButton ID="rdcidade" runat="server" Text="Cidade" GroupName="filtro" />
+                </div>
+                <div class="form-check">
+                    <asp:RadioButton ID="rdtipodoaçao" runat="server" Text="Tipo de doação" GroupName="filtro" />
+                </div>
+                <div class="form-check">
+                    <asp:RadioButton ID="rdnome" runat="server" Text="Nome" GroupName="filtro" />
+                </div>
+            </fieldset>
+        </div>
+    </div>
+
+    <br />
+
     <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataKeyNames="ID">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
@@ -55,16 +58,16 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
-    <br/>
+    <br />
     <div class="row">
         <div class="col-md-12 col-lg-4 row_buttons">
-            <asp:Button ID="btncancelar" class ="btn btn-primary" runat="server" Width="100%" Text="Cancelar" Font-Size="X-Large" OnClick="btncancelar_Click" />
+            <asp:Button ID="btncancelar" class="btn btn-primary" runat="server" Width="100%" Text="Cancelar" Font-Size="X-Large" OnClick="btncancelar_Click" />
         </div>
         <div class="col-md-12 col-lg-4 row_buttons">
-            <asp:Button ID="btnselecionar" class ="btn btn-primary" runat="server" Width="100%" Text="Editar" Font-Size="X-Large" OnClick="btnselecionar_Click" />
+            <asp:Button ID="btnselecionar" class="btn btn-primary" runat="server" Width="100%" Text="Editar" Font-Size="X-Large" OnClick="btnselecionar_Click" />
         </div>
         <div class="col-md-12 col-lg-4 row_buttons">
-            <asp:Button ID="btnremover" class ="btn btn-primary" runat="server" Width="100%" Text="Remover" Font-Size="X-Large" OnClick="btnremover_Click" />
+            <asp:Button ID="btnremover" class="btn btn-primary" runat="server" Width="100%" Text="Remover" Font-Size="X-Large" OnClick="btnremover_Click" />
         </div>
     </div>
 </asp:Content>
