@@ -39,9 +39,20 @@
                 <Columns>
                     <asp:BoundField HeaderText="Entidade" DataField="ENTIDADE.NOME" />
                     <asp:BoundField HeaderText="Nome" DataField="NOME" />
-                    <asp:BoundField HeaderText="Descrição" DataField="DESCRICAO" />
+                    <asp:BoundField HeaderText="Descrição" DataField="DESCRICAO" 
+                        ItemStyle-CssClass="d-none d-sm-block" HeaderStyle-CssClass="d-none d-sm-block">
+<HeaderStyle CssClass="d-none d-sm-block"></HeaderStyle>
+
+<ItemStyle CssClass="d-none d-sm-block"></ItemStyle>
+                    </asp:BoundField>
                     <asp:BoundField HeaderText="Data Início" DataField="DATA_HORA_INICIO" />
-                    <asp:BoundField HeaderText="Data Fim" DataField="DATA_HORA_TERMINO" />
+                    <asp:BoundField HeaderText="Data Fim" DataField="DATA_HORA_TERMINO" 
+                        ItemStyle-CssClass="d-none d-sm-block" HeaderStyle-CssClass="d-none d-sm-block">
+<HeaderStyle CssClass="d-none d-sm-block"></HeaderStyle>
+
+<ItemStyle CssClass="d-none d-sm-block"></ItemStyle>
+                    </asp:BoundField>
+                    <asp:CommandField ShowSelectButton="True" />
                 </Columns>
                 <EditRowStyle BackColor="#2461BF" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -59,13 +70,13 @@
 
     <div class="row">
         <div class="col-12 col-lg-4 row_buttons">
-            <asp:Button ID="btnCancelar" runat="server" CssClass="btn btn-primary" OnClick="btnCancelar_Click" Text="Cancelar" Width="100%" Font-Size="X-Large" />
+            <asp:Button ID="btnCancelar" runat="server" CssClass="btn btn-primary" OnClick="btnCancelar_Click" Text="Cancelar" Width="100%"/>
         </div>
         <div class="col-12 col-lg-4 row_buttons">
-            <asp:Button ID="btnEditar" runat="server" CssClass="btn btn-primary" Text="Editar" Width="100%" Font-Size="X-Large" />
+            <asp:Button ID="btnEditar" runat="server" CssClass="btn btn-primary" Text="Editar" Width="100%"/>
         </div>
         <div class="col-12 col-lg-4 row_buttons">
-            <asp:Button ID="btnRemover" runat="server" CssClass="btn btn-primary" Text="Remover" Width="100%" Font-Size="X-Large" />
+            <asp:Button ID="btnRemover" runat="server" CssClass="btn btn-primary" Text="Remover" Width="100%"/>
         </div>
     </div>
     

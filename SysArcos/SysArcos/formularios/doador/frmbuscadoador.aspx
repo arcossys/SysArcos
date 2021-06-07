@@ -39,35 +39,39 @@
 
     <br />
 
-    <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataKeyNames="ID">
-        <AlternatingRowStyle BackColor="White" />
-        <Columns>
-            <asp:BoundField DataField="NOME" HeaderText="Nome" />
-            <asp:BoundField DataField="CIDADE" HeaderText="Cidade" />
-            <asp:BoundField DataField="TIPO_DOACAO" HeaderText="Tipo de Doação" />
-            <asp:CommandField ShowSelectButton="True" />
-        </Columns>
-        <EditRowStyle BackColor="#2461BF" />
-        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-        <RowStyle BackColor="#EFF3FB" />
-        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-        <SortedAscendingCellStyle BackColor="#F5F7FB" />
-        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-        <SortedDescendingCellStyle BackColor="#E9EBEF" />
-        <SortedDescendingHeaderStyle BackColor="#4870BE" />
-    </asp:GridView>
+    <div class="row">
+        <div class="col-12">
+            <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataKeyNames="ID">
+                <AlternatingRowStyle BackColor="White" />
+                <Columns>
+                    <asp:BoundField DataField="NOME" HeaderText="Nome" />
+                    <asp:BoundField DataField="CIDADE" HeaderText="Cidade" />
+                    <asp:BoundField DataField="TIPO_DOACAO" HeaderText="Tipo de Doação" />
+                    <asp:CommandField ShowSelectButton="True" />
+                </Columns>
+                <EditRowStyle BackColor="#2461BF" />
+                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#EFF3FB" />
+                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                <SortedDescendingHeaderStyle BackColor="#4870BE" />
+            </asp:GridView>
+        </div>
+    </div>
     <br />
     <div class="row">
         <div class="col-md-12 col-lg-4 row_buttons">
-            <asp:Button ID="btncancelar" class="btn btn-primary" runat="server" Width="100%" Text="Cancelar" Font-Size="X-Large" OnClick="btncancelar_Click" />
+            <asp:Button ID="btncancelar" class="btn btn-primary" runat="server" Width="100%" Text="Cancelar" OnClick="btncancelar_Click" />
         </div>
         <div class="col-md-12 col-lg-4 row_buttons">
-            <asp:Button ID="btnselecionar" class="btn btn-primary" runat="server" Width="100%" Text="Editar" Font-Size="X-Large" OnClick="btnselecionar_Click" />
+            <asp:Button ID="btnselecionar" class="btn btn-primary" runat="server" Width="100%" Text="Editar" OnClick="btnselecionar_Click" />
         </div>
         <div class="col-md-12 col-lg-4 row_buttons">
-            <asp:Button ID="btnremover" class="btn btn-primary" runat="server" Width="100%" Text="Remover" Font-Size="X-Large" OnClick="btnremover_Click" />
+            <asp:Button ID="btnremover" class="btn btn-primary" runat="server" Width="100%" Text="Remover" OnClick="btnremover_Click" />
         </div>
     </div>
 </asp:Content>

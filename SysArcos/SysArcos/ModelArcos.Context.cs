@@ -46,5 +46,6 @@ namespace SysArcos
         public virtual DbSet<VOLUNTARIADO> VOLUNTARIADO { get; set; }
         public virtual DbSet<VOLUNTARIAR> VOLUNTARIAR { get; set; }
         public virtual DbSet<VOLUNTARIO> VOLUNTARIO { get; set; }
+        public virtual DbSet<GRAU_DEPENDENCIA> GRAU_DEPENDENCIA { get; set; }
     }
 }

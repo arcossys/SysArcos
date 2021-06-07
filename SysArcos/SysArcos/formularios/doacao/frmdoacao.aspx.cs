@@ -13,39 +13,23 @@ namespace SysArcos.formularios.doacao
         {
             if (!IsPostBack)
             {
-                // VAMOS CRIAR DPS - carregaAdministradores();
-                String ID = Request.QueryString["ID"];
-                if ((ID != null) && (!ID.Equals("")))
+                using (ARCOS_Entities entities = new ARCOS_Entities())
                 {
-                    int i = Convert.ToInt32(ID);
-                    using (ARCOS_Entities entities = new ARCOS_Entities())
+                    carregaDoador(entities);
+                    carregaEntidade(entities);
+                    String ID = Request.QueryString["ID"];
+                    if ((ID != null) && (!ID.Equals("")))
                     {
-                        DOACAO u = entities.DOACAO.FirstOrDefault(x => x.ID.Equals(i));
+                        DOACAO u = entities.DOACAO.FirstOrDefault(x => x.ID.Equals(ID));
                         if (u != null)
                         {
                             string ID_CONVERT = ID.ToString();
-
-                            //lblID.Text = i.ToString();
-                            DropDownList1.Text = ID_CONVERT;
-                            //txtNomeEntidade.ReadOnly = true;
-                            /*txtCNPJ.Text = u.CNPJ;
-                            txtTelefone.Text = u.TELEFONE;
-                            txtLogradouro.Text = u.LOGRADOURO;
-                            txtNumero.Text = u.NUMERO;
-                            txtBairro.Text = u.BAIRRO;
-                            txtCEP.Text = u.CEP;
-                            txtCidade.Text = u.CIDADE;
-                            drpEstado.Text = u.ESTADO;
-                            txtPresidente.Text = u.PRESIDENTE;
-                            txtAdmnistrador.Text = u.LOGIN_USUARIO_ADMINISTRADOR;
-                            lblAcao.Text = "ALTERANDO";
-                            cbAtivo.Checked = u.ATIVA;*/
-                            
                         }
                     }
                 }
             }
         }
+
 
         protected void Button3_Click(object sender, EventArgs e)
         {
@@ -56,7 +40,25 @@ namespace SysArcos.formularios.doacao
         {
 
         }
-    }
 
-        
+        private void carregaEntidade(ARCOS_Entities conn)
+        {
+            List<ENTIDADE> list = conn.ENTIDADE.OrderBy(x => x.NOME).ToList();
+            ddlEntidade.DataTextField = "NOME";//Carrega o campo que será mostrado
+            ddlEntidade.DataValueField = "ID";//Carrega Primary Key
+            ddlEntidade.DataSource = list;
+            ddlEntidade.DataBind();
+            ddlEntidade.Items.Insert(0, "");
+        }
+
+        private void carregaDoador(ARCOS_Entities conn)
+        {
+            List<DOADOR> list = conn.DOADOR.OrderBy(x => x.NOME).ToList();
+            ddlEntidade.DataTextField = "NOME";//Carrega o campo que será mostrado
+            ddlEntidade.DataValueField = "ID";//Carrega Primary Key
+            ddlEntidade.DataSource = list;
+            ddlEntidade.DataBind();
+            ddlEntidade.Items.Insert(0, "");
+        }
     }
+}

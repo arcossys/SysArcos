@@ -7,11 +7,11 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace SysArcos.formularios.estoque
+namespace SysArcos.formularios.parentesco_assistido
 {
 
 
-    public partial class frmestoque
+    public partial class frmparentescoassistido
     {
 
         /// <summary>
@@ -24,84 +24,57 @@ namespace SysArcos.formularios.estoque
         protected global::System.Web.UI.WebControls.Label lblAcao;
 
         /// <summary>
-        /// Controle Label1.
+        /// Controle lblID.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblID;
 
         /// <summary>
-        /// Controle ddlEntidade.
+        /// Controle lblParentesco.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEntidade;
+        protected global::System.Web.UI.WebControls.Label lblParentesco;
 
         /// <summary>
-        /// Controle Label2.
+        /// Controle txtParentesco.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.TextBox txtParentesco;
 
         /// <summary>
-        /// Controle ddlProduto.
+        /// Controle btnNovo.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlProduto;
+        protected global::System.Web.UI.WebControls.Button btnNovo;
 
         /// <summary>
-        /// Controle Label3.
+        /// Controle btnSalvar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Button btnSalvar;
 
         /// <summary>
-        /// Controle TextBox1.
+        /// Controle btnBuscar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
-
-        /// <summary>
-        /// Controle Button1.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
-
-        /// <summary>
-        /// Controle Button2.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
-
-        /// <summary>
-        /// Controle Button3.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.Button btnBuscar;
     }
 }

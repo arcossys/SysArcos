@@ -36,15 +36,24 @@
 
     <div class="row">
         <div class="col-12">
-            <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataKeyNames="LOGIN" ShowHeaderWhenEmpty="True" PageSize="20" AllowPaging="True" OnPageIndexChanging="grid_PageIndexChanging" OnSelectedIndexChanged="grid_SelectedIndexChanged">
+            <asp:GridView ID="grid" runat="server" 
+                AutoGenerateColumns="False" CellPadding="4" 
+                ForeColor="#333333" GridLines="None" Width="100%" 
+                DataKeyNames="login" ShowHeaderWhenEmpty="True" 
+                AllowPaging="True" PageSize="20" OnPageIndexChanging="grid_PageIndexChanging">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField HeaderText="Nome" DataField="NOME" />
-                    <asp:BoundField HeaderText="Login" DataField="LOGIN" />
-                    <asp:BoundField HeaderText="CPF" DataField="CPF" />
-                    <asp:BoundField HeaderText="E-mail" DataField="EMAIL" />
-                    <asp:BoundField DataField="GRUPO_PERMISSAO.DESCRICAO" HeaderText="Permissão" />
+                    <asp:BoundField HeaderText="Login" DataField="LOGIN" 
+                        ItemStyle-CssClass="d-none d-sm-block" HeaderStyle-CssClass="d-none d-sm-block"/>
+
+                    <asp:BoundField HeaderText="CPF" DataField="CPF"/>
+
+                    <asp:BoundField HeaderText="E-mail" DataField="EMAIL" 
+                        ItemStyle-CssClass="d-none d-sm-block" HeaderStyle-CssClass="d-none d-sm-block"/>
+
                     <asp:CommandField ShowSelectButton="True" />
+
                 </Columns>
                 <EditRowStyle BackColor="#2461BF" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -72,13 +81,13 @@
     <br />
     <div class="row">
         <div class="col-12 col-lg-4 row_buttons">
-            <asp:Button ID="btnCancelar" class="btn btn-primary" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" Width="100%" Font-Size="X-Large" />
+            <asp:Button ID="btnCancelar" class="btn btn-primary" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" Width="100%"/>
         </div>
         <div class="col-12 col-lg-4 row_buttons">
-            <asp:Button ID="btnSelecionar" class="btn btn-primary" runat="server" Text="Editar" OnClick="btnSelecionar_Click" Width="100%" Font-Size="X-Large" />
+            <asp:Button ID="btnSelecionar" class="btn btn-primary" runat="server" Text="Editar" OnClick="btnSelecionar_Click" Width="100%"/>
         </div>
         <div class="col-12 col-lg-4 row_buttons">
-            <asp:Button ID="btnRemover" class="btn btn-primary" runat="server" Text="Remover" OnClick="btnRemover_Click" Width="100%" Font-Size="X-Large" OnClientClick="return confirm('Deseja remover?');" />
+            <asp:Button ID="btnRemover" class="btn btn-primary" runat="server" Text="Remover" OnClick="btnRemover_Click" Width="100%" OnClientClick="return confirm('Deseja remover?');" />
         </div>
     </div>
 </asp:Content>

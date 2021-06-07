@@ -123,6 +123,7 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/formularios/assistencia/frmassistencia.aspx"><b>Assistência</b></a>
                                 <a class="dropdown-item" href="/formularios/assistido/frmassistido.aspx"><b>Assistido</b></a>
+                                <a class="dropdown-item" href="/formularios/parentesco_assistido/frmparentescoassistido.aspx"><b>Parentesco Assistido</b></a>
                             </div>
                         </li>
 

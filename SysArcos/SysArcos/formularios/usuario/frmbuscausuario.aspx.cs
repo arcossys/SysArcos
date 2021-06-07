@@ -12,14 +12,7 @@ namespace ProjetoArcos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (grid.SelectedValue == null)
-            {
-                btnRemover.Enabled = false;
-            }
-            else
-            {
-                btnRemover.Enabled = true;
-            }
+           
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -125,11 +118,6 @@ namespace ProjetoArcos
                 grid.DataSource = lista;
                 grid.DataBind();
             }
-        }
-
-        protected void grid_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            btnRemover.Enabled = true;
         }
     }
 }

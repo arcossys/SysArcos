@@ -51,13 +51,13 @@ namespace SysArcos.formularios.Voluntariar
         protected global::System.Web.UI.WebControls.TextBox Txt_vdatainicial;
 
         /// <summary>
-        /// Controle Label2.
+        /// Controle lblDataFinal.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label lblDataFinal;
 
         /// <summary>
         /// Controle Txt_vdatafinal.

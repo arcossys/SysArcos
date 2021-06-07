@@ -16,7 +16,7 @@
                 <asp:Label ID="Label1" runat="server" Text="Entidade"></asp:Label>
             </div>
             <div class="col-12 col-lg-4">
-                <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control">
+                <asp:DropDownList ID="ddlEntidade" runat="server" CssClass="form-control">
                 </asp:DropDownList>
             </div>
         </div>
@@ -25,7 +25,7 @@
                 <asp:Label ID="Label2" runat="server" Text="Produto"></asp:Label>
             </div>
             <div class="col-12 col-lg-4">
-                <asp:DropDownList ID="DropDownList2" runat="server" CssClass="form-control">
+                <asp:DropDownList ID="ddlProduto" runat="server" CssClass="form-control">
                 </asp:DropDownList>
             </div>
         </div>
@@ -39,13 +39,13 @@
         </div>
         <div class="row">
             <div class="col-12 col-lg-4 row_buttons">
-                <asp:Button ID="Button1" runat="server" Font-Size="X-Large" Width="100%" CssClass="btn btn-primary" Text="Novo" />
+                <asp:Button ID="Button1" runat="server" Width="100%" CssClass="btn btn-primary" Text="Novo" />
             </div>
             <div class="col-12 col-lg-4 row_buttons">
-                <asp:Button ID="Button2" runat="server" Font-Size="X-Large" Width="100%" CssClass="btn btn-primary" Text="Salvar" />
+                <asp:Button ID="Button2" runat="server" Width="100%" CssClass="btn btn-primary" Text="Salvar" />
             </div>
             <div class="col-12 col-lg-4 row_buttons">
-                <asp:Button ID="Button3" runat="server" Font-Size="X-Large" Width="100%" CssClass="btn btn-primary" Text="Buscar" OnClick="Button3_Click" />
+                <asp:Button ID="Button3" runat="server" Width="100%" CssClass="btn btn-primary" Text="Buscar" OnClick="Button3_Click" />
             </div>
         </div>
     </div>

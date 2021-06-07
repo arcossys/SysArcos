@@ -2,6 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="entidade">
+        Buscar Tipo Produto
+    </div>
+
     <div class="row">        
         <div class="col-8 col-lg-5">
             <div class="input-group">
@@ -36,13 +40,13 @@
     </div>   
     <div class="row"> 
         <div class="col-12 col-lg-4 row_buttons">
-            <asp:Button ID="brnCancelar" runat="server" CssClass="btn btn-primary" Text="Cancelar" OnClick="brnCancelar_Click" Width="100%" Font-Size="X-Large" />
+            <asp:Button ID="brnCancelar" runat="server" CssClass="btn btn-primary" Text="Cancelar" OnClick="brnCancelar_Click" Width="100%"/>
         </div>
         <div class="col-12 col-lg-4 row_buttons">
-            <asp:Button ID="btnEditar" runat="server" CssClass="btn btn-primary" Text="Editar" OnClick="btnEditar_Click" Width="100%" Font-Size="X-Large" />
+            <asp:Button ID="btnEditar" runat="server" CssClass="btn btn-primary" Text="Editar" OnClick="btnEditar_Click" Width="100%"/>
         </div>
         <div class="col-12 col-lg-4 row_buttons">        
-            <asp:Button ID="btnRemover" runat="server" CssClass="btn btn-primary" Text="Remover" OnClientClick="return confirm('Deseja remover?');" OnClick="btnRemover_Click" Width="100%" Font-Size="X-Large" />
+            <asp:Button ID="btnRemover" runat="server" CssClass="btn btn-primary" Text="Remover" OnClientClick="return confirm('Deseja remover?');" OnClick="btnRemover_Click" Width="100%"/>
         </div>
     </div>
 </asp:Content>

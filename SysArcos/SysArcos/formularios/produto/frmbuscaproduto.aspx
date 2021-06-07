@@ -38,9 +38,11 @@
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField HeaderText="Descrição" DataField="DESCRICAO" />
-                    <asp:BoundField HeaderText="Especificações" DataField="ESPECIFICACOES" />
+                    <asp:BoundField HeaderText="Especificações" DataField="ESPECIFICACOES" 
+                        ItemStyle-CssClass="d-none d-sm-block" HeaderStyle-CssClass="d-none d-sm-block"/>
                     <asp:BoundField HeaderText="Unidade" DataField="UNIDADE" />
-                    <asp:BoundField DataField="CATEGORIA_PRODUTO.DESCRICAO" HeaderText="Categoria" />
+                    <asp:BoundField DataField="CATEGORIA_PRODUTO.DESCRICAO" HeaderText="Categoria" 
+                        ItemStyle-CssClass="d-none d-sm-block" HeaderStyle-CssClass="d-none d-sm-block"/>
                     <asp:CommandField ShowSelectButton="True" />
                 </Columns>
                 <EditRowStyle BackColor="#2461BF" />

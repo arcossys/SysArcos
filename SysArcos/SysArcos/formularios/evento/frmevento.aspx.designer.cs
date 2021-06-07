@@ -132,24 +132,6 @@ namespace ProjetoArcos
         protected global::System.Web.UI.WebControls.TextBox TextBox2;
 
         /// <summary>
-        /// Controle lblTipoEvento.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTipoEvento;
-
-        /// <summary>
-        /// Controle ddlTipoEvento.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipoEvento;
-
-        /// <summary>
         /// Controle lblEntidade.
         /// </summary>
         /// <remarks>
@@ -166,6 +148,24 @@ namespace ProjetoArcos
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlEntidade;
+
+        /// <summary>
+        /// Controle lblTipoEvento.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTipoEvento;
+
+        /// <summary>
+        /// Controle ddlTipoEvento.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoEvento;
 
         /// <summary>
         /// Controle btnNovo.

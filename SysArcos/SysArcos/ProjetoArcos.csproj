@@ -99,6 +99,8 @@
     <Content Include="formularios\evento\frmbuscaevento.aspx" />
     <Content Include="formularios\fornecedor\frmbuscafornecedor.aspx" />
     <Content Include="formularios\fornecimento\fornecimento.aspx" />
+    <Content Include="formularios\parentesco_assistido\frmbuscaparentescoassistido.aspx" />
+    <Content Include="formularios\parentesco_assistido\frmparentescoassistido.aspx" />
     <Content Include="formularios\recurso\frmbuscarecurso.aspx" />
     <Content Include="formularios\recurso\frmrecurso.aspx" />
     <Content Include="formularios\Voluntariar\frmvoluntariar.aspx" />
@@ -346,6 +348,20 @@
     <Compile Include="formularios\fornecimento\fornecimento.aspx.designer.cs">
       <DependentUpon>fornecimento.aspx</DependentUpon>
     </Compile>
+    <Compile Include="formularios\parentesco_assistido\frmbuscaparentescoassistido.aspx.cs">
+      <DependentUpon>frmbuscaparentescoassistido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\parentesco_assistido\frmbuscaparentescoassistido.aspx.designer.cs">
+      <DependentUpon>frmbuscaparentescoassistido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\parentesco_assistido\frmparentescoassistido.aspx.cs">
+      <DependentUpon>frmparentescoassistido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\parentesco_assistido\frmparentescoassistido.aspx.designer.cs">
+      <DependentUpon>frmparentescoassistido.aspx</DependentUpon>
+    </Compile>
     <Compile Include="formularios\recurso\frmbuscarecurso.aspx.cs">
       <DependentUpon>frmbuscarecurso.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -374,6 +390,9 @@
       <DependentUpon>ModelArcos.tt</DependentUpon>
     </Compile>
     <Compile Include="FORNECIMENTO_ITENS.cs">
+      <DependentUpon>ModelArcos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GRAU_DEPENDENCIA.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
     </Compile>
     <Compile Include="GRUPO_PERMISSAO.cs">
@@ -659,6 +678,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

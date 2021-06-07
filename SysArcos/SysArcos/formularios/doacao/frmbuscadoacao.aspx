@@ -36,7 +36,7 @@
             </fieldset>
         </div>
     </div>
-    <div>
+    <div class="row">
         <asp:GridView ID="gridBusca" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
             <%--<AlternatingRowStyle BackColor="White" />--%>
             <Columns>
@@ -59,13 +59,13 @@
     <br/>
     <div class="row">        
         <div class="col-12 col-lg-4 row_buttons">    
-            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar"  CssClass="btn btn-primary" OnClick="btnCancelar_Click" Width="100%" Font-Size="X-Large" />
+            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar"  CssClass="btn btn-primary" OnClick="btnCancelar_Click" Width="100%"/>
         </div>
         <div class="col-12 col-lg-4 row_buttons">   
-            <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-primary" Width="100%" Font-Size="X-Large" />
+            <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-primary" Width="100%"/>
         </div>
         <div class="col-12 col-lg-4 row_buttons">       
-            <asp:Button ID="btnRemover" runat="server" Text="Remover" CssClass="btn btn-primary" Width="100%" Font-Size="X-Large" />
+            <asp:Button ID="btnRemover" runat="server" Text="Remover" CssClass="btn btn-primary" Width="100%"/>
         </div>
     </div>
 </asp:Content>

@@ -39,7 +39,7 @@ namespace ProjetoArcos
 
         protected void btnCadastrarTipoEvento_Click(object sender, EventArgs e)
         {
-            
+
             if (txtTipoEvento.Text == "" || txtDescricaoEvento.Text == "")
             {
                 Response.Write("<script>alert('Há campos obrigatorios não preenchidos!');</script>");

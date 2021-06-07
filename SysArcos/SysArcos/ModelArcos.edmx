@@ -33,7 +33,6 @@
           <Property Name="CEP" Type="varchar" MaxLength="9" />
           <Property Name="CIDADE" Type="varchar" MaxLength="40" />
           <Property Name="ESTADO" Type="char" MaxLength="2" />
-          <Property Name="PARENTESCO_ASSISTIDO_RESPONSAVEL" Type="varchar" MaxLength="30" />
           <Property Name="ID_ASSISTIDO_RESPONSAVEL" Type="int" />
           <Property Name="ATIVO" Type="bit" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
@@ -45,6 +44,7 @@
           <Property Name="ID_ENTIDADE" Type="int" />
           <Property Name="ID_ESTADO_CIVIL" Type="int" />
           <Property Name="OBSERVACAO" Type="text" />
+          <Property Name="ID_GRAU_DEPENDENCIA" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="CATEGORIA_PRODUTO">
           <Key>
@@ -172,6 +172,13 @@
           <Property Name="VALOR_UNITARIO" Type="money" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="GRAU_DEPENDENCIA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
         <EntityType Name="GRUPO_PERMISSAO">
           <Key>
             <PropertyRef Name="ID" />
@@ -294,6 +301,18 @@
           <Property Name="ATIVO" Type="bit" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
         </EntityType>
+        <Association Name="FK__ASSISTIDO__ID_GR__282DF8C2">
+          <End Role="GRAU_DEPENDENCIA" Type="Self.GRAU_DEPENDENCIA" Multiplicity="1" />
+          <End Role="ASSISTIDO" Type="Self.ASSISTIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GRAU_DEPENDENCIA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASSISTIDO">
+              <PropertyRef Name="ID_GRAU_DEPENDENCIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ASSISTENCIA_ASSISTIDO">
           <End Role="ASSISTIDO" Type="Self.ASSISTIDO" Multiplicity="1" />
           <End Role="ASSISTENCIA" Type="Self.ASSISTENCIA" Multiplicity="*" />
@@ -607,6 +626,7 @@
           <EntitySet Name="FORNECEDOR" EntityType="Self.FORNECEDOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FORNECIMENTO" EntityType="Self.FORNECIMENTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FORNECIMENTO_ITENS" EntityType="Self.FORNECIMENTO_ITENS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GRAU_DEPENDENCIA" EntityType="Self.GRAU_DEPENDENCIA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GRUPO_PERMISSAO" EntityType="Self.GRUPO_PERMISSAO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRODUTO" EntityType="Self.PRODUTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RECURSO" EntityType="Self.RECURSO" Schema="dbo" store:Type="Tables" />
@@ -616,6 +636,10 @@
           <EntitySet Name="VOLUNTARIADO" EntityType="Self.VOLUNTARIADO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VOLUNTARIAR" EntityType="Self.VOLUNTARIAR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VOLUNTARIO" EntityType="Self.VOLUNTARIO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ASSISTIDO__ID_GR__282DF8C2" Association="Self.FK__ASSISTIDO__ID_GR__282DF8C2">
+            <End Role="GRAU_DEPENDENCIA" EntitySet="GRAU_DEPENDENCIA" />
+            <End Role="ASSISTIDO" EntitySet="ASSISTIDO" />
+          </AssociationSet>
           <AssociationSet Name="FK_ASSISTENCIA_ASSISTIDO" Association="Self.FK_ASSISTENCIA_ASSISTIDO">
             <End Role="ASSISTIDO" EntitySet="ASSISTIDO" />
             <End Role="ASSISTENCIA" EntitySet="ASSISTENCIA" />
@@ -843,6 +867,11 @@
             <End Role="VOLUNTARIO" EntitySet="VOLUNTARIO" />
             <End Role="VOLUNTARIAR" EntitySet="VOLUNTARIAR" />
           </AssociationSet>
+          <EntitySet Name="GRAU_DEPENDENCIA" EntityType="ARCOS_V2Model.GRAU_DEPENDENCIA" />
+          <AssociationSet Name="FK__ASSISTIDO__ID_GR__282DF8C2" Association="ARCOS_V2Model.FK__ASSISTIDO__ID_GR__282DF8C2">
+            <End Role="GRAU_DEPENDENCIA" EntitySet="GRAU_DEPENDENCIA" />
+            <End Role="ASSISTIDO" EntitySet="ASSISTIDO" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="ASSISTENCIA">
           <Key>
@@ -874,7 +903,6 @@
           <Property Name="CEP" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
           <Property Name="CIDADE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="ESTADO" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
-          <Property Name="PARENTESCO_ASSISTIDO_RESPONSAVEL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="ID_ASSISTIDO_RESPONSAVEL" Type="Int32" />
           <Property Name="ATIVO" Type="Boolean" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
@@ -891,6 +919,8 @@
           <NavigationProperty Name="ESTADO_CIVIL" Relationship="ARCOS_V2Model.FK_ASSISTIDO_ESTADO_CIVIL" FromRole="ASSISTIDO" ToRole="ESTADO_CIVIL" />
           <NavigationProperty Name="ASSISTIDO_DEPENDENTES" Relationship="ARCOS_V2Model.FK_ASSISTIDO_RESPONSAVEL" FromRole="ASSISTIDO" ToRole="ASSISTIDO1" />
           <NavigationProperty Name="ASSISTIDO_TITULAR" Relationship="ARCOS_V2Model.FK_ASSISTIDO_RESPONSAVEL" FromRole="ASSISTIDO1" ToRole="ASSISTIDO" />
+          <Property Name="ID_GRAU_DEPENDENCIA" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="GRAU_DEPENDENCIA" Relationship="ARCOS_V2Model.FK__ASSISTIDO__ID_GR__282DF8C2" FromRole="ASSISTIDO" ToRole="GRAU_DEPENDENCIA" />
         </EntityType>
         <EntityType Name="CATEGORIA_PRODUTO">
           <Key>
@@ -1483,6 +1513,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="GRAU_DEPENDENCIA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRICAO" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ASSISTIDO" Relationship="ARCOS_V2Model.FK__ASSISTIDO__ID_GR__282DF8C2" FromRole="GRAU_DEPENDENCIA" ToRole="ASSISTIDO" />
+        </EntityType>
+        <Association Name="FK__ASSISTIDO__ID_GR__282DF8C2">
+          <End Type="ARCOS_V2Model.GRAU_DEPENDENCIA" Role="GRAU_DEPENDENCIA" Multiplicity="1" />
+          <End Type="ARCOS_V2Model.ASSISTIDO" Role="ASSISTIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GRAU_DEPENDENCIA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASSISTIDO">
+              <PropertyRef Name="ID_GRAU_DEPENDENCIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1506,6 +1556,7 @@
           <EntitySetMapping Name="ASSISTIDO">
             <EntityTypeMapping TypeName="ARCOS_V2Model.ASSISTIDO">
               <MappingFragment StoreEntitySet="ASSISTIDO">
+                <ScalarProperty Name="ID_GRAU_DEPENDENCIA" ColumnName="ID_GRAU_DEPENDENCIA" />
                 <ScalarProperty Name="OBSERVACAO" ColumnName="OBSERVACAO" />
                 <ScalarProperty Name="ID_ESTADO_CIVIL" ColumnName="ID_ESTADO_CIVIL" />
                 <ScalarProperty Name="ID_ENTIDADE" ColumnName="ID_ENTIDADE" />
@@ -1517,7 +1568,6 @@
                 <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
                 <ScalarProperty Name="ATIVO" ColumnName="ATIVO" />
                 <ScalarProperty Name="ID_ASSISTIDO_RESPONSAVEL" ColumnName="ID_ASSISTIDO_RESPONSAVEL" />
-                <ScalarProperty Name="PARENTESCO_ASSISTIDO_RESPONSAVEL" ColumnName="PARENTESCO_ASSISTIDO_RESPONSAVEL" />
                 <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
                 <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
                 <ScalarProperty Name="CEP" ColumnName="CEP" />
@@ -1794,6 +1844,14 @@
                 <ScalarProperty Name="LOGRADOURO" ColumnName="LOGRADOURO" />
                 <ScalarProperty Name="CPF" ColumnName="CPF" />
                 <ScalarProperty Name="NOME" ColumnName="NOME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GRAU_DEPENDENCIA">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.GRAU_DEPENDENCIA">
+              <MappingFragment StoreEntitySet="GRAU_DEPENDENCIA">
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

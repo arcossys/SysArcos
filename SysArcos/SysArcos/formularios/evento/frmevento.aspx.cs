@@ -43,7 +43,9 @@ namespace ProjetoArcos
         {
             using (ARCOS_Entities enntity = new ARCOS_Entities())
             {
-                List<ENTIDADE> lista = enntity.ENTIDADE.ToList();
+                List<ENTIDADE> lista = enntity.ENTIDADE.
+                    Where(linha=>linha.ATIVA.Equals(true)).
+                    OrderBy(linha=>linha.NOME).ToList();
                 ddlEntidade.DataTextField = "NOME";
                 ddlEntidade.DataValueField = "ID";
                 ddlEntidade.DataSource = lista;

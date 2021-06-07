@@ -1,10 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="frmbuscatipoevento.aspx.cs" Inherits="ProjetoArcos.frmbuscatipoevento" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="frmbuscaparentescoassistido.aspx.cs" Inherits="SysArcos.formularios.parentesco_assistido.frmbuscaparentescoassistido" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="entidade">
-        Buscar Tipo Evento
+        Parentesco Assistido
     </div>
 
     <div class="row">
@@ -23,28 +22,18 @@
 
     <br />
 
-    <div class="row">
-        <div class="col-12 col-lg-6 row_fields">
-            <fieldset class="border p-2 border-primary">
-                <asp:RadioButtonList ID="rdbLista" runat="server" RepeatDirection="Horizontal" Width="100%">
-                    <asp:ListItem>Nome</asp:ListItem>
-                    <asp:ListItem>Descrição</asp:ListItem>
-                </asp:RadioButtonList>
-            </fieldset>
-        </div>
-    </div>
-
     <br />
 
     <div class="row">
         <div class="col-12">
-            <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" OnSelectedIndexChanged="grid_SelectedIndexChanged" DataKeyNames="ID">
+            <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataKeyNames="ID">
                 <AlternatingRowStyle BackColor="White" />
+
                 <Columns>
-                    <asp:BoundField DataField="NOME" HeaderText="NOME" />
-                    <asp:BoundField DataField="DESCRICAO" HeaderText="DESCRIÇÃO" />
+                    <asp:BoundField DataField="DESCRICAO" HeaderText="DESCRIÇÃO" /> 
                     <asp:CommandField HeaderText="SELECIONAR" ShowSelectButton="True" />
                 </Columns>
+
                 <EditRowStyle BackColor="#2461BF" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

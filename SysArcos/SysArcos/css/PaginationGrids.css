@@ -22,7 +22,7 @@
 }
 
 .GridPager span {
-    background: #ff0000;
+    /*background: #ff0000;*/
     box-shadow: inset 0px 0px 8px rgba(0,0,0, .5), 0px 1px 0px rgba(255,255,255, .8);
     color: #f0f0f0;
     text-shadow: 0px 0px 3px rgba(0,0,0, .5);

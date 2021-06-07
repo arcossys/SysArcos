@@ -1,15 +1,18 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="frmassistido.aspx.cs" Inherits="ProjetoArcos.frmassistido" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/html">
+        function abrirBusca() {
+                $('#staticBackdrop').modal('show');
+            }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="areaformulario">
         <div class="container-fluid">
-            <div class="row">
-                <div class="entidade">
-                    Assistido
-                </div>
+            <div class="entidade row">
+                Assistido
             </div>
 
             <div class="row">
@@ -233,7 +236,7 @@
                         Parentesco do Assistido:
                     </div>
                     <div>
-                        <asp:TextBox ID="txtParentescoAssistido" class="form-control" runat="server" MaxLength="50"></asp:TextBox>
+                        <asp:DropDownList ID="ddlParentesco" CssClass="form-control" runat="server"></asp:DropDownList>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6">
@@ -241,9 +244,14 @@
                         Assistido Responsável
                     </div>
                     <div>
-                        <asp:DropDownList ID="ddlResponsavelAssistido" runat="server" CssClass="form-control">
-                        </asp:DropDownList>
-
+                        <asp:TextBox ID="txtIdResponsavelAssistido" runat="server" Visible="false"></asp:TextBox>
+                        <div class="input-group mb-3">
+                            <asp:TextBox CssClass="form-control" aria-describedby="button-addon2"
+                                runat="server" ReadOnly="true" ID="txtNomeResponsavelAssistido"></asp:TextBox>
+                            <button class="btn btn-primary" type="button" id="button-addon2"
+                                data-toggle="modal" data-target="#staticBackdrop">
+                                <<</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -251,13 +259,84 @@
 
             <div class="row">
                 <div class="col-12 col-lg-4 row_buttons">
-                    <asp:Button ID="btnNovo" runat="server" class="btn btn-primary" Text="Novo" OnClick="btnNovo_Click" Width="100%" Font-Size="X-Large" />
+                    <asp:Button ID="btnNovo" runat="server" class="btn btn-primary" Text="Novo" OnClick="btnNovo_Click" Width="100%" />
                 </div>
                 <div class="col-12 col-lg-4 row_buttons">
-                    <asp:Button ID="btn_cadastrar" class="btn btn-primary" runat="server" Text="Salvar" OnClick="btn_cadastrar_Click" Width="100%" Font-Size="X-Large" />
+                    <asp:Button ID="btn_cadastrar" class="btn btn-primary" runat="server" Text="Salvar" OnClick="btn_cadastrar_Click" Width="100%" />
                 </div>
                 <div class="col-12 col-lg-4 row_buttons">
-                    <asp:Button ID="btn_buscar" class="btn btn-primary" runat="server" Text="Buscar" OnClick="btn_buscar_Click" Width="100%" Font-Size="X-Large" />
+                    <asp:Button ID="btn_buscar" class="btn btn-primary" runat="server" Text="Buscar" OnClick="btn_buscar_Click" Width="100%" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Buscar Assistido Responsável</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <asp:UpdatePanel ID="up" runat="server"
+                        UpdateMode="Always">
+                        <ContentTemplate>
+                            <div class="row">
+                                <div class="col-lg-9 col-12">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="">Filtro</span>
+                                        </div>
+                                        <asp:TextBox ID="txtBusca" runat="server" placeholder="Pesquisa por nome..." CssClass="form-control"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-12">
+                                    <asp:Button ID="btnBuscarAssistido" Text="buscar" OnClick="btnBuscarAssistido_Click" runat="server" CssClass="btn btn-primary"
+                                        data-target="#staticBackdrop" Width="100%" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <br />
+                                    <asp:GridView runat="server" ID="gridBuscar" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" ShowHeaderWhenEmpty="True" DataKeyNames="ID">
+                                        <AlternatingRowStyle BackColor="White" />
+                                        <Columns>
+                                            <asp:BoundField DataField="Nome" HeaderText="Nome" />
+                                            <asp:CommandField ShowSelectButton="True" />
+                                        </Columns>
+                                        <EditRowStyle BackColor="#2461BF" />
+                                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                                        <RowStyle BackColor="#EFF3FB" />
+                                        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                                        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                                        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                                        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                                        <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                                    </asp:GridView>
+                                </div>
+                            </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+                <div class="modal-footer">
+                    <div>
+                        <asp:Button ID="btnDefinidorTitular" Text="Definir como Titular" runat="server"
+                            CssClass="btn btn-primary" OnClick="btnDefinidorTitular_Click" />
+                    </div>
+                    <div>
+                        <asp:Button ID="btnSelecionarBuscar" Text="Selecionar Assistido" runat="server"
+                            CssClass="btn btn-primary" OnClick="btnSelecionarBuscar_Click" />
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
                 </div>
             </div>
         </div>

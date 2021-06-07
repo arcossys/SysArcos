@@ -11,6 +11,7 @@ namespace ProjetoArcos
 {
     public partial class frmassistido : System.Web.UI.Page
     {
+        private static String ASSISTIDO_RESPONSAVEL = "ASSISTIDO RESPONSÁVEL";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -18,9 +19,9 @@ namespace ProjetoArcos
 
                 using (ARCOS_Entities entities = new ARCOS_Entities())
                 {
-                    carregarAssistidoResponsavel(entities);
                     carregarEstadoCivil(entities);
                     carregarEntidades(entities);
+                    carregarListaParentesco(entities);
                     String ID = Request.QueryString["ID"];
                     if ((ID != null) && (!ID.Equals("")))
                     {
@@ -60,8 +61,9 @@ namespace ProjetoArcos
             txtCEP.Text = string.Empty;
             txtCidade.Text = string.Empty;
             drpEstado.SelectedValue = null;
-            txtParentescoAssistido.Text = string.Empty;
-            ddlResponsavelAssistido.Text = string.Empty;
+            ddlParentesco.SelectedValue = null;
+            txtIdResponsavelAssistido.Text = string.Empty;
+            txtNomeResponsavelAssistido.Text = string.Empty;
             lblAcao.Text = "NOVO";
             lblID.Text = string.Empty;
         }
@@ -97,7 +99,6 @@ namespace ProjetoArcos
                 }
                 else
                 {
-                    
                     using (ARCOS_Entities entity = new ARCOS_Entities())
                     {
                         ASSISTIDO assistido = null;
@@ -133,11 +134,11 @@ namespace ProjetoArcos
                         assistido.CEP = txtCEP.Text;
                         assistido.CIDADE = txtCidade.Text;
                         assistido.ESTADO = drpEstado.Text;
-                        assistido.PARENTESCO_ASSISTIDO_RESPONSAVEL = txtParentescoAssistido.Text;
-                        if (ddlResponsavelAssistido.Text.Equals("ASSISTIDO RESPONSÁVEL"))
+                        assistido.ID_GRAU_DEPENDENCIA = Convert.ToInt32(ddlParentesco.SelectedValue);
+                        if (txtNomeResponsavelAssistido.Text.Equals(ASSISTIDO_RESPONSAVEL))
                             assistido.ID_ASSISTIDO_RESPONSAVEL = null;
                         else
-                            assistido.ID_ASSISTIDO_RESPONSAVEL = Convert.ToInt32(ddlResponsavelAssistido.SelectedValue);
+                            assistido.ID_ASSISTIDO_RESPONSAVEL = Convert.ToInt32(txtIdResponsavelAssistido.Text);
                         assistido.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
 
                         if (lblAcao.Text.Equals("NOVO"))
@@ -170,19 +171,6 @@ namespace ProjetoArcos
             ddlEstadoCivil.Items.Insert(0, "");
         }
 
-        private void carregarAssistidoResponsavel(ARCOS_Entities conn)
-        {
-            List<ASSISTIDO> lista = conn.ASSISTIDO
-                .OrderBy(linha => linha.NOME)
-                .ToList();
-            ddlResponsavelAssistido.DataTextField = "NOME";
-            ddlResponsavelAssistido.DataValueField = "ID";
-            ddlResponsavelAssistido.DataSource = lista;
-            ddlResponsavelAssistido.DataBind();
-            ddlResponsavelAssistido.Items.Insert(0, "ASSISTIDO RESPONSÁVEL");
-            ddlResponsavelAssistido.Items.Insert(0, "");
-        }
-
         private void carregarEntidades(ARCOS_Entities conn)
         {
             String loginLogado = (String)Session["usuariologado"];
@@ -194,14 +182,14 @@ namespace ProjetoArcos
                 if (u.ADM)
                 {
                     lista = conn.ENTIDADE
-                        .Where(linha=>linha.ATIVA == true)
+                        .Where(linha => linha.ATIVA == true)
                         .OrderBy(linha => linha.NOME)
                         .ToList();
                 }
                 else
                 {
                     lista = u.ENTIDADE
-                        .Where(linha=>linha.ATIVA)
+                        .Where(linha => linha.ATIVA)
                         .OrderBy(linha => linha.NOME)
                         .ToList();
                 }
@@ -235,11 +223,54 @@ namespace ProjetoArcos
             txtCEP.Text = u.CEP;
             txtCidade.Text = u.CIDADE;
             drpEstado.Text = u.ESTADO;
-            txtParentescoAssistido.Text = u.PARENTESCO_ASSISTIDO_RESPONSAVEL;
+            ddlParentesco.SelectedValue = u.ID_GRAU_DEPENDENCIA.ToString();
             if (u.ID_ASSISTIDO_RESPONSAVEL == null)
-                ddlResponsavelAssistido.SelectedIndex = 1;
+                txtNomeResponsavelAssistido.Text = ASSISTIDO_RESPONSAVEL;
             else
-                ddlResponsavelAssistido.SelectedValue = u.ID_ASSISTIDO_RESPONSAVEL.ToString();
+                txtNomeResponsavelAssistido.Text = u.ASSISTIDO_TITULAR.NOME;
+        }
+
+        protected void btnBuscarAssistido_Click(object sender, EventArgs e)
+        {
+            using (ARCOS_Entities conn = new ARCOS_Entities())
+            {
+                List<ASSISTIDO> lista =
+                    conn.ASSISTIDO.Where(linha => linha.NOME.Contains(txtBusca.Text))
+                    .OrderBy(linha => linha.NOME).ToList();
+                gridBuscar.DataSource = lista;
+                gridBuscar.DataBind();
+            }
+        }
+
+        protected void btnSelecionarBuscar_Click(object sender, EventArgs e)
+        {
+            if (gridBuscar.SelectedValue != null)
+            {
+                int ID = Convert.ToInt32(gridBuscar.SelectedValue.ToString());
+                using (ARCOS_Entities conn = new ARCOS_Entities())
+                {
+                    ASSISTIDO assistido =
+                        conn.ASSISTIDO.Where(linha => linha.ID.Equals(ID)).FirstOrDefault();
+                    txtNomeResponsavelAssistido.Text = assistido.NOME;
+                }
+            }
+
+        }
+
+        protected void btnDefinidorTitular_Click(object sender, EventArgs e)
+        {
+            txtIdResponsavelAssistido.Text = "";
+            txtNomeResponsavelAssistido.Text = ASSISTIDO_RESPONSAVEL;
+        }
+
+        private void carregarListaParentesco(ARCOS_Entities conn)
+        {
+            List<GRAU_DEPENDENCIA> lista = conn.GRAU_DEPENDENCIA.OrderBy(linha => linha.DESCRICAO).ToList();
+            ddlParentesco.DataTextField = "DESCRICAO";
+            ddlParentesco.DataValueField = "ID";
+            ddlParentesco.DataSource = lista;
+            ddlParentesco.DataBind();
+            ddlParentesco.Items.Insert(0, "");
         }
     }
 }

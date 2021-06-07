@@ -44,7 +44,7 @@ namespace ProjetoArcos
                 var lista = query
                      .Select(linha => new
                          { 
-                             linha.ID, ENTIDADE = linha.ENTIDADE.NOME, linha.NOME, linha.CPF, linha.DATA_NASCIMENTO, linha.PARENTESCO_ASSISTIDO_RESPONSAVEL,
+                             linha.ID, ENTIDADE = linha.ENTIDADE.NOME, linha.NOME, linha.CPF, linha.DATA_NASCIMENTO, PARENTESCO_ASSISTIDO_RESPONSAVEL = linha.GRAU_DEPENDENCIA.DESCRICAO,
                              RESPONSABILIDADE = linha.ASSISTIDO_TITULAR == null ? "TITULAR" : linha.ASSISTIDO_TITULAR.NOME
                          }
                      )

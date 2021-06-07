@@ -14,72 +14,49 @@
         </div>
 
         <div class="row">
-            <div class="col-12 col-lg-10 row_fields">
-                <asp:Label ID="Label1" runat="server" Text="CNPJ"></asp:Label>
-            </div>
-            <div class="col-12 col-lg-4">
-                <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" Placeholder="999.999.999-99" MaxLength="18" onkeydown="mascara( this,CNPJ  );"></asp:TextBox>
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col-12 col-lg-10 row_fields">
+            <div class="col-12 col-lg-8 row_fields">
                 <asp:Label ID="Label2" runat="server" Text="Nome"></asp:Label>
-            </div>
-            <div class="col-12 col-lg-4">
                 <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" MaxLength="50"></asp:TextBox>
             </div>
 
-        </div>
-        <div class="row">
-            <div class="col-12 col-lg-10 row_fields">
-                <asp:Label ID="Label3" runat="server" Text="Logradouro"></asp:Label>
+            <div class="col-12 col-lg-4 row_fields">
+                <asp:Label ID="Label1" runat="server" Text="CNPJ"></asp:Label>
+                <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" Placeholder="999.999.999-99" MaxLength="18" onkeydown="mascara( this,CNPJ  );"></asp:TextBox>
             </div>
-            <div class="col-12 col-lg-4">
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-lg-8 row_fields">
+                <asp:Label ID="Label3" runat="server" Text="Logradouro"></asp:Label>
                 <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control" MaxLength="50"></asp:TextBox>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-lg-10 row_fields">
+
+            <div class="col-12 col-lg-4 row_fields">
                 <asp:Label ID="Label4" runat="server" Text="Número"></asp:Label>
-            </div>
-            <div class="col-12 col-lg-4">
                 <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control" MaxLength="10"></asp:TextBox>
             </div>
-
         </div>
+
         <div class="row">
-            <div class="col-12 col-lg-10 row_fields">
+            <div class="col-12 col-lg-8 row_fields">
                 <asp:Label ID="Label5" runat="server" Text="Bairro"></asp:Label>
-            </div>
-            <div class="col-12 col-lg-4">
                 <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control" MaxLength="30"></asp:TextBox>
             </div>
 
-        </div>
-        <div class="row">
-            <div class="col-12 col-lg-10 row_fields">
+            <div class="col-12 col-lg-4 row_fields">
                 <asp:Label ID="Label6" runat="server" Text="CEP"></asp:Label>
-            </div>
-            <div class="col-12 col-lg-4">
                 <asp:TextBox ID="TextBox6" runat="server" CssClass="form-control" Placeholder="99999-999" MaxLength="9" onkeydown="mascara( this,CEP  );"></asp:TextBox>
             </div>
-
         </div>
+
         <div class="row">
-            <div class="col-12 col-lg-10 row_fields">
+            <div class="col-12 col-lg-8 row_fields">
                 <asp:Label ID="Label7" runat="server" Text="Cidade"></asp:Label>
-            </div>
-            <div class="col-12 col-lg-4">
                 <asp:TextBox ID="TextBox7" runat="server" CssClass="form-control" MaxLength="40"></asp:TextBox>
             </div>
 
-        </div>
-        <div class="row">
-            <div class="col-12 col-lg-10 row_fields">
+            <div class="col-12 col-lg-4 row_fields">
                 <asp:Label ID="Label8" runat="server" Text="Estado"></asp:Label>
-            </div>
-            <div class="col-12 col-lg-4">
                 <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control" Width="100%">
                     <asp:ListItem></asp:ListItem>
                     <asp:ListItem>AL</asp:ListItem>
@@ -111,24 +88,23 @@
                 </asp:DropDownList>
             </div>
         </div>
+
         <div class="row">
-            <div class="col-12 col-lg-10 row_fields">
+            <div class="col-12 col-lg-12 row_fields">
                 <asp:Label ID="Label9" runat="server" Text="Observação"></asp:Label>
-            </div>
-            <div class="col-12 col-lg-4">
                 <asp:TextBox ID="TextBox8" runat="server" CssClass="form-control" MaxLength="255"></asp:TextBox>
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col-12 col-lg-4 row_buttons">
-                <asp:Button ID="btnNovo" runat="server" Text="Novo" CssClass="btn btn-primary" Width="100%" Font-Size=" X-Large " />
+                <asp:Button ID="btnNovo" runat="server" Text="Novo" CssClass="btn btn-primary" Width="100%" />
             </div>
             <div class="col-12 col-lg-4 row_buttons">
-                <asp:Button ID="btnSalvar" runat="server" Text="Salvar" CssClass="btn btn-primary" OnClick="btnSalvar_Click" Width="100%" Font-Size=" X-Large " />
+                <asp:Button ID="btnSalvar" runat="server" Text="Salvar" CssClass="btn btn-primary" OnClick="btnSalvar_Click" Width="100%"/>
             </div>
             <div class="col-12 col-lg-4 row_buttons">
-                <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary" OnClick="btnBuscar_Click" Width="100%" Font-Size=" X-Large " />
+                <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary" OnClick="btnBuscar_Click" Width="100%"/>
             </div>
         </div>
     </div>

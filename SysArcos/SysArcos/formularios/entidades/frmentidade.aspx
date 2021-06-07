@@ -173,13 +173,13 @@
 
             <div class="row">
                 <div class="col-12 col-lg-4 row_buttons">
-                    <asp:Button ID="btnNovo" runat="server" CssClass="btn btn-primary" Font-Bold="True" OnClick="btnNovo_Click" Text="Novo" Width="100%" Font-Size="X-Large" />
+                    <asp:Button ID="btnNovo" runat="server" CssClass="btn btn-primary" Font-Bold="True" OnClick="btnNovo_Click" Text="Novo" Width="100%"/>
                 </div>
                 <div class="col-12 col-lg-4 row_buttons">
-                    <asp:Button ID="btnCadastra" class="btn btn-primary" runat="server" OnClick="btnCadastra_Click" Text="Salvar" Font-Bold="True" ValidationGroup="form" Width="100%" Font-Size="X-Large" />
+                    <asp:Button ID="btnCadastra" class="btn btn-primary" runat="server" OnClick="btnCadastra_Click" Text="Salvar" Font-Bold="True" ValidationGroup="form" Width="100%"/>
                 </div>
                 <div class="col-12 col-lg-4 row_buttons">
-                    <asp:Button ID="btnConsulta" class="btn btn-primary" runat="server" Text="Buscar" Font-Bold="True" OnClick="btnConsulta_Click" Width="100%" Font-Size="X-Large" />
+                    <asp:Button ID="btnConsulta" class="btn btn-primary" runat="server" Text="Buscar" Font-Bold="True" OnClick="btnConsulta_Click" Width="100%"/>
                 </div>
 
             </div>

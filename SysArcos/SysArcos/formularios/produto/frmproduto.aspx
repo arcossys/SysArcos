@@ -58,13 +58,13 @@
       
         <div class="row">
             <div class="col-12 col-lg-4 row_buttons">
-                <asp:Button ID="btnNovo" runat="server" Font-Size="X-Large" Width="100%" class="btn btn-primary" Text="Novo" OnClick="btnNovo_Click" />
+                <asp:Button ID="btnNovo" runat="server" Width="100%" class="btn btn-primary" Text="Novo" OnClick="btnNovo_Click" />
             </div>
             <div class="col-12 col-lg-4 row_buttons">
-                <asp:Button ID="btn_cadastrar" Width="100%" Font-Size="X-Large" class="btn btn-primary" runat="server" Text="Salvar" OnClick="btn_cadastrar_Click" />
+                <asp:Button ID="btn_cadastrar" Width="100%" class="btn btn-primary" runat="server" Text="Salvar" OnClick="btn_cadastrar_Click" />
             </div>
             <div class="col-12 col-lg-4 row_buttons">
-                <asp:Button ID="btn_buscar" class="btn btn-primary" Font-Size="X-Large" Width="100%" runat="server" Text="Buscar" OnClick="btn_buscar_Click" />
+                <asp:Button ID="btn_buscar" class="btn btn-primary" Width="100%" runat="server" Text="Buscar" OnClick="btn_buscar_Click" />
             </div>
         </div>
     </div>

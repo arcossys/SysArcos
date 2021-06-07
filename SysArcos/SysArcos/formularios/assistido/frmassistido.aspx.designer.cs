@@ -375,22 +375,31 @@ namespace ProjetoArcos
         protected global::System.Web.UI.WebControls.DropDownList drpEstado;
 
         /// <summary>
-        /// Controle txtParentescoAssistido.
+        /// Controle ddlParentesco.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtParentescoAssistido;
+        protected global::System.Web.UI.WebControls.DropDownList ddlParentesco;
 
         /// <summary>
-        /// Controle ddlResponsavelAssistido.
+        /// Controle txtIdResponsavelAssistido.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlResponsavelAssistido;
+        protected global::System.Web.UI.WebControls.TextBox txtIdResponsavelAssistido;
+
+        /// <summary>
+        /// Controle txtNomeResponsavelAssistido.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNomeResponsavelAssistido;
 
         /// <summary>
         /// Controle btnNovo.
@@ -418,5 +427,68 @@ namespace ProjetoArcos
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_buscar;
+
+        /// <summary>
+        /// Controle ScriptManager.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager;
+
+        /// <summary>
+        /// Controle up.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel up;
+
+        /// <summary>
+        /// Controle txtBusca.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBusca;
+
+        /// <summary>
+        /// Controle btnBuscarAssistido.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBuscarAssistido;
+
+        /// <summary>
+        /// Controle gridBuscar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridBuscar;
+
+        /// <summary>
+        /// Controle btnDefinidorTitular.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDefinidorTitular;
+
+        /// <summary>
+        /// Controle btnSelecionarBuscar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSelecionarBuscar;
     }
 }

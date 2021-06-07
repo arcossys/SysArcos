@@ -13,10 +13,12 @@ namespace ProjetoArcos
         {
             if (!IsPostBack)
             {
-                String descricao = Request.QueryString["descricao"];
-                if ((descricao != null) && (!descricao.Equals("")))
+                using (ARCOS_Entities entities = new ARCOS_Entities())
                 {
-                    using (ARCOS_Entities entities = new ARCOS_Entities())
+                    carregaEntidade(entities);
+                    carregaAssistido(entities);
+                    String descricao = Request.QueryString["descricao"];
+                    if ((descricao != null) && (!descricao.Equals("")))
                     {
                         ASSISTENCIA u = entities.ASSISTENCIA.FirstOrDefault(x => x.DESCRICAO.Equals(descricao));
                         if (u != null)
@@ -35,7 +37,7 @@ namespace ProjetoArcos
 
         protected void btn_cadastrar_Click(object sender, EventArgs e)
         {
-           
+
             if (txt_inicial.Text == "" || txt_final.Text == "" || txt_descricao.Text == "" || txt_observacao.Text == "")
 
             {
@@ -105,6 +107,26 @@ namespace ProjetoArcos
             txt_final.Text = string.Empty;
             txt_descricao.Text = string.Empty;
             txt_observacao.Text = string.Empty;
+        }
+
+        private void carregaEntidade(ARCOS_Entities conn)
+        {
+            List<ENTIDADE> list = conn.ENTIDADE.OrderBy(x => x.NOME).ToList();
+            ddlEntidade.DataTextField = "NOME";//Carrega o campo que será mostrado
+            ddlEntidade.DataValueField = "ID";//Carrega Primary Key
+            ddlEntidade.DataSource = list;
+            ddlEntidade.DataBind();
+            ddlEntidade.Items.Insert(0, "");
+        }
+
+        private void carregaAssistido(ARCOS_Entities conn)
+        {
+            List<ASSISTIDO> list = conn.ASSISTIDO.OrderBy(x => x.NOME).ToList();
+            ddlAssistido.DataTextField = "NOME";//Carrega o campo que será mostrado
+            ddlAssistido.DataValueField = "ID";//Carrega Primary Key
+            ddlAssistido.DataSource = list;
+            ddlAssistido.DataBind();
+            ddlAssistido.Items.Insert(0, "");
         }
     }
 }

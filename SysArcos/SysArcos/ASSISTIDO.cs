@@ -32,7 +32,6 @@ namespace SysArcos
         public string CEP { get; set; }
         public string CIDADE { get; set; }
         public string ESTADO { get; set; }
-        public string PARENTESCO_ASSISTIDO_RESPONSAVEL { get; set; }
         public Nullable<int> ID_ASSISTIDO_RESPONSAVEL { get; set; }
         public bool ATIVO { get; set; }
         public System.DateTime DATA_HORA_CRIACAO_REGISTRO { get; set; }
@@ -44,6 +43,7 @@ namespace SysArcos
         public Nullable<int> ID_ENTIDADE { get; set; }
         public Nullable<int> ID_ESTADO_CIVIL { get; set; }
         public string OBSERVACAO { get; set; }
+        public int ID_GRAU_DEPENDENCIA { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ASSISTENCIA> ASSISTENCIA { get; set; }
@@ -52,5 +52,6 @@ namespace SysArcos
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ASSISTIDO> ASSISTIDO_DEPENDENTES { get; set; }
         public virtual ASSISTIDO ASSISTIDO_TITULAR { get; set; }
+        public virtual GRAU_DEPENDENCIA GRAU_DEPENDENCIA { get; set; }
     }
 }
