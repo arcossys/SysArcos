@@ -5,6 +5,11 @@
     <div class="entidade">
         Grupo de Permissões
     </div>
+        <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" ValidationGroup="form" />
+    <div>
+        
+    </div>
+
     <div class="acao">
         <asp:Label ID="lblAcao" runat="server" Text="NOVO"></asp:Label>
     </div>
@@ -17,7 +22,8 @@
         <div class="row">
             <div class="col-12 col-lg-4">
                 <asp:Label ID="lbl_user" runat="server" Text="Descrição:"></asp:Label>
-                <asp:TextBox ID="txt_descricao" class="form-control" runat="server" Width="100%" MaxLength="50" Height="40px"></asp:TextBox>       
+                &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_descricao" ErrorMessage="Descrição está vazio" Font-Size="Medium" ForeColor="Red" ValidationGroup="form">*</asp:RequiredFieldValidator>
+                <asp:TextBox ID="txt_descricao" class="form-control" runat="server" Width="100%" MaxLength="50" Height="40px" ValidationGroup="form"></asp:TextBox>       
              </div>
         </div>
     </div>
@@ -78,7 +84,7 @@
           </div>
           
           <div class="col-12 col-lg-4 row_buttons">
-            <asp:Button ID="btn_cadastrar"  class="btn btn-primary" runat="server" Text="Salvar" OnClick="btn_cadastrar_Click" Width="100%"/>
+            <asp:Button ID="btn_cadastrar"  class="btn btn-primary" runat="server" Text="Salvar" OnClick="btn_cadastrar_Click" Width="100%" ValidationGroup="form"/>
           </div>
 
           <div class="col-12 col-lg-4 row_buttons">

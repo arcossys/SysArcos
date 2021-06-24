@@ -59,11 +59,6 @@ namespace ProjetoArcos
             Response.Redirect("frmbuscaevento.aspx");
         }
 
-        protected void txtDataInicio_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         protected void btnSalvar_Click(object sender, EventArgs e)
         {       
         }

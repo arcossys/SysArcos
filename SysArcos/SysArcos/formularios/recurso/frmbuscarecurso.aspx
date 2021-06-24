@@ -25,8 +25,12 @@
     <div class="row">
         <div class="col-12 col-lg-6 row_fields">
             <fieldset class="border p-2 border-primary">
-                <asp:RadioButton ID="rbNome" runat="server" Text="Nome" />
-                <asp:RadioButton ID="rbDescricao" runat="server" Text="Descrição" />
+                <div>
+                    <asp:RadioButton ID="rbNome" runat="server" Text="Nome" />
+                </div>
+                <div>
+                    <asp:RadioButton ID="rbDescricao" runat="server" Text="Descrição" />
+                </div>
             </fieldset>
         </div>
     </div>

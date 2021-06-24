@@ -45,13 +45,27 @@
                           </div>
                       </div>
                       <div class="campo">
-                        <asp:Button ID="btnEntrar" runat="server" Text="Entrar" style="font-weight:bold" class="btn btn-primary btn-sm" OnClick="btnEntrar_Click" />
+                          <div>
+                              <div>
+                                  <asp:ScriptManager ID="ScriptManager" runat="server">
+                                  </asp:ScriptManager>
+                              </div>
+                              <div>
+                                  <asp:Image ID="imgCodigoCaptcha" runat="server" Width="100%" Height="100px"/>
+                              </div>
+                              <div class="input-group mb-3">
+                                  <asp:TextBox ID="txtCaptcha" placeholder="Informe os caracteres da figura acima" runat="server" CssClass="form-control"></asp:TextBox>
+                                  <div class="input-group-append">
+                                    <asp:Button ID="btnAtualizaCodigo" runat="server" Text="Atualiza" OnClick="btnAtualizaCodigo_Click" CssClass="btn btn-outline-dark" style="background-color:silver"/>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="campo">
+                        <asp:Button ID="btnEntrar" runat="server" Text="Entrar" style="font-weight:bold" class="btn btn-primary" OnClick="btnEntrar_Click" />
                       </div>  
-
-                  <br />
-                  <br />
-                    <asp:Label ID="Label1" runat="server" Text="Versão 0.95"></asp:Label>
-
+                    <br />
+                    <asp:Label ID="Label1" runat="server" Text="Versão 0.96"></asp:Label>
                 </form>
             </div>
         </div>    

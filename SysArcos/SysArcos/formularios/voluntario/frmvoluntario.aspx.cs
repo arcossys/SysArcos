@@ -48,45 +48,15 @@ namespace ProjetoArcos
             {
                 using (ARCOS_Entities entities = new ARCOS_Entities())
                 {
-                    VOLUNTARIO voluntario = new VOLUNTARIO();
 
-                    if (txt_vnome.Text == "" || txt_vcpf.Text == "" || txt_vendereco.Text == "" || txt_vnumero.Text == "" || txt_vBairro.Text == ""
-                        || txt_vcep.Text == "" || txt_vCidade.Text == "" || drp_vEstado.Text == "" || txt_vDispo.Text == "" || txt_vSerDisp.Text == "")
+                    if (!verifica_CPF_Repetido(txt_vcpf.Text, entities))
                     {
-                        Response.Write("<script>alert('Há campos obrigatórios não preenchidos!');</script>");
-                    }
-                    else
-                    {
+                        VOLUNTARIO voluntario = new VOLUNTARIO();
 
-                        if (lbl_Status.Text.Equals("Cadastrando"))
+                        if (txt_vnome.Text == "" || txt_vcpf.Text == "" || txt_vendereco.Text == "" || txt_vnumero.Text == "" || txt_vBairro.Text == ""
+                            || txt_vcep.Text == "" || txt_vCidade.Text == "" || drp_vEstado.Text == "" || txt_vDispo.Text == "" || txt_vSerDisp.Text == "")
                         {
-
-                            voluntario.NOME = txt_vnome.Text;
-                            voluntario.CPF = txt_vcpf.Text;
-                            voluntario.LOGRADOURO = txt_vendereco.Text;
-                            voluntario.NUMERO = txt_vnumero.Text;
-                            voluntario.BAIRRO = txt_vBairro.Text;
-                            voluntario.CEP = txt_vcep.Text;
-                            voluntario.CIDADE = txt_vCidade.Text;
-                            voluntario.ESTADO = drp_vEstado.Text;
-                            voluntario.DISPONIBILIDADE = txt_vDispo.Text;
-                            voluntario.SERVICOS_DISPONIVEIS = txt_vSerDisp.Text;
-                            voluntario.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
-
-                            txt_vnome.Text = string.Empty;
-                            txt_vcpf.Text = string.Empty;
-                            txt_vendereco.Text = string.Empty;
-                            txt_vnumero.Text = string.Empty;
-                            txt_vBairro.Text = string.Empty;
-                            txt_vcep.Text = string.Empty;
-                            txt_vCidade.Text = string.Empty;
-                            drp_vEstado.SelectedValue = null;
-                            txt_vDispo.Text = string.Empty;
-                            txt_vSerDisp.Text = string.Empty;
-                            ckb_vativo.Checked = false;
-
-                            entities.VOLUNTARIO.Add(voluntario);
-
+                            Response.Write("<script>alert('Há campos obrigatórios não preenchidos!');</script>");
                         }
                         else
                         {
@@ -106,13 +76,17 @@ namespace ProjetoArcos
                             voluntario.DISPONIBILIDADE = txt_vDispo.Text;
                             voluntario.SERVICOS_DISPONIVEIS = txt_vSerDisp.Text;
                             voluntario.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
-                            entities.Entry(voluntario);
 
+                            if (lbl_Status.Text.Equals("NOVO"))
+                                entities.VOLUNTARIO.Add(voluntario);
+                            else
+                                entities.Entry(voluntario);
+
+                            limpar();
                         }
+                        entities.SaveChanges();
+                        Response.Write("<script>alert('Voluntario Cadastrado com Sucesso!');</script>");
                     }
-
-                    entities.SaveChanges();
-                    Response.Write("<script>alert('Voluntario Cadastrado com Sucesso!');</script>");
                 }
             }
             catch
@@ -145,6 +119,18 @@ namespace ProjetoArcos
             txt_vDispo.Text = string.Empty;
             txt_vSerDisp.Text = string.Empty;
             ckb_vativo.Checked = true;
+        }
+
+        private bool verifica_CPF_Repetido(String cpf, ARCOS_Entities conn)
+        {
+            VOLUNTARIO vol = conn.VOLUNTARIO.Where(linha => linha.CPF.Contains(txt_vcpf.Text.Replace(".", "").Replace("-", ""))).FirstOrDefault();
+            if (vol != null)
+            {
+                Response.Write("<script>alert('Este CPF já esta cadastrado!');</script>");
+                txt_vcpf.Text = string.Empty;
+            }
+
+            return vol != null;
         }
     }
 }
