@@ -57,7 +57,6 @@
                 <div class="col-12 col-lg-4">
                     <div class="row_fields">
                         <asp:Label ID="Label10" runat="server" Text="Apelido: "></asp:Label>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtApelido" ErrorMessage="Campo &quot;Apelido&quot; é obrigatório." Font-Size="X-Large" ForeColor="#FF3300" ValidationGroup="cadastro">*</asp:RequiredFieldValidator>
                     </div>
                     <div>
                         <asp:TextBox ID="txtApelido" class="form-control" runat="server" MaxLength="14"></asp:TextBox>
@@ -104,7 +103,6 @@
                 <div class="col-12 col-lg-4">
                     <div class="row_fields">
                         <asp:Label ID="lblRG" runat="server" Text="RG:"></asp:Label>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtRG" ErrorMessage="Campo &quot;RG&quot; é obrigatório." Font-Size="X-Large" ForeColor="Red" ValidationGroup="cadastro">*</asp:RequiredFieldValidator>
                     </div>
                     <div>
                         <asp:TextBox ID="txtRG" class="form-control" runat="server" MaxLength="20"></asp:TextBox>
@@ -114,7 +112,6 @@
                 <div class="col-12 col-lg-4">
                     <div class="row_fields">
                         <asp:Label ID="lblNIS" runat="server" Text="NIS:"></asp:Label>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtNIS" ErrorMessage="Campo &quot;NIS&quot; é obrigatório." Font-Size="X-Large" ForeColor="Red" ValidationGroup="cadastro">*</asp:RequiredFieldValidator>
                     </div>
                     <div>
                         <asp:TextBox ID="txtNIS" class="form-control" runat="server" MaxLength="11"></asp:TextBox>
@@ -127,7 +124,6 @@
                 <div class="col-12 col-lg-4">
                     <div class="row_fields">
                         <asp:Label ID="lblProfissao" runat="server" Text="Profissão:"></asp:Label>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtProfissao" ErrorMessage="Campo &quot;Profissão&quot; é obrigatório." Font-Size="X-Large" ForeColor="Red" ValidationGroup="cadastro">*</asp:RequiredFieldValidator>
                     </div>
                     <div>
                         <asp:TextBox ID="txtProfissao" class="form-control" runat="server" MaxLength="50"></asp:TextBox>
@@ -148,7 +144,6 @@
                 <div class="col-12 col-lg-4">
                     <div class="row_fields">
                         <asp:Label ID="lblEmail" runat="server" Text="E-mail:"></asp:Label>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txtEmail" ErrorMessage="Campo &quot;E-mail&quot; é obrigatório." Font-Size="X-Large" ForeColor="Red" ValidationGroup="cadastro">*</asp:RequiredFieldValidator>
 &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="Formato de e-mail inválido" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                     &nbsp;</div>
                     <div>

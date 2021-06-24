@@ -90,7 +90,7 @@ namespace ProjetoArcos
         {
             try
             {
-                if (txtNomeAssistido.Text == "" || txtApelido.Text == "" || txtCPF.Text == ""
+                if (txtNomeAssistido.Text == "" || txtCPF.Text == ""
                       || txtDataNascimento.Text == "" || txtLogradouro.Text == "" || txtNumero.Text == ""
                       || txtBairro.Text == "" || txtCEP.Text == "" || txtCidade.Text == ""
                       || drpEstado.Text == "" || ddlEntidade.Text == "")
