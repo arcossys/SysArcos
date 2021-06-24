@@ -31,9 +31,11 @@
         </div>
     </div>
 
+    <br />
+
     <div class="row">
         <div class="col-12">
-            <asp:GridView ID="Grid" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" ForeColor="#333333" GridLines="None" Width="600px">
+            <asp:GridView ID="Grid" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" ForeColor="#333333" GridLines="None" Width="100%">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="DESCRICAO" HeaderText="RECURSO" />

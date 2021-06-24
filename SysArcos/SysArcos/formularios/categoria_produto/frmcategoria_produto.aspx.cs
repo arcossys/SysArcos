@@ -73,10 +73,10 @@ namespace ProjetoArcos
                             categoria.DESCRICAO = txtcategoria.Text;
                             entity.Entry(categoria);
                         }
+                        txtcategoria.Text = string.Empty;
+                        entity.SaveChanges();
+                        Response.Write("<script>alert('Cadastrado Com Sucesso!');</script>");
                     }
-                    txtcategoria.Text = string.Empty;
-                    entity.SaveChanges();
-                    Response.Write("<script>alert('Cadastrado Com Sucesso!');</script>");
                 }
             }
             catch

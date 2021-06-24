@@ -33,10 +33,8 @@ namespace ProjetoArcos
 
         }
 
-
         protected void btn_cadastrarrecurso_Click(object sender, EventArgs e)
         {
-
             // Criar conexão com o banco
             try
             {
@@ -50,7 +48,7 @@ namespace ProjetoArcos
                     else
                     {
                         TIPO_RECURSO tiporecurso = null;
-                        if (lblID.Text.Equals("NOVO"))
+                        if (lblAcao.Text.Equals("NOVO"))
                             tiporecurso = new TIPO_RECURSO();
                         else
                             tiporecurso = entity.TIPO_RECURSO.FirstOrDefault(x => x.ID.ToString().Equals(lblID.Text));
@@ -60,7 +58,7 @@ namespace ProjetoArcos
 
                         // Insere o objeto
 
-                        if (lblID.Text.Equals("NOVO"))
+                        if (lblAcao.Text.Equals("NOVO"))
                             entity.TIPO_RECURSO.Add(tiporecurso);
                         else
                             entity.Entry(tiporecurso);

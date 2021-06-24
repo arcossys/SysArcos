@@ -104,6 +104,9 @@
     <Content Include="formularios\recurso\frmbuscarecurso.aspx" />
     <Content Include="formularios\recurso\frmrecurso.aspx" />
     <Content Include="formularios\Voluntariar\frmvoluntariar.aspx" />
+    <Content Include="GerarCaptcha.aspx" />
+    <Content Include="imagens\arcos_alta.jpeg" />
+    <Content Include="imagens\fundo.jpg" />
     <Content Include="ModelArcos.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelArcos.edmx</DependentUpon>
@@ -391,6 +394,13 @@
     </Compile>
     <Compile Include="FORNECIMENTO_ITENS.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GerarCaptcha.aspx.cs">
+      <DependentUpon>GerarCaptcha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GerarCaptcha.aspx.designer.cs">
+      <DependentUpon>GerarCaptcha.aspx</DependentUpon>
     </Compile>
     <Compile Include="GRAU_DEPENDENCIA.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>

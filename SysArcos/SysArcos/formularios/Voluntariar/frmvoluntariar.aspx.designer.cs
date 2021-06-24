@@ -15,6 +15,15 @@ namespace SysArcos.formularios.Voluntariar
     {
 
         /// <summary>
+        /// Controle ValidationSummary1.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+
+        /// <summary>
         /// Controle lblAcao.
         /// </summary>
         /// <remarks>
@@ -42,6 +51,15 @@ namespace SysArcos.formularios.Voluntariar
         protected global::System.Web.UI.WebControls.Label Lbl_vdatainicial;
 
         /// <summary>
+        /// Controle RequiredFieldValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+
+        /// <summary>
         /// Controle Txt_vdatainicial.
         /// </summary>
         /// <remarks>
@@ -58,6 +76,15 @@ namespace SysArcos.formularios.Voluntariar
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDataFinal;
+
+        /// <summary>
+        /// Controle RequiredFieldValidator2.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
         /// <summary>
         /// Controle Txt_vdatafinal.
@@ -78,6 +105,15 @@ namespace SysArcos.formularios.Voluntariar
         protected global::System.Web.UI.WebControls.Label Lbl_voluntario;
 
         /// <summary>
+        /// Controle RequiredFieldValidator3.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+
+        /// <summary>
         /// Controle Ddl_voluntario.
         /// </summary>
         /// <remarks>
@@ -96,6 +132,15 @@ namespace SysArcos.formularios.Voluntariar
         protected global::System.Web.UI.WebControls.Label Lbl_ventidade;
 
         /// <summary>
+        /// Controle RequiredFieldValidator4.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+
+        /// <summary>
         /// Controle Ddl_vvoluntariado.
         /// </summary>
         /// <remarks>
@@ -112,6 +157,15 @@ namespace SysArcos.formularios.Voluntariar
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Lbl_vobservacao;
+
+        /// <summary>
+        /// Controle RequiredFieldValidator5.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
 
         /// <summary>
         /// Controle Txt_vobservacao.

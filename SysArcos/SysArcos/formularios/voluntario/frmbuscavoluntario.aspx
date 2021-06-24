@@ -25,9 +25,9 @@
     <div class="row">
         <div class="col-12 col-lg-6 row_fields">
             <fieldset class="border p-2 border-primary">
-                <asp:RadioButtonList ID="rd_list" runat="server" RepeatDirection="Horizontal" Width="209px">
-                    <asp:ListItem>Nome</asp:ListItem>
-                    <asp:ListItem>CPF</asp:ListItem>
+                <asp:RadioButtonList ID="rd_list" runat="server" RepeatDirection="Vertical" Width="209px">
+                        <asp:ListItem>Nome</asp:ListItem>
+                        <asp:ListItem>CPF</asp:ListItem>
                 </asp:RadioButtonList>
             </fieldset>
         </div>

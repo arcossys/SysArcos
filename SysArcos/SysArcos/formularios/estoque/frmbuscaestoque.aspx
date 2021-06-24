@@ -34,8 +34,10 @@
         </div>
     </div>
 
+    <br />
+
     <div>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField HeaderText="Produto" />

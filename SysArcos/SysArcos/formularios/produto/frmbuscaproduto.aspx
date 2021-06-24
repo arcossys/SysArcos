@@ -24,8 +24,12 @@
     <div class="row">
         <div class="col-12 col-lg-6 row_fields">
             <fieldset class="border p-2 border-primary">
-                <asp:RadioButton ID="rdDescricao" runat="server" Checked="True" GroupName="filtro" Text="Descrição" />
-                <asp:RadioButton ID="rdEspecificacao" runat="server" GroupName="filtro" Text="Especificações" />
+                <div>
+                    <asp:RadioButton ID="rdDescricao" runat="server" Checked="True" GroupName="filtro" Text="Descrição" />
+                </div>
+                <div>
+                    <asp:RadioButton ID="rdEspecificacao" runat="server" GroupName="filtro" Text="Especificações" />
+                </div>
             </fieldset>
         </div>
     </div>

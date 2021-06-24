@@ -15,6 +15,15 @@ namespace ProjetoArcos
     {
 
         /// <summary>
+        /// Controle ValidationSummary1.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+
+        /// <summary>
         /// Controle lblAcao.
         /// </summary>
         /// <remarks>
@@ -42,6 +51,15 @@ namespace ProjetoArcos
         protected global::System.Web.UI.WebControls.Label lblNome;
 
         /// <summary>
+        /// Controle RequiredFieldValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+
+        /// <summary>
         /// Controle txt_nomedoador.
         /// </summary>
         /// <remarks>
@@ -58,6 +76,15 @@ namespace ProjetoArcos
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLogradouro;
+
+        /// <summary>
+        /// Controle RequiredFieldValidator2.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
         /// <summary>
         /// Controle txt_logradouro.
@@ -78,6 +105,15 @@ namespace ProjetoArcos
         protected global::System.Web.UI.WebControls.Label lblNumero;
 
         /// <summary>
+        /// Controle RequiredFieldValidator3.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+
+        /// <summary>
         /// Controle txt_numero.
         /// </summary>
         /// <remarks>
@@ -94,6 +130,15 @@ namespace ProjetoArcos
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblBairro;
+
+        /// <summary>
+        /// Controle RequiredFieldValidator4.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
 
         /// <summary>
         /// Controle txt_bairro.
@@ -114,6 +159,15 @@ namespace ProjetoArcos
         protected global::System.Web.UI.WebControls.Label lblCEP;
 
         /// <summary>
+        /// Controle RequiredFieldValidator5.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
+
+        /// <summary>
         /// Controle txt_CEP.
         /// </summary>
         /// <remarks>
@@ -130,6 +184,15 @@ namespace ProjetoArcos
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCidade;
+
+        /// <summary>
+        /// Controle RequiredFieldValidator6.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
 
         /// <summary>
         /// Controle txt_cidade.
@@ -150,6 +213,15 @@ namespace ProjetoArcos
         protected global::System.Web.UI.WebControls.Label lblEstado;
 
         /// <summary>
+        /// Controle RequiredFieldValidator7.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
+
+        /// <summary>
         /// Controle drp_estado.
         /// </summary>
         /// <remarks>
@@ -168,6 +240,15 @@ namespace ProjetoArcos
         protected global::System.Web.UI.WebControls.Label lblDisponibilidade;
 
         /// <summary>
+        /// Controle RequiredFieldValidator8.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
+
+        /// <summary>
         /// Controle txt_disponibilidade.
         /// </summary>
         /// <remarks>
@@ -184,6 +265,15 @@ namespace ProjetoArcos
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTipoDoacao;
+
+        /// <summary>
+        /// Controle RequiredFieldValidator9.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator9;
 
         /// <summary>
         /// Controle txt_tipodoacao.

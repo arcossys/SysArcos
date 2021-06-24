@@ -42,7 +42,7 @@
                     <asp:BoundField DataField="VOLUNTARIADO.DESCRICAO" HeaderText="VOLUNTARIADO" />
                     <asp:BoundField HeaderText="DATA INICIAL" DataField="DATA_INICIAL" DataFormatString="{0:dd/MM/yyyy}" />
                     <asp:BoundField HeaderText="DATA FINAL" DataField="DATA_FINAL" DataFormatString="{0:dd/MM/yyyy}" />
-                    <asp:BoundField HeaderText="OBSERVACOES" DataField="OBSERVACAO" />
+                    <asp:BoundField HeaderText="OBSERVACÕES" DataField="OBSERVACAO" />
                     <asp:CommandField ShowSelectButton="True" />
                 </Columns>
                 <EditRowStyle BackColor="#2461BF" />

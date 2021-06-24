@@ -54,11 +54,11 @@ namespace SysArcos.formularios.doacao
         private void carregaDoador(ARCOS_Entities conn)
         {
             List<DOADOR> list = conn.DOADOR.OrderBy(x => x.NOME).ToList();
-            ddlEntidade.DataTextField = "NOME";//Carrega o campo que será mostrado
-            ddlEntidade.DataValueField = "ID";//Carrega Primary Key
-            ddlEntidade.DataSource = list;
-            ddlEntidade.DataBind();
-            ddlEntidade.Items.Insert(0, "");
+            ddlDoador.DataTextField = "NOME";//Carrega o campo que será mostrado
+            ddlDoador.DataValueField = "ID";//Carrega Primary Key
+            ddlDoador.DataSource = list;
+            ddlDoador.DataBind();
+            ddlDoador.Items.Insert(0, "");
         }
     }
 }

@@ -7,11 +7,22 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace ProjetoArcos {
-    
-    
-    public partial class frmTipoEvento {
-        
+namespace ProjetoArcos
+{
+
+
+    public partial class frmTipoEvento
+    {
+
+        /// <summary>
+        /// Controle ValidationSummary1.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+
         /// <summary>
         /// Controle lblAcao.
         /// </summary>
@@ -20,7 +31,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAcao;
-        
+
         /// <summary>
         /// Controle lblID.
         /// </summary>
@@ -29,7 +40,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblID;
-        
+
         /// <summary>
         /// Controle lblTipoEvento.
         /// </summary>
@@ -38,7 +49,16 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTipoEvento;
-        
+
+        /// <summary>
+        /// Controle RequiredFieldValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+
         /// <summary>
         /// Controle txtTipoEvento.
         /// </summary>
@@ -47,7 +67,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTipoEvento;
-        
+
         /// <summary>
         /// Controle lblDescricao.
         /// </summary>
@@ -56,7 +76,16 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDescricao;
-        
+
+        /// <summary>
+        /// Controle RequiredFieldValidator2.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+
         /// <summary>
         /// Controle txtDescricaoEvento.
         /// </summary>
@@ -65,7 +94,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDescricaoEvento;
-        
+
         /// <summary>
         /// Controle Button1.
         /// </summary>
@@ -74,7 +103,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
-        
+
         /// <summary>
         /// Controle btnCadastrarTipoEvento.
         /// </summary>
@@ -83,7 +112,7 @@ namespace ProjetoArcos {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCadastrarTipoEvento;
-        
+
         /// <summary>
         /// Controle Button2.
         /// </summary>

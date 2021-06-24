@@ -15,6 +15,15 @@ namespace ProjetoArcos
     {
 
         /// <summary>
+        /// Controle ValidationSummary1.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+
+        /// <summary>
         /// Controle lblAcao.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace ProjetoArcos
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_user;
+
+        /// <summary>
+        /// Controle RequiredFieldValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
         /// Controle txt_user.
@@ -51,6 +69,15 @@ namespace ProjetoArcos
         protected global::System.Web.UI.WebControls.Label lbl_senha;
 
         /// <summary>
+        /// Controle RequiredFieldValidator2.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+
+        /// <summary>
         /// Controle txt_senhaUsuario.
         /// </summary>
         /// <remarks>
@@ -67,6 +94,15 @@ namespace ProjetoArcos
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_email;
+
+        /// <summary>
+        /// Controle RequiredFieldValidator7.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
 
         /// <summary>
         /// Controle revEmail.
@@ -96,6 +132,15 @@ namespace ProjetoArcos
         protected global::System.Web.UI.WebControls.Label lbl_nomeUsuario;
 
         /// <summary>
+        /// Controle RequiredFieldValidator4.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+
+        /// <summary>
         /// Controle txt_nomeUsuario.
         /// </summary>
         /// <remarks>
@@ -112,6 +157,15 @@ namespace ProjetoArcos
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_cpf;
+
+        /// <summary>
+        /// Controle RequiredFieldValidator8.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
 
         /// <summary>
         /// Controle revCPF.
@@ -139,6 +193,15 @@ namespace ProjetoArcos
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_permissao;
+
+        /// <summary>
+        /// Controle RequiredFieldValidator6.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
 
         /// <summary>
         /// Controle ddlPermissao.
