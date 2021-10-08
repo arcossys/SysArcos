@@ -103,6 +103,7 @@
     <Content Include="formularios\parentesco_assistido\frmparentescoassistido.aspx" />
     <Content Include="formularios\recurso\frmbuscarecurso.aspx" />
     <Content Include="formularios\recurso\frmrecurso.aspx" />
+    <Content Include="formularios\tipoassistencia\frmtipoassistencia.aspx" />
     <Content Include="formularios\Voluntariar\frmvoluntariar.aspx" />
     <Content Include="GerarCaptcha.aspx" />
     <Content Include="imagens\arcos_alta.jpeg" />
@@ -379,6 +380,13 @@
     <Compile Include="formularios\recurso\frmrecurso.aspx.designer.cs">
       <DependentUpon>frmrecurso.aspx</DependentUpon>
     </Compile>
+    <Compile Include="formularios\tipoassistencia\frmtipoassistencia.aspx.cs">
+      <DependentUpon>frmtipoassistencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\tipoassistencia\frmtipoassistencia.aspx.designer.cs">
+      <DependentUpon>frmtipoassistencia.aspx</DependentUpon>
+    </Compile>
     <Compile Include="formularios\Voluntariar\frmvoluntariar.aspx.cs">
       <DependentUpon>frmvoluntariar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -638,6 +646,21 @@
       <DependentUpon>frmbuscavoluntariar.aspx</DependentUpon>
     </Compile>
     <Compile Include="RECURSO.cs">
+      <DependentUpon>ModelArcos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SISTEMA_ENTIDADE.cs">
+      <DependentUpon>ModelArcos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SISTEMA_GRUPO_ENTIDADE.cs">
+      <DependentUpon>ModelArcos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SISTEMA_ITEM_ENTIDADE.cs">
+      <DependentUpon>ModelArcos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SISTEMA_ITEM_ENTIDADE_CADASTRO.cs">
+      <DependentUpon>ModelArcos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SISTEMA_ITEM_ENTIDADE_CONSULTA.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
     </Compile>
     <Compile Include="TIPO_EVENTO.cs">

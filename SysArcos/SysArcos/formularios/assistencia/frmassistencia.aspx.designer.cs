@@ -114,6 +114,24 @@ namespace ProjetoArcos
         protected global::System.Web.UI.WebControls.TextBox txt_final;
 
         /// <summary>
+        /// Controle FileUpload1.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+
+        /// <summary>
+        /// Controle txtIDTipoAssistencia.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label txtIDTipoAssistencia;
+
+        /// <summary>
         /// Controle txtAssistido.
         /// </summary>
         /// <remarks>

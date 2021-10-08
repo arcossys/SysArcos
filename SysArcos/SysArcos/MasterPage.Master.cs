@@ -12,13 +12,12 @@ namespace ProjetoArcos
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            { 
+            {
                 //Valida Permissões
-                String pagina = System.IO.Path.GetFileName(
-                    HttpContext.Current.Request.Url.AbsolutePath);
+                String pagina = HttpContext.Current.Request.Url.AbsolutePath;
                 if (!pagina.Equals("AlterarSenhaProxLogin.aspx"))
                     verificarSenhaPrimeiroLogin();
-                validaPermisses(pagina);
+                validaPermissao(pagina);
 
                 String login = (string)Session["usuariologado"]; //Neste caso deve-se fazer a conversão
                 if (login != null)
@@ -30,6 +29,8 @@ namespace ProjetoArcos
                         if (u.GRUPO_PERMISSAO != null)
                             permissao = u.GRUPO_PERMISSAO.DESCRICAO;
                         lbl_welcomeUser.Text = (u.NOME + "("+ permissao +")"); // em 'u' vai recuperar o atributo NOME
+
+                        carregaItensMenu(entity);
                     }
                 }
 
@@ -39,6 +40,12 @@ namespace ProjetoArcos
                 }
 
             }
+        }
+
+        private void carregaItensMenu(ARCOS_Entities conn)
+        {
+            RepeaterMenu.DataSource = conn.SISTEMA_GRUPO_ENTIDADE.OrderBy(x => x.ORDEM).ToList();
+            RepeaterMenu.DataBind();
         }
 
         protected void lnk_logout_Click(object sender, EventArgs e)
@@ -55,63 +62,24 @@ namespace ProjetoArcos
 
         }
 
-        private void testaPermissao(bool permissao)
-        {
-            if (!permissao){
-                    Response.Redirect("/permissao_negada.aspx");
-            }
-        }
-
-        private void validaPermisses(String pagina)
+        private void validaPermissao(String pagina)
         {
             using (ARCOS_Entities entity = new ARCOS_Entities())
             {
                 string login = (string)Session["usuariologado"];
                 USUARIO u =
                     entity.USUARIO.FirstOrDefault(linha => linha.LOGIN.Equals(login));
-                if (u != null)
+                if (!u.ADM)
                 {
-                    if (pagina.Equals("frmassistencia.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_ASSISTENCIA);
-                    if (pagina.Equals("frmbuscaassistencia.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_ASSISTENCIA);
-
-                    if (pagina.Equals("frmassistido.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_ASSISTIDO);
-                    if (pagina.Equals("frmbuscaassistido.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_ASSISTIDO);
-
-                    if (pagina.Equals("frmcategoria_produto.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_TIPOPRODUTO);
-
-                    if (pagina.Equals("frmbuscadoador.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_DOADOR);
-                    if (pagina.Equals("frmdoador.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_DOADOR);
-
-                    if (pagina.Equals("frmbuscaentidade.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_ENTIDADE);
-                    if (pagina.Equals("frmentidade.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_ENTIDADE);
-
-                    if (pagina.Equals("frmevento.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_EVENTO);
-
-                    if (pagina.Equals("frmbuscafornecedor.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_FORNECEDOR);
-                    if (pagina.Equals("frmfornecedor.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_FORNECEDOR);
-
-                    if (pagina.Equals("frmbuscaproduto.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_PRODUTO);
-                    if (pagina.Equals("frmproduto.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_PRODUTO);
-
-                    if (pagina.Equals("frmbuscatipoevento.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_EVENTO);
-                    if (pagina.Equals("frmtipoevento.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_EVENTO);
-
-                    if (pagina.Equals("frmbuscatiporecurso.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_TIPORECURSO);
-                    if (pagina.Equals("frmtiporecurso.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_TIPORECURSO);
-
-                    if (pagina.Equals("frmbuscagrupopermissao")) testaPermissao(u.GRUPO_PERMISSAO.PERM_GRUPOPERMISSAO);
-                    if (pagina.Equals("frmgrupopermissao.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_GRUPOPERMISSAO);
-
-                    if (pagina.Equals("frmbuscausuario.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_USUARIOS);
-                    if (pagina.Equals("frmusuario.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_USUARIOS);
-
-                    if (pagina.Equals("frvoluntariar.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_VOLUNTARIAR);
-
-                    if (pagina.Equals("frmbuscavoluntariado.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_VOLUNTARIADO);
-                    if (pagina.Equals("frmvoluntariado.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_VOLUNTARIADO);
-
-                    if (pagina.Equals("frmbuscavoluntario.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_VOLUNTARIOS);
-                    if (pagina.Equals("frmvoluntario.aspx")) testaPermissao(u.GRUPO_PERMISSAO.PERM_VOLUNTARIOS);
+                    SISTEMA_ENTIDADE item = entity.SISTEMA_ENTIDADE.FirstOrDefault(x => x.URL.Equals(pagina));
+                    if (item != null)
+                    {
+                        SISTEMA_ITEM_ENTIDADE perm = u.GRUPO_PERMISSAO.SISTEMA_ITEM_ENTIDADE.FirstOrDefault(x => x.ID_SISTEMA_ENTIDADE.ToString().Equals(item.ID.ToString()));
+                        if (perm == null)
+                        {
+                            Response.Redirect("/permissao_negada.aspx");
+                        }
+                    }
                 }
             }
         }

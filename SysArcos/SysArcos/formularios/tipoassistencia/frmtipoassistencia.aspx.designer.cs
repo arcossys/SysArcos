@@ -7,11 +7,11 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace SysArcos.formularios.usuario
+namespace ProjetoArcos
 {
 
 
-    public partial class frmgrupopermissao
+    public partial class frmTipoAssistencia
     {
 
         /// <summary>
@@ -42,13 +42,13 @@ namespace SysArcos.formularios.usuario
         protected global::System.Web.UI.WebControls.Label lblID;
 
         /// <summary>
-        /// Controle lbl_user.
+        /// Controle lblTipoEvento.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_user;
+        protected global::System.Web.UI.WebControls.Label lblTipoEvento;
 
         /// <summary>
         /// Controle RequiredFieldValidator1.
@@ -60,48 +60,66 @@ namespace SysArcos.formularios.usuario
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
-        /// Controle txt_descricao.
+        /// Controle txtTipoEvento.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_descricao;
+        protected global::System.Web.UI.WebControls.TextBox txtTipoEvento;
 
         /// <summary>
-        /// Controle TreePermissoes.
+        /// Controle lblDescricao.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TreeView TreePermissoes;
+        protected global::System.Web.UI.WebControls.Label lblDescricao;
 
         /// <summary>
-        /// Controle btnNovo.
+        /// Controle RequiredFieldValidator2.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNovo;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
         /// <summary>
-        /// Controle btn_cadastrar.
+        /// Controle txtDescricaoEvento.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_cadastrar;
+        protected global::System.Web.UI.WebControls.TextBox txtDescricaoEvento;
 
         /// <summary>
-        /// Controle btn_buscar.
+        /// Controle Button1.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_buscar;
+        protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
+        /// Controle btnCadastrarTipoEvento.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCadastrarTipoEvento;
+
+        /// <summary>
+        /// Controle Button2.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button2;
     }
 }

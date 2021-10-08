@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ARCOS_V2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ARCOS_V2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ASSISTENCIA">
           <Key>
             <PropertyRef Name="ID" />
@@ -185,24 +185,6 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DESCRICAO" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="PERM_ENTIDADE" Type="bit" Nullable="false" />
-          <Property Name="PERM_VOLUNTARIOS" Type="bit" Nullable="false" />
-          <Property Name="PERM_VOLUNTARIAR" Type="bit" Nullable="false" />
-          <Property Name="PERM_VOLUNTARIADO" Type="bit" Nullable="false" />
-          <Property Name="PERM_USUARIOS" Type="bit" Nullable="false" />
-          <Property Name="PERM_GRUPOPERMISSAO" Type="bit" Nullable="false" />
-          <Property Name="PERM_EVENTO" Type="bit" Nullable="false" />
-          <Property Name="PERM_TIPOEVENTO" Type="bit" Nullable="false" />
-          <Property Name="PERM_RECURSO" Type="bit" Nullable="false" />
-          <Property Name="PERM_TIPORECURSO" Type="bit" Nullable="false" />
-          <Property Name="PERM_FORNECEDOR" Type="bit" Nullable="false" />
-          <Property Name="PERM_FORNECIMENTO" Type="bit" Nullable="false" />
-          <Property Name="PERM_PRODUTO" Type="bit" Nullable="false" />
-          <Property Name="PERM_TIPOPRODUTO" Type="bit" Nullable="false" />
-          <Property Name="PERM_DOACAO" Type="bit" Nullable="false" />
-          <Property Name="PERM_DOADOR" Type="bit" Nullable="false" />
-          <Property Name="PERM_ASSISTENCIA" Type="bit" Nullable="false" />
-          <Property Name="PERM_ASSISTIDO" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="PRODUTO">
           <Key>
@@ -226,6 +208,52 @@
           <Property Name="ID_ENTIDADE" Type="int" Nullable="false" />
           <Property Name="ATIVO" Type="bit" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SISTEMA_ENTIDADE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_SISTEMA_GRUPO_ENTIDADE" Type="int" Nullable="false" />
+          <Property Name="URL" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="TIPO_ENTIDADE" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SISTEMA_GRUPO_ENTIDADE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ORDEM" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SISTEMA_ITEM_ENTIDADE">
+          <Key>
+            <PropertyRef Name="ID_SISTEMA_ENTIDADE" />
+            <PropertyRef Name="ID_GRUPO_PERMISSAO" />
+          </Key>
+          <Property Name="ID_SISTEMA_ENTIDADE" Type="int" Nullable="false" />
+          <Property Name="ID_GRUPO_PERMISSAO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SISTEMA_ITEM_ENTIDADE_CADASTRO">
+          <Key>
+            <PropertyRef Name="ID_SISTEMA_ENTIDADE" />
+            <PropertyRef Name="ID_GRUPO_PERMISSAO" />
+          </Key>
+          <Property Name="ID_SISTEMA_ENTIDADE" Type="int" Nullable="false" />
+          <Property Name="ID_GRUPO_PERMISSAO" Type="int" Nullable="false" />
+          <Property Name="incluir" Type="bit" Nullable="false" />
+          <Property Name="alterar" Type="bit" Nullable="false" />
+          <Property Name="remover" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SISTEMA_ITEM_ENTIDADE_CONSULTA">
+          <Key>
+            <PropertyRef Name="ID_SISTEMA_ENTIDADE" />
+            <PropertyRef Name="ID_GRUPO_PERMISSAO" />
+          </Key>
+          <Property Name="ID_SISTEMA_ENTIDADE" Type="int" Nullable="false" />
+          <Property Name="ID_GRUPO_PERMISSAO" Type="int" Nullable="false" />
+          <Property Name="consultar" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="TIPO_EVENTO">
           <Key>
@@ -370,6 +398,34 @@
             </Principal>
             <Dependent Role="ASSISTIDO1">
               <PropertyRef Name="ID_ASSISTIDO_RESPONSAVEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CADASTRO_SISTEMAITEMENTIDADE">
+          <End Role="SISTEMA_ITEM_ENTIDADE" Type="Self.SISTEMA_ITEM_ENTIDADE" Multiplicity="1" />
+          <End Role="SISTEMA_ITEM_ENTIDADE_CADASTRO" Type="Self.SISTEMA_ITEM_ENTIDADE_CADASTRO" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="SISTEMA_ITEM_ENTIDADE">
+              <PropertyRef Name="ID_SISTEMA_ENTIDADE" />
+              <PropertyRef Name="ID_GRUPO_PERMISSAO" />
+            </Principal>
+            <Dependent Role="SISTEMA_ITEM_ENTIDADE_CADASTRO">
+              <PropertyRef Name="ID_SISTEMA_ENTIDADE" />
+              <PropertyRef Name="ID_GRUPO_PERMISSAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONSULTA_SISTEMAITEMENTIDADE">
+          <End Role="SISTEMA_ITEM_ENTIDADE" Type="Self.SISTEMA_ITEM_ENTIDADE" Multiplicity="1" />
+          <End Role="SISTEMA_ITEM_ENTIDADE_CONSULTA" Type="Self.SISTEMA_ITEM_ENTIDADE_CONSULTA" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="SISTEMA_ITEM_ENTIDADE">
+              <PropertyRef Name="ID_SISTEMA_ENTIDADE" />
+              <PropertyRef Name="ID_GRUPO_PERMISSAO" />
+            </Principal>
+            <Dependent Role="SISTEMA_ITEM_ENTIDADE_CONSULTA">
+              <PropertyRef Name="ID_SISTEMA_ENTIDADE" />
+              <PropertyRef Name="ID_GRUPO_PERMISSAO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -553,6 +609,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_SISTEMA_ENTIDADE_SISTEMA_GRUPO_ENTIDADE">
+          <End Role="SISTEMA_GRUPO_ENTIDADE" Type="Self.SISTEMA_GRUPO_ENTIDADE" Multiplicity="1" />
+          <End Role="SISTEMA_ENTIDADE" Type="Self.SISTEMA_ENTIDADE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SISTEMA_GRUPO_ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SISTEMA_ENTIDADE">
+              <PropertyRef Name="ID_SISTEMA_GRUPO_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SISTEMAITEMENTIDADE_GRUPOPERMISSAO">
+          <End Role="GRUPO_PERMISSAO" Type="Self.GRUPO_PERMISSAO" Multiplicity="1" />
+          <End Role="SISTEMA_ITEM_ENTIDADE" Type="Self.SISTEMA_ITEM_ENTIDADE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GRUPO_PERMISSAO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SISTEMA_ITEM_ENTIDADE">
+              <PropertyRef Name="ID_GRUPO_PERMISSAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SISTEMAITEMENTIDADE_SISTEMAENTIDADE">
+          <End Role="SISTEMA_ENTIDADE" Type="Self.SISTEMA_ENTIDADE" Multiplicity="1" />
+          <End Role="SISTEMA_ITEM_ENTIDADE" Type="Self.SISTEMA_ITEM_ENTIDADE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SISTEMA_ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SISTEMA_ITEM_ENTIDADE">
+              <PropertyRef Name="ID_SISTEMA_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_USUARIO_GRUPOPERMISSAO">
           <End Role="GRUPO_PERMISSAO" Type="Self.GRUPO_PERMISSAO" Multiplicity="0..1" />
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
@@ -630,6 +722,11 @@
           <EntitySet Name="GRUPO_PERMISSAO" EntityType="Self.GRUPO_PERMISSAO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRODUTO" EntityType="Self.PRODUTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RECURSO" EntityType="Self.RECURSO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SISTEMA_ENTIDADE" EntityType="Self.SISTEMA_ENTIDADE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SISTEMA_GRUPO_ENTIDADE" EntityType="Self.SISTEMA_GRUPO_ENTIDADE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SISTEMA_ITEM_ENTIDADE" EntityType="Self.SISTEMA_ITEM_ENTIDADE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SISTEMA_ITEM_ENTIDADE_CADASTRO" EntityType="Self.SISTEMA_ITEM_ENTIDADE_CADASTRO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SISTEMA_ITEM_ENTIDADE_CONSULTA" EntityType="Self.SISTEMA_ITEM_ENTIDADE_CONSULTA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIPO_EVENTO" EntityType="Self.TIPO_EVENTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIPO_RECURSO" EntityType="Self.TIPO_RECURSO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
@@ -659,6 +756,14 @@
           <AssociationSet Name="FK_ASSISTIDO_RESPONSAVEL" Association="Self.FK_ASSISTIDO_RESPONSAVEL">
             <End Role="ASSISTIDO" EntitySet="ASSISTIDO" />
             <End Role="ASSISTIDO1" EntitySet="ASSISTIDO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CADASTRO_SISTEMAITEMENTIDADE" Association="Self.FK_CADASTRO_SISTEMAITEMENTIDADE">
+            <End Role="SISTEMA_ITEM_ENTIDADE" EntitySet="SISTEMA_ITEM_ENTIDADE" />
+            <End Role="SISTEMA_ITEM_ENTIDADE_CADASTRO" EntitySet="SISTEMA_ITEM_ENTIDADE_CADASTRO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONSULTA_SISTEMAITEMENTIDADE" Association="Self.FK_CONSULTA_SISTEMAITEMENTIDADE">
+            <End Role="SISTEMA_ITEM_ENTIDADE" EntitySet="SISTEMA_ITEM_ENTIDADE" />
+            <End Role="SISTEMA_ITEM_ENTIDADE_CONSULTA" EntitySet="SISTEMA_ITEM_ENTIDADE_CONSULTA" />
           </AssociationSet>
           <AssociationSet Name="FK_DOACAO_DOADOR" Association="Self.FK_DOACAO_DOADOR">
             <End Role="DOADOR" EntitySet="DOADOR" />
@@ -720,6 +825,18 @@
             <End Role="TIPO_RECURSO" EntitySet="TIPO_RECURSO" />
             <End Role="RECURSO" EntitySet="RECURSO" />
           </AssociationSet>
+          <AssociationSet Name="FK_SISTEMA_ENTIDADE_SISTEMA_GRUPO_ENTIDADE" Association="Self.FK_SISTEMA_ENTIDADE_SISTEMA_GRUPO_ENTIDADE">
+            <End Role="SISTEMA_GRUPO_ENTIDADE" EntitySet="SISTEMA_GRUPO_ENTIDADE" />
+            <End Role="SISTEMA_ENTIDADE" EntitySet="SISTEMA_ENTIDADE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SISTEMAITEMENTIDADE_GRUPOPERMISSAO" Association="Self.FK_SISTEMAITEMENTIDADE_GRUPOPERMISSAO">
+            <End Role="GRUPO_PERMISSAO" EntitySet="GRUPO_PERMISSAO" />
+            <End Role="SISTEMA_ITEM_ENTIDADE" EntitySet="SISTEMA_ITEM_ENTIDADE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SISTEMAITEMENTIDADE_SISTEMAENTIDADE" Association="Self.FK_SISTEMAITEMENTIDADE_SISTEMAENTIDADE">
+            <End Role="SISTEMA_ENTIDADE" EntitySet="SISTEMA_ENTIDADE" />
+            <End Role="SISTEMA_ITEM_ENTIDADE" EntitySet="SISTEMA_ITEM_ENTIDADE" />
+          </AssociationSet>
           <AssociationSet Name="FK_USUARIO_GRUPOPERMISSAO" Association="Self.FK_USUARIO_GRUPOPERMISSAO">
             <End Role="GRUPO_PERMISSAO" EntitySet="GRUPO_PERMISSAO" />
             <End Role="USUARIO" EntitySet="USUARIO" />
@@ -758,9 +875,11 @@
           <EntitySet Name="FORNECEDOR" EntityType="ARCOS_V2Model.FORNECEDOR" />
           <EntitySet Name="FORNECIMENTO" EntityType="ARCOS_V2Model.FORNECIMENTO" />
           <EntitySet Name="FORNECIMENTO_ITENS" EntityType="ARCOS_V2Model.FORNECIMENTO_ITENS" />
+          <EntitySet Name="GRAU_DEPENDENCIA" EntityType="ARCOS_V2Model.GRAU_DEPENDENCIA" />
           <EntitySet Name="GRUPO_PERMISSAO" EntityType="ARCOS_V2Model.GRUPO_PERMISSAO" />
           <EntitySet Name="PRODUTO" EntityType="ARCOS_V2Model.PRODUTO" />
           <EntitySet Name="RECURSO" EntityType="ARCOS_V2Model.RECURSO" />
+          <EntitySet Name="SISTEMA_GRUPO_ENTIDADE" EntityType="ARCOS_V2Model.SISTEMA_GRUPO_ENTIDADE" />
           <EntitySet Name="TIPO_EVENTO" EntityType="ARCOS_V2Model.TIPO_EVENTO" />
           <EntitySet Name="TIPO_RECURSO" EntityType="ARCOS_V2Model.TIPO_RECURSO" />
           <EntitySet Name="USUARIO" EntityType="ARCOS_V2Model.USUARIO" />
@@ -775,6 +894,10 @@
             <End Role="ENTIDADE" EntitySet="ENTIDADE" />
             <End Role="ASSISTENCIA" EntitySet="ASSISTENCIA" />
           </AssociationSet>
+          <AssociationSet Name="FK__ASSISTIDO__ID_GR__282DF8C2" Association="ARCOS_V2Model.FK__ASSISTIDO__ID_GR__282DF8C2">
+            <End Role="GRAU_DEPENDENCIA" EntitySet="GRAU_DEPENDENCIA" />
+            <End Role="ASSISTIDO" EntitySet="ASSISTIDO" />
+          </AssociationSet>
           <AssociationSet Name="FK_ASSISTIDO_ENTIDADE" Association="ARCOS_V2Model.FK_ASSISTIDO_ENTIDADE">
             <End Role="ENTIDADE" EntitySet="ENTIDADE" />
             <End Role="ASSISTIDO" EntitySet="ASSISTIDO" />
@@ -785,7 +908,7 @@
           </AssociationSet>
           <AssociationSet Name="FK_ASSISTIDO_RESPONSAVEL" Association="ARCOS_V2Model.FK_ASSISTIDO_RESPONSAVEL">
             <End Role="ASSISTIDO" EntitySet="ASSISTIDO" />
-            <End Role="ASSISTIDO1" EntitySet="ASSISTIDO" />
+            <End Role="ASSISTIDO_TITULAR" EntitySet="ASSISTIDO" />
           </AssociationSet>
           <AssociationSet Name="FK_PRODUTO_CATEGORIA" Association="ARCOS_V2Model.FK_PRODUTO_CATEGORIA">
             <End Role="CATEGORIA_PRODUTO" EntitySet="CATEGORIA_PRODUTO" />
@@ -867,12 +990,21 @@
             <End Role="VOLUNTARIO" EntitySet="VOLUNTARIO" />
             <End Role="VOLUNTARIAR" EntitySet="VOLUNTARIAR" />
           </AssociationSet>
-          <EntitySet Name="GRAU_DEPENDENCIA" EntityType="ARCOS_V2Model.GRAU_DEPENDENCIA" />
-          <AssociationSet Name="FK__ASSISTIDO__ID_GR__282DF8C2" Association="ARCOS_V2Model.FK__ASSISTIDO__ID_GR__282DF8C2">
-            <End Role="GRAU_DEPENDENCIA" EntitySet="GRAU_DEPENDENCIA" />
-            <End Role="ASSISTIDO" EntitySet="ASSISTIDO" />
+          <EntitySet Name="SISTEMA_ENTIDADE" EntityType="ARCOS_V2Model.SISTEMA_ENTIDADE" />
+          <AssociationSet Name="FK_SISTEMA_ENTIDADE_SISTEMA_GRUPO_ENTIDADE" Association="ARCOS_V2Model.FK_SISTEMA_ENTIDADE_SISTEMA_GRUPO_ENTIDADE">
+            <End Role="SISTEMA_GRUPO_ENTIDADE" EntitySet="SISTEMA_GRUPO_ENTIDADE" />
+            <End Role="SISTEMA_ENTIDADE" EntitySet="SISTEMA_ENTIDADE" />
           </AssociationSet>
-        </EntityContainer>
+          <EntitySet Name="SISTEMA_ITEM_ENTIDADE" EntityType="ARCOS_V2Model.SISTEMA_ITEM_ENTIDADE" />
+          <AssociationSet Name="FK_SISTEMAITEMENTIDADE_GRUPOPERMISSAO" Association="ARCOS_V2Model.FK_SISTEMAITEMENTIDADE_GRUPOPERMISSAO">
+            <End Role="GRUPO_PERMISSAO" EntitySet="GRUPO_PERMISSAO" />
+            <End Role="SISTEMA_ITEM_ENTIDADE" EntitySet="SISTEMA_ITEM_ENTIDADE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SISTEMAITEMENTIDADE_SISTEMAENTIDADE" Association="ARCOS_V2Model.FK_SISTEMAITEMENTIDADE_SISTEMAENTIDADE">
+            <End Role="SISTEMA_ENTIDADE" EntitySet="SISTEMA_ENTIDADE" />
+            <End Role="SISTEMA_ITEM_ENTIDADE" EntitySet="SISTEMA_ITEM_ENTIDADE" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="ASSISTENCIA">
           <Key>
             <PropertyRef Name="ID" />
@@ -914,13 +1046,13 @@
           <Property Name="ID_ENTIDADE" Type="Int32" />
           <Property Name="ID_ESTADO_CIVIL" Type="Int32" />
           <Property Name="OBSERVACAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ID_GRAU_DEPENDENCIA" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ASSISTENCIA" Relationship="ARCOS_V2Model.FK_ASSISTENCIA_ASSISTIDO" FromRole="ASSISTIDO" ToRole="ASSISTENCIA" />
+          <NavigationProperty Name="GRAU_DEPENDENCIA" Relationship="ARCOS_V2Model.FK__ASSISTIDO__ID_GR__282DF8C2" FromRole="ASSISTIDO" ToRole="GRAU_DEPENDENCIA" />
           <NavigationProperty Name="ENTIDADE" Relationship="ARCOS_V2Model.FK_ASSISTIDO_ENTIDADE" FromRole="ASSISTIDO" ToRole="ENTIDADE" />
           <NavigationProperty Name="ESTADO_CIVIL" Relationship="ARCOS_V2Model.FK_ASSISTIDO_ESTADO_CIVIL" FromRole="ASSISTIDO" ToRole="ESTADO_CIVIL" />
-          <NavigationProperty Name="ASSISTIDO_DEPENDENTES" Relationship="ARCOS_V2Model.FK_ASSISTIDO_RESPONSAVEL" FromRole="ASSISTIDO" ToRole="ASSISTIDO1" />
-          <NavigationProperty Name="ASSISTIDO_TITULAR" Relationship="ARCOS_V2Model.FK_ASSISTIDO_RESPONSAVEL" FromRole="ASSISTIDO1" ToRole="ASSISTIDO" />
-          <Property Name="ID_GRAU_DEPENDENCIA" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="GRAU_DEPENDENCIA" Relationship="ARCOS_V2Model.FK__ASSISTIDO__ID_GR__282DF8C2" FromRole="ASSISTIDO" ToRole="GRAU_DEPENDENCIA" />
+          <NavigationProperty Name="ASSISTIDO_DEPENDENTES" Relationship="ARCOS_V2Model.FK_ASSISTIDO_RESPONSAVEL" FromRole="ASSISTIDO" ToRole="ASSISTIDO_TITULAR" />
+          <NavigationProperty Name="ASSISTIDO_TITULAR" Relationship="ARCOS_V2Model.FK_ASSISTIDO_RESPONSAVEL" FromRole="ASSISTIDO_TITULAR" ToRole="ASSISTIDO" />
         </EntityType>
         <EntityType Name="CATEGORIA_PRODUTO">
           <Key>
@@ -1075,31 +1207,22 @@
           <NavigationProperty Name="FORNECIMENTO" Relationship="ARCOS_V2Model.FK_FORNECIMENTO_ITENS_FORNECIMENTO" FromRole="FORNECIMENTO_ITENS" ToRole="FORNECIMENTO" />
           <NavigationProperty Name="PRODUTO" Relationship="ARCOS_V2Model.FK_FORNECIMENTO_ITENS_PRODUTO" FromRole="FORNECIMENTO_ITENS" ToRole="PRODUTO" />
         </EntityType>
+        <EntityType Name="GRAU_DEPENDENCIA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRICAO" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ASSISTIDO" Relationship="ARCOS_V2Model.FK__ASSISTIDO__ID_GR__282DF8C2" FromRole="GRAU_DEPENDENCIA" ToRole="ASSISTIDO" />
+        </EntityType>
         <EntityType Name="GRUPO_PERMISSAO">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DESCRICAO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="PERM_ENTIDADE" Type="Boolean" Nullable="false" />
-          <Property Name="PERM_VOLUNTARIOS" Type="Boolean" Nullable="false" />
-          <Property Name="PERM_VOLUNTARIAR" Type="Boolean" Nullable="false" />
-          <Property Name="PERM_VOLUNTARIADO" Type="Boolean" Nullable="false" />
-          <Property Name="PERM_USUARIOS" Type="Boolean" Nullable="false" />
-          <Property Name="PERM_GRUPOPERMISSAO" Type="Boolean" Nullable="false" />
-          <Property Name="PERM_EVENTO" Type="Boolean" Nullable="false" />
-          <Property Name="PERM_TIPOEVENTO" Type="Boolean" Nullable="false" />
-          <Property Name="PERM_RECURSO" Type="Boolean" Nullable="false" />
-          <Property Name="PERM_TIPORECURSO" Type="Boolean" Nullable="false" />
-          <Property Name="PERM_FORNECEDOR" Type="Boolean" Nullable="false" />
-          <Property Name="PERM_FORNECIMENTO" Type="Boolean" Nullable="false" />
-          <Property Name="PERM_PRODUTO" Type="Boolean" Nullable="false" />
-          <Property Name="PERM_TIPOPRODUTO" Type="Boolean" Nullable="false" />
-          <Property Name="PERM_DOACAO" Type="Boolean" Nullable="false" />
-          <Property Name="PERM_DOADOR" Type="Boolean" Nullable="false" />
-          <Property Name="PERM_ASSISTENCIA" Type="Boolean" Nullable="false" />
-          <Property Name="PERM_ASSISTIDO" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="USUARIO" Relationship="ARCOS_V2Model.FK_USUARIO_GRUPOPERMISSAO" FromRole="GRUPO_PERMISSAO" ToRole="USUARIO" />
+          <NavigationProperty Name="SISTEMA_ITEM_ENTIDADE" Relationship="ARCOS_V2Model.FK_SISTEMAITEMENTIDADE_GRUPOPERMISSAO" FromRole="GRUPO_PERMISSAO" ToRole="SISTEMA_ITEM_ENTIDADE" />
         </EntityType>
         <EntityType Name="PRODUTO">
           <Key>
@@ -1128,6 +1251,15 @@
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="ENTIDADE" Relationship="ARCOS_V2Model.FK_RECURSO_ENTIDADE" FromRole="RECURSO" ToRole="ENTIDADE" />
           <NavigationProperty Name="TIPO_RECURSO" Relationship="ARCOS_V2Model.FK_RECURSO_TIPO" FromRole="RECURSO" ToRole="TIPO_RECURSO" />
+        </EntityType>
+        <EntityType Name="SISTEMA_GRUPO_ENTIDADE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRICAO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ORDEM" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SISTEMA_ENTIDADE" Relationship="ARCOS_V2Model.FK_SISTEMA_ENTIDADE_SISTEMA_GRUPO_ENTIDADE" FromRole="SISTEMA_GRUPO_ENTIDADE" ToRole="SISTEMA_ENTIDADE" />
         </EntityType>
         <EntityType Name="TIPO_EVENTO">
           <Key>
@@ -1237,6 +1369,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__ASSISTIDO__ID_GR__282DF8C2">
+          <End Type="ARCOS_V2Model.GRAU_DEPENDENCIA" Role="GRAU_DEPENDENCIA" Multiplicity="1" />
+          <End Type="ARCOS_V2Model.ASSISTIDO" Role="ASSISTIDO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GRAU_DEPENDENCIA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASSISTIDO">
+              <PropertyRef Name="ID_GRAU_DEPENDENCIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ASSISTIDO_ENTIDADE">
           <End Type="ARCOS_V2Model.ENTIDADE" Role="ENTIDADE" Multiplicity="0..1" />
           <End Type="ARCOS_V2Model.ASSISTIDO" Role="ASSISTIDO" Multiplicity="*" />
@@ -1263,12 +1407,12 @@
         </Association>
         <Association Name="FK_ASSISTIDO_RESPONSAVEL">
           <End Type="ARCOS_V2Model.ASSISTIDO" Role="ASSISTIDO" Multiplicity="0..1" />
-          <End Type="ARCOS_V2Model.ASSISTIDO" Role="ASSISTIDO1" Multiplicity="*" />
+          <End Type="ARCOS_V2Model.ASSISTIDO" Role="ASSISTIDO_TITULAR" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ASSISTIDO">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="ASSISTIDO1">
+            <Dependent Role="ASSISTIDO_TITULAR">
               <PropertyRef Name="ID_ASSISTIDO_RESPONSAVEL" />
             </Dependent>
           </ReferentialConstraint>
@@ -1513,23 +1657,69 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="GRAU_DEPENDENCIA">
+        <EntityType Name="SISTEMA_ENTIDADE">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DESCRICAO" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ASSISTIDO" Relationship="ARCOS_V2Model.FK__ASSISTIDO__ID_GR__282DF8C2" FromRole="GRAU_DEPENDENCIA" ToRole="ASSISTIDO" />
+          <Property Name="DESCRICAO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_SISTEMA_GRUPO_ENTIDADE" Type="Int32" Nullable="false" />
+          <Property Name="URL" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SISTEMA_GRUPO_ENTIDADE" Relationship="ARCOS_V2Model.FK_SISTEMA_ENTIDADE_SISTEMA_GRUPO_ENTIDADE" FromRole="SISTEMA_ENTIDADE" ToRole="SISTEMA_GRUPO_ENTIDADE" />
+          <NavigationProperty Name="SISTEMA_ITEM_ENTIDADE" Relationship="ARCOS_V2Model.FK_SISTEMAITEMENTIDADE_SISTEMAENTIDADE" FromRole="SISTEMA_ENTIDADE" ToRole="SISTEMA_ITEM_ENTIDADE" />
+          <Property Name="TIPO_ENTIDADE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
-        <Association Name="FK__ASSISTIDO__ID_GR__282DF8C2">
-          <End Type="ARCOS_V2Model.GRAU_DEPENDENCIA" Role="GRAU_DEPENDENCIA" Multiplicity="1" />
-          <End Type="ARCOS_V2Model.ASSISTIDO" Role="ASSISTIDO" Multiplicity="*" />
+        <Association Name="FK_SISTEMA_ENTIDADE_SISTEMA_GRUPO_ENTIDADE">
+          <End Type="ARCOS_V2Model.SISTEMA_GRUPO_ENTIDADE" Role="SISTEMA_GRUPO_ENTIDADE" Multiplicity="1" />
+          <End Type="ARCOS_V2Model.SISTEMA_ENTIDADE" Role="SISTEMA_ENTIDADE" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="GRAU_DEPENDENCIA">
+            <Principal Role="SISTEMA_GRUPO_ENTIDADE">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="ASSISTIDO">
-              <PropertyRef Name="ID_GRAU_DEPENDENCIA" />
+            <Dependent Role="SISTEMA_ENTIDADE">
+              <PropertyRef Name="ID_SISTEMA_GRUPO_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SISTEMA_ITEM_ENTIDADE">
+          <Key>
+            <PropertyRef Name="ID_SISTEMA_ENTIDADE" />
+            <PropertyRef Name="ID_GRUPO_PERMISSAO" />
+          </Key>
+          <Property Name="ID_SISTEMA_ENTIDADE" Type="Int32" Nullable="false" />
+          <Property Name="ID_GRUPO_PERMISSAO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="GRUPO_PERMISSAO" Relationship="ARCOS_V2Model.FK_SISTEMAITEMENTIDADE_GRUPOPERMISSAO" FromRole="SISTEMA_ITEM_ENTIDADE" ToRole="GRUPO_PERMISSAO" />
+          <NavigationProperty Name="SISTEMA_ENTIDADE" Relationship="ARCOS_V2Model.FK_SISTEMAITEMENTIDADE_SISTEMAENTIDADE" FromRole="SISTEMA_ITEM_ENTIDADE" ToRole="SISTEMA_ENTIDADE" />
+        </EntityType>
+        <EntityType Name="SISTEMA_ITEM_ENTIDADE_CADASTRO" BaseType="ARCOS_V2Model.SISTEMA_ITEM_ENTIDADE">
+          <Property Name="incluir" Type="Boolean" Nullable="false" />
+          <Property Name="alterar" Type="Boolean" Nullable="false" />
+          <Property Name="remover" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SISTEMA_ITEM_ENTIDADE_CONSULTA" BaseType="ARCOS_V2Model.SISTEMA_ITEM_ENTIDADE">
+          <Property Name="consultar" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_SISTEMAITEMENTIDADE_GRUPOPERMISSAO">
+          <End Type="ARCOS_V2Model.GRUPO_PERMISSAO" Role="GRUPO_PERMISSAO" Multiplicity="1" />
+          <End Type="ARCOS_V2Model.SISTEMA_ITEM_ENTIDADE" Role="SISTEMA_ITEM_ENTIDADE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GRUPO_PERMISSAO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SISTEMA_ITEM_ENTIDADE">
+              <PropertyRef Name="ID_GRUPO_PERMISSAO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SISTEMAITEMENTIDADE_SISTEMAENTIDADE">
+          <End Type="ARCOS_V2Model.SISTEMA_ENTIDADE" Role="SISTEMA_ENTIDADE" Multiplicity="1" />
+          <End Type="ARCOS_V2Model.SISTEMA_ITEM_ENTIDADE" Role="SISTEMA_ITEM_ENTIDADE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SISTEMA_ENTIDADE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SISTEMA_ITEM_ENTIDADE">
+              <PropertyRef Name="ID_SISTEMA_ENTIDADE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1717,27 +1907,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="GRAU_DEPENDENCIA">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.GRAU_DEPENDENCIA">
+              <MappingFragment StoreEntitySet="GRAU_DEPENDENCIA">
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="GRUPO_PERMISSAO">
             <EntityTypeMapping TypeName="ARCOS_V2Model.GRUPO_PERMISSAO">
               <MappingFragment StoreEntitySet="GRUPO_PERMISSAO">
-                <ScalarProperty Name="PERM_ASSISTIDO" ColumnName="PERM_ASSISTIDO" />
-                <ScalarProperty Name="PERM_ASSISTENCIA" ColumnName="PERM_ASSISTENCIA" />
-                <ScalarProperty Name="PERM_DOADOR" ColumnName="PERM_DOADOR" />
-                <ScalarProperty Name="PERM_DOACAO" ColumnName="PERM_DOACAO" />
-                <ScalarProperty Name="PERM_TIPOPRODUTO" ColumnName="PERM_TIPOPRODUTO" />
-                <ScalarProperty Name="PERM_PRODUTO" ColumnName="PERM_PRODUTO" />
-                <ScalarProperty Name="PERM_FORNECIMENTO" ColumnName="PERM_FORNECIMENTO" />
-                <ScalarProperty Name="PERM_FORNECEDOR" ColumnName="PERM_FORNECEDOR" />
-                <ScalarProperty Name="PERM_TIPORECURSO" ColumnName="PERM_TIPORECURSO" />
-                <ScalarProperty Name="PERM_RECURSO" ColumnName="PERM_RECURSO" />
-                <ScalarProperty Name="PERM_TIPOEVENTO" ColumnName="PERM_TIPOEVENTO" />
-                <ScalarProperty Name="PERM_EVENTO" ColumnName="PERM_EVENTO" />
-                <ScalarProperty Name="PERM_GRUPOPERMISSAO" ColumnName="PERM_GRUPOPERMISSAO" />
-                <ScalarProperty Name="PERM_USUARIOS" ColumnName="PERM_USUARIOS" />
-                <ScalarProperty Name="PERM_VOLUNTARIADO" ColumnName="PERM_VOLUNTARIADO" />
-                <ScalarProperty Name="PERM_VOLUNTARIAR" ColumnName="PERM_VOLUNTARIAR" />
-                <ScalarProperty Name="PERM_VOLUNTARIOS" ColumnName="PERM_VOLUNTARIOS" />
-                <ScalarProperty Name="PERM_ENTIDADE" ColumnName="PERM_ENTIDADE" />
                 <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
@@ -1764,6 +1944,15 @@
                 <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
                 <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
                 <ScalarProperty Name="NOME" ColumnName="NOME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SISTEMA_GRUPO_ENTIDADE">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.SISTEMA_GRUPO_ENTIDADE">
+              <MappingFragment StoreEntitySet="SISTEMA_GRUPO_ENTIDADE">
+                <ScalarProperty Name="ORDEM" ColumnName="ORDEM" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1848,15 +2037,42 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="GRAU_DEPENDENCIA">
-            <EntityTypeMapping TypeName="ARCOS_V2Model.GRAU_DEPENDENCIA">
-              <MappingFragment StoreEntitySet="GRAU_DEPENDENCIA">
+          <EntitySetMapping Name="SISTEMA_ENTIDADE">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.SISTEMA_ENTIDADE">
+              <MappingFragment StoreEntitySet="SISTEMA_ENTIDADE">
+                <ScalarProperty Name="TIPO_ENTIDADE" ColumnName="TIPO_ENTIDADE" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="ID_SISTEMA_GRUPO_ENTIDADE" ColumnName="ID_SISTEMA_GRUPO_ENTIDADE" />
                 <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="SISTEMA_ITEM_ENTIDADE">
+            <EntityTypeMapping TypeName="IsTypeOf(ARCOS_V2Model.SISTEMA_ITEM_ENTIDADE)">
+              <MappingFragment StoreEntitySet="SISTEMA_ITEM_ENTIDADE">
+                <ScalarProperty Name="ID_GRUPO_PERMISSAO" ColumnName="ID_GRUPO_PERMISSAO" />
+                <ScalarProperty Name="ID_SISTEMA_ENTIDADE" ColumnName="ID_SISTEMA_ENTIDADE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(ARCOS_V2Model.SISTEMA_ITEM_ENTIDADE_CONSULTA)">
+              <MappingFragment StoreEntitySet="SISTEMA_ITEM_ENTIDADE_CONSULTA">
+                <ScalarProperty Name="ID_SISTEMA_ENTIDADE" ColumnName="ID_SISTEMA_ENTIDADE" />
+                <ScalarProperty Name="ID_GRUPO_PERMISSAO" ColumnName="ID_GRUPO_PERMISSAO" />
+                <ScalarProperty Name="consultar" ColumnName="consultar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(ARCOS_V2Model.SISTEMA_ITEM_ENTIDADE_CADASTRO)">
+              <MappingFragment StoreEntitySet="SISTEMA_ITEM_ENTIDADE_CADASTRO">
+                <ScalarProperty Name="ID_SISTEMA_ENTIDADE" ColumnName="ID_SISTEMA_ENTIDADE" />
+                <ScalarProperty Name="ID_GRUPO_PERMISSAO" ColumnName="ID_GRUPO_PERMISSAO" />
+                <ScalarProperty Name="incluir" ColumnName="incluir" />
+                <ScalarProperty Name="alterar" ColumnName="alterar" />
+                <ScalarProperty Name="remover" ColumnName="remover" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
@@ -1871,7 +2087,7 @@
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>

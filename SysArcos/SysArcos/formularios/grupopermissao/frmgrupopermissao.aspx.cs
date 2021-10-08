@@ -13,11 +13,13 @@ namespace SysArcos.formularios.usuario
         {
             if (!IsPostBack)
             {
-                String ID = Request.QueryString["ID"];
-                if ((ID != null) && (!ID.Equals("")))
+                using (ARCOS_Entities entities = new ARCOS_Entities())
                 {
-                    using (ARCOS_Entities entities = new ARCOS_Entities())
+                    carregaPermissoes(entities);
+                    String ID = Request.QueryString["ID"];
+                    if ((ID != null) && (!ID.Equals("")))
                     {
+
                         GRUPO_PERMISSAO gp = entities.GRUPO_PERMISSAO.
                             FirstOrDefault(x => x.ID.ToString().Equals(ID));
                         if (gp != null)
@@ -27,9 +29,63 @@ namespace SysArcos.formularios.usuario
                             lblAcao.Text = "ALTERANDO";
                             preenchePermissao(gp);
                         }
-                    }
 
+                    }
                 }
+            }
+        }
+
+        private void carregaPermissoes(ARCOS_Entities conn)
+        {
+            foreach (SISTEMA_GRUPO_ENTIDADE sge in conn.SISTEMA_GRUPO_ENTIDADE.OrderBy(x => x.ORDEM).ToList())
+            {
+                TreeNode itemGrupo = new TreeNode();
+                itemGrupo.Text = sge.DESCRICAO;
+                itemGrupo.Value = sge.DESCRICAO;
+                itemGrupo.SelectAction = TreeNodeSelectAction.None;
+                foreach (SISTEMA_ENTIDADE se in sge.SISTEMA_ENTIDADE.OrderBy(x => x.ID).ToList())
+                {
+                    TreeNode itemEntidade = new TreeNode();
+                    itemEntidade.Text = se.DESCRICAO;
+                    itemEntidade.Value = se.DESCRICAO;
+                    itemGrupo.ChildNodes.Add(itemEntidade);
+                    itemEntidade.SelectAction = TreeNodeSelectAction.None;
+                    itemEntidade.ShowCheckBox = false;
+                    if (se.TIPO_ENTIDADE.Equals("CADASTRO"))
+                    {
+                        itemEntidade.ChildNodes.Add(new TreeNode()
+                        {
+                            Text = "Incluir",
+                            ShowCheckBox = true,
+                            SelectAction = TreeNodeSelectAction.None,
+                            Value = "incluir"
+                        });
+                        itemEntidade.ChildNodes.Add(new TreeNode()
+                        {
+                            Text = "Alterar",
+                            ShowCheckBox = true,
+                            SelectAction = TreeNodeSelectAction.None,
+                            Value = "alterar"
+                        });
+                        itemEntidade.ChildNodes.Add(new TreeNode()
+                        {
+                            Text = "Remover",
+                            ShowCheckBox = true,
+                            SelectAction = TreeNodeSelectAction.None,
+                            Value = "remover"
+                        });
+                    }else if (se.TIPO_ENTIDADE.Equals("CONSULTA"))
+                    {
+                        itemEntidade.ChildNodes.Add(new TreeNode()
+                        {
+                            Text = "Consultar",
+                            ShowCheckBox = true,
+                            SelectAction = TreeNodeSelectAction.None,
+                            Value = "consultar"
+                        });
+                    }
+                }
+                TreePermissoes.Nodes.Add(itemGrupo);
             }
         }
 
@@ -57,14 +113,14 @@ namespace SysArcos.formularios.usuario
                         {
                             gp = new GRUPO_PERMISSAO();
                             gp.DESCRICAO = txt_descricao.Text;
-                            atualizaPermissao(gp);
+                            atualizaPermissao(entity, gp);
                             entity.GRUPO_PERMISSAO.Add(gp);
                         }
                         else
                         {
                             gp = entity.GRUPO_PERMISSAO.FirstOrDefault(x => x.ID.ToString().Equals(lblID.Text));
                             gp.DESCRICAO = txt_descricao.Text;
-                            atualizaPermissao(gp);
+                            atualizaPermissao(entity, gp);
                             entity.Entry(gp);
                         }
                         entity.SaveChanges();
@@ -73,7 +129,7 @@ namespace SysArcos.formularios.usuario
                         Response.Write("<script>alert('Grupo Permissão salvo com Sucesso!');</script>");
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
                     Response.Write("<script>alert('Registro não pode ser salvo!');</script>");
                 }
@@ -91,69 +147,115 @@ namespace SysArcos.formularios.usuario
             lblID.Text = string.Empty;
             txt_descricao.Text = string.Empty;
 
-            tvPermissao.CollapseAll();
-            tvPermissao.FindNode("Entidade/Entidade").Checked = false;
-            tvPermissao.FindNode("Voluntario/Voluntarios").Checked = false;
-            tvPermissao.FindNode("Voluntario/Voluntariar").Checked = false;
-            tvPermissao.FindNode("Voluntario/Voluntariado").Checked = false;
-            tvPermissao.FindNode("Usuario/Usuarios").Checked = false;
-            tvPermissao.FindNode("Usuario/GrupoPermissao").Checked = false;
-            tvPermissao.FindNode("Evento/Eventos").Checked = false;
-            tvPermissao.FindNode("Evento/TiposEvento").Checked = false;
-            tvPermissao.FindNode("Recurso/Recursos").Checked = false;
-            tvPermissao.FindNode("Recurso/TiposRecurso").Checked = false;
-            tvPermissao.FindNode("Fornecedor/Fornecedores").Checked = false;
-            tvPermissao.FindNode("Fornecedor/Fornecimento").Checked = false;
-            tvPermissao.FindNode("Estoque/Produtos").Checked = false;
-            tvPermissao.FindNode("Estoque/TiposProduto").Checked = false;
-            tvPermissao.FindNode("Doacao/Doacoes").Checked = false;
-            tvPermissao.FindNode("Doacao/Doadores").Checked = false;
-            tvPermissao.FindNode("Assistencia/Assistencias").Checked = false;
-            tvPermissao.FindNode("Assistencia/Assistidos").Checked = false;
+            TreePermissoes.CollapseAll();
+            foreach (TreeNode grupo in TreePermissoes.Nodes)
+            {
+                foreach (TreeNode entidade in grupo.ChildNodes)
+                {
+                    foreach (TreeNode permissao in entidade.ChildNodes)
+                    {
+                        permissao.Checked = false;
+                    }
+                }
+            }
         }
 
-        private void atualizaPermissao(GRUPO_PERMISSAO gp)
+        private void atualizaPermissao(ARCOS_Entities conn, GRUPO_PERMISSAO gp)
         {
-            gp.PERM_ENTIDADE =  tvPermissao.FindNode("Entidade/Entidade").Checked;
-            gp.PERM_VOLUNTARIOS = tvPermissao.FindNode("Voluntario/Voluntarios").Checked;
-            gp.PERM_VOLUNTARIAR = tvPermissao.FindNode("Voluntario/Voluntariar").Checked;
-            gp.PERM_VOLUNTARIADO = tvPermissao.FindNode("Voluntario/Voluntariado").Checked;
-            gp.PERM_USUARIOS = tvPermissao.FindNode("Usuario/Usuarios").Checked;
-            gp.PERM_GRUPOPERMISSAO = tvPermissao.FindNode("Usuario/GrupoPermissao").Checked; ;
-            gp.PERM_EVENTO = tvPermissao.FindNode("Evento/Eventos").Checked;
-            gp.PERM_TIPOEVENTO = tvPermissao.FindNode("Evento/TiposEvento").Checked;
-            gp.PERM_RECURSO = tvPermissao.FindNode("Recurso/Recursos").Checked;
-            gp.PERM_TIPORECURSO = tvPermissao.FindNode("Recurso/TiposRecurso").Checked;
-            gp.PERM_FORNECEDOR = tvPermissao.FindNode("Fornecedor/Fornecedores").Checked ;
-            gp.PERM_FORNECIMENTO = tvPermissao.FindNode("Fornecedor/Fornecimento").Checked;
-            gp.PERM_PRODUTO = tvPermissao.FindNode("Estoque/Produtos").Checked;
-            gp.PERM_TIPOPRODUTO = tvPermissao.FindNode("Estoque/TiposProduto").Checked;
-            gp.PERM_DOACAO = tvPermissao.FindNode("Doacao/Doacoes").Checked;
-            gp.PERM_DOADOR = tvPermissao.FindNode("Doacao/Doadores").Checked;
-            gp.PERM_ASSISTENCIA = tvPermissao.FindNode("Assistencia/Assistencias").Checked; ;
-            gp.PERM_ASSISTIDO = tvPermissao.FindNode("Assistencia/Assistidos").Checked; ;
+            foreach (TreeNode grupoNode in TreePermissoes.Nodes)
+            {
+                foreach (TreeNode entidadeNode in grupoNode.ChildNodes)
+                {
+                    bool selected = false;
+                    foreach(TreeNode node in entidadeNode.ChildNodes)
+                    {
+                        if (node.Checked)
+                        {
+                            selected = true;
+                            break;
+                        }
+                    }
+                    if (selected)
+                    {
+                        if (entidadeNode.ChildNodes.Count > 1)
+                        {
+                            //Cadastro
+                            SISTEMA_ITEM_ENTIDADE_CADASTRO item = (SISTEMA_ITEM_ENTIDADE_CADASTRO) gp.SISTEMA_ITEM_ENTIDADE.FirstOrDefault(x => x.SISTEMA_ENTIDADE.DESCRICAO.Equals(entidadeNode.Text));
+                            if (item == null)
+                            {
+                                //não possui permissão
+                                item = new SISTEMA_ITEM_ENTIDADE_CADASTRO();
+                                item.GRUPO_PERMISSAO = gp;
+                                item.SISTEMA_ENTIDADE = conn.SISTEMA_ENTIDADE.First(x => x.DESCRICAO.Equals(entidadeNode.Text));
+                                item.incluir = findNode(entidadeNode.ChildNodes, "incluir").Checked;
+                                item.alterar = findNode(entidadeNode.ChildNodes, "alterar").Checked;
+                                item.remover = findNode(entidadeNode.ChildNodes, "remover").Checked;
+                                conn.SISTEMA_ITEM_ENTIDADE.Add(item);
+                            }
+                            else
+                            {
+                                //já possui alguma permissão
+                                item.incluir = findNode(entidadeNode.ChildNodes, "incluir").Checked;
+                                item.alterar = findNode(entidadeNode.ChildNodes, "alterar").Checked;
+                                item.remover = findNode(entidadeNode.ChildNodes, "remover").Checked;
+                                conn.Entry(item);
+                            }
+                        }
+                        else
+                        {
+                            //Consulta
+                            SISTEMA_ITEM_ENTIDADE_CONSULTA item = (SISTEMA_ITEM_ENTIDADE_CONSULTA)gp.SISTEMA_ITEM_ENTIDADE.FirstOrDefault(x => x.SISTEMA_ENTIDADE.DESCRICAO.Equals(entidadeNode.Text));
+                            if (item == null)
+                            {
+                                //não possui permissão
+                                item = new SISTEMA_ITEM_ENTIDADE_CONSULTA();
+                                item.GRUPO_PERMISSAO = gp;
+                                item.SISTEMA_ENTIDADE = conn.SISTEMA_ENTIDADE.First(x => x.DESCRICAO.Equals(entidadeNode.Text));
+                                item.consultar = findNode(entidadeNode.ChildNodes, "consultar").Checked;
+                                conn.SISTEMA_ITEM_ENTIDADE.Add(item);
+                            }
+                            else
+                            {
+                                //já possui alguma permissão
+                                item.consultar = findNode(entidadeNode.ChildNodes, "consultar").Checked;
+                                conn.Entry(item);
+                            }
+
+                        }
+                    }
+                }
+            }
+        conn.SaveChanges();
+        }
+
+        private TreeNode findNode(TreeNodeCollection arr, String value)
+        {
+            foreach (TreeNode node in arr)
+            {
+                if (node.Value.Equals(value))
+                    return node;
+            }
+            return (TreeNode)null;
         }
 
         private void preenchePermissao(GRUPO_PERMISSAO gp)
         {
-            tvPermissao.FindNode("Entidade/Entidade").Checked = gp.PERM_ENTIDADE;
-            tvPermissao.FindNode("Voluntario/Voluntarios").Checked = gp.PERM_VOLUNTARIOS;
-            tvPermissao.FindNode("Voluntario/Voluntariar").Checked = gp.PERM_VOLUNTARIAR;
-            tvPermissao.FindNode("Voluntario/Voluntariado").Checked = gp.PERM_VOLUNTARIADO;
-            tvPermissao.FindNode("Usuario/Usuarios").Checked = gp.PERM_USUARIOS;
-            tvPermissao.FindNode("Usuario/GrupoPermissao").Checked = gp.PERM_GRUPOPERMISSAO;
-            tvPermissao.FindNode("Evento/Eventos").Checked = gp.PERM_EVENTO;
-            tvPermissao.FindNode("Evento/TiposEvento").Checked = gp.PERM_TIPOEVENTO;
-            tvPermissao.FindNode("Recurso/Recursos").Checked = gp.PERM_RECURSO;
-            tvPermissao.FindNode("Recurso/TiposRecurso").Checked = gp.PERM_TIPORECURSO;
-            tvPermissao.FindNode("Fornecedor/Fornecedores").Checked = gp.PERM_FORNECEDOR;
-            tvPermissao.FindNode("Fornecedor/Fornecimento").Checked = gp.PERM_FORNECIMENTO;
-            tvPermissao.FindNode("Estoque/Produtos").Checked = gp.PERM_PRODUTO;
-            tvPermissao.FindNode("Estoque/TiposProduto").Checked = gp.PERM_TIPOPRODUTO;
-            tvPermissao.FindNode("Doacao/Doacoes").Checked = gp.PERM_DOACAO;
-            tvPermissao.FindNode("Doacao/Doadores").Checked = gp.PERM_DOADOR;
-            tvPermissao.FindNode("Assistencia/Assistencias").Checked = gp.PERM_ASSISTENCIA; ;
-            tvPermissao.FindNode("Assistencia/Assistidos").Checked = gp.PERM_ASSISTIDO;
+            foreach(SISTEMA_ITEM_ENTIDADE itemGeneric in gp.SISTEMA_ITEM_ENTIDADE)
+            {
+                if (itemGeneric is SISTEMA_ITEM_ENTIDADE_CADASTRO)
+                {
+                    SISTEMA_ITEM_ENTIDADE_CADASTRO item = (SISTEMA_ITEM_ENTIDADE_CADASTRO)itemGeneric;
+                    if (item.incluir) TreePermissoes.FindNode(item.SISTEMA_ENTIDADE.SISTEMA_GRUPO_ENTIDADE.DESCRICAO + "/" + item.SISTEMA_ENTIDADE.DESCRICAO + "/incluir").Checked = true;
+                    if (item.alterar) TreePermissoes.FindNode(item.SISTEMA_ENTIDADE.SISTEMA_GRUPO_ENTIDADE.DESCRICAO + "/" + item.SISTEMA_ENTIDADE.DESCRICAO + "/alterar").Checked = true;
+                    if (item.remover) TreePermissoes.FindNode(item.SISTEMA_ENTIDADE.SISTEMA_GRUPO_ENTIDADE.DESCRICAO + "/" + item.SISTEMA_ENTIDADE.DESCRICAO + "/remover").Checked = true;
+                }
+                else if (itemGeneric is SISTEMA_ITEM_ENTIDADE_CONSULTA)
+                {
+                    SISTEMA_ITEM_ENTIDADE_CONSULTA item = (SISTEMA_ITEM_ENTIDADE_CONSULTA)itemGeneric;
+                    if (item.consultar) TreePermissoes.FindNode(item.SISTEMA_ENTIDADE.SISTEMA_GRUPO_ENTIDADE.DESCRICAO + "/" + item.SISTEMA_ENTIDADE.DESCRICAO + "/consultar").Checked = true;
+                }
+
+            }
         }
     }
 }

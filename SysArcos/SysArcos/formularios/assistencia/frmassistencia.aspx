@@ -42,6 +42,21 @@
 
         <div class="row">
             <div class="col-lg-6 col-md-12 row_fields">
+                Documentação Anexa
+                <asp:FileUpload ID="FileUpload1" runat="server" />
+            </div>
+            <div class="col-lg-6 col-md-12 row_fields">
+                <asp:Label ID="txtIDTipoAssistencia"  runat="server" Text="Tipo Assistência"></asp:Label>
+                <asp:DropDownList runat="server" class="form-control">
+                    <asp:ListItem></asp:ListItem>
+                    <asp:ListItem>Asistência Psicológica</asp:ListItem>
+                    <asp:ListItem>Assistência Psiquiátrica</asp:ListItem>
+                </asp:DropDownList>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-12 row_fields">
                 <asp:Label ID="txtAssistido" runat="server" Text="Assistido"></asp:Label>
                 :
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="ddlAssistido" ErrorMessage="Assistido está vazio" Font-Size="Medium" ForeColor="Red" ValidationGroup="form">*</asp:RequiredFieldValidator>

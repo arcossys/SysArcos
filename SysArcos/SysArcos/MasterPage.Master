@@ -49,100 +49,24 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: #85cbde;">
                     <ul class="navbar-nav mr-auto">
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <b>Entidades</b>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/formularios/entidades/frmentidade.aspx"><b>Entidade</b></a>
-                            </div>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <b>Usuários </b>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/formularios/usuario/frmusuario.aspx"><b>Usuário</b></a>
-                                <a class="dropdown-item" href="/formularios/grupopermissao/frmgrupopermissao.aspx"><b>Grupo Permissão</b></a>
-                            </div>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <b>Eventos</b>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/formularios/evento/frmevento.aspx"><b>Evento</b></a>
-                                <a class="dropdown-item" href="/formularios/tipoevento/frmtipoevento.aspx"><b>Tipo Evento</b></a>
-                            </div>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <b>Recursos</b>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/formularios/recurso/frmrecurso.aspx"><b>Recurso</b></a>
-                                <a class="dropdown-item" href="/formularios/tiporecurso/frmtiporecurso.aspx"><b>Tipo Recurso</b></a>
-                            </div>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <b>Fornecedores</b>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/formularios/fornecedor/frmfornecedor.aspx"><b>Fornecedor</b></a>
-                                <a class="dropdown-item" href="/formularios/fornecimento/fornecimento.aspx"><b>Fornecimento</b></a>
-                            </div>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <b>Estoque</b>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/formularios/estoque/frmestoque.aspx"><b>Estoque</b></a>
-                                <a class="dropdown-item" href="/formularios/produto/frmproduto.aspx"><b>Produto</b></a>
-                                <a class="dropdown-item" href="/formularios/categoria_produto/frmcategoria_produto.aspx"><b>Tipo Produto</b></a>
-                            </div>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <b>Doações</b>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/formularios/doacao/frmdoacao.aspx"><b>Doação</b></a>
-                                <a class="dropdown-item" href="/formularios/doador/frmdoador.aspx"><b>Doador</b></a>
-                            </div>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <b>Assistências</b>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/formularios/assistencia/frmassistencia.aspx"><b>Assistência</b></a>
-                                <a class="dropdown-item" href="/formularios/assistido/frmassistido.aspx"><b>Assistido</b></a>
-                                <a class="dropdown-item" href="/formularios/parentesco_assistido/frmparentescoassistido.aspx"><b>Parentesco Assistido</b></a>
-                            </div>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <b>Voluntários</b>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/formularios/voluntario/frmvoluntario.aspx"><b>Voluntários</b></a>
-                                <a class="dropdown-item" href="/formularios/Voluntariar/frmvoluntariar.aspx"><b>Voluntariar</b></a>
-                                <a class="dropdown-item" href="/formularios/voluntariado/frmvoluntariado.aspx"><b>Voluntariado</b></a>
-                            </div>
-                        </li>
-
-
+                        <asp:Repeater ID="RepeaterMenu" runat="server">
+                            <ItemTemplate>
+                                <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <b> <%# DataBinder.Eval(Container.DataItem, "DESCRICAO")%> </b>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <asp:Repeater ID="RepeaterItem" runat="server" DataSource='<%# DataBinder.Eval(Container.DataItem, "SISTEMA_ENTIDADE") %>'>
+                                        <ItemTemplate>
+                                            <asp:HyperLink Visible='<%#DataBinder.Eval(Container.DataItem, "TIPO_ENTIDADE").ToString()=="CADASTRO"%>' class='dropdown-item' NavigateUrl='<%# DataBinder.Eval(Container.DataItem, "URL")%>' runat="server">
+                                                <b><%# DataBinder.Eval(Container.DataItem, "DESCRICAO") %></b>
+                                            </asp:HyperLink>
+                                        </ItemTemplate>   
+                                    </asp:Repeater>
+                                </div>
+                            </li>
+                            </ItemTemplate>
+                        </asp:Repeater>
                     </ul>
                 </div>
             </nav>

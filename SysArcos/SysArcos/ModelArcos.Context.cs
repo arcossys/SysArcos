@@ -37,15 +37,18 @@ namespace SysArcos
         public virtual DbSet<FORNECEDOR> FORNECEDOR { get; set; }
         public virtual DbSet<FORNECIMENTO> FORNECIMENTO { get; set; }
         public virtual DbSet<FORNECIMENTO_ITENS> FORNECIMENTO_ITENS { get; set; }
+        public virtual DbSet<GRAU_DEPENDENCIA> GRAU_DEPENDENCIA { get; set; }
         public virtual DbSet<GRUPO_PERMISSAO> GRUPO_PERMISSAO { get; set; }
         public virtual DbSet<PRODUTO> PRODUTO { get; set; }
         public virtual DbSet<RECURSO> RECURSO { get; set; }
+        public virtual DbSet<SISTEMA_GRUPO_ENTIDADE> SISTEMA_GRUPO_ENTIDADE { get; set; }
         public virtual DbSet<TIPO_EVENTO> TIPO_EVENTO { get; set; }
         public virtual DbSet<TIPO_RECURSO> TIPO_RECURSO { get; set; }
         public virtual DbSet<USUARIO> USUARIO { get; set; }
         public virtual DbSet<VOLUNTARIADO> VOLUNTARIADO { get; set; }
         public virtual DbSet<VOLUNTARIAR> VOLUNTARIAR { get; set; }
         public virtual DbSet<VOLUNTARIO> VOLUNTARIO { get; set; }
-        public virtual DbSet<GRAU_DEPENDENCIA> GRAU_DEPENDENCIA { get; set; }
+        public virtual DbSet<SISTEMA_ENTIDADE> SISTEMA_ENTIDADE { get; set; }
+        public virtual DbSet<SISTEMA_ITEM_ENTIDADE> SISTEMA_ITEM_ENTIDADE { get; set; }
     }
 }

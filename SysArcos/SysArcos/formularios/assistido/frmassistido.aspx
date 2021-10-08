@@ -264,7 +264,7 @@
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" ControlToValidate="txtNomeResponsavelAssistido" ErrorMessage="Campo &quot;Assistido Responsável&quot; é obrigatório." Font-Size="X-Large" ForeColor="Red" ValidationGroup="cadastro">*</asp:RequiredFieldValidator>
                     </div>
                     <div>
-                        <asp:TextBox ID="txtIdResponsavelAssistido" runat="server" Visible="false"></asp:TextBox>
+                        <asp:TextBox ID="txtIdResponsavelAssistido" runat="server" Visible="False"></asp:TextBox>
                         <div class="input-group mb-3">
                             <asp:TextBox CssClass="form-control" aria-describedby="button-addon2"
                                 runat="server" ReadOnly="true" ID="txtNomeResponsavelAssistido"></asp:TextBox>

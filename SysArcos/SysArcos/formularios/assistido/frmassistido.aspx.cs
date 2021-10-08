@@ -101,7 +101,7 @@ namespace ProjetoArcos
                 {
                     using (ARCOS_Entities entity = new ARCOS_Entities())
                     {
-                        if (!verifica_CPF_Repetido(txtCPF.Text, entity))
+                        if (!e_CPF_Repetido(txtCPF.Text, entity))
                         {
                             ASSISTIDO assistido = null;
                             if (lblAcao.Text.Equals("NOVO"))
@@ -122,7 +122,7 @@ namespace ProjetoArcos
                             assistido.ID_ENTIDADE = Convert.ToInt32(ddlEntidade.SelectedValue);
                             assistido.NOME = txtNomeAssistido.Text;
                             assistido.APELIDO = txtApelido.Text;
-                            assistido.DATA_NASCIMENTO = Convert.ToDateTime(txtDataNascimento.Text);
+                            assistido.DATA_NASCIMENTO = DateTime.ParseExact(txtDataNascimento.Text, "dd/MM/yyyy", null);
                             assistido.ID_ESTADO_CIVIL = Convert.ToInt32(ddlEstadoCivil.SelectedValue);
                             assistido.CPF = txtCPF.Text;
                             assistido.RG = txtRG.Text;
@@ -158,7 +158,7 @@ namespace ProjetoArcos
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('Registro não pode ser salvo!');</script>");
+                Response.Write("<script>alert('Registro não pode ser salvo!\r\nErro:" + ex.Message+"');</script>");
             }
         }
 
@@ -255,6 +255,7 @@ namespace ProjetoArcos
                     ASSISTIDO assistido =
                         conn.ASSISTIDO.Where(linha => linha.ID.Equals(ID)).FirstOrDefault();
                     txtNomeResponsavelAssistido.Text = assistido.NOME;
+                    txtIdResponsavelAssistido.Text = assistido.ID.ToString();
                 }
             }
 
@@ -276,16 +277,20 @@ namespace ProjetoArcos
             ddlParentesco.Items.Insert(0, "");
         }
 
-        private bool verifica_CPF_Repetido(String CPF, ARCOS_Entities conn)
+        private bool e_CPF_Repetido(String CPF, ARCOS_Entities conn)
         {
             ASSISTIDO ass = conn.ASSISTIDO.Where(linha => linha.CPF.Equals(txtCPF.Text)).FirstOrDefault();
-            if (ass != null)
+            bool e_repetido = false;
+            if ( (lblAcao.Text=="NOVO" && ass != null) || 
+                 (lblAcao.Text != "NOVO" && !lblID.Text.Equals(ass.ID.ToString()))
+               )
             {
+                e_repetido = true;
                 Response.Write("<script>alert('Este CPF já esta cadastrado!');</script>");
                 txtCPF.Text = string.Empty;
             }
 
-            return ass != null;
+            return e_repetido;
         }
     }
 }

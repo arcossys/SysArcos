@@ -11,7 +11,10 @@ namespace ProjetoArcos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            using(ARCOS_Entities conn = new ARCOS_Entities())
+            {
+                String pagina = HttpContext.Current.Request.Url.AbsolutePath;
+            }
         }
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -23,24 +26,9 @@ namespace ProjetoArcos
             using (ARCOS_Entities entities = new ARCOS_Entities())
             {
 
-                IQueryable<ASSISTIDO> query;
-                if (rdNome.Checked)
-                {
-                    query = entities.ASSISTIDO.Where(x => x.NOME.StartsWith(txtBusca.Text));
-                }
-                else
-                {
-                    query = entities.ASSISTIDO;
-                }
+                IQueryable<ASSISTIDO> query = entities.ASSISTIDO.Where(x => x.CPF.Equals(txtBusca.Text));
+                
 
-                if (ddlTipoResponsabilidade.SelectedIndex == 1)
-                {
-                    query = query.Where(linha => linha.ASSISTIDO_TITULAR == null);
-                }
-                else if (ddlTipoResponsabilidade.SelectedIndex == 2)
-                {
-                    query = query.Where(linha => linha.ASSISTIDO_TITULAR != null);
-                }
                 var lista = query
                      .Select(linha => new
                          { 

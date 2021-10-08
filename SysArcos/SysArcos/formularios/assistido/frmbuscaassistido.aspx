@@ -11,34 +11,13 @@
         <div class="col-8 col-lg-5">
             <div class="input-group">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="">Filtro</span>
+                    <span class="input-group-text" id="">Busca por CPF</span>
                 </div>
-                <asp:TextBox ID="txtBusca" runat="server" placeholder="Pesquisa..." CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtBusca" runat="server" placeholder="Pesquisa..." CssClass="form-control" onkeydown="mascara( this,CPF  );" MaxLength="14"></asp:TextBox>
             </div>
         </div>
         <div class="col-4 col-lg-2">
             <asp:Button ID="btnBuscar" runat="server" class="btn btn-success" Text="Buscar" OnClick="btnBuscar_Click" Width="100%"/>
-        </div>
-    </div>
-
-    <br />
-
-    <div class="row">
-        <div class="col-12 col-lg-6 row_fields">
-            <fieldset class="border p-2 border-primary">
-                <div>
-                    <asp:Label ID="Label1" runat="server" Text="Responsabilidade"></asp:Label>
-                    <asp:DropDownList ID="ddlTipoResponsabilidade" runat="server" CssClass="form-control">
-                        <asp:ListItem Value="0">Dependente e Titular</asp:ListItem>
-                        <asp:ListItem Value="1">Titular</asp:ListItem>
-                        <asp:ListItem Value="2">Dependente</asp:ListItem>
-                    </asp:DropDownList>
-                </div>
-                <br />
-                <div>
-                    <asp:RadioButton ID="rdNome" runat="server" Text="Nome" />
-                </div>
-            </fieldset>
         </div>
     </div>
 

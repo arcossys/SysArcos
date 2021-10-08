@@ -51,6 +51,15 @@ namespace ProjetoArcos
         protected global::System.Web.UI.WebControls.LinkButton lnk_logout;
 
         /// <summary>
+        /// Controle RepeaterMenu.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RepeaterMenu;
+
+        /// <summary>
         /// Controle ContentPlaceHolder1.
         /// </summary>
         /// <remarks>

@@ -47,11 +47,11 @@ namespace SysArcos
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ASSISTENCIA> ASSISTENCIA { get; set; }
+        public virtual GRAU_DEPENDENCIA GRAU_DEPENDENCIA { get; set; }
         public virtual ENTIDADE ENTIDADE { get; set; }
         public virtual ESTADO_CIVIL ESTADO_CIVIL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ASSISTIDO> ASSISTIDO_DEPENDENTES { get; set; }
         public virtual ASSISTIDO ASSISTIDO_TITULAR { get; set; }
-        public virtual GRAU_DEPENDENCIA GRAU_DEPENDENCIA { get; set; }
     }
 }
