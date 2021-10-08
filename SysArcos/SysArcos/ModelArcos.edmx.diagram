@@ -4,8 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2b710135950a4cfcb20c1f493c73afa7" Name="Diagram1" ZoomLevel="75">
-        <EntityTypeShape EntityType="ARCOS_V2Model.ASSISTENCIA" Width="1.5" PointX="7.5" PointY="28.5" />
+      <Diagram DiagramId="2b710135950a4cfcb20c1f493c73afa7" Name="Diagram1" ZoomLevel="72">
         <EntityTypeShape EntityType="ARCOS_V2Model.ASSISTIDO" Width="1.5" PointX="13.5" PointY="22.75" />
         <EntityTypeShape EntityType="ARCOS_V2Model.CATEGORIA_PRODUTO" Width="1.5" PointX="8.25" PointY="13.125" />
         <EntityTypeShape EntityType="ARCOS_V2Model.DOACAO" Width="1.5" PointX="10.5" PointY="20.625" />
@@ -28,8 +27,6 @@
         <EntityTypeShape EntityType="ARCOS_V2Model.VOLUNTARIADO" Width="1.5" PointX="7.5" PointY="47.5" />
         <EntityTypeShape EntityType="ARCOS_V2Model.VOLUNTARIAR" Width="1.5" PointX="9.75" PointY="51.375" />
         <EntityTypeShape EntityType="ARCOS_V2Model.VOLUNTARIO" Width="1.5" PointX="7.5" PointY="54" />
-        <AssociationConnector Association="ARCOS_V2Model.FK_ASSISTENCIA_ASSISTIDO" />
-        <AssociationConnector Association="ARCOS_V2Model.FK_ASSISTENCIA_ENTIDADE" />
         <AssociationConnector Association="ARCOS_V2Model.FK__ASSISTIDO__ID_GR__282DF8C2" />
         <AssociationConnector Association="ARCOS_V2Model.FK_ASSISTIDO_ENTIDADE" />
         <AssociationConnector Association="ARCOS_V2Model.FK_ASSISTIDO_ESTADO_CIVIL" />
@@ -64,6 +61,11 @@
         <InheritanceConnector EntityType="ARCOS_V2Model.SISTEMA_ITEM_ENTIDADE_CONSULTA" />
         <InheritanceConnector EntityType="ARCOS_V2Model.SISTEMA_ITEM_ENTIDADE_CADASTRO" ManuallyRouted="false" >
         </InheritanceConnector>
+        <EntityTypeShape EntityType="ARCOS_V2Model.TIPO_ASSISTENCIA" Width="1.5" PointX="0.75" PointY="0.875" />
+        <EntityTypeShape EntityType="ARCOS_V2Model.ASSISTENCIA" Width="1.5" PointX="15.75" PointY="13.875" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_ASSISTENCIA_ASSISTIDO" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_ASSISTENCIA_ENTIDADE" />
+        <AssociationConnector Association="ARCOS_V2Model.FK_ASSISTENCIA_TIPO_ASSISTENCIA" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

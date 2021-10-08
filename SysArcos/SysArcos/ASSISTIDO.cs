@@ -17,8 +17,8 @@ namespace SysArcos
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ASSISTIDO()
         {
-            this.ASSISTENCIA = new HashSet<ASSISTENCIA>();
             this.ASSISTIDO_DEPENDENTES = new HashSet<ASSISTIDO>();
+            this.ASSISTENCIA = new HashSet<ASSISTENCIA>();
         }
     
         public int ID { get; set; }
@@ -45,13 +45,13 @@ namespace SysArcos
         public string OBSERVACAO { get; set; }
         public int ID_GRAU_DEPENDENCIA { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ASSISTENCIA> ASSISTENCIA { get; set; }
         public virtual GRAU_DEPENDENCIA GRAU_DEPENDENCIA { get; set; }
         public virtual ENTIDADE ENTIDADE { get; set; }
         public virtual ESTADO_CIVIL ESTADO_CIVIL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ASSISTIDO> ASSISTIDO_DEPENDENTES { get; set; }
         public virtual ASSISTIDO ASSISTIDO_TITULAR { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ASSISTENCIA> ASSISTENCIA { get; set; }
     }
 }

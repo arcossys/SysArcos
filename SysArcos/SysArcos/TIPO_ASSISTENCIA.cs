@@ -12,16 +12,18 @@ namespace SysArcos
     using System;
     using System.Collections.Generic;
     
-    public partial class ASSISTENCIA
+    public partial class TIPO_ASSISTENCIA
     {
-        public int ID { get; set; }
-        public System.DateTime DATA_INICIAL { get; set; }
-        public System.DateTime DATA_FINAL { get; set; }
-        public string OBSERVACOES { get; set; }
-        public System.DateTime DATA_HORA_CRIACAO_REGISTRO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TIPO_ASSISTENCIA()
+        {
+            this.ASSISTENCIA = new HashSet<ASSISTENCIA>();
+        }
     
-        public virtual ASSISTIDO ASSISTIDO { get; set; }
-        public virtual ENTIDADE ENTIDADE { get; set; }
-        public virtual TIPO_ASSISTENCIA TIPO_ASSISTENCIA { get; set; }
+        public int ID { get; set; }
+        public string DESCRICAO { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ASSISTENCIA> ASSISTENCIA { get; set; }
     }
 }

@@ -12,9 +12,9 @@
         <div class="col-8 col-lg-5">
             <div class="input-group">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="">Filtro</span>
+                    <span class="input-group-text" id="">Busca por CPF</span>
                 </div>
-                <asp:TextBox ID="txtBusca" runat="server" class="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtBusca" runat="server" placeholder="Pesquisa..." class="form-control" onkeydown="mascara( this,CPF  );" MaxLength="14"></asp:TextBox>
             </div>
         </div>
         <div class="col-4 col-lg-2">
@@ -23,28 +23,14 @@
     </div>
 
     <div class="row">
-        <div class="col-12 col-lg-6 row_fields">
-            <fieldset class="border p-2 border-primary">
-                <div class="form-check">
-                    <asp:RadioButton ID="rdNome" runat="server" Checked="True" GroupName="filtro"
-                        CssClass="form-check-input" />
-                    <asp:Label ID="lblRdDescricao" Text="Descrição" runat="server"
-                        CssClass="form-check-label" for="rdNome"></asp:Label>
-                </div>
-            </fieldset>
-        </div>
-    </div>
-
-    <div class="row">
         <div class="col-12 row_fields">
-            <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataKeyNames="LOGIN" ShowHeaderWhenEmpty="True">
+            <asp:GridView ID="grid" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%" DataKeyNames="ID" ShowHeaderWhenEmpty="True">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                    <asp:BoundField HeaderText="DATA INICIAL" DataField="Data Inicial" />
-                    <asp:BoundField HeaderText="DATA FINAL" DataField="Data Final" />
-                    <asp:BoundField HeaderText="DESCRICAO" DataField="Descrição" />
-                    <asp:BoundField HeaderText="OBSERVACOES" DataField="Observação" />
-                    <asp:BoundField HeaderText="DATA HORA CRIACAO REGISTRO" DataField="Observação" />
+                    <asp:BoundField HeaderText="DATA INICIAL" DataField="DATA_INICIAL" DataFormatString="{0:dd/MM/yyyy}" />
+                    <asp:BoundField HeaderText="DATA FINAL" DataField="DATA_FINAL" DataFormatString="{0:dd/MM/yyyy}" />
+                    <asp:BoundField DataField="ASSISTIDO.NOME" HeaderText="ASSISTIDO" />
+                    <asp:BoundField DataField="TIPO_ASSISTENCIA.DESCRICAO" HeaderText="TIPO ASSISTÊNCIA" />
                     <asp:CommandField ShowSelectButton="True" />
                 </Columns>
                 <EditRowStyle BackColor="#2461BF" />
@@ -62,13 +48,13 @@
     </div>
     <div class="row">
         <div class="col-md-12 col-lg-4 row_buttons">
-            <asp:Button ID="btnCancelar" class="btn btn-primary" runat="server" Width="100%" Text="Cancelar" Font-Size="X-Large" OnClick="btnCancelar_Click" />
+            <asp:Button ID="btnCancelar" class="btn btn-primary" runat="server" Width="100%" Text="Cancelar" OnClick="btnCancelar_Click" />
         </div>
         <div class="col-md-12 col-lg-4 row_buttons">
-            <asp:Button ID="btnSelecionar" class="btn btn-primary" runat="server" Width="100%" Text="Editar" Font-Size="X-Large" OnClick="btnSelecionar_Click" />
+            <asp:Button ID="btnSelecionar" class="btn btn-primary" runat="server" Width="100%" Text="Editar" OnClick="btnSelecionar_Click" />
         </div>
         <div class="col-md-12 col-lg-4 row_buttons">
-            <asp:Button ID="btnRemover" class="btn btn-primary" runat="server" Width="100%" Text="Remover" Font-Size="X-Large" OnClick="btnRemover_Click"
+            <asp:Button ID="btnRemover" class="btn btn-primary" runat="server" Width="100%" Text="Remover" OnClick="btnRemover_Click"
                 OnClientClick="return confirm('Deseja remover?');" />
         </div>
     </div>

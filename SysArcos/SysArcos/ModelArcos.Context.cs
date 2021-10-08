@@ -25,7 +25,6 @@ namespace SysArcos
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ASSISTENCIA> ASSISTENCIA { get; set; }
         public virtual DbSet<ASSISTIDO> ASSISTIDO { get; set; }
         public virtual DbSet<CATEGORIA_PRODUTO> CATEGORIA_PRODUTO { get; set; }
         public virtual DbSet<DOACAO> DOACAO { get; set; }
@@ -50,5 +49,7 @@ namespace SysArcos
         public virtual DbSet<VOLUNTARIO> VOLUNTARIO { get; set; }
         public virtual DbSet<SISTEMA_ENTIDADE> SISTEMA_ENTIDADE { get; set; }
         public virtual DbSet<SISTEMA_ITEM_ENTIDADE> SISTEMA_ITEM_ENTIDADE { get; set; }
+        public virtual DbSet<TIPO_ASSISTENCIA> TIPO_ASSISTENCIA { get; set; }
+        public virtual DbSet<ASSISTENCIA> ASSISTENCIA { get; set; }
     }
 }

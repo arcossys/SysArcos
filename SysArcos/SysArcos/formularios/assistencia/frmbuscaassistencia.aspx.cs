@@ -24,20 +24,20 @@ namespace ProjetoArcos
         {
             if (grid.SelectedValue != null)
                 //Redireciona para a página de cadastro com o login como parâmtro
-                Response.Redirect("frmassistencia.aspx?descricao=" + grid.SelectedValue.ToString());
+                Response.Redirect("frmassistencia.aspx?ID=" + grid.SelectedValue.ToString());
         }
 
         protected void btnRemover_Click(object sender, EventArgs e)
         {
             if (grid.SelectedValue != null)
             {
-                string login = grid.SelectedValue.ToString();
+                string ID = grid.SelectedValue.ToString();
                 using (ARCOS_Entities entities = new ARCOS_Entities())
                 {
                     try
                     {
-                        ASSISTENCIA descricao = entities.ASSISTENCIA.FirstOrDefault(x => x.DESCRICAO.Equals(login));
-                        entities.ASSISTENCIA.Remove(descricao);
+                        ASSISTENCIA assistencia = entities.ASSISTENCIA.FirstOrDefault(x => x.ID.Equals(ID));
+                        entities.ASSISTENCIA.Remove(assistencia);
                         entities.SaveChanges();
 
                         //Limpar Grid 
@@ -56,7 +56,13 @@ namespace ProjetoArcos
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-
+            using (ARCOS_Entities entities = new ARCOS_Entities())
+            {
+                IQueryable<ASSISTENCIA> query = entities.ASSISTENCIA.Where(x => x.ASSISTIDO.CPF.Equals(txtBusca.Text));
+                var lista = query.ToList();
+                grid.DataSource = lista;
+                grid.DataBind();
+            }
         }
     }
 }

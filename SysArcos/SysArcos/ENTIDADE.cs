@@ -17,7 +17,6 @@ namespace SysArcos
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ENTIDADE()
         {
-            this.ASSISTENCIA = new HashSet<ASSISTENCIA>();
             this.ASSISTIDO = new HashSet<ASSISTIDO>();
             this.DOACAO = new HashSet<DOACAO>();
             this.ENTIDADE1 = new HashSet<ENTIDADE>();
@@ -27,6 +26,7 @@ namespace SysArcos
             this.RECURSO = new HashSet<RECURSO>();
             this.VOLUNTARIADO = new HashSet<VOLUNTARIADO>();
             this.VOLUNTARIO = new HashSet<VOLUNTARIO>();
+            this.ASSISTENCIA = new HashSet<ASSISTENCIA>();
         }
     
         public int ID { get; set; }
@@ -45,8 +45,6 @@ namespace SysArcos
         public string CNPJ { get; set; }
         public string TELEFONE { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ASSISTENCIA> ASSISTENCIA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ASSISTIDO> ASSISTIDO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -67,5 +65,7 @@ namespace SysArcos
         public virtual ICollection<VOLUNTARIADO> VOLUNTARIADO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VOLUNTARIO> VOLUNTARIO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ASSISTENCIA> ASSISTENCIA { get; set; }
     }
 }

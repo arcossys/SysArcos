@@ -663,6 +663,9 @@
     <Compile Include="SISTEMA_ITEM_ENTIDADE_CONSULTA.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
     </Compile>
+    <Compile Include="TIPO_ASSISTENCIA.cs">
+      <DependentUpon>ModelArcos.tt</DependentUpon>
+    </Compile>
     <Compile Include="TIPO_EVENTO.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
     </Compile>

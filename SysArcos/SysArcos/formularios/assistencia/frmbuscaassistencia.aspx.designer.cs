@@ -33,24 +33,6 @@ namespace ProjetoArcos
         protected global::System.Web.UI.WebControls.Button btnBuscar;
 
         /// <summary>
-        /// Controle rdNome.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdNome;
-
-        /// <summary>
-        /// Controle lblRdDescricao.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRdDescricao;
-
-        /// <summary>
         /// Controle grid.
         /// </summary>
         /// <remarks>

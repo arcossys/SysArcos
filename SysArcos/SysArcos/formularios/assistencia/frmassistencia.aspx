@@ -15,6 +15,10 @@
         <div class="acao">
             <asp:Label ID="lblAcao" runat="server" Text="NOVO"></asp:Label>
         </div>
+        
+        <div>
+            <asp:TextBox ID="txtID" runat="server" Visible="false" />
+        </div>
 
         <div class="row">
             <div class="col-lg-4 col-md-12 row_fields">
@@ -29,29 +33,16 @@
                 <asp:Label ID="lblDataInicio" runat="server" Text="Data Inicial"></asp:Label>
                 :
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txt_inicial" ErrorMessage="Data Inicial está vazio" Font-Size="Medium" ForeColor="Red" ValidationGroup="form">*</asp:RequiredFieldValidator>
-                <asp:TextBox ID="txt_inicial" class="form-control" runat="server" MaxLength="14" Placeholder="DD/MM/AAAA" Width="100%" TextMode="Date" ValidationGroup="form"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="txt_inicial" ErrorMessage="Formato de Data Incorreto" ForeColor="Red" ValidationExpression="^(((0[1-9]|[12][0-9]|30)[-/]?(0[13-9]|1[012])|31[-/]?(0[13578]|1[02])|(0[1-9]|1[0-9]|2[0-8])[-/]?02)[-/]?[0-9]{4}|29[-/]?02[-/]?([0-9]{2}(([2468][048]|[02468][48])|[13579][26])|([13579][26]|[02468][048]|0[0-9]|1[0-6])00))$"></asp:RegularExpressionValidator>
+                <asp:TextBox ID="txt_inicial" class="form-control" runat="server" MaxLength="10" Placeholder="DD/MM/AAAA" Width="100%" ValidationGroup="form" onkeydown="mascara(this,DATA);"></asp:TextBox>
             </div>
 
             <div class="col-lg-4 col-md-12 row_fields">
                 <asp:Label ID="lblDataFim" runat="server" Text="Data Final"></asp:Label>
                 :
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txt_final" ErrorMessage="Data Final está vazio" Font-Size="Medium" ForeColor="Red" ValidationGroup="form">*</asp:RequiredFieldValidator>
-                <asp:TextBox ID="txt_final" class="form-control" runat="server" MaxLength="14" Placeholder="DD/MM/AAAA" Width="100%" TextMode="Date" ValidationGroup="form"></asp:TextBox>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-6 col-md-12 row_fields">
-                Documentação Anexa
-                <asp:FileUpload ID="FileUpload1" runat="server" />
-            </div>
-            <div class="col-lg-6 col-md-12 row_fields">
-                <asp:Label ID="txtIDTipoAssistencia"  runat="server" Text="Tipo Assistência"></asp:Label>
-                <asp:DropDownList runat="server" class="form-control">
-                    <asp:ListItem></asp:ListItem>
-                    <asp:ListItem>Asistência Psicológica</asp:ListItem>
-                    <asp:ListItem>Assistência Psiquiátrica</asp:ListItem>
-                </asp:DropDownList>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txt_final" ErrorMessage="Formato de Data Incorreto" ForeColor="Red" ValidationExpression="^(((0[1-9]|[12][0-9]|30)[-/]?(0[13-9]|1[012])|31[-/]?(0[13578]|1[02])|(0[1-9]|1[0-9]|2[0-8])[-/]?02)[-/]?[0-9]{4}|29[-/]?02[-/]?([0-9]{2}(([2468][048]|[02468][48])|[13579][26])|([13579][26]|[02468][048]|0[0-9]|1[0-6])00))$"></asp:RegularExpressionValidator>
+                <asp:TextBox ID="txt_final" class="form-control" runat="server" MaxLength="10" Placeholder="DD/MM/AAAA" Width="100%" ValidationGroup="form" onkeydown="mascara(this,DATA);"></asp:TextBox>
             </div>
         </div>
 
@@ -65,10 +56,10 @@
             </div>
 
             <div class="col-lg-6 col-md-12 row_fields">
-                <asp:Label ID="lbl_cpf" runat="server" Text="Descrição"></asp:Label>
-                :
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txt_descricao" ErrorMessage="Descrição está vazio" Font-Size="Medium" ForeColor="Red" ValidationGroup="form">*</asp:RequiredFieldValidator>
-                <asp:TextBox ID="txt_descricao" runat="server" MaxLength="14" Width="100%" class="form-control" ValidationGroup="form"></asp:TextBox>
+                <asp:Label ID="txtIDTipoAssistencia"  runat="server" Text="Tipo Assistência"></asp:Label>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="ddlTipoAssistencia" ErrorMessage="Tipo Assistência está vazio" Font-Size="Medium" ForeColor="Red" ValidationGroup="form">*</asp:RequiredFieldValidator>
+                <asp:DropDownList runat="server" class="form-control" ID="ddlTipoAssistencia">
+                </asp:DropDownList>
             </div>
         </div>
 

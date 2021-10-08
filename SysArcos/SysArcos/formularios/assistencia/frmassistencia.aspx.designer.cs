@@ -33,6 +33,15 @@ namespace ProjetoArcos
         protected global::System.Web.UI.WebControls.Label lblAcao;
 
         /// <summary>
+        /// Controle txtID.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtID;
+
+        /// <summary>
         /// Controle txtEntidade.
         /// </summary>
         /// <remarks>
@@ -78,6 +87,15 @@ namespace ProjetoArcos
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
         /// <summary>
+        /// Controle RegularExpressionValidator5.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator5;
+
+        /// <summary>
         /// Controle txt_inicial.
         /// </summary>
         /// <remarks>
@@ -105,6 +123,15 @@ namespace ProjetoArcos
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
 
         /// <summary>
+        /// Controle RegularExpressionValidator4.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator4;
+
+        /// <summary>
         /// Controle txt_final.
         /// </summary>
         /// <remarks>
@@ -112,24 +139,6 @@ namespace ProjetoArcos
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_final;
-
-        /// <summary>
-        /// Controle FileUpload1.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
-
-        /// <summary>
-        /// Controle txtIDTipoAssistencia.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtIDTipoAssistencia;
 
         /// <summary>
         /// Controle txtAssistido.
@@ -159,31 +168,31 @@ namespace ProjetoArcos
         protected global::System.Web.UI.WebControls.DropDownList ddlAssistido;
 
         /// <summary>
-        /// Controle lbl_cpf.
+        /// Controle txtIDTipoAssistencia.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_cpf;
+        protected global::System.Web.UI.WebControls.Label txtIDTipoAssistencia;
 
         /// <summary>
-        /// Controle RequiredFieldValidator5.
+        /// Controle RequiredFieldValidator7.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
 
         /// <summary>
-        /// Controle txt_descricao.
+        /// Controle ddlTipoAssistencia.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_descricao;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoAssistencia;
 
         /// <summary>
         /// Controle lbl_email.

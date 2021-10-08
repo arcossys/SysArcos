@@ -11,11 +11,11 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DATA_INICIAL" Type="date" Nullable="false" />
-          <Property Name="DATA_FINAL" Type="date" />
-          <Property Name="DESCRICAO" Type="varchar" MaxLength="255" />
+          <Property Name="DATA_FINAL" Type="date" Nullable="false" />
           <Property Name="OBSERVACOES" Type="text" />
           <Property Name="ID_ASSISTIDO" Type="int" Nullable="false" />
           <Property Name="ID_ENTIDADE" Type="int" Nullable="false" />
+          <Property Name="ID_TIPO_ASSISTENCIA" Type="int" Nullable="false" />
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="ASSISTIDO">
@@ -255,6 +255,13 @@
           <Property Name="ID_GRUPO_PERMISSAO" Type="int" Nullable="false" />
           <Property Name="consultar" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="TIPO_ASSISTENCIA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="TIPO_EVENTO">
           <Key>
             <PropertyRef Name="ID" />
@@ -362,6 +369,18 @@
             </Principal>
             <Dependent Role="ASSISTENCIA">
               <PropertyRef Name="ID_ENTIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASSISTENCIA_TIPO_ASSISTENCIA">
+          <End Role="TIPO_ASSISTENCIA" Type="Self.TIPO_ASSISTENCIA" Multiplicity="1" />
+          <End Role="ASSISTENCIA" Type="Self.ASSISTENCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_ASSISTENCIA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASSISTENCIA">
+              <PropertyRef Name="ID_TIPO_ASSISTENCIA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -727,6 +746,7 @@
           <EntitySet Name="SISTEMA_ITEM_ENTIDADE" EntityType="Self.SISTEMA_ITEM_ENTIDADE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SISTEMA_ITEM_ENTIDADE_CADASTRO" EntityType="Self.SISTEMA_ITEM_ENTIDADE_CADASTRO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SISTEMA_ITEM_ENTIDADE_CONSULTA" EntityType="Self.SISTEMA_ITEM_ENTIDADE_CONSULTA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_ASSISTENCIA" EntityType="Self.TIPO_ASSISTENCIA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIPO_EVENTO" EntityType="Self.TIPO_EVENTO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIPO_RECURSO" EntityType="Self.TIPO_RECURSO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
@@ -743,6 +763,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_ASSISTENCIA_ENTIDADE" Association="Self.FK_ASSISTENCIA_ENTIDADE">
             <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="ASSISTENCIA" EntitySet="ASSISTENCIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASSISTENCIA_TIPO_ASSISTENCIA" Association="Self.FK_ASSISTENCIA_TIPO_ASSISTENCIA">
+            <End Role="TIPO_ASSISTENCIA" EntitySet="TIPO_ASSISTENCIA" />
             <End Role="ASSISTENCIA" EntitySet="ASSISTENCIA" />
           </AssociationSet>
           <AssociationSet Name="FK_ASSISTIDO_ENTIDADE" Association="Self.FK_ASSISTIDO_ENTIDADE">
@@ -863,7 +887,6 @@
     <edmx:ConceptualModels>
       <Schema Namespace="ARCOS_V2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="ARCOS_Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="ASSISTENCIA" EntityType="ARCOS_V2Model.ASSISTENCIA" />
           <EntitySet Name="ASSISTIDO" EntityType="ARCOS_V2Model.ASSISTIDO" />
           <EntitySet Name="CATEGORIA_PRODUTO" EntityType="ARCOS_V2Model.CATEGORIA_PRODUTO" />
           <EntitySet Name="DOACAO" EntityType="ARCOS_V2Model.DOACAO" />
@@ -886,14 +909,6 @@
           <EntitySet Name="VOLUNTARIADO" EntityType="ARCOS_V2Model.VOLUNTARIADO" />
           <EntitySet Name="VOLUNTARIAR" EntityType="ARCOS_V2Model.VOLUNTARIAR" />
           <EntitySet Name="VOLUNTARIO" EntityType="ARCOS_V2Model.VOLUNTARIO" />
-          <AssociationSet Name="FK_ASSISTENCIA_ASSISTIDO" Association="ARCOS_V2Model.FK_ASSISTENCIA_ASSISTIDO">
-            <End Role="ASSISTIDO" EntitySet="ASSISTIDO" />
-            <End Role="ASSISTENCIA" EntitySet="ASSISTENCIA" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ASSISTENCIA_ENTIDADE" Association="ARCOS_V2Model.FK_ASSISTENCIA_ENTIDADE">
-            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
-            <End Role="ASSISTENCIA" EntitySet="ASSISTENCIA" />
-          </AssociationSet>
           <AssociationSet Name="FK__ASSISTIDO__ID_GR__282DF8C2" Association="ARCOS_V2Model.FK__ASSISTIDO__ID_GR__282DF8C2">
             <End Role="GRAU_DEPENDENCIA" EntitySet="GRAU_DEPENDENCIA" />
             <End Role="ASSISTIDO" EntitySet="ASSISTIDO" />
@@ -1004,22 +1019,21 @@
             <End Role="SISTEMA_ENTIDADE" EntitySet="SISTEMA_ENTIDADE" />
             <End Role="SISTEMA_ITEM_ENTIDADE" EntitySet="SISTEMA_ITEM_ENTIDADE" />
           </AssociationSet>
+          <EntitySet Name="TIPO_ASSISTENCIA" EntityType="ARCOS_V2Model.TIPO_ASSISTENCIA" />
+          <EntitySet Name="ASSISTENCIA" EntityType="ARCOS_V2Model.ASSISTENCIA" />
+          <AssociationSet Name="FK_ASSISTENCIA_ASSISTIDO" Association="ARCOS_V2Model.FK_ASSISTENCIA_ASSISTIDO">
+            <End Role="ASSISTIDO" EntitySet="ASSISTIDO" />
+            <End Role="ASSISTENCIA" EntitySet="ASSISTENCIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASSISTENCIA_ENTIDADE" Association="ARCOS_V2Model.FK_ASSISTENCIA_ENTIDADE">
+            <End Role="ENTIDADE" EntitySet="ENTIDADE" />
+            <End Role="ASSISTENCIA" EntitySet="ASSISTENCIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASSISTENCIA_TIPO_ASSISTENCIA" Association="ARCOS_V2Model.FK_ASSISTENCIA_TIPO_ASSISTENCIA">
+            <End Role="TIPO_ASSISTENCIA" EntitySet="TIPO_ASSISTENCIA" />
+            <End Role="ASSISTENCIA" EntitySet="ASSISTENCIA" />
+          </AssociationSet>
           </EntityContainer>
-        <EntityType Name="ASSISTENCIA">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DATA_INICIAL" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="DATA_FINAL" Type="DateTime" Precision="0" />
-          <Property Name="DESCRICAO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="OBSERVACOES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="ID_ASSISTIDO" Type="Int32" Nullable="false" />
-          <Property Name="ID_ENTIDADE" Type="Int32" Nullable="false" />
-          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="ASSISTIDO" Relationship="ARCOS_V2Model.FK_ASSISTENCIA_ASSISTIDO" FromRole="ASSISTENCIA" ToRole="ASSISTIDO" />
-          <NavigationProperty Name="ENTIDADE" Relationship="ARCOS_V2Model.FK_ASSISTENCIA_ENTIDADE" FromRole="ASSISTENCIA" ToRole="ENTIDADE" />
-        </EntityType>
         <EntityType Name="ASSISTIDO">
           <Key>
             <PropertyRef Name="ID" />
@@ -1047,12 +1061,12 @@
           <Property Name="ID_ESTADO_CIVIL" Type="Int32" />
           <Property Name="OBSERVACAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="ID_GRAU_DEPENDENCIA" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ASSISTENCIA" Relationship="ARCOS_V2Model.FK_ASSISTENCIA_ASSISTIDO" FromRole="ASSISTIDO" ToRole="ASSISTENCIA" />
           <NavigationProperty Name="GRAU_DEPENDENCIA" Relationship="ARCOS_V2Model.FK__ASSISTIDO__ID_GR__282DF8C2" FromRole="ASSISTIDO" ToRole="GRAU_DEPENDENCIA" />
           <NavigationProperty Name="ENTIDADE" Relationship="ARCOS_V2Model.FK_ASSISTIDO_ENTIDADE" FromRole="ASSISTIDO" ToRole="ENTIDADE" />
           <NavigationProperty Name="ESTADO_CIVIL" Relationship="ARCOS_V2Model.FK_ASSISTIDO_ESTADO_CIVIL" FromRole="ASSISTIDO" ToRole="ESTADO_CIVIL" />
           <NavigationProperty Name="ASSISTIDO_DEPENDENTES" Relationship="ARCOS_V2Model.FK_ASSISTIDO_RESPONSAVEL" FromRole="ASSISTIDO" ToRole="ASSISTIDO_TITULAR" />
           <NavigationProperty Name="ASSISTIDO_TITULAR" Relationship="ARCOS_V2Model.FK_ASSISTIDO_RESPONSAVEL" FromRole="ASSISTIDO_TITULAR" ToRole="ASSISTIDO" />
+          <NavigationProperty Name="ASSISTENCIA" Relationship="ARCOS_V2Model.FK_ASSISTENCIA_ASSISTIDO" FromRole="ASSISTIDO" ToRole="ASSISTENCIA" />
         </EntityType>
         <EntityType Name="CATEGORIA_PRODUTO">
           <Key>
@@ -1114,7 +1128,6 @@
           <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CNPJ" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
           <Property Name="TELEFONE" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ASSISTENCIA" Relationship="ARCOS_V2Model.FK_ASSISTENCIA_ENTIDADE" FromRole="ENTIDADE" ToRole="ASSISTENCIA" />
           <NavigationProperty Name="ASSISTIDO" Relationship="ARCOS_V2Model.FK_ASSISTIDO_ENTIDADE" FromRole="ENTIDADE" ToRole="ASSISTIDO" />
           <NavigationProperty Name="DOACAO" Relationship="ARCOS_V2Model.FK_DOACAO_ENTIDADE" FromRole="ENTIDADE" ToRole="DOACAO" />
           <NavigationProperty Name="ENTIDADE1" Relationship="ARCOS_V2Model.FK_ENTIDADE_ENTIDADE_CONTROLADORA" FromRole="ENTIDADE" ToRole="ENTIDADE1" />
@@ -1126,6 +1139,7 @@
           <NavigationProperty Name="RECURSO" Relationship="ARCOS_V2Model.FK_RECURSO_ENTIDADE" FromRole="ENTIDADE" ToRole="RECURSO" />
           <NavigationProperty Name="VOLUNTARIADO" Relationship="ARCOS_V2Model.FK_VOLUNTARIADO_ENTIDADE" FromRole="ENTIDADE" ToRole="VOLUNTARIADO" />
           <NavigationProperty Name="VOLUNTARIO" Relationship="ARCOS_V2Model.VOLUNTARIO_ENTIDADE" FromRole="ENTIDADE" ToRole="VOLUNTARIO" />
+          <NavigationProperty Name="ASSISTENCIA" Relationship="ARCOS_V2Model.FK_ASSISTENCIA_ENTIDADE" FromRole="ENTIDADE" ToRole="ASSISTENCIA" />
         </EntityType>
         <EntityType Name="ESTADO_CIVIL">
           <Key>
@@ -1345,30 +1359,6 @@
           <NavigationProperty Name="ENTIDADE" Relationship="ARCOS_V2Model.VOLUNTARIO_ENTIDADE" FromRole="VOLUNTARIO" ToRole="ENTIDADE" />
           <NavigationProperty Name="VOLUNTARIAR" Relationship="ARCOS_V2Model.FK_VOLUNTARIAR_VOLUNTARIO" FromRole="VOLUNTARIO" ToRole="VOLUNTARIAR" />
         </EntityType>
-        <Association Name="FK_ASSISTENCIA_ASSISTIDO">
-          <End Type="ARCOS_V2Model.ASSISTIDO" Role="ASSISTIDO" Multiplicity="1" />
-          <End Type="ARCOS_V2Model.ASSISTENCIA" Role="ASSISTENCIA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ASSISTIDO">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="ASSISTENCIA">
-              <PropertyRef Name="ID_ASSISTIDO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ASSISTENCIA_ENTIDADE">
-          <End Type="ARCOS_V2Model.ENTIDADE" Role="ENTIDADE" Multiplicity="1" />
-          <End Type="ARCOS_V2Model.ASSISTENCIA" Role="ASSISTENCIA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ENTIDADE">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="ASSISTENCIA">
-              <PropertyRef Name="ID_ENTIDADE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__ASSISTIDO__ID_GR__282DF8C2">
           <End Type="ARCOS_V2Model.GRAU_DEPENDENCIA" Role="GRAU_DEPENDENCIA" Multiplicity="1" />
           <End Type="ARCOS_V2Model.ASSISTIDO" Role="ASSISTIDO" Multiplicity="*" />
@@ -1723,26 +1713,45 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="TIPO_ASSISTENCIA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRICAO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ASSISTENCIA" Relationship="ARCOS_V2Model.FK_ASSISTENCIA_TIPO_ASSISTENCIA" FromRole="TIPO_ASSISTENCIA" ToRole="ASSISTENCIA" />
+        </EntityType>
+        <EntityType Name="ASSISTENCIA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DATA_INICIAL" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DATA_FINAL" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="OBSERVACOES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DATA_HORA_CRIACAO_REGISTRO" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ASSISTIDO" Relationship="ARCOS_V2Model.FK_ASSISTENCIA_ASSISTIDO" FromRole="ASSISTENCIA" ToRole="ASSISTIDO" />
+          <NavigationProperty Name="ENTIDADE" Relationship="ARCOS_V2Model.FK_ASSISTENCIA_ENTIDADE" FromRole="ASSISTENCIA" ToRole="ENTIDADE" />
+          <NavigationProperty Name="TIPO_ASSISTENCIA" Relationship="ARCOS_V2Model.FK_ASSISTENCIA_TIPO_ASSISTENCIA" FromRole="ASSISTENCIA" ToRole="TIPO_ASSISTENCIA" />
+        </EntityType>
+        <Association Name="FK_ASSISTENCIA_ASSISTIDO">
+          <End Type="ARCOS_V2Model.ASSISTIDO" Role="ASSISTIDO" Multiplicity="1" />
+          <End Type="ARCOS_V2Model.ASSISTENCIA" Role="ASSISTENCIA" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_ASSISTENCIA_ENTIDADE">
+          <End Type="ARCOS_V2Model.ENTIDADE" Role="ENTIDADE" Multiplicity="1" />
+          <End Type="ARCOS_V2Model.ASSISTENCIA" Role="ASSISTENCIA" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_ASSISTENCIA_TIPO_ASSISTENCIA">
+          <End Type="ARCOS_V2Model.TIPO_ASSISTENCIA" Role="TIPO_ASSISTENCIA" Multiplicity="1" />
+          <End Type="ARCOS_V2Model.ASSISTENCIA" Role="ASSISTENCIA" Multiplicity="*" />
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ARCOS_V2ModelStoreContainer" CdmEntityContainer="ARCOS_Entities">
-          <EntitySetMapping Name="ASSISTENCIA">
-            <EntityTypeMapping TypeName="ARCOS_V2Model.ASSISTENCIA">
-              <MappingFragment StoreEntitySet="ASSISTENCIA">
-                <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
-                <ScalarProperty Name="ID_ENTIDADE" ColumnName="ID_ENTIDADE" />
-                <ScalarProperty Name="ID_ASSISTIDO" ColumnName="ID_ASSISTIDO" />
-                <ScalarProperty Name="OBSERVACOES" ColumnName="OBSERVACOES" />
-                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
-                <ScalarProperty Name="DATA_FINAL" ColumnName="DATA_FINAL" />
-                <ScalarProperty Name="DATA_INICIAL" ColumnName="DATA_INICIAL" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ASSISTIDO">
             <EntityTypeMapping TypeName="ARCOS_V2Model.ASSISTIDO">
               <MappingFragment StoreEntitySet="ASSISTIDO">
@@ -2072,6 +2081,49 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_ASSISTENCIA">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.TIPO_ASSISTENCIA">
+              <MappingFragment StoreEntitySet="TIPO_ASSISTENCIA">
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ASSISTENCIA">
+            <EntityTypeMapping TypeName="ARCOS_V2Model.ASSISTENCIA">
+              <MappingFragment StoreEntitySet="ASSISTENCIA">
+                <ScalarProperty Name="DATA_HORA_CRIACAO_REGISTRO" ColumnName="DATA_HORA_CRIACAO_REGISTRO" />
+                <ScalarProperty Name="OBSERVACOES" ColumnName="OBSERVACOES" />
+                <ScalarProperty Name="DATA_FINAL" ColumnName="DATA_FINAL" />
+                <ScalarProperty Name="DATA_INICIAL" ColumnName="DATA_INICIAL" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_ASSISTENCIA_ASSISTIDO" TypeName="ARCOS_V2Model.FK_ASSISTENCIA_ASSISTIDO" StoreEntitySet="ASSISTENCIA">
+            <EndProperty Name="ASSISTENCIA">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <EndProperty Name="ASSISTIDO">
+              <ScalarProperty Name="ID" ColumnName="ID_ASSISTIDO" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_ASSISTENCIA_ENTIDADE" TypeName="ARCOS_V2Model.FK_ASSISTENCIA_ENTIDADE" StoreEntitySet="ASSISTENCIA">
+            <EndProperty Name="ASSISTENCIA">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <EndProperty Name="ENTIDADE">
+              <ScalarProperty Name="ID" ColumnName="ID_ENTIDADE" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_ASSISTENCIA_TIPO_ASSISTENCIA" TypeName="ARCOS_V2Model.FK_ASSISTENCIA_TIPO_ASSISTENCIA" StoreEntitySet="ASSISTENCIA">
+            <EndProperty Name="ASSISTENCIA">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <EndProperty Name="TIPO_ASSISTENCIA">
+              <ScalarProperty Name="ID" ColumnName="ID_TIPO_ASSISTENCIA" />
+            </EndProperty>
+          </AssociationSetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
