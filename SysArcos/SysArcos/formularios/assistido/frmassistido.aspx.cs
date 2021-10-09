@@ -7,11 +7,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using SysArcos;
+using SysArcos.utils;
 namespace ProjetoArcos
 {
     public partial class frmassistido : System.Web.UI.Page
     {
         private static String ASSISTIDO_RESPONSAVEL = "ASSISTIDO RESPONSÁVEL";
+        private String COD_VIEW = "ASST";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -126,57 +128,68 @@ namespace ProjetoArcos
                 {
                     using (ARCOS_Entities entity = new ARCOS_Entities())
                     {
-                        if (!e_CPF_Repetido(txtCPF.Text, entity))
+                        //Valida Permissao
+                        if (!Permissoes.validar(lblAcao.Text.Equals("NOVO") ? Acoes.INCLUIR : Acoes.ALTERAR,
+                                                Session["usuariologado"].ToString(),
+                                                COD_VIEW,
+                                                entity))
                         {
-                            ASSISTIDO assistido = null;
-                            if (lblAcao.Text.Equals("NOVO"))
-                                assistido = new ASSISTIDO();
-                            else
+                            Response.Write("<script>alert('Permissão Negada');</script>");
+                        }
+                        else
+                        {
+                            if (!e_CPF_Repetido(txtCPF.Text, entity))
                             {
-                                assistido = entity.ASSISTIDO.FirstOrDefault(x => x.ID.ToString().Equals(lblID.Text));
-                                String usuariologado = (String)Session["usuariologado"];
-                                USUARIO usuario = entity.USUARIO
-                                    .FirstOrDefault(linha => linha.LOGIN.Equals(usuariologado));
-                                if (!usuario.ENTIDADE.Contains(assistido.ENTIDADE))
+                                ASSISTIDO assistido = null;
+                                if (lblAcao.Text.Equals("NOVO"))
+                                    assistido = new ASSISTIDO();
+                                else
                                 {
-                                    Response.Write("<script>alert('Seu usuário não possui permissão para essa ação!');</script>");
-                                    return;
+                                    assistido = entity.ASSISTIDO.FirstOrDefault(x => x.ID.ToString().Equals(lblID.Text));
+                                    String usuariologado = (String)Session["usuariologado"];
+                                    USUARIO usuario = entity.USUARIO
+                                        .FirstOrDefault(linha => linha.LOGIN.Equals(usuariologado));
+                                    if (!usuario.ENTIDADE.Contains(assistido.ENTIDADE))
+                                    {
+                                        Response.Write("<script>alert('Seu usuário não possui permissão para essa ação!');</script>");
+                                        return;
+                                    }
                                 }
+
+                                assistido.ID_ENTIDADE = Convert.ToInt32(ddlEntidade.SelectedValue);
+                                assistido.NOME = txtNomeAssistido.Text;
+                                assistido.APELIDO = txtApelido.Text;
+                                assistido.DATA_NASCIMENTO = DateTime.ParseExact(txtDataNascimento.Text, "dd/MM/yyyy", null);
+                                assistido.ID_ESTADO_CIVIL = Convert.ToInt32(ddlEstadoCivil.SelectedValue);
+                                assistido.CPF = txtCPF.Text;
+                                assistido.RG = txtRG.Text;
+                                assistido.NUM_NIS = txtNIS.Text;
+                                assistido.PROFISSAO = txtProfissao.Text;
+                                assistido.TELEFONE = txtTelefone.Text;
+                                assistido.EMAIL = txtEmail.Text;
+                                assistido.LOGRADOURO = txtLogradouro.Text;
+                                assistido.NUMERO = txtNumero.Text;
+                                assistido.BAIRRO = txtBairro.Text;
+                                assistido.CEP = txtCEP.Text;
+                                assistido.CIDADE = txtCidade.Text;
+                                assistido.ESTADO = drpEstado.Text;
+                                assistido.ID_GRAU_DEPENDENCIA = Convert.ToInt32(ddlParentesco.SelectedValue);
+                                if (txtNomeResponsavelAssistido.Text.Equals(ASSISTIDO_RESPONSAVEL))
+                                    assistido.ID_ASSISTIDO_RESPONSAVEL = null;
+                                else
+                                    assistido.ID_ASSISTIDO_RESPONSAVEL = Convert.ToInt32(txtIdResponsavelAssistido.Text);
+                                assistido.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
+
+                                if (lblAcao.Text.Equals("NOVO"))
+                                    entity.ASSISTIDO.Add(assistido);
+                                else
+                                    entity.Entry(assistido);
+
+                                limpar();
+                                entity.SaveChanges();
+
+                                Response.Write("<script>alert('Assistido salvo!');</script>");
                             }
-
-                            assistido.ID_ENTIDADE = Convert.ToInt32(ddlEntidade.SelectedValue);
-                            assistido.NOME = txtNomeAssistido.Text;
-                            assistido.APELIDO = txtApelido.Text;
-                            assistido.DATA_NASCIMENTO = DateTime.ParseExact(txtDataNascimento.Text, "dd/MM/yyyy", null);
-                            assistido.ID_ESTADO_CIVIL = Convert.ToInt32(ddlEstadoCivil.SelectedValue);
-                            assistido.CPF = txtCPF.Text;
-                            assistido.RG = txtRG.Text;
-                            assistido.NUM_NIS = txtNIS.Text;
-                            assistido.PROFISSAO = txtProfissao.Text;
-                            assistido.TELEFONE = txtTelefone.Text;
-                            assistido.EMAIL = txtEmail.Text;
-                            assistido.LOGRADOURO = txtLogradouro.Text;
-                            assistido.NUMERO = txtNumero.Text;
-                            assistido.BAIRRO = txtBairro.Text;
-                            assistido.CEP = txtCEP.Text;
-                            assistido.CIDADE = txtCidade.Text;
-                            assistido.ESTADO = drpEstado.Text;
-                            assistido.ID_GRAU_DEPENDENCIA = Convert.ToInt32(ddlParentesco.SelectedValue);
-                            if (txtNomeResponsavelAssistido.Text.Equals(ASSISTIDO_RESPONSAVEL))
-                                assistido.ID_ASSISTIDO_RESPONSAVEL = null;
-                            else
-                                assistido.ID_ASSISTIDO_RESPONSAVEL = Convert.ToInt32(txtIdResponsavelAssistido.Text);
-                            assistido.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
-
-                            if (lblAcao.Text.Equals("NOVO"))
-                                entity.ASSISTIDO.Add(assistido);
-                            else
-                                entity.Entry(assistido);
-
-                            limpar();
-                            entity.SaveChanges();
-
-                            Response.Write("<script>alert('Assistido salvo!');</script>");
                         }
                     }
                 }

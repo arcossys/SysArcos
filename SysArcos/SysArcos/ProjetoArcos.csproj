@@ -675,6 +675,7 @@
     <Compile Include="USUARIO.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
     </Compile>
+    <Compile Include="utils\Permissoes.cs" />
     <Compile Include="VOLUNTARIADO.cs">
       <DependentUpon>ModelArcos.tt</DependentUpon>
     </Compile>

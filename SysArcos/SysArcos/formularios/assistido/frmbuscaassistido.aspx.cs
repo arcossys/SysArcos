@@ -5,10 +5,12 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using SysArcos;
+using SysArcos.utils;
 namespace ProjetoArcos
 {
     public partial class frmbuscaassistido : System.Web.UI.Page
     {
+        private String COD_VIEW = "ASST";
         protected void Page_Load(object sender, EventArgs e)
         {
             using(ARCOS_Entities conn = new ARCOS_Entities())
@@ -61,20 +63,30 @@ namespace ProjetoArcos
                 {
                     using (ARCOS_Entities entities = new ARCOS_Entities())
                     {
-                        ASSISTIDO assistido = entities.ASSISTIDO.FirstOrDefault(x => x.ID.ToString().Equals(ID));
-                        if (assistido.ASSISTIDO_DEPENDENTES.Count > 0)
+                        if (!Permissoes.validar(Acoes.REMOVER,
+                            Session["usuariologado"].ToString(),
+                            COD_VIEW,
+                            entities))
                         {
-                            Response.Write("<script>alert('Este registro possui dependentes e não pode ser removido!');</script>");
+                            Response.Write("<script>alert('Permissão negada!');</script>");
                         }
                         else
                         {
-                            entities.ASSISTIDO.Remove(assistido);
-                            entities.SaveChanges();
+                            ASSISTIDO assistido = entities.ASSISTIDO.FirstOrDefault(x => x.ID.ToString().Equals(ID));
+                            if (assistido.ASSISTIDO_DEPENDENTES.Count > 0)
+                            {
+                                Response.Write("<script>alert('Este registro possui dependentes e não pode ser removido!');</script>");
+                            }
+                            else
+                            {
+                                entities.ASSISTIDO.Remove(assistido);
+                                entities.SaveChanges();
 
-                            grid.DataSource = null;
-                            grid.DataBind();
-                            grid.SelectedIndex = -1;
-                            Response.Write("<script>alert('Removido com sucesso!');</script>");
+                                grid.DataSource = null;
+                                grid.DataBind();
+                                grid.SelectedIndex = -1;
+                                Response.Write("<script>alert('Removido com sucesso!');</script>");
+                            }
                         }
                     }
                 }

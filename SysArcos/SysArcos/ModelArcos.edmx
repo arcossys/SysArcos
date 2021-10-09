@@ -218,6 +218,7 @@
           <Property Name="ID_SISTEMA_GRUPO_ENTIDADE" Type="int" Nullable="false" />
           <Property Name="URL" Type="varchar" MaxLength="300" Nullable="false" />
           <Property Name="TIPO_ENTIDADE" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="COD_VIEW" Type="char" MaxLength="4" Nullable="false" />
         </EntityType>
         <EntityType Name="SISTEMA_GRUPO_ENTIDADE">
           <Key>
@@ -1658,6 +1659,7 @@
           <NavigationProperty Name="SISTEMA_GRUPO_ENTIDADE" Relationship="ARCOS_V2Model.FK_SISTEMA_ENTIDADE_SISTEMA_GRUPO_ENTIDADE" FromRole="SISTEMA_ENTIDADE" ToRole="SISTEMA_GRUPO_ENTIDADE" />
           <NavigationProperty Name="SISTEMA_ITEM_ENTIDADE" Relationship="ARCOS_V2Model.FK_SISTEMAITEMENTIDADE_SISTEMAENTIDADE" FromRole="SISTEMA_ENTIDADE" ToRole="SISTEMA_ITEM_ENTIDADE" />
           <Property Name="TIPO_ENTIDADE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="COD_VIEW" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
         </EntityType>
         <Association Name="FK_SISTEMA_ENTIDADE_SISTEMA_GRUPO_ENTIDADE">
           <End Type="ARCOS_V2Model.SISTEMA_GRUPO_ENTIDADE" Role="SISTEMA_GRUPO_ENTIDADE" Multiplicity="1" />
@@ -2049,6 +2051,7 @@
           <EntitySetMapping Name="SISTEMA_ENTIDADE">
             <EntityTypeMapping TypeName="ARCOS_V2Model.SISTEMA_ENTIDADE">
               <MappingFragment StoreEntitySet="SISTEMA_ENTIDADE">
+                <ScalarProperty Name="COD_VIEW" ColumnName="COD_VIEW" />
                 <ScalarProperty Name="TIPO_ENTIDADE" ColumnName="TIPO_ENTIDADE" />
                 <ScalarProperty Name="URL" ColumnName="URL" />
                 <ScalarProperty Name="ID_SISTEMA_GRUPO_ENTIDADE" ColumnName="ID_SISTEMA_GRUPO_ENTIDADE" />

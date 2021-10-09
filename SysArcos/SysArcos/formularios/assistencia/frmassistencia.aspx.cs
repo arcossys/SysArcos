@@ -5,10 +5,12 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using SysArcos;
+using SysArcos.utils;
 namespace ProjetoArcos
 {
     public partial class frmassistencia : System.Web.UI.Page
     {
+        private String COD_VIEW = "ASSD";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -82,42 +84,52 @@ namespace ProjetoArcos
                 {
                     using (ARCOS_Entities entity = new ARCOS_Entities())
                     {
-                        if (!isAssistidoEntidadeValido(entity, Convert.ToInt32(ddlEntidade.SelectedValue), Convert.ToInt32(txtIdAssistido.Text)))
-                        { 
-                            Response.Write("<script>alert('Assistido "+txtNomeAssistido.Text+" não está vinculado à entidade "+ddlEntidade.SelectedItem.Text+"!');</script>");  
+                        if (!Permissoes.validar(lblAcao.Text.Equals("NOVO") ? Acoes.INCLUIR : Acoes.ALTERAR,
+                                                Session["usuariologado"].ToString(),
+                                                COD_VIEW,
+                                                entity))
+                        {
+                            Response.Write("<script>alert('Permissão Negada');</script>");
                         }
                         else
                         {
-
-                            ASSISTENCIA assistencia = null;
-
-                            if (lblAcao.Text.Equals("NOVO"))
+                            if (!isAssistidoEntidadeValido(entity, Convert.ToInt32(ddlEntidade.SelectedValue), Convert.ToInt32(txtIdAssistido.Text)))
                             {
-                                assistencia = new ASSISTENCIA();
+                                Response.Write("<script>alert('Assistido " + txtNomeAssistido.Text + " não está vinculado à entidade " + ddlEntidade.SelectedItem.Text + "!');</script>");
                             }
                             else
                             {
-                                assistencia = entity.ASSISTENCIA.FirstOrDefault(x => x.ID.ToString().Equals(txtID.Text));
-                            }
-                            assistencia.DATA_INICIAL = DateTime.ParseExact(txt_inicial.Text, "dd/MM/yyyy", null);
-                            assistencia.DATA_FINAL = DateTime.ParseExact(txt_final.Text, "dd/MM/yyyy", null);
-                            assistencia.OBSERVACOES = txt_observacao.Text;
-                            assistencia.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
-                            assistencia.ENTIDADE = entity.ENTIDADE.FirstOrDefault(linha => linha.ID.ToString().Equals(ddlEntidade.SelectedValue));
-                            assistencia.TIPO_ASSISTENCIA = entity.TIPO_ASSISTENCIA.FirstOrDefault(linha => linha.ID.ToString().Equals(ddlTipoAssistencia.SelectedValue));
-                            assistencia.ASSISTIDO = entity.ASSISTIDO.FirstOrDefault(linha => linha.ID.ToString().Equals(txtIdAssistido.Text));
-                            if (lblAcao.Text.Equals("NOVO"))
-                            {
-                                entity.ASSISTENCIA.Add(assistencia);
-                            }
-                            else
-                            {
-                                entity.Entry(assistencia);
-                            }
-                            entity.SaveChanges();
-                            limpar();
 
-                            Response.Write("<script>alert('Assistência salvo com Sucesso!');</script>");
+                                ASSISTENCIA assistencia = null;
+
+                                if (lblAcao.Text.Equals("NOVO"))
+                                {
+                                    assistencia = new ASSISTENCIA();
+                                }
+                                else
+                                {
+                                    assistencia = entity.ASSISTENCIA.FirstOrDefault(x => x.ID.ToString().Equals(txtID.Text));
+                                }
+                                assistencia.DATA_INICIAL = DateTime.ParseExact(txt_inicial.Text, "dd/MM/yyyy", null);
+                                assistencia.DATA_FINAL = DateTime.ParseExact(txt_final.Text, "dd/MM/yyyy", null);
+                                assistencia.OBSERVACOES = txt_observacao.Text;
+                                assistencia.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
+                                assistencia.ENTIDADE = entity.ENTIDADE.FirstOrDefault(linha => linha.ID.ToString().Equals(ddlEntidade.SelectedValue));
+                                assistencia.TIPO_ASSISTENCIA = entity.TIPO_ASSISTENCIA.FirstOrDefault(linha => linha.ID.ToString().Equals(ddlTipoAssistencia.SelectedValue));
+                                assistencia.ASSISTIDO = entity.ASSISTIDO.FirstOrDefault(linha => linha.ID.ToString().Equals(txtIdAssistido.Text));
+                                if (lblAcao.Text.Equals("NOVO"))
+                                {
+                                    entity.ASSISTENCIA.Add(assistencia);
+                                }
+                                else
+                                {
+                                    entity.Entry(assistencia);
+                                }
+                                entity.SaveChanges();
+                                limpar();
+
+                                Response.Write("<script>alert('Assistência salvo com Sucesso!');</script>");
+                            }
                         }
                     }
                 }

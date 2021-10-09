@@ -25,6 +25,7 @@ namespace SysArcos
         public int ID_SISTEMA_GRUPO_ENTIDADE { get; set; }
         public string URL { get; set; }
         public string TIPO_ENTIDADE { get; set; }
+        public string COD_VIEW { get; set; }
     
         public virtual SISTEMA_GRUPO_ENTIDADE SISTEMA_GRUPO_ENTIDADE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

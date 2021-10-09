@@ -5,10 +5,12 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using SysArcos;
+using SysArcos.utils;
 namespace ProjetoArcos
 {
     public partial class frmbuscaassistencia : System.Web.UI.Page
     {
+        private String COD_VIEW = "ASSD";
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -36,15 +38,25 @@ namespace ProjetoArcos
                 {
                     try
                     {
-                        ASSISTENCIA assistencia = entities.ASSISTENCIA.FirstOrDefault(x => x.ID.ToString().Equals(ID));
-                        entities.ASSISTENCIA.Remove(assistencia);
-                        entities.SaveChanges();
+                        if (!Permissoes.validar(Acoes.REMOVER,
+                                            Session["usuariologado"].ToString(),
+                                            COD_VIEW,
+                                            entities))
+                        {
+                            Response.Write("<script>alert('Permissão negada!');</script>");
+                        }
+                        else
+                        {
+                            ASSISTENCIA assistencia = entities.ASSISTENCIA.FirstOrDefault(x => x.ID.ToString().Equals(ID));
+                            entities.ASSISTENCIA.Remove(assistencia);
+                            entities.SaveChanges();
 
-                        //Limpar Grid 
-                        grid.DataSource = null;
-                        grid.DataBind();
-                        grid.SelectedIndex = -1;
-                        Response.Write("<script>alert('Removido com sucesso!');</script>");
+                            //Limpar Grid 
+                            grid.DataSource = null;
+                            grid.DataBind();
+                            grid.SelectedIndex = -1;
+                            Response.Write("<script>alert('Removido com sucesso!');</script>");
+                        }
                     }
                     catch
                     {
