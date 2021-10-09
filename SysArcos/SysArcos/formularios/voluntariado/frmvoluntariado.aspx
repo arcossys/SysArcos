@@ -45,14 +45,14 @@
                 <asp:Label ID="lblDataini" runat="server" Text="Data Inicial"></asp:Label>
                 :
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtDataini" ErrorMessage="Data Inicial está vazio" ForeColor="Red" ValidationGroup="form" Font-Size="Medium">*</asp:RequiredFieldValidator>
-                <asp:TextBox ID="txtDataini" class="form-control" runat="server" MaxLength="50" Placeholder="DD/MM/AAAA" TextMode="Date" ValidationGroup="form"></asp:TextBox>
+                <asp:TextBox ID="txtDataini" class="form-control" runat="server" MaxLength="10" Placeholder="DD/MM/AAAA" ValidationGroup="form" onkeydown="mascara(this,DATA);"></asp:TextBox>
             </div>
 
             <div class="col-12 col-lg-6 row_fields">
                 <asp:Label ID="lblDataFinal" runat="server" Text="Data Final"></asp:Label>
                 :
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtDatafinal" ErrorMessage="Data Final está vazio" ForeColor="Red" ValidationGroup="form" Font-Size="Medium">*</asp:RequiredFieldValidator>
-                <asp:TextBox ID="txtDatafinal" class="form-control" runat="server" MaxLength="50" Placeholder="DD/MM/AAAA" TextMode="Date" ValidationGroup="form"></asp:TextBox>
+                <asp:TextBox ID="txtDatafinal" class="form-control" runat="server" MaxLength="10" Placeholder="DD/MM/AAAA" ValidationGroup="form" onkeydown="mascara(this,DATA);"></asp:TextBox>
             </div>
         </div>
 

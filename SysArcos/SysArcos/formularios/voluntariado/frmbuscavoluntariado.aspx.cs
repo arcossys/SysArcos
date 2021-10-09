@@ -41,11 +41,16 @@ namespace ProjetoArcos
                     }
 
                     //Verifica se usuário é administrador
-                    ArrayList entidades = (ArrayList)Session["entidades"];
-                    if (entidades != null && entidades.Count > 0)
+                    String login = (String) Session["usuariologado"];
+                    USUARIO usuario = entities.USUARIO.Where(linha=>linha.LOGIN.ToString().Equals(login)).FirstOrDefault();
+                    if (!usuario.ADM)
                     {
-                        lista = lista.Where(x => entidades.Contains(x.ENTIDADE.ID)).ToList();
+                        ArrayList entidades = (ArrayList)Session["entidades"];
+                        if (entidades != null && entidades.Count > 0)
+                        {
+                            lista = lista.Where(x => entidades.Contains(x.ENTIDADE.ID)).ToList();
 
+                        }
                     }
 
                     grid.DataSource = lista;//.OrderBy(x => x.VOLUNTARIAR);
