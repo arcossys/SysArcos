@@ -42,3 +42,9 @@ function DATA(data) {
     data = data.replace(/(\d{4})(\d)/, "$1/$2")
     return data
 }
+
+function HORA(hora) {
+    hora = hora.replace(/\D/g, "")
+    hora = hora.replace(/(\d{2})(\d)/, "$1:$2")
+    return hora
+}

@@ -33,6 +33,7 @@
                     <asp:Label ID="Lbl_vdatainicial" runat="server" Text="Data Inicial"></asp:Label>
                     :
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Txt_vdatainicial" ErrorMessage="Data Inicial está vazio" Font-Size="Medium" ForeColor="Red" ValidationGroup="form">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="Txt_vdatainicial" ErrorMessage="Formato de Data Incorreto" ForeColor="Red" ValidationExpression="^(((0[1-9]|[12][0-9]|30)[-/]?(0[13-9]|1[012])|31[-/]?(0[13578]|1[02])|(0[1-9]|1[0-9]|2[0-8])[-/]?02)[-/]?[0-9]{4}|29[-/]?02[-/]?([0-9]{2}(([2468][048]|[02468][48])|[13579][26])|([13579][26]|[02468][048]|0[0-9]|1[0-6])00))$"></asp:RegularExpressionValidator>
                     <asp:TextBox ID="Txt_vdatainicial" class="form-control" runat="server" MaxLength="10" Placeholder="DD/MM/AAAA" onkeydown="mascara(this,DATA);"></asp:TextBox>
                 </div>
 
@@ -40,6 +41,7 @@
                     <asp:Label ID="lblDataFinal" runat="server" Text="Data Final"></asp:Label>
                     :
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Txt_vdatafinal" ErrorMessage="Data Final está vazio" Font-Size="Medium" ForeColor="Red" ValidationGroup="form">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="Txt_vdatafinal" ErrorMessage="Formato de Data Incorreto" ForeColor="Red" ValidationExpression="^(((0[1-9]|[12][0-9]|30)[-/]?(0[13-9]|1[012])|31[-/]?(0[13578]|1[02])|(0[1-9]|1[0-9]|2[0-8])[-/]?02)[-/]?[0-9]{4}|29[-/]?02[-/]?([0-9]{2}(([2468][048]|[02468][48])|[13579][26])|([13579][26]|[02468][048]|0[0-9]|1[0-6])00))$"></asp:RegularExpressionValidator>
                     <asp:TextBox ID="Txt_vdatafinal" class="form-control" runat="server" MaxLength="10" Placeholder="DD/MM/AAAA" onkeydown="mascara(this,DATA);"></asp:TextBox>
                 </div>
             </div>

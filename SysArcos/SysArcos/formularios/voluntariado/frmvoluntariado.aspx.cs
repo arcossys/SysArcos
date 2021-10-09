@@ -82,8 +82,8 @@ namespace ProjetoArcos
                         {
                             data = new VOLUNTARIADO();
                             data.ID_ENTIDADE = Convert.ToInt32(ddlEntidade.SelectedValue);
-                            data.DATA_INICIAL = Convert.ToDateTime(txtDataini.Text);
-                            data.DATA_FINAL = Convert.ToDateTime(txtDatafinal.Text);
+                            data.DATA_INICIAL = DateTime.ParseExact(txtDataini.Text, "dd/MM/yyyy", null);
+                            data.DATA_FINAL = DateTime.ParseExact(txtDatafinal.Text, "dd/MM/yyyy", null);
                             data.DESCRICAO = txtDesc.Text;
                             data.OBSERVACAO = txtObser.Text;
                             data.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;

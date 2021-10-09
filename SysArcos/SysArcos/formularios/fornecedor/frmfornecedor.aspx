@@ -30,7 +30,7 @@
                 <asp:Label ID="Label1" runat="server" Text="CNPJ"></asp:Label>
                 :
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtCNPJ" ErrorMessage="CNPJ está vazio" Font-Size="Medium" ForeColor="Red" ValidationGroup="form">*</asp:RequiredFieldValidator>
-                <asp:TextBox ID="txtCNPJ" runat="server" CssClass="form-control" Placeholder="999.999.999-99" MaxLength="18" onkeydown="mascara( this,CNPJ  );" ValidationGroup="form"></asp:TextBox>
+                <asp:TextBox ID="txtCNPJ" runat="server" CssClass="form-control" Placeholder="99.999.999.9999-99" MaxLength="18" onkeydown="mascara( this,CNPJ  );" ValidationGroup="form"></asp:TextBox>
             </div>
         </div>
 

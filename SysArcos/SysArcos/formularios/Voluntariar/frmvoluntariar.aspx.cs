@@ -112,8 +112,8 @@ namespace SysArcos.formularios.Voluntariar
                             VOLUNTARIAR volunt = new VOLUNTARIAR();
                             volunt.ID_VOLUNTARIO = Convert.ToInt32(Ddl_voluntario.SelectedValue.ToString());
                             volunt.ID_VOLUNTARIADO = Convert.ToInt32(Ddl_vvoluntariado.SelectedValue.ToString());
-                            volunt.DATA_INICIAL = DateTime.Now;
-                            volunt.DATA_FINAL = DateTime.Now;
+                            volunt.DATA_INICIAL = DateTime.ParseExact(Txt_vdatainicial.Text, "dd/MM/yyyy", null); ;
+                            volunt.DATA_FINAL = DateTime.ParseExact(Txt_vdatafinal.Text, "dd/MM/yyyy", null); ;
                             volunt.OBSERVACAO = Txt_vobservacao.Text;
                             volunt.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
                             entity.VOLUNTARIAR.Add(volunt);

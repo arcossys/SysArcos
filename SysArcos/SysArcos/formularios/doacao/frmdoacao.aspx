@@ -33,7 +33,8 @@
             <asp:Label ID="lblData" runat="server" Text="Data"></asp:Label>
             :
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtData" ErrorMessage="Data está vazio" Font-Size="Medium" ForeColor="Red" ValidationGroup="form">*</asp:RequiredFieldValidator>
-            <asp:TextBox ID="txtData" runat="server" CssClass="form-control" TextMode="Date" Width="100%" ValidationGroup="form"></asp:TextBox>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtData" ErrorMessage="Formato de Data Incorreto" ForeColor="Red" ValidationExpression="^(((0[1-9]|[12][0-9]|30)[-/]?(0[13-9]|1[012])|31[-/]?(0[13578]|1[02])|(0[1-9]|1[0-9]|2[0-8])[-/]?02)[-/]?[0-9]{4}|29[-/]?02[-/]?([0-9]{2}(([2468][048]|[02468][48])|[13579][26])|([13579][26]|[02468][048]|0[0-9]|1[0-6])00))$"></asp:RegularExpressionValidator>
+            <asp:TextBox ID="txtData" runat="server" CssClass="form-control" Width="100%" ValidationGroup="form" MaxLength="10" Placeholder="DD/MM/AAAA" onkeydown="mascara(this,DATA);"></asp:TextBox>
         </div>
 
         <div class="col-12 col-lg-6 row_fields">
