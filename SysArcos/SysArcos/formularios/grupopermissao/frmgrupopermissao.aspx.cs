@@ -74,7 +74,8 @@ namespace SysArcos.formularios.usuario
                             SelectAction = TreeNodeSelectAction.None,
                             Value = "remover"
                         });
-                    }else if (se.TIPO_ENTIDADE.Equals("CONSULTA"))
+                    }
+                    else if (se.TIPO_ENTIDADE.Equals("CONSULTA"))
                     {
                         itemEntidade.ChildNodes.Add(new TreeNode()
                         {
@@ -102,8 +103,8 @@ namespace SysArcos.formularios.usuario
             }
             else
             {
-                try
-                {
+                /*try
+                {*/
                     using (ARCOS_Entities entity = new ARCOS_Entities())
                     {
                         GRUPO_PERMISSAO gp = new GRUPO_PERMISSAO();
@@ -128,11 +129,11 @@ namespace SysArcos.formularios.usuario
 
                         Response.Write("<script>alert('Grupo Permissão salvo com Sucesso!');</script>");
                     }
-                }
+                /*}
                 catch (Exception ex)
                 {
                     Response.Write("<script>alert('Registro não pode ser salvo!');</script>");
-                }
+                }*/
             }
         }
 
@@ -162,12 +163,13 @@ namespace SysArcos.formularios.usuario
 
         private void atualizaPermissao(ARCOS_Entities conn, GRUPO_PERMISSAO gp)
         {
+            //Intens Incluídos
             foreach (TreeNode grupoNode in TreePermissoes.Nodes)
             {
                 foreach (TreeNode entidadeNode in grupoNode.ChildNodes)
                 {
                     bool selected = false;
-                    foreach(TreeNode node in entidadeNode.ChildNodes)
+                    foreach (TreeNode node in entidadeNode.ChildNodes)
                     {
                         if (node.Checked)
                         {
@@ -180,7 +182,7 @@ namespace SysArcos.formularios.usuario
                         if (entidadeNode.ChildNodes.Count > 1)
                         {
                             //Cadastro
-                            SISTEMA_ITEM_ENTIDADE_CADASTRO item = (SISTEMA_ITEM_ENTIDADE_CADASTRO) gp.SISTEMA_ITEM_ENTIDADE.FirstOrDefault(x => x.SISTEMA_ENTIDADE.DESCRICAO.Equals(entidadeNode.Text));
+                            SISTEMA_ITEM_ENTIDADE_CADASTRO item = (SISTEMA_ITEM_ENTIDADE_CADASTRO)gp.SISTEMA_ITEM_ENTIDADE.FirstOrDefault(x => x.SISTEMA_ENTIDADE.DESCRICAO.Equals(entidadeNode.Text));
                             if (item == null)
                             {
                                 //não possui permissão
@@ -225,7 +227,38 @@ namespace SysArcos.formularios.usuario
                     }
                 }
             }
-        conn.SaveChanges();
+
+            //Itend Excluídos
+            List<SISTEMA_ITEM_ENTIDADE> remocoes = new List<SISTEMA_ITEM_ENTIDADE>();
+            foreach (SISTEMA_ITEM_ENTIDADE se in gp.SISTEMA_ITEM_ENTIDADE)
+            {
+                TreeNode node = TreePermissoes.FindNode(se.SISTEMA_ENTIDADE.SISTEMA_GRUPO_ENTIDADE.DESCRICAO + "/" + se.SISTEMA_ENTIDADE.DESCRICAO);
+                bool selected = false;
+                foreach (TreeNode n in node.ChildNodes)
+                {
+                    if (n.Checked)
+                    {
+                        selected = true;
+                        break;
+                    }
+                }
+
+                if (!selected)
+                {
+                    SISTEMA_ITEM_ENTIDADE item = conn
+                        .SISTEMA_ITEM_ENTIDADE.Where(linha => linha.ID_SISTEMA_ENTIDADE.Equals(se.ID_SISTEMA_ENTIDADE) &&
+                                                              linha.ID_GRUPO_PERMISSAO.Equals(se.ID_GRUPO_PERMISSAO))
+                        .FirstOrDefault();
+                    remocoes.Add(item);
+
+                }
+            }
+            foreach(SISTEMA_ITEM_ENTIDADE i in remocoes)
+            {
+                conn.SISTEMA_ITEM_ENTIDADE.Remove(i);
+            }
+
+            conn.SaveChanges();
         }
 
         private TreeNode findNode(TreeNodeCollection arr, String value)
@@ -240,7 +273,7 @@ namespace SysArcos.formularios.usuario
 
         private void preenchePermissao(GRUPO_PERMISSAO gp)
         {
-            foreach(SISTEMA_ITEM_ENTIDADE itemGeneric in gp.SISTEMA_ITEM_ENTIDADE)
+            foreach (SISTEMA_ITEM_ENTIDADE itemGeneric in gp.SISTEMA_ITEM_ENTIDADE)
             {
                 if (itemGeneric is SISTEMA_ITEM_ENTIDADE_CADASTRO)
                 {

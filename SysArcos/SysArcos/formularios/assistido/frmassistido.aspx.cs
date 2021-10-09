@@ -16,6 +16,8 @@ namespace ProjetoArcos
         {
             if (!IsPostBack)
             {
+                String pagina = HttpContext.Current.Request.Url.AbsolutePath;
+                validaPermissao(pagina);
 
                 using (ARCOS_Entities entities = new ARCOS_Entities())
                 {
@@ -36,6 +38,29 @@ namespace ProjetoArcos
                 }
             }
         }
+
+        private void validaPermissao(String pagina)
+        {
+            using (ARCOS_Entities entity = new ARCOS_Entities())
+            {
+                string login = (string)Session["usuariologado"];
+                USUARIO u =
+                    entity.USUARIO.FirstOrDefault(linha => linha.LOGIN.Equals(login));
+                if (!u.ADM)
+                {
+                    SISTEMA_ENTIDADE item = entity.SISTEMA_ENTIDADE.FirstOrDefault(x => x.URL.Equals(pagina));
+                    if (item != null)
+                    {
+                        SISTEMA_ITEM_ENTIDADE perm = u.GRUPO_PERMISSAO.SISTEMA_ITEM_ENTIDADE.FirstOrDefault(x => x.ID_SISTEMA_ENTIDADE.ToString().Equals(item.ID.ToString()));
+                        if (perm == null)
+                        {
+                            Response.Redirect("/permissao_negada.aspx");
+                        }
+                    }
+                }
+            }
+        }
+
         protected void btnCadastra_Click(object sender, EventArgs e)
         {
 
