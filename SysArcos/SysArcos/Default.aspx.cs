@@ -39,11 +39,12 @@ namespace ProjetoArcos
                         PreencheCodigoCaptcha();
                         Response.Write("<script>alert('Login ou senha incorretos');</script>");
                     }
-                    else if (Session["codigoCaptcha"].ToString() != txtCaptcha.Text)
+                    else if (Session["codigoCaptcha"]==null || Session["codigoCaptcha"].ToString() != txtCaptcha.Text)
                     {
                         PreencheCodigoCaptcha();
                         txtUsuario.Text = string.Empty;
                         txtSenha.Text = string.Empty;
+                        txtCaptcha.Text = string.Empty;
                         Response.Write("<script>alert('Verifique os caracteres da imagem');</script>");
                     }
                     else

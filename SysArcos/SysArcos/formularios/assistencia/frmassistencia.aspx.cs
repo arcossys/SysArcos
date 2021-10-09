@@ -16,11 +16,11 @@ namespace ProjetoArcos
                 using (ARCOS_Entities entities = new ARCOS_Entities())
                 {
                     carregaEntidade(entities);
-                    carregaAssistido(entities);
                     carregaTipoAssistencia(entities);
                     String ID = Request.QueryString["ID"];
                     if ((ID != null) && (!ID.Equals("")))
                     {
+                        lblAcao.Text = "ALTERANDO";
                         txtID.Text = ID;
                         ASSISTENCIA u = entities.ASSISTENCIA.FirstOrDefault(x => x.ID.ToString().Equals(ID));
                         if (u != null)
@@ -28,9 +28,10 @@ namespace ProjetoArcos
                             txt_inicial.Text = u.DATA_INICIAL.ToString("dd/MM/yyyy");
                             txt_final.Text = ((DateTime)u.DATA_FINAL).ToString("dd/MM/yyyy");
                             txt_observacao.Text = u.OBSERVACOES;
-                            ddlAssistido.SelectedValue = u.ASSISTIDO.ID.ToString();
                             ddlEntidade.SelectedValue = u.ENTIDADE.ID.ToString();
                             ddlTipoAssistencia.SelectedValue = u.TIPO_ASSISTENCIA.ID.ToString();
+                            txtIdAssistido.Text = u.ASSISTIDO.ID.ToString();
+                            txtNomeAssistido.Text = u.ASSISTIDO.NOME.ToString();
                         }
                     }
                     else
@@ -56,36 +57,43 @@ namespace ProjetoArcos
                 {
                     using (ARCOS_Entities entity = new ARCOS_Entities())
                     {
-
-                        ASSISTENCIA assistencia = null;
-
-                        if (lblAcao.Text.Equals("NOVO"))
-                        {
-                            assistencia = new ASSISTENCIA();
+                        if (!isAssistidoEntidadeValido(entity, Convert.ToInt32(ddlEntidade.SelectedValue), Convert.ToInt32(txtIdAssistido.Text)))
+                        { 
+                            Response.Write("<script>alert('Assistido "+txtNomeAssistido.Text+" não está vinculado à entidade "+ddlEntidade.SelectedItem.Text+"!');</script>");  
                         }
                         else
                         {
-                            assistencia = entity.ASSISTENCIA.FirstOrDefault(x => x.ID.Equals(txtID.Text));
-                        }
-                        assistencia.DATA_INICIAL = DateTime.ParseExact(txt_inicial.Text, "dd/MM/yyyy", null);
-                        assistencia.DATA_FINAL = DateTime.ParseExact(txt_final.Text, "dd/MM/yyyy", null);
-                        assistencia.OBSERVACOES = txt_observacao.Text;
-                        assistencia.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
-                        assistencia.ENTIDADE = entity.ENTIDADE.FirstOrDefault(linha=>linha.ID.ToString().Equals(ddlEntidade.SelectedValue));
-                        assistencia.ASSISTIDO = entity.ASSISTIDO.FirstOrDefault(linha=>linha.ID.ToString().Equals(ddlAssistido.SelectedValue));
-                        assistencia.TIPO_ASSISTENCIA = entity.TIPO_ASSISTENCIA.FirstOrDefault(linha => linha.ID.ToString().Equals(ddlTipoAssistencia.SelectedValue));
-                        if (lblAcao.Text.Equals("NOVO"))
-                        {
-                            entity.ASSISTENCIA.Add(assistencia);
-                        }
-                        else
-                        {
-                            entity.Entry(assistencia);
-                        }
-                        entity.SaveChanges();
-                        limpar();
 
-                        Response.Write("<script>alert('Usuario salvo com Sucesso!');</script>");
+                            ASSISTENCIA assistencia = null;
+
+                            if (lblAcao.Text.Equals("NOVO"))
+                            {
+                                assistencia = new ASSISTENCIA();
+                            }
+                            else
+                            {
+                                assistencia = entity.ASSISTENCIA.FirstOrDefault(x => x.ID.ToString().Equals(txtID.Text));
+                            }
+                            assistencia.DATA_INICIAL = DateTime.ParseExact(txt_inicial.Text, "dd/MM/yyyy", null);
+                            assistencia.DATA_FINAL = DateTime.ParseExact(txt_final.Text, "dd/MM/yyyy", null);
+                            assistencia.OBSERVACOES = txt_observacao.Text;
+                            assistencia.DATA_HORA_CRIACAO_REGISTRO = DateTime.Now;
+                            assistencia.ENTIDADE = entity.ENTIDADE.FirstOrDefault(linha => linha.ID.ToString().Equals(ddlEntidade.SelectedValue));
+                            assistencia.TIPO_ASSISTENCIA = entity.TIPO_ASSISTENCIA.FirstOrDefault(linha => linha.ID.ToString().Equals(ddlTipoAssistencia.SelectedValue));
+                            assistencia.ASSISTIDO = entity.ASSISTIDO.FirstOrDefault(linha => linha.ID.ToString().Equals(txtIdAssistido.Text));
+                            if (lblAcao.Text.Equals("NOVO"))
+                            {
+                                entity.ASSISTENCIA.Add(assistencia);
+                            }
+                            else
+                            {
+                                entity.Entry(assistencia);
+                            }
+                            entity.SaveChanges();
+                            limpar();
+
+                            Response.Write("<script>alert('Assistência salvo com Sucesso!');</script>");
+                        }
                     }
                 }
                 catch
@@ -95,12 +103,16 @@ namespace ProjetoArcos
             }
         }
 
+        private bool isAssistidoEntidadeValido(ARCOS_Entities entity, int IDEntidade, int IDAssistido)
+        {
+            ASSISTIDO assistido = entity.ASSISTIDO.Where(linha => ((int) linha.ID).Equals(IDAssistido) && 
+                                                                  ((int)linha.ID_ENTIDADE).Equals(IDEntidade)).FirstOrDefault();
+            return assistido!=null;
+        }
+
         protected void btnNovo_Click(object sender, EventArgs e)
         {
-            txt_inicial.Text = string.Empty;
-            txt_final.Text = string.Empty;
-            txt_observacao.Text = string.Empty;
-            ddlEntidade.SelectedIndex = 0;
+            limpar();
         }
 
         protected void btn_buscar_Click(object sender, EventArgs e)
@@ -114,11 +126,17 @@ namespace ProjetoArcos
             {
                 ddlEntidade.SelectedIndex = 1;
             }
+            else
+            {
+                ddlEntidade.SelectedIndex = 0;
+            }
             txt_inicial.Text = DateTime.Now.ToString("dd/MM/yyyy");
             txt_final.Text = DateTime.Now.ToString("dd/MM/yyyy");
             txt_observacao.Text = string.Empty;
-            ddlAssistido.SelectedIndex = 0;
             ddlTipoAssistencia.SelectedIndex = 0;
+            txtIdAssistido.Text = string.Empty;
+            txtNomeAssistido.Text = string.Empty;
+            lblAcao.Text = "NOVO";
         }
 
         private void carregaEntidade(ARCOS_Entities conn)
@@ -129,22 +147,12 @@ namespace ProjetoArcos
             if (usuario.ADM)
                 list.AddRange(conn.ENTIDADE.OrderBy(x => x.NOME).ToList());
             else
-                list.AddRange(conn.ENTIDADE.Where(linha=>linha.LOGIN_USUARIO_ADMINISTRADOR.Equals(login)).OrderBy(x => x.NOME).ToList());
+                list.AddRange(conn.ENTIDADE.Where(linha => linha.LOGIN_USUARIO_ADMINISTRADOR.Equals(login)).OrderBy(x => x.NOME).ToList());
             ddlEntidade.DataTextField = "NOME";//Carrega o campo que será mostrado
             ddlEntidade.DataValueField = "ID";//Carrega Primary Key
             ddlEntidade.DataSource = list;
             ddlEntidade.DataBind();
             ddlEntidade.Items.Insert(0, "");
-        }
-
-        private void carregaAssistido(ARCOS_Entities conn)
-        {
-            List<ASSISTIDO> list = conn.ASSISTIDO.OrderBy(x => x.NOME).ToList();
-            ddlAssistido.DataTextField = "NOME";//Carrega o campo que será mostrado
-            ddlAssistido.DataValueField = "ID";//Carrega Primary Key
-            ddlAssistido.DataSource = list;
-            ddlAssistido.DataBind();
-            ddlAssistido.Items.Insert(0, "");
         }
 
         private void carregaTipoAssistencia(ARCOS_Entities conn)
@@ -155,6 +163,37 @@ namespace ProjetoArcos
             ddlTipoAssistencia.DataSource = list;
             ddlTipoAssistencia.DataBind();
             ddlTipoAssistencia.Items.Insert(0, "");
+        }
+
+        protected void btnSelecionarBuscar_Click(object sender, EventArgs e)
+        {
+            if (gridBuscar.SelectedValue != null)
+            {
+                int ID = Convert.ToInt32(gridBuscar.SelectedValue.ToString());
+                using (ARCOS_Entities conn = new ARCOS_Entities())
+                {
+                    ASSISTIDO assistido =
+                        conn.ASSISTIDO.Where(linha => linha.ID.Equals(ID)).FirstOrDefault();
+                    txtNomeAssistido.Text = assistido.NOME;
+                    txtIdAssistido.Text = assistido.ID.ToString();
+                }
+            }
+        }
+
+        protected void btnBuscarAssistido_Click(object sender, EventArgs e)
+        {
+            if (ddlEntidade.SelectedIndex > 0)
+            {
+                using (ARCOS_Entities entities = new ARCOS_Entities())
+                {
+                    var lista = entities.ASSISTIDO
+                        .Where(linha => linha.CPF.Equals(txtBusca.Text) && 
+                                        linha.ID_ENTIDADE.ToString().Equals(ddlEntidade.SelectedValue.ToString()))
+                        .Select(linha => new { linha.ID, linha.CPF, linha.NOME }).ToList();
+                    gridBuscar.DataSource = lista;
+                    gridBuscar.DataBind();
+                }
+            }
         }
     }
 }

@@ -36,7 +36,7 @@ namespace ProjetoArcos
                 {
                     try
                     {
-                        ASSISTENCIA assistencia = entities.ASSISTENCIA.FirstOrDefault(x => x.ID.Equals(ID));
+                        ASSISTENCIA assistencia = entities.ASSISTENCIA.FirstOrDefault(x => x.ID.ToString().Equals(ID));
                         entities.ASSISTENCIA.Remove(assistencia);
                         entities.SaveChanges();
 
