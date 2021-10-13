@@ -10,7 +10,7 @@ namespace ProjetoArcos
 {
     public partial class frmassistencia : System.Web.UI.Page
     {
-        private String COD_VIEW = "ASSD";
+        private String COD_VIEW = "ASST";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -80,8 +80,8 @@ namespace ProjetoArcos
             }
             else
             {
-                try
-                {
+                /*try
+                {*/
                     using (ARCOS_Entities entity = new ARCOS_Entities())
                     {
                         if (!Permissoes.validar(lblAcao.Text.Equals("NOVO") ? Acoes.INCLUIR : Acoes.ALTERAR,
@@ -132,11 +132,11 @@ namespace ProjetoArcos
                             }
                         }
                     }
-                }
+                /*}
                 catch
                 {
                     Response.Write("<script>alert('Registro não pode ser salvo!');</script>");
-                }
+                }*/
             }
         }
 

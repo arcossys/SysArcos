@@ -13,7 +13,7 @@ namespace ProjetoArcos
     public partial class frmassistido : System.Web.UI.Page
     {
         private static String ASSISTIDO_RESPONSAVEL = "ASSISTIDO RESPONSÁVEL";
-        private String COD_VIEW = "ASST";
+        private String COD_VIEW = "ASSD";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

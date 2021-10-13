@@ -103,8 +103,8 @@ namespace SysArcos.formularios.usuario
             }
             else
             {
-                /*try
-                {*/
+                try
+                {
                     using (ARCOS_Entities entity = new ARCOS_Entities())
                     {
                         GRUPO_PERMISSAO gp = new GRUPO_PERMISSAO();
@@ -129,11 +129,11 @@ namespace SysArcos.formularios.usuario
 
                         Response.Write("<script>alert('Grupo Permissão salvo com Sucesso!');</script>");
                     }
-                /*}
+                }
                 catch (Exception ex)
                 {
                     Response.Write("<script>alert('Registro não pode ser salvo!');</script>");
-                }*/
+                }
             }
         }
 
