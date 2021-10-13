@@ -47,7 +47,7 @@
         </div>
 
         <div class="col-12 col-lg-4 row_buttons">
-            <asp:Button ID="btnCadastrarTipoEvento" class="btn btn-success" runat="server" OnClick="btnCadastrarTipoEvento_Click" Text="Salvar" CssClass="btn btn-primary" Width="100%" ValidationGroup="form"/>
+            <asp:Button ID="btnCadastrar" class="btn btn-success" runat="server" OnClick="btnCadastrar_Click" Text="Salvar" CssClass="btn btn-primary" Width="100%" ValidationGroup="form"/>
         </div>
 
         <div class="col-12 col-lg-4 row_buttons">

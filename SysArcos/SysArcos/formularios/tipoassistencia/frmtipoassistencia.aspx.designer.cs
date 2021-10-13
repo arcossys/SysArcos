@@ -105,13 +105,13 @@ namespace ProjetoArcos
         protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
-        /// Controle btnCadastrarTipoEvento.
+        /// Controle btnCadastrar.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCadastrarTipoEvento;
+        protected global::System.Web.UI.WebControls.Button btnCadastrar;
 
         /// <summary>
         /// Controle Button2.

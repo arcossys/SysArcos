@@ -4,19 +4,24 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SysArcos.utils;
 
 namespace SysArcos.formularios.parentesco_assistido
 {
     public partial class frmparentescoassistido : System.Web.UI.Page
     {
+        private String COD_VIEW = "PASS";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                String parentesco = Request.QueryString["ID"];
-                if ((parentesco != null) && (!parentesco.Equals("")))
+                using (ARCOS_Entities entities = new ARCOS_Entities())
                 {
-                    using (ARCOS_Entities entities = new ARCOS_Entities())
+                    String pagina = HttpContext.Current.Request.Url.AbsolutePath;
+                    validaPermissao(pagina);
+
+                    String parentesco = Request.QueryString["ID"];
+                    if ((parentesco != null) && (!parentesco.Equals("")))
                     {
                         GRAU_DEPENDENCIA g = entities.GRAU_DEPENDENCIA.FirstOrDefault(x => x.ID.ToString().Equals(parentesco));
                         if (g != null)
@@ -26,7 +31,6 @@ namespace SysArcos.formularios.parentesco_assistido
                             lblAcao.Text = "ALTERANDO";
                         }
                     }
-
                 }
             }
         }
@@ -38,7 +42,7 @@ namespace SysArcos.formularios.parentesco_assistido
 
         protected void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (txtParentesco.Text == "" )
+            if (txtParentesco.Text == "")
             {
                 Response.Write("<script>alert('Há campos obrigatorios não preenchidos!');</script>");
             }
@@ -48,37 +52,47 @@ namespace SysArcos.formularios.parentesco_assistido
                 {
                     using (ARCOS_Entities entity = new ARCOS_Entities())
                     {
-
-                        GRAU_DEPENDENCIA gd = null;
-
-                        if (lblAcao.Text.Equals("NOVO"))
+                        if (!Permissoes.validar(lblAcao.Text.Equals("NOVO") ? Acoes.INCLUIR : Acoes.ALTERAR,
+                        Session["usuariologado"].ToString(),
+                        COD_VIEW,
+                        entity))
                         {
-                            gd = new GRAU_DEPENDENCIA();
-                            //entidade.ID = Convert.ToInt32(txtID.Text);
-                            gd.DESCRICAO = txtParentesco.Text;
-
-                            // Insere o objeto
-                            entity.GRAU_DEPENDENCIA.Add(gd);
-
+                            Response.Write("<script>alert('Permissão Negada');</script>");
                         }
                         else
                         {
-                            gd = entity.GRAU_DEPENDENCIA.FirstOrDefault(x => x.ID.ToString().Equals(lblID.Text));
-                            gd.DESCRICAO = txtParentesco.Text;
-                            entity.Entry(gd);
+
+                            GRAU_DEPENDENCIA gd = null;
+
+                            if (lblAcao.Text.Equals("NOVO"))
+                            {
+                                gd = new GRAU_DEPENDENCIA();
+                                //entidade.ID = Convert.ToInt32(txtID.Text);
+                                gd.DESCRICAO = txtParentesco.Text;
+
+                                // Insere o objeto
+                                entity.GRAU_DEPENDENCIA.Add(gd);
+
+                            }
+                            else
+                            {
+                                gd = entity.GRAU_DEPENDENCIA.FirstOrDefault(x => x.ID.ToString().Equals(lblID.Text));
+                                gd.DESCRICAO = txtParentesco.Text;
+                                entity.Entry(gd);
+                            }
+
+
+                            //Salva no disco rígido
+                            entity.SaveChanges();
+
+                            limpar();
+
+                            // Commit
+                            Response.Write("<script>alert('Parentesco assistido cadastrado com sucesso!');</script>");
+
+                            txtParentesco.Text = string.Empty;
+                            lblAcao.Text = "NOVO";
                         }
-
-
-                        //Salva no disco rígido
-                        entity.SaveChanges();
-
-                        limpar();
-
-                        // Commit
-                        Response.Write("<script>alert('Parentesco assistido cadastrado com sucesso!');</script>");
-
-                        txtParentesco.Text = string.Empty;
-                        lblAcao.Text = "NOVO";
                     }
                 }
                 catch
@@ -96,6 +110,28 @@ namespace SysArcos.formularios.parentesco_assistido
         private void limpar()
         {
             txtParentesco.Text = string.Empty;
+        }
+
+        private void validaPermissao(String pagina)
+        {
+            using (ARCOS_Entities entity = new ARCOS_Entities())
+            {
+                string login = (string)Session["usuariologado"];
+                USUARIO u =
+                    entity.USUARIO.FirstOrDefault(linha => linha.LOGIN.Equals(login));
+                if (!u.ADM)
+                {
+                    SISTEMA_ENTIDADE item = entity.SISTEMA_ENTIDADE.FirstOrDefault(x => x.URL.Equals(pagina));
+                    if (item != null)
+                    {
+                        SISTEMA_ITEM_ENTIDADE perm = u.GRUPO_PERMISSAO.SISTEMA_ITEM_ENTIDADE.FirstOrDefault(x => x.ID_SISTEMA_ENTIDADE.ToString().Equals(item.ID.ToString()));
+                        if (perm == null)
+                        {
+                            Response.Redirect("/permissao_negada.aspx");
+                        }
+                    }
+                }
+            }
         }
     }
 }

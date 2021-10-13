@@ -5,18 +5,23 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using SysArcos;
+using SysArcos.utils;
 namespace ProjetoArcos
 {
     public partial class frmTipoAssistencia : System.Web.UI.Page
     {
+        private String COD_VIEW = "TASS";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                String evento = Request.QueryString["ID"];
-                if ((evento != null) && (!evento.Equals("")))
+                using (ARCOS_Entities entities = new ARCOS_Entities())
                 {
-                    using (ARCOS_Entities entities = new ARCOS_Entities())
+                    String pagina = HttpContext.Current.Request.Url.AbsolutePath;
+                    validaPermissao(pagina);
+
+                    String evento = Request.QueryString["ID"];
+                    if ((evento != null) && (!evento.Equals("")))
                     {
                         TIPO_EVENTO u = entities.TIPO_EVENTO.FirstOrDefault(x => x.ID.ToString().Equals(evento));
                         if (u != null)
@@ -37,7 +42,7 @@ namespace ProjetoArcos
 
         }
 
-        protected void btnCadastrarTipoEvento_Click(object sender, EventArgs e)
+        protected void btnCadastrar_Click(object sender, EventArgs e)
         {
 
             if (txtTipoEvento.Text == "" || txtDescricaoEvento.Text == "")
@@ -50,42 +55,54 @@ namespace ProjetoArcos
                 {
                     using (ARCOS_Entities entity = new ARCOS_Entities())
                     {
-
-                        TIPO_EVENTO tipo_evento = null;
-
-                        if (lblAcao.Text.Equals("NOVO"))
+                        if (!Permissoes.validar(lblAcao.Text.Equals("NOVO") ? Acoes.INCLUIR : Acoes.ALTERAR,
+                        Session["usuariologado"].ToString(),
+                        COD_VIEW,
+                        entity))
                         {
-                            tipo_evento = new TIPO_EVENTO();
-                            //entidade.ID = Convert.ToInt32(txtID.Text);
-                            tipo_evento.NOME = txtTipoEvento.Text;
-                            tipo_evento.DESCRICAO = txtDescricaoEvento.Text;
-
-                            // Insere o objeto
-                            entity.TIPO_EVENTO.Add(tipo_evento);
-
+                            Response.Write("<script>alert('Permissão Negada');</script>");
                         }
                         else
                         {
-                            tipo_evento = entity.TIPO_EVENTO.FirstOrDefault(x => x.ID.ToString().Equals(lblID.Text));
+                            String pagina = HttpContext.Current.Request.Url.AbsolutePath;
+                            validaPermissao(pagina);
 
-                            tipo_evento.NOME = txtTipoEvento.Text;
-                            tipo_evento.DESCRICAO = txtDescricaoEvento.Text;
+                            TIPO_EVENTO tipo_evento = null;
 
-                            entity.Entry(tipo_evento);
+                            if (lblAcao.Text.Equals("NOVO"))
+                            {
+                                tipo_evento = new TIPO_EVENTO();
+                                //entidade.ID = Convert.ToInt32(txtID.Text);
+                                tipo_evento.NOME = txtTipoEvento.Text;
+                                tipo_evento.DESCRICAO = txtDescricaoEvento.Text;
+
+                                // Insere o objeto
+                                entity.TIPO_EVENTO.Add(tipo_evento);
+
+                            }
+                            else
+                            {
+                                tipo_evento = entity.TIPO_EVENTO.FirstOrDefault(x => x.ID.ToString().Equals(lblID.Text));
+
+                                tipo_evento.NOME = txtTipoEvento.Text;
+                                tipo_evento.DESCRICAO = txtDescricaoEvento.Text;
+
+                                entity.Entry(tipo_evento);
+                            }
+
+
+                            //Salva no disco rígido
+                            entity.SaveChanges();
+
+                            limpar();
+
+                            // Commit
+                            Response.Write("<script>alert('Tipo de evento cadastrado com sucesso!');</script>");
+
+                            txtTipoEvento.Text = string.Empty;
+                            txtDescricaoEvento.Text = string.Empty;
+                            lblAcao.Text = "NOVO";
                         }
-
-
-                        //Salva no disco rígido
-                        entity.SaveChanges();
-
-                        limpar();
-
-                        // Commit
-                        Response.Write("<script>alert('Tipo de evento cadastrado com sucesso!');</script>");
-
-                        txtTipoEvento.Text = string.Empty;
-                        txtDescricaoEvento.Text = string.Empty;
-                        lblAcao.Text = "NOVO";
                     }
                 }
                 catch
@@ -110,6 +127,28 @@ namespace ProjetoArcos
             txtTipoEvento.Text = string.Empty;
             txtDescricaoEvento.Text = string.Empty;
             lblAcao.Text = "NOVO";
+        }
+
+        private void validaPermissao(String pagina)
+        {
+            using (ARCOS_Entities entity = new ARCOS_Entities())
+            {
+                string login = (string)Session["usuariologado"];
+                USUARIO u =
+                    entity.USUARIO.FirstOrDefault(linha => linha.LOGIN.Equals(login));
+                if (!u.ADM)
+                {
+                    SISTEMA_ENTIDADE item = entity.SISTEMA_ENTIDADE.FirstOrDefault(x => x.URL.Equals(pagina));
+                    if (item != null)
+                    {
+                        SISTEMA_ITEM_ENTIDADE perm = u.GRUPO_PERMISSAO.SISTEMA_ITEM_ENTIDADE.FirstOrDefault(x => x.ID_SISTEMA_ENTIDADE.ToString().Equals(item.ID.ToString()));
+                        if (perm == null)
+                        {
+                            Response.Redirect("/permissao_negada.aspx");
+                        }
+                    }
+                }
+            }
         }
     }
 }
