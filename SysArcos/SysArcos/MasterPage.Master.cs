@@ -15,7 +15,7 @@ namespace ProjetoArcos
             {
                 //Valida Permissões
                 String pagina = HttpContext.Current.Request.Url.AbsolutePath;
-                if (!pagina.Equals("AlterarSenhaProxLogin.aspx"))
+                if (!pagina.Equals("/AlterarSenhaProxLogin.aspx"))
                     verificarSenhaPrimeiroLogin();
 
                 String login = (string)Session["usuariologado"]; //Neste caso deve-se fazer a conversão
